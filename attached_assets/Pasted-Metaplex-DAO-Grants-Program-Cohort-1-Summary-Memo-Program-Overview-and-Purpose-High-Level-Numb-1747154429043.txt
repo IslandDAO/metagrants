@@ -1,0 +1,303 @@
+Metaplex DAO Grants Program — Cohort 1 Summary Memo
+
+Program Overview and Purpose
+High Level Numbers
+Awarded Grant List
+Notable grantees
+Selection and Evaluation Process
+Team and Evolving Roles – First and Second Cohorts
+Program Learnings and Challenges
+
+
+
+Program Overview and Purpose
+
+The Metaplex DAO Grants Program was created in September/October of 2024 to accelerate adoption of the Metaplex protocol by directly funding builders. The program allocated $100,000 in USDC and 1,000,000 MPLX tokens, split across two focus technologies:
+
+
+Metaplex Core: A new standard designed to unlock modular, composable NFT development on Solana
+ Metaplex 404: A framework enabling NFTs and tokens to be converted interchangeably, opening up new creative and financial use cases.
+
+
+The program targeted Solana-native developers and teams building across a variety of stages, from applications already in-market, to teams with strong technical track records and promising ideas. The program had a bias toward those building open-source tooling. 
+
+The primary objective was to fund teams whose work would increase protocol-level interactions with Metaplex (i.e., “touches”), since each interaction generates on-chain fee revenue and strengthens the broader ecosystem.
+
+We view the grants program as a key tool to bring more builders into the Metaplex ecosystem, support open-source innovation, and increase DAO participation through both token distribution and technical integration.
+
+
+
+
+High Level Numbers
+
+Total grant applications received: 76
+Applications for Metaplex Core: 52 (68%)
+Applications for MPL 404: 24
+Average grant request (USD estimate): $39,618
+Grants awarded: 12 (15.8% acceptance rate)
+Avg USDC grant size: $8,250
+Core/404 Grants Awarded: 8/4
+Remaining Funding: 410,000 MPLX tokens
+
+
+
+By “Sector” or “product category”  Consumer Apps ($52.5K) and Gaming ($45K) attracted the most significant support,  Creator & NFT Infra ($24.5K) and Social & Identity ($18K) saw more modest funding. Data & Analytics received the least at $8K, attributed to the more niche nature of the opportunities in the space. 
+
+
+
+
+
+
+Awarded Grant List
+
+
+Project Name
+Tech
+Sector
+About
+USDC
+MPLX
+$ in MPLX
+TOTAL
+Faenora
+404
+Gaming
+A turn-based RPG where players own and battle with mercenaries using MPL-404 hybrid NFTs.
+$15,000
+100,000
+$10,000
+$25,000
+SiliLaunch
+404
+Creator & NFT Infra
+A launchpad using MPL-404 to simplify building Hybrid NFT and DeFi projects on Solana.
+$17,500
+50,000
+$5,000
+$22,500
+One Mug
+404
+Consumer App
+A decentralized coffee brand using gamified MPL-404 NFTs for loyalty and revenue sharing.
+$10,000
+100,000
+$10,000
+$20,000
+Nomadz
+404
+Consumer App
+A crypto-native travel platform with gamified NFTs, rewards, and fee-free off-ramps.
+$10,000
+100,000
+$10,000
+$20,000
+Publique
+CORE
+Creator & Culture
+An NFT-driven animated anthology where holders help create stories and earn credits.
+$12,500
+0
+$0
+$12,500
+Big Diggas
+CORE
+Gaming
+Integrating CORE NFTs into Godot’s Solana SDK for indie game developer support.
+$5,000
+50,000
+$5,000
+$10,000
+Verxio
+CORE
+Social & Identity
+A rewards platform using soulbound NFTs and XP to track progression across apps.
+$5,000
+50,000
+$5,000
+$10,000
+Send Arcade
+CORE
+Gaming
+A gaming hub using Core NFTs for interoperable mini-games and digital items.
+$5,000
+50,000
+$5,000
+$10,000
+WeRate
+CORE
+Consumer App
+A review platform using NFTs and AI to reward honest feedback and fight fakes.
+$5,000
+50,000
+$5,000
+$10,000
+Glint
+CORE
+Data & Analytics
+A no-code analytics tool that rewards NFT-based dashboards built by analysts.
+$6,000
+20,000
+$2,000
+$8,000
+Peachez
+CORE
+Social & Identity
+A music platform where artists crowdfund via evolving NFTs with fan perks.
+$6,000
+20,000
+$2,000
+$8,000
+Mallow
+CORE
+Creator & NFT Infra
+An NFT marketplace running a zero-cost minting campaign for creators.
+$2,000
+0
+$0
+$2,000
+
+
+
+
+Notable grantees:
+
+Wildlands of Faenora: An immersive fantasy RPG available on Steam with over 5,000 active alpha testers and 14,000+ wishlists— set for release in summer 2025. The game will integrate MPL 404 to tokenize in-game assets like characters, loot, and seasonal rewards into programmable, hybrid NFTs that unlock progression systems, fuel community-driven events, and enable on-chain trading.
+
+
+
+Source
+
+Verxio: Built a live loyalty platform leveraging Metaplex Core — a low-code system for any Solana app to reward users and incentivize behavior. Already actively onboarding ecosystem partners.
+
+
+Source
+
+
+Big Diggas: Integrated Metaplex Core into the Godot game engine, publishing tutorials and launching a Metaplex-powered game, with more activations planned.
+
+
+Source
+
+SiliLaunch: An OG Solana team building on Metaplex for years, now creating an MPL-404 launchpad and asset management platform, with key components open-sourced. (killer launch partners lined up as well)
+
+
+Source
+
+
+Publiqe: A standout culture-focused grant. Publiqe is building a decentralized platform for content creation, IP production, and collaborative storytelling. It’s driven by a team with deep real-world experience and networks, and has already delivered one of the most visually striking NFT collections in the space.
+
+
+Source
+
+WeRate: A community-owned review platform that rewards both consumers and businesses. Powered by Metaplex to ensure authenticity and trust and build reputation. The platform is already in beta testing, and has captured large community mindshare/visibility. 
+ 
+
+Source
+
+
+
+Selection and Evaluation Process
+
+Grants were evaluated through a layered vetting and refinement process:
+
+1. Intake: Applications were submitted via Google Form and aggregated into a CRM-style tracker.
+
+2. Initial review: All candidates were discussed during weekly council calls, with comments logged directly in the tracker.
+
+3. Intro call: If any council member expressed interest, a 20-minute introductory call was scheduled to assess the builder’s background, motivations, and proposed Metaplex integration.
+
+4. Technical diligence: Qualified teams were sent a follow-up form requesting technical specifications, funding rationale, and milestone planning.
+
+5. Refinement: Teams collaborated with us and Metaplex Foundation contributors to scope open-source deliverables and align on realistic, milestone-based funding.
+
+6. Agreement and execution: If aligned, we issued an MOU outlining milestones and verification methods. Funding is disbursed upon verified milestone completion.
+
+7. Comms: Upon awarding the grant - a TG group with MPLX marketing and comms is created. 
+
+
+Misc note - Milestones:  Approximately 85% of grants were milestone-based. The remaining 15% were discretionary upfront payments, reserved for trusted teams with previous grant histories or strong community reputations.
+
+Evaluation criteria focused on:
+
+Potential to drive protocol adoption and usage
+Developer credibility and track record
+Strategic alignment with Metaplex roadmap
+Open-source contributions
+Team responsiveness and ability to collaborate
+
+
+
+
+Team and Evolving Roles – First and Second Cohorts
+
+Mark (Program Lead, Admin Lead, Comms Lead, Council Chair, Treasury Ops)
+Leads all aspects of the program—from application intake and milestone tracking to council coordination and communications. 
+In Cohort Two, Mark will also serve as the public face of the Grants Program from the grants team. Primary responsibilities will include 
+Primary liaison to the Metaplex Foundation Comms Team
+Host of Twitter Spaces and grant updates
+Grants Program representative on Metaplex DAO-wide calls (weekly, bi-weekly, or as scheduled)
+⸻
+BeeMan (Technical Lead, Council Member)
+Beeman Leads technical due diligence across all applications. He Reviews build specs, advises grantees on implementation, and helps shape milestone structuring
+In Cohort Two, he will continue this role while also expanding his “build in public” video content initiative, which he launched in collaboration with the Metaplex marketing team. 
+We believe this can become a key communications channel for the ecosystem and will be formalized as a core part of the program’s visibility strategy.
+⸻
+Tony (Developer Relations, Metaplex Foundation Liaison, Council Member)
+Tony is the technical and developer relations lead from the Metaplex Foundation. He plays a critical role in ensuring that top-of-funnel grantees are successfully onboarded into the Metaplex developer ecosystem.
+He advises teams on how to integrate with existing Metaplex tools and helps avoid redundancy by guiding applicants toward underutilized capabilities in the stack, and plays an active role in ecosystem awareness and product education
+⸻
+Kai (Admin Support, Analytics + Content Lead, Council Member, Treasury Ops)
+In the first cohort, Kai supported admin workflows, data tracking, and general operations alongside his role vetting applications on the grants council.
+In the second cohort, he will expand into:
+Leading the analytics integration initiative, partnering with Glint Analytics to track key on-chain metrics for each grantee
+Overseeing digital media production—including demo reels, project intros, and storytelling content for grantees
+Kai is a professional video and digital editor, making him uniquely suited to lead the media arm of the program and has been actively building and researching in the on-chain analytics space. 
+⸻
+Chris (Co-founder, Admin Lead, Council Member, Treasury Ops)
+Chris is one of the Co-founder of Dean’s List (Now Island DAO) and serves as administrative lead for the LLC that issues grants from the program (distinct from Island DAO). 
+As a core member of Island DAOs, Chris is a driving force behind their IRL events and works to ensure alignment with the grants program.
+He is also an active participant in the Grants Council, regularly reviewing applications, evaluating milestone structures, and contributing to applicant selection.
+⸻
+Parzicano, Shady, and iCoder (Grants Council Members – Account Management + Research Leads)
+In the first cohort, these members
+Participated in all council calls
+Reviewed applications and milestones
+Voted on funding approvals
+Created internal tracking and analysis tooling for grant tracking
+Provided feedback and suggestions throughout the applicant lifecycle
+In the second cohort, their responsibilities will expand into:
+Account Management: Each grantee will be paired with a council member to support communications, milestone tracking, and delivery follow-ups
+Content & Research
+A 5–8 page research report will be authored for each funded project, outlining its product, roadmap, sector relevance, and integration with Metaplex tooling
+A 6-slide summary deck will accompany each report to streamline DAO-wide updates and communications. (example here)
+
+
+Program Learnings and Challenges
+
+There is a large gap between ideal applications and the submissions received.  
+
+Many proposals arrived in rough form — ambitious product builds, loosely scoped ideas, or requests that didn’t align directly with Metaplex’s mission. However, these raw applications often contained valuable components that could be shaped into high-impact, protocol-aligned deliverables. A $50K app build could become an $8K grant to develop and open-source a new primitive. That reframing process became a core part of our approach.
+
+This required a more involved, collaborative process than simply reviewing proposals at face value. By spending time with applicants and helping them refine their ideas — especially around scope, integration, and open source contribution — we found real opportunity in places that might otherwise be overlooked. This process also led to a deeper relationship between builders and core MPLX dev relations.
+
+IRL engagement continues to be a powerful catalyst. 
+
+Some of the most promising grantee relationships began through face-to-face conversations at ecosystem events. Island DAO — hosted by Dean’s List (now rebranded as “Island DAO”) and attended by both Dean’s List and Metaplex contributors — proved especially effective in surfacing aligned developers and converting interest into applications. These real-world touchpoints remain one of the strongest top-of-funnel drivers, particularly when the grants program has visible presence and representation.
+
+Metaplex mindshare is global. Lots of seeds have been planted
+
+The diversity of where we received applications from is a very positive sign in terms of what it reflects regarding metaplex and its global market share. Notably, in regions where metaplex is much less well established (Japan for example) the application numbers were quite encouraging and speak towards the power of MPLX’s IRL activations.  
+
+The importance of refining program scope and strategy. 
+
+At launch, the grants program was intentionally open-ended — designed to welcome everything from early-stage ideas and solo builders to structured product teams and public goods.  However, the volume and diversity of submissions quickly made it clear that tighter internal alignment was needed. 
+
+The team evolved both its vision of what the program should fund and its process for identifying the most aligned applications. This included clarifying priorities, tightening milestone expectations, and streamlining how technical and strategic fit are assessed. That evolution has made the overall process faster, more consistent, and better calibrated to the DAO’s goals.
+
+MPL 404 adoption surfaced a messaging gap.
+
+While Metaplex Core was widely recognized and drew strong applications, MPL 404 was less familiar — resulting in fewer, more complex submissions that often required hands-on interpretation. The protocol is powerful but less intuitive, and many 404 applications came from dev shops or required technical onboarding. 
+
+This highlighted a need for clearer messaging, better documentation, and more targeted education. Several ambitious 404 grants were funded and are now well-positioned to serve as reference points and catalysts for broader adoption.
+
+
