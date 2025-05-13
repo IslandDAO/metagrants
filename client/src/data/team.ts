@@ -8,91 +8,87 @@ export interface TeamMember {
   linkedin?: string;
   website?: string;
   email?: string;
+  github?: string;
   expertise?: string[];
 }
 
 export const team: TeamMember[] = [
   {
-    name: "Alex Chen",
-    title: "Executive Director",
-    bio: "Alex leads IslandDAO's strategic initiatives and oversees the grant program management. Previously, he worked at several Web3 foundations managing ecosystem growth and developer relations.",
+    name: "Mark",
+    title: "Program Lead",
+    bio: "Mark leads the MetaplexDAO grant program, managing all administrative operations, communications, and treasury operations. With extensive experience in web3 communities, he ensures the program's success through strategic oversight and operational excellence.",
     imageUrl: "https://randomuser.me/api/portraits/men/32.jpg",
     role: "core",
-    twitter: "https://twitter.com/alexchen",
-    linkedin: "https://linkedin.com/in/alexchen",
-    email: "alex@islanddao.org",
-    expertise: ["Ecosystem Development", "Governance", "Strategy"]
+    twitter: "https://twitter.com/markmetaplex",
+    email: "mark@islanddao.org",
+    expertise: ["Program Management", "Treasury Operations", "Communications"]
   },
   {
-    name: "Maria Rodriguez",
-    title: "Technical Program Manager",
-    bio: "Maria manages the technical evaluation process for grants, working closely with developers and reviewers. She has extensive experience in Web3 development and project management.",
-    imageUrl: "https://randomuser.me/api/portraits/women/44.jpg",
+    name: "BeeMan",
+    title: "Technical Lead",
+    bio: "BeeMan oversees all technical aspects of the grant evaluation process, providing expert guidance on code reviews, architecture, and implementation strategies. His deep expertise in blockchain and Metaplex technologies enables rigorous assessment of technical grant proposals.",
+    imageUrl: "https://randomuser.me/api/portraits/men/44.jpg",
     role: "core",
-    twitter: "https://twitter.com/maria_r",
-    linkedin: "https://linkedin.com/in/mariarodriguez",
-    email: "maria@islanddao.org",
-    expertise: ["Technical Assessment", "Project Management", "Smart Contracts"]
+    twitter: "https://twitter.com/beeman_dev",
+    github: "https://github.com/beeman",
+    expertise: ["Technical Evaluation", "Blockchain Development", "Architecture Review"]
   },
   {
-    name: "David Kim",
-    title: "Community Lead",
-    bio: "David focuses on community engagement and supporting grantees with their outreach efforts. He previously built several developer communities in the blockchain space.",
+    name: "Tony",
+    title: "DevRel & Metaplex Foundation Liaison",
+    bio: "Tony bridges the gap between grantees and the Metaplex Foundation, ensuring alignment of project goals with ecosystem objectives. Through developer relations and community engagement, he helps projects maximize their impact and integration within the Metaplex ecosystem.",
     imageUrl: "https://randomuser.me/api/portraits/men/22.jpg",
     role: "core",
-    twitter: "https://twitter.com/davidkim",
-    linkedin: "https://linkedin.com/in/davidkim",
-    email: "david@islanddao.org",
-    expertise: ["Community Building", "Developer Relations", "Events"]
+    twitter: "https://twitter.com/tonymetaplex",
+    linkedin: "https://linkedin.com/in/tonymetaplex",
+    expertise: ["Developer Relations", "Ecosystem Integration", "Foundation Coordination"]
   },
   {
-    name: "Sophia Wang",
-    title: "Finance Manager",
-    bio: "Sophia oversees the financial aspects of the grant program, including disbursements, reporting, and compliance. She has a background in traditional finance and crypto treasury management.",
-    imageUrl: "https://randomuser.me/api/portraits/women/29.jpg",
+    name: "Kai",
+    title: "Admin, Analytics & Media",
+    bio: "Kai manages the analytical and media aspects of the grant program, tracking project metrics, creating visual assets, and supporting administrative functions. His data-driven approach ensures transparency and measurable outcomes for all funded projects.",
+    imageUrl: "https://randomuser.me/api/portraits/men/29.jpg",
     role: "core",
-    linkedin: "https://linkedin.com/in/sophiawang",
-    email: "sophia@islanddao.org",
-    expertise: ["Treasury Management", "Financial Reporting", "Compliance"]
+    twitter: "https://twitter.com/kaimetaplex",
+    expertise: ["Data Analytics", "Media Production", "Program Administration"]
   },
   {
-    name: "Dr. James Carter",
-    title: "Research Advisor",
-    bio: "James advises on technical research directions and evaluates cutting-edge proposals. He holds a PhD in Computer Science and has published extensively on blockchain technology.",
+    name: "Chris",
+    title: "Admin Lead & IslandDAO Co-founder",
+    bio: "As IslandDAO co-founder and administrative lead, Chris provides strategic guidance and operational expertise to the grant program. His leadership ensures the program maintains its vision while achieving practical outcomes for the Metaplex ecosystem.",
     imageUrl: "https://randomuser.me/api/portraits/men/52.jpg",
-    role: "advisor",
-    twitter: "https://twitter.com/drjcarter",
-    website: "https://jamescarter.dev",
-    expertise: ["Cryptography", "Consensus Mechanisms", "Scaling Solutions"]
+    role: "core",
+    twitter: "https://twitter.com/chrismetaplex",
+    linkedin: "https://linkedin.com/in/chrismetaplex",
+    expertise: ["DAO Leadership", "Program Administration", "Strategic Planning"]
   },
   {
-    name: "Elena Petrova",
-    title: "Governance Advisor",
-    bio: "Elena provides guidance on DAO governance structures and decision-making processes. She has helped establish governance frameworks for several prominent DAOs and protocols.",
-    imageUrl: "https://randomuser.me/api/portraits/women/14.jpg",
+    name: "Parzicano",
+    title: "Council Member & Research Lead",
+    bio: "Parzicano serves on the grant evaluation council while leading research initiatives to identify promising directions for ecosystem development. His technical background and research methodology help inform funding priorities and technical standards.",
+    imageUrl: "https://randomuser.me/api/portraits/men/62.jpg",
     role: "advisor",
-    twitter: "https://twitter.com/elenapetrova",
-    linkedin: "https://linkedin.com/in/elenapetrova",
-    expertise: ["DAO Governance", "Tokenomics", "Community Voting"]
+    twitter: "https://twitter.com/parzicano",
+    expertise: ["Technical Research", "Grant Evaluation", "Ecosystem Analysis"]
   },
   {
-    name: "Michael Johnson",
-    title: "NFT Strategy Advisor",
-    bio: "Michael specializes in NFT market strategies and business models. He has founded two successful NFT platforms and advises projects on sustainable growth and monetization.",
+    name: "Shady",
+    title: "Council Member & Strategic Advisor",
+    bio: "As a council member, Shady evaluates grant applications and provides strategic guidance on ecosystem development. His experience in blockchain projects and community building offers valuable insights for identifying high-potential initiatives.",
     imageUrl: "https://randomuser.me/api/portraits/men/42.jpg",
     role: "advisor",
-    twitter: "https://twitter.com/mjohnson",
-    website: "https://mjohnson.io",
-    expertise: ["NFT Markets", "Digital Collectibles", "Creator Economy"]
+    twitter: "https://twitter.com/shadymetaplex",
+    website: "https://shadymetaplex.io",
+    expertise: ["Strategic Planning", "Application Review", "Community Building"]
   },
   {
-    name: "Aisha Patel",
-    title: "Technical Security Advisor",
-    bio: "Aisha reviews the security aspects of grant applications and provides guidance on best practices. She has a background in smart contract auditing and security consulting.",
-    imageUrl: "https://randomuser.me/api/portraits/women/38.jpg",
+    name: "iCoder",
+    title: "Council Member & Technical Advisor",
+    bio: "iCoder brings deep technical expertise to the grant evaluation process, focusing on code quality, architecture, and scalability concerns. His rigorous technical assessments ensure that funded projects maintain high engineering standards and technical feasibility.",
+    imageUrl: "https://randomuser.me/api/portraits/men/72.jpg",
     role: "advisor",
-    twitter: "https://twitter.com/aishapatel",
-    linkedin: "https://linkedin.com/in/aishapatel",
-    expertise: ["Smart Contract Security", "Risk Assessment", "Security Auditing"]
+    twitter: "https://twitter.com/icodermetaplex",
+    github: "https://github.com/icoder",
+    expertise: ["Technical Assessment", "Code Review", "Architecture Design"]
   }
 ];

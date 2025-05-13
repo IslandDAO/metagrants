@@ -13,6 +13,7 @@ import Team from "@/pages/team";
 import Evaluation from "@/pages/evaluation";
 import Learnings from "@/pages/learnings";
 import Process from "@/pages/process";
+import Insights from "@/pages/insights";
 import Grants from "@/pages/grants";
 import GrantDetail from "@/pages/grant-detail";
 
@@ -31,6 +32,7 @@ function Router() {
           <Route path="/evaluation" element={<Evaluation />} />
           <Route path="/process" element={<Process />} />
           <Route path="/learnings" element={<Learnings />} />
+          <Route path="/insights" element={<Insights />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>

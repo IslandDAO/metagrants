@@ -10,13 +10,19 @@ import {
   Card,
   CardContent,
 } from "@/components/ui/card";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Twitter, Linkedin, Globe, Mail } from "lucide-react";
+import { Twitter, Linkedin, Globe, Mail, Github, ChevronDown } from "lucide-react";
 import { team, TeamMember } from "@/data/team";
 
 // Component for team member card
 const TeamMemberCard = ({ member }: { member: TeamMember }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const initials = member.name
     .split(" ")
     .map((n) => n[0])
@@ -39,7 +45,31 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
             <p className="text-primary text-sm font-medium">{member.title}</p>
           </div>
           
-          <p className="text-gray-600 text-sm mb-4">{member.bio}</p>
+          <Collapsible 
+            open={isOpen} 
+            onOpenChange={setIsOpen}
+            className="mb-4"
+          >
+            <div className="text-gray-600 text-sm mb-2">
+              {member.bio.length > 100 
+                ? `${member.bio.substring(0, 100)}...` 
+                : member.bio
+              }
+            </div>
+            
+            <CollapsibleContent className="text-gray-600 text-sm">
+              <div className="mt-2">
+                {member.bio}
+              </div>
+            </CollapsibleContent>
+            
+            {member.bio.length > 100 && (
+              <CollapsibleTrigger className="flex items-center justify-center w-full mt-2 text-xs text-primary-600 hover:text-primary-800">
+                <span>{isOpen ? "Read less" : "Read more"}</span>
+                <ChevronDown className={`h-4 w-4 ml-1 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+              </CollapsibleTrigger>
+            )}
+          </Collapsible>
           
           {member.expertise && member.expertise.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-4">
@@ -70,6 +100,16 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 className="text-gray-500 hover:text-blue-700"
               >
                 <Linkedin size={18} />
+              </a>
+            )}
+            {member.github && (
+              <a 
+                href={member.github}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-gray-900"
+              >
+                <Github size={18} />
               </a>
             )}
             {member.website && (
@@ -111,7 +151,7 @@ const Team = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Our Team
+          Meet Our Team
         </motion.h1>
         <motion.p 
           className="text-gray-600 max-w-3xl"
@@ -119,8 +159,9 @@ const Team = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Meet the dedicated professionals behind the MetaplexDAO grant program. Our team combines expertise in blockchain technology, 
-          community building, and ecosystem development to support innovative projects building on Metaplex.
+          The dedicated team behind the MetaplexDAO grant program managed by IslandDAO. Our combined expertise in 
+          program management, technical evaluation, and community building helps us identify and support promising 
+          projects within the Metaplex ecosystem.
         </motion.p>
       </div>
       
