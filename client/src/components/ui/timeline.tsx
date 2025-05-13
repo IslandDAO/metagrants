@@ -11,7 +11,7 @@ interface TimelineProps {
   className?: string;
 }
 
-export function Timeline({ steps, className }: TimelineProps) {
+export const Timeline = ({ steps, className }: TimelineProps) => {
   return (
     <div className={cn("relative", className)}>
       <div className="absolute top-0 bottom-0 left-6 w-0.5 bg-gray-200 mx-auto"></div>

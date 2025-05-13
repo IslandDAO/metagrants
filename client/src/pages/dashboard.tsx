@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardContent,
@@ -8,36 +9,76 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Input } from "@/components/ui/input";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import StatCard from "@/components/ui/stat-card";
-import ProjectCard from "@/components/ui/project-card";
-import { projects } from "@/data/projects";
-import { stats } from "@/data/stats";
-import { Search } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { grantProjects } from "@/data/grants";
+import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from "recharts";
+
+// Define the type for grant projects
+interface GrantProject {
+  id: string;
+  slug: string;
+  name: string;
+  sector: string;
+  tech: "CORE" | "404";
+  summary: string;
+  description: string;
+  totalUsd: number;
+  usdc: number;
+  mplx: number;
+  notable: boolean;
+  links?: {
+    website?: string;
+    github?: string;
+    x?: string;
+  };
+}
 
 const Dashboard = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [statusFilter, setStatusFilter] = useState("all");
+  const [activeTab, setActiveTab] = useState("overview");
   
-  const filteredProjects = projects.filter((project) => {
-    const matchesSearch = project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.description.toLowerCase().includes(searchTerm.toLowerCase());
+  // Calculate statistics
+  const totalGrants = grantProjects.length;
+  const totalFunding = grantProjects.reduce((sum, grant) => sum + grant.totalUsd, 0);
+  const averageGrant = Math.round(totalFunding / totalGrants);
+  const coreCount = grantProjects.filter(grant => grant.tech === "CORE").length;
+  const count404 = grantProjects.filter(grant => grant.tech === "404").length;
+  
+  // Prepare data for charts
+  const techDistribution = [
+    { name: "Core", value: coreCount },
+    { name: "404", value: count404 },
+  ];
+  
+  const TECH_COLORS = ["#4f46e5", "#10b981"];
+  
+  // Get sector distribution
+  const sectors = Array.from(new Set(grantProjects.map((grant: GrantProject) => grant.sector)));
+  const sectorData = sectors.map(sector => {
+    const count = grantProjects.filter((grant: GrantProject) => grant.sector === sector).length;
+    const funding = grantProjects
+      .filter((grant: GrantProject) => grant.sector === sector)
+      .reduce((sum, grant) => sum + grant.totalUsd, 0);
     
-    const matchesStatus = statusFilter === "all" || project.status.toLowerCase() === statusFilter.toLowerCase();
-    
-    return matchesSearch && matchesStatus;
-  });
-
+    return {
+      name: sector,
+      count,
+      funding
+    };
+  }).sort((a, b) => b.count - a.count);
+  
+  // Format currency
+  const formatCurrency = (value: number) => {
+    return `$${value.toLocaleString()}`;
+  };
+  
   return (
-    <>
+    <div className="max-w-7xl mx-auto">
       <div className="mb-8">
         <motion.h1 
           className="text-3xl font-bold text-secondary mb-2"
@@ -45,178 +86,297 @@ const Dashboard = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Grants Dashboard
+          Grant Dashboard
         </motion.h1>
         <motion.p 
-          className="text-gray-600"
+          className="text-gray-600 max-w-3xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Overview of all funded projects and program metrics
+          Visualization and analysis of MetaplexDAO Grants Cohort 1 distribution and impact.
         </motion.p>
       </div>
-
-      {/* Stats Section */}
-      <motion.div 
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        {stats.map((stat) => (
-          <StatCard
-            key={stat.id}
-            title={stat.title}
-            value={stat.value}
-          />
-        ))}
-      </motion.div>
-
-      {/* Dashboard Content */}
+      
+      {/* Key Stats */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+        >
+          <Card>
+            <CardContent className="pt-6">
+              <div className="text-3xl font-bold text-primary mb-1">{totalGrants}</div>
+              <p className="text-sm text-gray-500">Total Grants</p>
+            </CardContent>
+          </Card>
+        </motion.div>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+        >
+          <Card>
+            <CardContent className="pt-6">
+              <div className="text-3xl font-bold text-primary mb-1">{formatCurrency(totalFunding)}</div>
+              <p className="text-sm text-gray-500">Total Funding</p>
+            </CardContent>
+          </Card>
+        </motion.div>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+        >
+          <Card>
+            <CardContent className="pt-6">
+              <div className="text-3xl font-bold text-primary mb-1">{formatCurrency(averageGrant)}</div>
+              <p className="text-sm text-gray-500">Average Grant</p>
+            </CardContent>
+          </Card>
+        </motion.div>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.4 }}
+        >
+          <Card>
+            <CardContent className="pt-6">
+              <div className="text-3xl font-bold text-primary mb-1">{sectors.length}</div>
+              <p className="text-sm text-gray-500">Sectors Funded</p>
+            </CardContent>
+          </Card>
+        </motion.div>
+      </div>
+      
+      {/* Dashboard Tabs */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+        className="mb-6"
       >
-        <Tabs defaultValue="projects" className="w-full">
-          <TabsList className="mb-6">
-            <TabsTrigger value="projects">Projects</TabsTrigger>
-            <TabsTrigger value="metrics">Program Metrics</TabsTrigger>
-            <TabsTrigger value="timeline">Funding Timeline</TabsTrigger>
+        <Tabs defaultValue="overview" onValueChange={setActiveTab}>
+          <TabsList className="mb-8">
+            <TabsTrigger value="overview">Overview</TabsTrigger>
+            <TabsTrigger value="sectors">Sectors</TabsTrigger>
+            <TabsTrigger value="table">Grant Table</TabsTrigger>
           </TabsList>
           
-          <TabsContent value="projects">
-            {/* Filter Controls */}
-            <Card className="mb-6">
-              <CardContent className="pt-6">
-                <div className="flex flex-col md:flex-row gap-4">
-                  <div className="relative flex-1">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-                    <Input
-                      placeholder="Search projects..."
-                      className="pl-10"
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                    />
-                  </div>
-                  <div className="w-full md:w-48">
-                    <Select value={statusFilter} onValueChange={setStatusFilter}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Filter by status" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="all">All Statuses</SelectItem>
-                        <SelectItem value="active">Active</SelectItem>
-                        <SelectItem value="completed">Completed</SelectItem>
-                        <SelectItem value="in development">In Development</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Projects Grid */}
-            {filteredProjects.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredProjects.map((project) => (
-                  <ProjectCard
-                    key={project.id}
-                    id={project.id}
-                    name={project.name}
-                    description={project.description}
-                    status={project.status}
-                    fundingAmount={project.fundingAmount}
-                    imageUrl={project.imageUrl}
-                  />
-                ))}
-              </div>
-            ) : (
-              <Card>
-                <CardContent className="flex flex-col items-center justify-center p-12 text-center">
-                  <Search className="h-12 w-12 text-gray-300 mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">No projects found</h3>
-                  <p className="text-gray-500">Try adjusting your search or filter criteria</p>
-                </CardContent>
-              </Card>
-            )}
-          </TabsContent>
-          
-          <TabsContent value="metrics">
+          {/* Overview Tab */}
+          <TabsContent value="overview">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Funding Allocation by Category</CardTitle>
-                  <CardDescription>Distribution of grants by project category</CardDescription>
+                  <CardTitle>Technology Distribution</CardTitle>
+                  <CardDescription>
+                    Breakdown of grants by technology stack
+                  </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="h-80 flex items-center justify-center">
-                    <p className="text-gray-500">Chart visualization would go here</p>
+                <CardContent className="flex justify-center">
+                  <div className="w-full h-[300px]">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <PieChart>
+                        <Pie
+                          data={techDistribution}
+                          cx="50%"
+                          cy="50%"
+                          labelLine={false}
+                          outerRadius={100}
+                          fill="#8884d8"
+                          dataKey="value"
+                          label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                        >
+                          {techDistribution.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={TECH_COLORS[index % TECH_COLORS.length]} />
+                          ))}
+                        </Pie>
+                        <Tooltip formatter={(value) => [`${value} grants`, 'Count']} />
+                        <Legend />
+                      </PieChart>
+                    </ResponsiveContainer>
                   </div>
                 </CardContent>
               </Card>
               
               <Card>
                 <CardHeader>
-                  <CardTitle>Project Success Rate</CardTitle>
-                  <CardDescription>Completion rate of funded projects</CardDescription>
+                  <CardTitle>Funding Distribution</CardTitle>
+                  <CardDescription>
+                    Top sectors by funding allocation
+                  </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="h-80 flex items-center justify-center">
-                    <p className="text-gray-500">Chart visualization would go here</p>
+                <CardContent className="flex justify-center">
+                  <div className="w-full h-[300px]">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart
+                        layout="vertical"
+                        data={sectorData.slice(0, 5)}
+                        margin={{ top: 5, right: 30, left: 60, bottom: 5 }}
+                      >
+                        <XAxis type="number" tickFormatter={formatCurrency} />
+                        <YAxis dataKey="name" type="category" />
+                        <Tooltip formatter={(value) => [formatCurrency(value as number), 'Funding']} />
+                        <Bar dataKey="funding" fill="#4f46e5" name="Funding" />
+                      </BarChart>
+                    </ResponsiveContainer>
                   </div>
                 </CardContent>
               </Card>
               
               <Card className="lg:col-span-2">
                 <CardHeader>
-                  <CardTitle>Geographic Distribution</CardTitle>
-                  <CardDescription>Global reach of the grant program</CardDescription>
+                  <CardTitle>Grant Highlights</CardTitle>
+                  <CardDescription>
+                    Notable projects from Cohort 1
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-80 flex items-center justify-center">
-                    <p className="text-gray-500">Map visualization would go here</p>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {grantProjects
+                      .filter((grant: GrantProject) => grant.notable)
+                      .slice(0, 3)
+                      .map((grant: GrantProject) => (
+                        <Card key={grant.id} className="border-primary/20">
+                          <CardContent className="p-4">
+                            <div className="flex justify-between items-start mb-2">
+                              <h3 className="font-bold">{grant.name}</h3>
+                              <Badge variant="outline" className={grant.tech === "CORE" ? "bg-green-100 text-green-800" : "bg-blue-100 text-blue-800"}>
+                                {grant.tech}
+                              </Badge>
+                            </div>
+                            <p className="text-sm text-gray-600 mb-3 line-clamp-3">{grant.summary}</p>
+                            <div className="flex justify-between items-center">
+                              <Badge variant="secondary">{grant.sector}</Badge>
+                              <Link to={`/grants/${grant.slug}`}>
+                                <Button variant="link" size="sm" className="p-0">View Details</Button>
+                              </Link>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
                   </div>
                 </CardContent>
               </Card>
             </div>
           </TabsContent>
           
-          <TabsContent value="timeline">
+          {/* Sectors Tab */}
+          <TabsContent value="sectors">
+            <div className="grid grid-cols-1 gap-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Sector Analysis</CardTitle>
+                  <CardDescription>
+                    Distribution of grants by sector
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="w-full h-[400px]">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart
+                        data={sectorData}
+                        margin={{ top: 20, right: 30, left: 20, bottom: 40 }}
+                      >
+                        <XAxis dataKey="name" angle={-45} textAnchor="end" height={70} />
+                        <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
+                        <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
+                        <Tooltip />
+                        <Legend />
+                        <Bar yAxisId="left" dataKey="count" name="Number of Grants" fill="#8884d8" />
+                        <Bar yAxisId="right" dataKey="funding" name="Funding ($)" fill="#82ca9d" />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {sectorData.map((sector, index) => (
+                  <Card key={index}>
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-lg">{sector.name}</CardTitle>
+                      <CardDescription>
+                        {sector.count} projects • {formatCurrency(sector.funding)}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="pt-2">
+                      <div className="space-y-2">
+                        {grantProjects
+                          .filter((grant: GrantProject) => grant.sector === sector.name)
+                          .map((grant: GrantProject) => (
+                            <div key={grant.id} className="p-2 border rounded-md">
+                              <div className="flex justify-between items-center">
+                                <span className="font-medium">{grant.name}</span>
+                                <Badge variant="outline" className={grant.tech === "CORE" ? "bg-green-100 text-green-800" : "bg-blue-100 text-blue-800"}>
+                                  {grant.tech}
+                                </Badge>
+                              </div>
+                            </div>
+                          ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </TabsContent>
+          
+          {/* Table Tab */}
+          <TabsContent value="table">
             <Card>
               <CardHeader>
-                <CardTitle>Funding Timeline</CardTitle>
-                <CardDescription>Grant distribution over time</CardDescription>
+                <CardTitle>Complete Grant List</CardTitle>
+                <CardDescription>
+                  Details of all funded projects in Cohort 1
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-6">
-                  {/* Timeline items */}
-                  {[2021, 2022, 2023].map((year) => (
-                    <div key={year} className="relative pl-8 pb-8 border-l-2 border-gray-200">
-                      <div className="absolute -left-2 mt-1.5">
-                        <Badge className="bg-primary text-secondary rounded-full h-6 w-6 flex items-center justify-center p-0">
-                          {year}
-                        </Badge>
-                      </div>
-                      <h3 className="text-lg font-semibold">Cohort {year - 2020}</h3>
-                      <p className="text-gray-500">
-                        {year === 2021 ? "10" : year === 2022 ? "15" : "17"} projects funded
-                      </p>
-                      <p className="text-gray-600 mt-2">
-                        {year === 2021 ? "First cohort focused on infrastructure projects" :
-                         year === 2022 ? "Expanded focus to include NFT and DeFi applications" :
-                         "Latest cohort with emphasis on sustainable blockchain innovations"}
-                      </p>
-                    </div>
-                  ))}
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr className="bg-muted">
+                        <th className="p-3 text-left">Project</th>
+                        <th className="p-3 text-left">Sector</th>
+                        <th className="p-3 text-left">Tech</th>
+                        <th className="p-3 text-right">Funding</th>
+                        <th className="p-3 text-center">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y">
+                      {grantProjects.map((grant: GrantProject) => (
+                        <tr key={grant.id} className="hover:bg-muted/50">
+                          <td className="p-3">
+                            <div className="font-medium">{grant.name}</div>
+                            <div className="text-sm text-gray-500 truncate max-w-[250px]">{grant.summary}</div>
+                          </td>
+                          <td className="p-3">{grant.sector}</td>
+                          <td className="p-3">
+                            <Badge className={grant.tech === "CORE" ? "bg-green-100 text-green-800" : "bg-blue-100 text-blue-800"}>
+                              {grant.tech}
+                            </Badge>
+                          </td>
+                          <td className="p-3 text-right font-medium">{formatCurrency(grant.totalUsd)}</td>
+                          <td className="p-3 text-center">
+                            <Link to={`/grants/${grant.slug}`}>
+                              <Button variant="outline" size="sm">View</Button>
+                            </Link>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </CardContent>
             </Card>
           </TabsContent>
         </Tabs>
       </motion.div>
-    </>
+    </div>
   );
 };
 
