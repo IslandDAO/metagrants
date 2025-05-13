@@ -103,10 +103,10 @@ const Grants = () => {
   const [sectorFilter, setSectorFilter] = useState("all");
   
   // Get all unique sectors for the filter dropdown
-  const sectors = Array.from(new Set(grantProjects.map(grant => grant.sector)));
+  const sectors = Array.from(new Set(grantProjects.map((grant: GrantProject) => grant.sector)));
   
   // Filter grants based on search term, tech stack, and sector
-  const filteredGrants = grantProjects.filter((grant) => {
+  const filteredGrants = grantProjects.filter((grant: GrantProject) => {
     const matchesSearch = grant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            grant.summary.toLowerCase().includes(searchTerm.toLowerCase());
     
@@ -173,7 +173,7 @@ const Grants = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">All Sectors</SelectItem>
-                  {sectors.map((sector) => (
+                  {sectors.map((sector: string) => (
                     <SelectItem key={sector} value={sector}>{sector}</SelectItem>
                   ))}
                 </SelectContent>
@@ -201,7 +201,7 @@ const Grants = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          {filteredGrants.map((grant) => (
+          {filteredGrants.map((grant: GrantProject) => (
             <GrantCard key={grant.slug} project={grant} />
           ))}
         </motion.div>

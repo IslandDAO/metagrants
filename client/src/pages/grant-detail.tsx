@@ -11,17 +11,37 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { grantProjects } from "@/data/grants";
 import { ChevronLeft, ExternalLink, DollarSign, Tag, FileText } from "lucide-react";
+import { grantProjects } from "@/data/grants";
+
+// Define the type for grant projects
+interface GrantProject {
+  id: string;
+  slug: string;
+  name: string;
+  sector: string;
+  tech: "CORE" | "404";
+  summary: string;
+  description: string;
+  totalUsd: number;
+  usdc: number;
+  mplx: number;
+  notable: boolean;
+  links?: {
+    website?: string;
+    github?: string;
+    x?: string;
+  };
+}
 
 const GrantDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const [grant, setGrant] = useState<typeof grantProjects[0] | undefined>(undefined);
+  const [grant, setGrant] = useState<GrantProject | undefined>(undefined);
   const [loading, setLoading] = useState(true);
   
   useEffect(() => {
     // Find the grant with the matching slug
-    const foundGrant = grantProjects.find((g) => g.slug === slug);
+    const foundGrant = grantProjects.find((g: GrantProject) => g.slug === slug);
     setGrant(foundGrant);
     setLoading(false);
   }, [slug]);
