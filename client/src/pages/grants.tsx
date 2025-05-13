@@ -15,10 +15,30 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { grantProjects } from "@/data/grants";
 import { Filter, Search, ExternalLink } from "lucide-react";
+import { grantProjects } from "@/data/grants";
 
-const GrantCard = ({ project }: { project: typeof grantProjects[0] }) => {
+// Define the type for grant projects
+interface GrantProject {
+  id: string;
+  slug: string;
+  name: string;
+  sector: string;
+  tech: "CORE" | "404";
+  summary: string;
+  description: string;
+  totalUsd: number;
+  usdc: number;
+  mplx: number;
+  notable: boolean;
+  links?: {
+    website?: string;
+    github?: string;
+    x?: string;
+  };
+}
+
+const GrantCard = ({ project }: { project: GrantProject }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
