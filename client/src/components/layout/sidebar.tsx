@@ -7,7 +7,8 @@ import {
   Users, 
   Shield, 
   BookOpen,
-  Award
+  Award,
+  GitBranch
 } from "lucide-react";
 import MetaplexLogo from "../logos/metaplex-logo";
 import IslandDaoLogo from "../logos/island-dao-logo";
@@ -26,6 +27,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
     { to: "/grants", label: "Grants", icon: Award },
     { to: "/team", label: "Team", icon: Users },
     { to: "/evaluation", label: "Evaluation", icon: Shield },
+    { to: "/process", label: "Process", icon: GitBranch },
     { to: "/learnings", label: "Learnings", icon: BookOpen },
   ];
   

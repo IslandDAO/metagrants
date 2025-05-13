@@ -12,6 +12,7 @@ import ProjectDetail from "@/pages/project-detail";
 import Team from "@/pages/team";
 import Evaluation from "@/pages/evaluation";
 import Learnings from "@/pages/learnings";
+import Process from "@/pages/process";
 import Grants from "@/pages/grants";
 import GrantDetail from "@/pages/grant-detail";
 
@@ -28,6 +29,7 @@ function Router() {
           <Route path="/grants/:slug" element={<GrantDetail />} />
           <Route path="/team" element={<Team />} />
           <Route path="/evaluation" element={<Evaluation />} />
+          <Route path="/process" element={<Process />} />
           <Route path="/learnings" element={<Learnings />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
