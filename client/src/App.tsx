@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -12,21 +12,27 @@ import ProjectDetail from "@/pages/project-detail";
 import Team from "@/pages/team";
 import Evaluation from "@/pages/evaluation";
 import Learnings from "@/pages/learnings";
+import Grants from "@/pages/grants";
+import GrantDetail from "@/pages/grant-detail";
 
 function Router() {
   return (
-    <Layout>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/projects" component={Projects} />
-        <Route path="/projects/:id" component={ProjectDetail} />
-        <Route path="/team" component={Team} />
-        <Route path="/evaluation" component={Evaluation} />
-        <Route path="/learnings" component={Learnings} />
-        <Route component={NotFound} />
-      </Switch>
-    </Layout>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:id" element={<ProjectDetail />} />
+          <Route path="/grants" element={<Grants />} />
+          <Route path="/grants/:slug" element={<GrantDetail />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/evaluation" element={<Evaluation />} />
+          <Route path="/learnings" element={<Learnings />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
 

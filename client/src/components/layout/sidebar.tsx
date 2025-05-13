@@ -1,4 +1,4 @@
-import { Link, useLocation } from "wouter";
+import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { 
   Home, 
@@ -6,7 +6,8 @@ import {
   Briefcase, 
   Users, 
   Shield, 
-  BookOpen
+  BookOpen,
+  Award
 } from "lucide-react";
 import MetaplexLogo from "../logos/metaplex-logo";
 import IslandDaoLogo from "../logos/island-dao-logo";
@@ -16,15 +17,16 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ className }) => {
-  const [location] = useLocation();
+  const location = useLocation();
   
   const navItems = [
-    { href: "/", label: "Home", icon: Home },
-    { href: "/dashboard", label: "Dashboard", icon: BarChart2 },
-    { href: "/projects", label: "Projects", icon: Briefcase },
-    { href: "/team", label: "Team", icon: Users },
-    { href: "/evaluation", label: "Evaluation", icon: Shield },
-    { href: "/learnings", label: "Learnings", icon: BookOpen },
+    { to: "/", label: "Home", icon: Home },
+    { to: "/dashboard", label: "Dashboard", icon: BarChart2 },
+    { to: "/projects", label: "Projects", icon: Briefcase },
+    { to: "/grants", label: "Grants", icon: Award },
+    { to: "/team", label: "Team", icon: Users },
+    { to: "/evaluation", label: "Evaluation", icon: Shield },
+    { to: "/learnings", label: "Learnings", icon: BookOpen },
   ];
   
   return (
@@ -45,13 +47,13 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
         {/* Navigation Links */}
         <nav className="mb-auto">
           {navItems.map((item) => {
-            const isActive = location === item.href;
+            const isActive = location.pathname === item.to;
             const Icon = item.icon;
             
             return (
               <Link 
-                key={item.href}
-                href={item.href} 
+                key={item.to}
+                to={item.to} 
                 className={cn(
                   "flex items-center px-4 py-3 text-white hover:bg-secondary-light rounded-md transition mb-1",
                   isActive && "bg-secondary-light"
@@ -67,7 +69,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
         {/* Footer */}
         <div className="mt-auto pt-5 border-t border-gray-700">
           <div className="px-4 py-2 text-xs text-gray-400">
-            © 2023 MetaplexDAO & IslandDAO
+            © 2023-2025 MetaplexDAO & IslandDAO
           </div>
         </div>
       </div>
