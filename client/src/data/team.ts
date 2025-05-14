@@ -61,7 +61,7 @@ export const team: TeamMember[] = [
     expertise: ["Grants Council", "Admin Support", "Research"]
   },
   {
-    name: "Chris",
+    name: "Whale's Friend",
     title: "Grants Council / Admin Support",
     bio: "Whale's Friend is a core IslandDAO contributor and Co-Founder of Grape Protocol. He leads DAO operations and strategy, coordinates community feedback, and produces Solana video content. He also heads the IslandDAO judges team for Colosseum hackathons.",
     imageUrl: chrisImg,
@@ -97,9 +97,9 @@ export const team: TeamMember[] = [
     expertise: ["Account Management", "Research", "Technical Assessment"]
   },
   {
-    name: "Dimitri",
+    name: "Takisoul",
     title: "Comms / Grants Council",
-    bio: "Taki is a IslandDAO core contributor in operations, marketing & business development. He runs discord services teams for IslandDAO with clients such as Marinade, Realms, Zignaly Working with Realms on marketing & socials Previously: Solflare (marketing, socials)",
+    bio: "Takisoul is an IslandDAO core contributor in operations, marketing & business development. He runs discord services teams for IslandDAO with clients such as Marinade, Realms, Zignaly. Working with Realms on marketing & socials. Previously: Solflare (marketing, socials)",
     imageUrl: dimitriImg,
     role: "advisor",
     twitter: "https://x.com/Milimalism",

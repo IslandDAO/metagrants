@@ -57,29 +57,31 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
             <p className="text-indigo-300 text-xs font-medium line-clamp-1">{member.title}</p>
           </div>
           
-          {/* Bio section - Single paragraph with no truncation */}
+          {/* Bio section - Fixed min-height for bio to ensure consistency */}
           <div className="mb-5 flex-grow">
             <div 
-              className="text-[#c5d3e7] text-xs leading-relaxed pr-1" 
+              className="text-[#c5d3e7] text-xs leading-relaxed pr-1 min-h-[280px]" 
             >
               {member.bio}
             </div>
           </div>
           
-          {/* Expertise tags */}
-          {member.expertise && member.expertise.length > 0 && (
-            <div className="flex flex-wrap gap-1.5 mb-6">
-              {member.expertise.map((skill) => (
-                <Badge 
-                  key={skill} 
-                  variant="outline" 
-                  className="bg-indigo-500/10 border-indigo-500/30 text-indigo-200 hover:bg-indigo-500/20 transition-colors text-xs py-0.5 px-2 mb-1"
-                >
-                  {skill}
-                </Badge>
-              ))}
-            </div>
-          )}
+          {/* Expertise tags - Fixed height section */}
+          <div className="mb-6 min-h-[60px]">
+            {member.expertise && member.expertise.length > 0 && (
+              <div className="flex flex-wrap gap-1.5">
+                {member.expertise.map((skill) => (
+                  <Badge 
+                    key={skill} 
+                    variant="outline" 
+                    className="bg-indigo-500/10 border-indigo-500/30 text-indigo-200 hover:bg-indigo-500/20 transition-colors text-xs py-0.5 px-2 mb-1"
+                  >
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+            )}
+          </div>
           
           {/* Social links - Fixed height at bottom */}
           <div className="flex justify-center space-x-6 pt-4 pb-1 border-t border-[#364156] mt-auto">
