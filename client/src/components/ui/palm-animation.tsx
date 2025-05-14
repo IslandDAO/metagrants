@@ -21,9 +21,9 @@ export const GlowingPalms: React.FC = () => {
   // Create the palm grid
   useEffect(() => {
     // Create an evenly spaced grid of palms - with more rows/columns to compensate for avoided areas
-    const rows = 7;
-    const cols = 10;
-    const palmSize = 60;
+    const rows = 9;
+    const cols = 12;
+    const palmSize = 50;
     const initialPalms: Palm[] = [];
     
     // Areas to avoid (approximate areas where text content appears)
@@ -63,7 +63,7 @@ export const GlowingPalms: React.FC = () => {
     }
     
     // Select random palms to activate initially
-    const numToActivate = 3 + Math.floor(Math.random() * 3); // 3-5 palms
+    const numToActivate = 12 + Math.floor(Math.random() * 4); // 12-15 palms
     const initialActiveIndices: number[] = [];
     
     while (initialActiveIndices.length < numToActivate) {
@@ -119,7 +119,7 @@ export const GlowingPalms: React.FC = () => {
               .filter(i => !lastActivePalmsRef.current.includes(i));
               
             // Select new random palms
-            const numToActivate = 3 + Math.floor(Math.random() * 3); // 3-5 palms
+            const numToActivate = 12 + Math.floor(Math.random() * 4); // 12-15 palms
             const newActiveIndices: number[] = [];
             
             while (newActiveIndices.length < numToActivate && availableIndices.length > 0) {
