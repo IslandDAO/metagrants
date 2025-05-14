@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Card,
   CardContent,
@@ -256,19 +256,26 @@ const Dashboard = () => {
                       .filter((grant: GrantProject) => grant.notable)
                       .slice(0, 3)
                       .map((grant: GrantProject) => (
-                        <Card key={grant.id} className="border-primary/20">
+                        <Card 
+                          key={grant.id} 
+                          className="border-primary/20 card-gradient neon-glow cursor-pointer card-hover"
+                          onClick={() => window.location.href = `/grants/${grant.slug}`}
+                        >
                           <CardContent className="p-4">
                             <div className="flex justify-between items-start mb-2">
-                              <h3 className="font-bold">{grant.name}</h3>
-                              <Badge variant="outline" className={grant.tech === "CORE" ? "bg-green-100 text-green-800" : "bg-blue-100 text-blue-800"}>
+                              <h3 className="font-bold text-gradient">{grant.name}</h3>
+                              <Badge variant="outline" className={grant.tech === "CORE" ? "bg-green-500/20 text-green-400" : "bg-blue-500/20 text-blue-400"}>
                                 {grant.tech}
                               </Badge>
                             </div>
-                            <p className="text-sm text-gray-600 mb-3 line-clamp-3">{grant.summary}</p>
+                            <p className="text-sm text-[#b5bfcc] mb-3 line-clamp-3">{grant.summary}</p>
                             <div className="flex justify-between items-center">
-                              <Badge variant="secondary">{grant.sector}</Badge>
-                              <Link to={`/grants/${grant.slug}`}>
-                                <Button variant="link" size="sm" className="p-0">View Details</Button>
+                              <Badge variant="secondary" className="bg-[#2c374b] text-[#b5bfcc]">{grant.sector}</Badge>
+                              <Link 
+                                to={`/grants/${grant.slug}`}
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <Button variant="link" size="sm" className="p-0 text-[#f97316] hover:text-[#fb923c] animate-glow-pulse">View Details</Button>
                               </Link>
                             </div>
                           </CardContent>
@@ -379,8 +386,11 @@ const Dashboard = () => {
                           </td>
                           <td className="p-3 text-right font-medium">{formatCurrency(grant.totalUsd)}</td>
                           <td className="p-3 text-center">
-                            <Link to={`/grants/${grant.slug}`}>
-                              <Button variant="outline" size="sm" className="animate-glow-pulse hover:scale-105 transition-transform">View</Button>
+                            <Link 
+                              to={`/grants/${grant.slug}`}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <Button variant="outline" size="sm" className="animate-glow-pulse hover:scale-105 transition-transform text-[#f97316] border-[#f97316] hover:bg-[#f97316]/10">View</Button>
                             </Link>
                           </td>
                         </tr>

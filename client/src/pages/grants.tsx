@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Card,
   CardContent,
@@ -19,10 +19,12 @@ import { Filter, Search, ExternalLink } from "lucide-react";
 import { grantProjects, GrantProject } from "@/data/grantProjects";
 
 const GrantCard = ({ project }: { project: GrantProject }) => {
-  const navigate = (e: React.MouseEvent) => {
+  const navigate = useNavigate();
+  
+  const handleCardClick = (e: React.MouseEvent) => {
     // Only navigate if the click was not on the website link or details link
     if (!(e.target as HTMLElement).closest('a')) {
-      window.location.href = `/grants/${project.slug}`;
+      navigate(`/grants/${project.slug}`);
     }
   };
 
