@@ -10,7 +10,7 @@ const Resources = () => {
     <div className="max-w-7xl mx-auto">
       <div className="mb-8">
         <motion.h1 
-          className="text-3xl font-bold mb-2 text-gradient"
+          className="text-3xl font-bold mb-2 text-white"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -18,21 +18,17 @@ const Resources = () => {
           Metaplex Resources
         </motion.h1>
         <motion.p 
-          className="text-[#b5bfcc] flex items-center"
+          className="text-[#b5bfcc]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Official developer resources for Metaplex technologies. 
-          <a 
-            href="https://www.metaplex.com" 
+          Official developer resources for <a 
+            href="https://developers.metaplex.com" 
             target="_blank"
             rel="noopener noreferrer" 
-            className="ml-2 text-[#3b82f6] hover:text-[#60a5fa] transition-colors inline-flex items-center group"
-          >
-            Visit Official Website 
-            <Globe size={14} className="ml-1.5 group-hover:translate-x-0.5 transition-transform" />
-          </a>
+            className="text-[#3b82f6] hover:text-[#60a5fa] transition-colors"
+          >Metaplex technologies</a>
         </motion.p>
       </div>
 
