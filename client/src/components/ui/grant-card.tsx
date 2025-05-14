@@ -17,7 +17,7 @@ const GrantCard: React.FC<GrantCardProps> = ({ grant }) => {
       transition={{ duration: 0.5 }}
       whileHover={{ scale: 1.03 }}
     >
-      <Card className="overflow-hidden h-full transition hover:shadow-lg">
+      <Card className="overflow-hidden h-full transition hover:shadow-lg border border-emerald-700 bg-emerald-800">
         <div className="w-full h-48 overflow-hidden">
           <img 
             src={grant.imageUrl} 
@@ -27,11 +27,11 @@ const GrantCard: React.FC<GrantCardProps> = ({ grant }) => {
         </div>
         <CardContent className="p-6">
           <div className="flex justify-between items-start mb-2">
-            <h3 className="text-lg font-bold text-secondary">{grant.name}</h3>
+            <h3 className="text-lg font-bold text-orange-200">{grant.name}</h3>
             <Badge 
               className={grant.techStack === "Core" 
-                ? "bg-green-100 text-green-800" 
-                : "bg-blue-100 text-blue-800"
+                ? "bg-green-700 text-green-100" 
+                : "bg-blue-700 text-blue-100"
               } 
               variant="outline"
             >
@@ -39,18 +39,18 @@ const GrantCard: React.FC<GrantCardProps> = ({ grant }) => {
             </Badge>
           </div>
           <div className="mb-3">
-            <Badge className="bg-gray-100 text-gray-800 mr-2">{grant.sector}</Badge>
+            <Badge className="bg-emerald-700 text-emerald-100 mr-2">{grant.sector}</Badge>
           </div>
-          <p className="text-gray-600 text-sm mb-4">
+          <p className="text-emerald-200 text-sm mb-4">
             {truncateText(grant.summary, 100)}
           </p>
           <div className="flex justify-between items-center">
             <div className="flex items-center">
-              <span className="text-sm font-medium text-gray-900">{grant.totalValue}</span>
+              <span className="text-sm font-medium text-orange-300">{grant.totalValue}</span>
             </div>
             <Link 
               href={`/grants/${grant.slug}`}
-              className="text-secondary hover:text-secondary-light text-sm font-medium"
+              className="text-orange-400 hover:text-orange-300 text-sm font-medium"
             >
               Learn More
             </Link>

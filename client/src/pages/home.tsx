@@ -55,8 +55,8 @@ const AnimatedCounter = ({ value, duration = 2000 }: { value: number, duration?:
 // StatItem component
 const StatItem = ({ label, value }: { label: string, value: number | string }) => {
   return (
-    <div className="bg-emerald-600 rounded-lg shadow-lg p-5 text-center transform transition-all hover:scale-105 border border-emerald-500">
-      <div className="text-2xl md:text-3xl font-bold text-orange-200 mb-2">
+    <div className="bg-emerald-700 rounded-lg shadow-lg p-5 text-center transform transition-all hover:scale-105 border border-emerald-600">
+      <div className="text-2xl md:text-3xl font-bold text-white mb-2">
         {typeof value === 'number' ? <AnimatedCounter value={value} /> : value}
       </div>
       <div className="text-emerald-100 text-sm font-medium">{label}</div>
@@ -77,18 +77,18 @@ const Home = () => {
         <div className="flex justify-center mb-6">
           <MetaplexLogo className="h-10 w-auto" />
         </div>
-        <h1 className="text-4xl md:text-6xl font-bold text-orange-200 mb-6">
+        <h1 className="text-4xl md:text-6xl font-bold text-emerald-800 mb-6">
           MetaplexDAO Grants — Cohort 1
         </h1>
         <div className="mb-4 flex flex-col items-center">
-          <div className="bg-emerald-600 p-3 rounded-lg inline-block mb-3">
+          <div className="bg-emerald-100 p-3 rounded-lg inline-block mb-3 border border-emerald-200">
             <IslandDaoLogo className="h-16 w-auto" />
           </div>
-          <h2 className="text-xl md:text-2xl text-emerald-200">
+          <h2 className="text-xl md:text-2xl text-emerald-700">
             Managed by IslandDAO
           </h2>
         </div>
-        <p className="text-xl text-emerald-300 max-w-3xl mx-auto mb-12">
+        <p className="text-xl text-emerald-600 max-w-3xl mx-auto mb-12">
           Showcasing 12 projects funded to grow the Metaplex protocol
         </p>
         
