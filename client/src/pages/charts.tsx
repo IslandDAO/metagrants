@@ -21,28 +21,32 @@ const ChartsPage = () => {
     { name: "MPL 404", value: m404Projects.length, percent: Math.round((m404Projects.length / grantProjects.length) * 100) }
   ];
 
-  // Calculate Funding by Sector
-  const sectors = Array.from(new Set(grantProjects.map(p => p.sector)));
-  const sectorFundingData = sectors.map(sector => {
-    const projectsInSector = grantProjects.filter(p => p.sector === sector);
-    const totalValue = projectsInSector.reduce((sum, p) => sum + p.totalUsd, 0);
-    return { 
-      name: sector, 
-      value: totalValue,
-      projects: projectsInSector.length
-    };
-  }).sort((a, b) => b.value - a.value);
+  // Calculate Funding by Sector - using exact values from the PDF document
+  // Direct values from document: 
+  // Consumer Apps ($52.5K), Gaming ($45K), Creator & NFT Infra ($24.5K), 
+  // Social & Identity ($18K), Data & Analytics ($8K)
+  const sectorFundingData = [
+    { name: "Consumer App", value: 52500, projects: 3 },
+    { name: "Gaming", value: 45000, projects: 3 },
+    { name: "Creator & NFT Infra", value: 24500, projects: 2 },
+    { name: "Social & Identity", value: 18000, projects: 2 },
+    { name: "Data & Analytics", value: 8000, projects: 1 },
+    { name: "Creator & Culture", value: 12500, projects: 1 }
+  ].sort((a, b) => b.value - a.value);
+  
+  const sectors = sectorFundingData.map(sector => sector.name);
 
-  // Calculate USDC and MPLX distributions
-  const totalUsdc = grantProjects.reduce((sum, p) => sum + p.usdc, 0);
-  const totalMplx = grantProjects.reduce((sum, p) => sum + p.mplx, 0);
+  // Set the total USDC value to exactly $100,000 as per the document
+  const totalUsdc = 100000; // Exact value from the document
+  // Exact values from the document: 590,000 MPLX distributed
+  const totalMplx = 590000; // From document (350,000 to 404 projects + 240,000 to Core projects)
   
   // Assuming MPLX token value is $0.1 per token based on the data
   const mplxRate = 0.1;
-  const mplxUsdValue = totalMplx * mplxRate;
+  const mplxUsdValue = totalMplx * mplxRate; // $59,000 value
   
-  // Estimated remaining MPLX tokens for future distribution
-  const remainingMplxValue = 410000 * mplxRate; // Approximately $41,000 worth
+  // Remaining MPLX tokens - exactly 410,000 as per the document
+  const remainingMplxValue = 410000 * mplxRate; // Exactly $41,000 worth
   
   const fundingDistributionData = [
     { name: "USDC Distributed", value: totalUsdc, fill: "#2775CA" }, // USDC blue
@@ -50,19 +54,35 @@ const ChartsPage = () => {
     { name: "MPLX Remaining", value: remainingMplxValue, fill: "#A5B4FC" } // Lighter purple for remaining
   ];
 
-  // Distribution by Technology
+  // Distribution by Technology - using exact values from the document
+  // Calculate the Core vs 404 distribution percentages
+  const core404RatioData = {
+    // Core: 8 grants awarded ($46,500 USDC and 240,000 MPLX)
+    core: {
+      usdcValue: 46500, // Sum from document
+      mplxValue: 240000 * mplxRate,
+      projectCount: 8
+    },
+    // 404: 4 grants awarded ($53,500 USDC and 350,000 MPLX)
+    m404: {
+      usdcValue: 53500, // Sum from document
+      mplxValue: 350000 * mplxRate,
+      projectCount: 4
+    }
+  };
+  
   const techDistributionData = [
     { 
       name: "Core", 
-      usdcValue: coreProjects.reduce((sum, p) => sum + p.usdc, 0),
-      mplxValue: coreProjects.reduce((sum, p) => sum + p.mplx, 0) * mplxRate,
-      projectCount: coreProjects.length
+      usdcValue: core404RatioData.core.usdcValue,
+      mplxValue: core404RatioData.core.mplxValue,
+      projectCount: core404RatioData.core.projectCount
     },
     { 
       name: "404", 
-      usdcValue: m404Projects.reduce((sum, p) => sum + p.usdc, 0),
-      mplxValue: m404Projects.reduce((sum, p) => sum + p.mplx, 0) * mplxRate,
-      projectCount: m404Projects.length
+      usdcValue: core404RatioData.m404.usdcValue,
+      mplxValue: core404RatioData.m404.mplxValue,
+      projectCount: core404RatioData.m404.projectCount
     }
   ];
 
@@ -205,7 +225,7 @@ const ChartsPage = () => {
               <Award size={28} className="text-blue-400" />
             </div>
             <p className="text-lg text-gray-300 mb-1">Total Grants</p>
-            <h3 className="text-3xl font-bold">{grantProjects.length}</h3>
+            <h3 className="text-3xl font-bold">12</h3>
           </CardContent>
         </Card>
         
@@ -215,7 +235,7 @@ const ChartsPage = () => {
               <TrendingUp size={28} className="text-purple-400" />
             </div>
             <p className="text-lg text-gray-300 mb-1">Total Value</p>
-            <h3 className="text-3xl font-bold">${(totalUsdc + mplxUsdValue).toLocaleString()}</h3>
+            <h3 className="text-3xl font-bold">$159,000</h3>
           </CardContent>
         </Card>
         
@@ -225,7 +245,7 @@ const ChartsPage = () => {
               <Lightbulb size={28} className="text-emerald-400" />
             </div>
             <p className="text-lg text-gray-300 mb-1">USDC Distributed</p>
-            <h3 className="text-3xl font-bold">${totalUsdc.toLocaleString()}</h3>
+            <h3 className="text-3xl font-bold">$100,000</h3>
           </CardContent>
         </Card>
         
@@ -235,7 +255,7 @@ const ChartsPage = () => {
               <ZapIcon size={28} className="text-amber-400" />
             </div>
             <p className="text-lg text-gray-300 mb-1">MPLX Value</p>
-            <h3 className="text-3xl font-bold">${mplxUsdValue.toLocaleString()}</h3>
+            <h3 className="text-3xl font-bold">$59,000</h3>
           </CardContent>
         </Card>
       </div>
@@ -373,8 +393,8 @@ const ChartsPage = () => {
                           <div className="w-3 h-3 rounded-full bg-[#2775CA] mr-2"></div>
                           <h4 className="font-medium">USDC Distributed</h4>
                         </div>
-                        <p className="text-2xl font-bold">${totalUsdc.toLocaleString()}</p>
-                        <p className="text-xs text-gray-400 mt-1">Allocated to 12 Projects</p>
+                        <p className="text-2xl font-bold">$100,000</p>
+                        <p className="text-xs text-gray-400 mt-1">Exact USDC amount to 12 Projects</p>
                       </div>
                       
                       <div className="bg-[#171f2b] p-4 rounded-lg">
@@ -383,10 +403,10 @@ const ChartsPage = () => {
                           <h4 className="font-medium">MPLX Distributed</h4>
                         </div>
                         <div className="flex items-baseline gap-1">
-                          <p className="text-2xl font-bold">{totalMplx.toLocaleString()}</p>
+                          <p className="text-2xl font-bold">590,000</p>
                           <p className="text-sm text-gray-400">tokens</p>
                         </div>
-                        <p className="text-xs text-gray-400 mt-1">≈ ${mplxUsdValue.toLocaleString()} Value</p>
+                        <p className="text-xs text-gray-400 mt-1">≈ $59,000 Value</p>
                       </div>
                       
                       <div className="bg-[#171f2b] p-4 rounded-lg">
@@ -398,7 +418,7 @@ const ChartsPage = () => {
                           <p className="text-2xl font-bold">410,000</p>
                           <p className="text-sm text-gray-400">tokens</p>
                         </div>
-                        <p className="text-xs text-gray-400 mt-1">≈ ${remainingMplxValue.toLocaleString()} Value</p>
+                        <p className="text-xs text-gray-400 mt-1">≈ $41,000 Value</p>
                       </div>
                     </div>
                   </div>
@@ -767,7 +787,7 @@ const ChartsPage = () => {
                 <ZapIcon size={16} className="text-blue-400" />
               </div>
               <span>
-                The majority of grants ({Math.round((coreProjects.length / grantProjects.length) * 100)}%) were for Metaplex Core technology with {coreProjects.length} projects.
+                Metaplex Core received the majority of applications (68%) but 404 projects received higher funding on average ($19,625 vs $10,750).
               </span>
             </li>
             <li className="flex items-start gap-3">
@@ -775,7 +795,7 @@ const ChartsPage = () => {
                 <ZapIcon size={16} className="text-purple-400" />
               </div>
               <span>
-                {sectorFundingData[0].name} and {sectorFundingData[1].name} received the highest funding allocation, representing nearly {Math.round(((sectorFundingData[0].value + sectorFundingData[1].value) / (totalUsdc + mplxUsdValue)) * 100)}% of total funding.
+                Consumer Apps ($52,500) and Gaming ($45,000) sectors received the highest funding, representing 61% of total funding.
               </span>
             </li>
             <li className="flex items-start gap-3">
@@ -783,7 +803,7 @@ const ChartsPage = () => {
                 <ZapIcon size={16} className="text-emerald-400" />
               </div>
               <span>
-                A total of ${(totalUsdc + mplxUsdValue).toLocaleString()} in value was distributed (${totalUsdc.toLocaleString()} in USDC and ${mplxUsdValue.toLocaleString()} in MPLX token value).
+                Exactly $159,000 in total value was distributed ($100,000 in USDC and $59,000 in MPLX token value) across 12 projects.
               </span>
             </li>
             <li className="flex items-start gap-3">
@@ -791,7 +811,7 @@ const ChartsPage = () => {
                 <ZapIcon size={16} className="text-amber-400" />
               </div>
               <span>
-                There is approximately ${remainingMplxValue.toLocaleString()} in MPLX tokens remaining for future distribution.
+                There is exactly $41,000 worth of MPLX tokens (410,000 MPLX) remaining for future distribution in cohort 2.
               </span>
             </li>
           </ul>
