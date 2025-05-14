@@ -1,5 +1,6 @@
 import TopNav from "./top-nav";
 import Footer from "./footer";
+import { ParticlesBackground } from "../ui/particles-background";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -7,7 +8,10 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen bg-[#121820] flex flex-col">
+    <div className="min-h-screen bg-[#121820] flex flex-col relative overflow-hidden">
+      {/* Particle Background */}
+      <ParticlesBackground />
+      
       {/* Top Navigation Bar */}
       <TopNav />
       

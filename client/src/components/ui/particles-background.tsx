@@ -31,13 +31,13 @@ export function ParticlesBackground({ className }: ParticlesBackgroundProps) {
           fpsLimit: 60,
           particles: {
             color: {
-              value: "#3c4759",
+              value: ["#3c4759", "#3b82f6", "#8b5cf6", "#f97316"],
             },
             links: {
               color: "#3c4759",
               distance: 150,
               enable: true,
-              opacity: 0.2,
+              opacity: 0.15,
               width: 1,
             },
             collisions: {
@@ -47,27 +47,41 @@ export function ParticlesBackground({ className }: ParticlesBackgroundProps) {
               direction: "none",
               enable: true,
               outModes: {
-                default: "bounce",
+                default: "out",
               },
               random: true,
-              speed: 0.5,
+              speed: 0.3,
               straight: false,
             },
             number: {
               density: {
                 enable: true,
-                area: 800,
+                area: 1000,
               },
-              value: 40,
+              value: 30,
             },
             opacity: {
-              value: 0.2,
+              value: 0.15,
+              random: true,
+              anim: {
+                enable: true,
+                speed: 0.2,
+                opacity_min: 0.05,
+                sync: false
+              }
             },
             shape: {
               type: "circle",
             },
             size: {
-              value: { min: 1, max: 2 },
+              value: { min: 0.5, max: 2 },
+              random: true,
+              anim: {
+                enable: true,
+                speed: 1,
+                size_min: 0.1,
+                sync: false
+              }
             },
           },
           detectRetina: true,
