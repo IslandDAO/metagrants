@@ -490,7 +490,7 @@ const Home = () => {
           </Link>
           
           <Link to="/team" className="group">
-            <div className="card-gradient rounded-xl p-6 shadow-lg border border-purple-500/20 h-full flex flex-col card-hover neon-glow">
+            <div className="card-gradient rounded-xl p-4 shadow-lg border border-purple-500/20 h-full flex flex-col card-hover neon-glow">
               <div className="w-24 h-24 flex items-center justify-center mb-2 mx-auto">
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center">
@@ -810,7 +810,7 @@ const Home = () => {
           </Link>
           
           <Link to="/charts" className="group">
-            <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-6 shadow-lg border border-emerald-500/20 h-full flex flex-col transition-all transform group-hover:scale-[1.02] group-hover:shadow-emerald-500/10">
+            <div className="card-gradient rounded-xl p-4 shadow-lg border border-emerald-500/20 h-full flex flex-col card-hover neon-glow">
               <div className="w-24 h-24 flex items-center justify-center mb-2 mx-auto">
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center">

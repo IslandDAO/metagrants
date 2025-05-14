@@ -92,7 +92,7 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
           <div className="h-6 w-px bg-[#3c4759] mx-1"></div>
           
           {/* Other navigation items grouped */}
-          <div className="flex space-x-1 ml-2 bg-[#212b3d] px-1 py-1 rounded-md border border-[#3c4759]">
+          <div className="flex space-x-1 ml-4 bg-[#212b3d] px-1 py-1 rounded-md border border-[#3c4759]">
             {navItems.slice(1).map((item) => (
               item.hasDropdown ? (
                 <div key={item.to} className="relative group">
