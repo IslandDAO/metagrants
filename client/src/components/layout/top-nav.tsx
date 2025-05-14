@@ -12,6 +12,7 @@ const TopNav = () => {
   const navItems = [
     { to: "/", label: "Home" },
     { to: "/grants", label: "Grantees" },
+    { to: "/charts", label: "Analytics" },
     { to: "/process", label: "Evaluation Process" },
     { to: "/team", label: "Team" },
     { to: "/learnings", label: "Learnings" },
