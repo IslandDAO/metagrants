@@ -33,29 +33,27 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
+      className="h-full"
     >
       <Card className="h-full bg-[#1c2431] border-[#364156] overflow-hidden relative">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
-        <CardContent className="p-6">
+        <CardContent className="p-6 flex flex-col h-full">
           <div className="flex flex-col items-center text-center mb-4">
-            <Avatar className="h-24 w-24 mb-4 ring-2 ring-indigo-500/30 ring-offset-2 ring-offset-[#1c2431]">
+            <Avatar className="h-20 w-20 mb-4 ring-2 ring-indigo-500/30 ring-offset-2 ring-offset-[#1c2431]">
               <AvatarImage src={member.imageUrl} alt={member.name} />
               <AvatarFallback className="bg-indigo-500/20 text-indigo-200">{initials}</AvatarFallback>
             </Avatar>
             <h3 className="text-xl font-bold text-[#f1f5fb]">{member.name}</h3>
-            <p className="text-indigo-300 text-sm font-medium">{member.title}</p>
+            <p className="text-indigo-300 text-sm font-medium mb-2">{member.title}</p>
           </div>
           
           <Collapsible 
             open={isOpen} 
             onOpenChange={setIsOpen}
-            className="mb-4"
+            className="flex-grow mb-4"
           >
-            <div className="text-[#b5bfcc] text-sm mb-2">
-              {member.bio.length > 100 
-                ? `${member.bio.substring(0, 100)}...` 
-                : member.bio
-              }
+            <div className="text-[#b5bfcc] text-sm mb-2 line-clamp-3">
+              {!isOpen && member.bio}
             </div>
             
             <CollapsibleContent className="text-[#b5bfcc] text-sm">
@@ -64,16 +62,14 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
               </div>
             </CollapsibleContent>
             
-            {member.bio.length > 100 && (
-              <CollapsibleTrigger className="flex items-center justify-center w-full mt-2 text-xs text-indigo-400 hover:text-indigo-300 transition-colors">
-                <span>{isOpen ? "Read less" : "Read more"}</span>
-                <ChevronDown className={`h-4 w-4 ml-1 transition-transform ${isOpen ? "rotate-180" : ""}`} />
-              </CollapsibleTrigger>
-            )}
+            <CollapsibleTrigger className="flex items-center justify-center w-full mt-2 text-xs text-indigo-400 hover:text-indigo-300 transition-colors">
+              <span>{isOpen ? "Read less" : "Read more"}</span>
+              <ChevronDown className={`h-4 w-4 ml-1 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+            </CollapsibleTrigger>
           </Collapsible>
           
           {member.expertise && member.expertise.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap gap-2 mt-auto">
               {member.expertise.map((skill) => (
                 <Badge 
                   key={skill} 
@@ -86,7 +82,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
             </div>
           )}
           
-          <div className="flex justify-center space-x-3 pt-2 border-t border-[#364156]">
+          <div className="flex justify-center space-x-3 pt-2 mt-4 border-t border-[#364156]">
             {member.twitter && (
               <a 
                 href={member.twitter}
@@ -94,7 +90,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 rel="noopener noreferrer"
                 className="text-[#b5bfcc] hover:text-blue-400 transition-colors"
               >
-                <Twitter size={18} />
+                <Twitter size={16} />
               </a>
             )}
             {member.linkedin && (
@@ -104,7 +100,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 rel="noopener noreferrer"
                 className="text-[#b5bfcc] hover:text-blue-400 transition-colors"
               >
-                <Linkedin size={18} />
+                <Linkedin size={16} />
               </a>
             )}
             {member.github && (
@@ -114,7 +110,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 rel="noopener noreferrer"
                 className="text-[#b5bfcc] hover:text-purple-400 transition-colors"
               >
-                <Github size={18} />
+                <Github size={16} />
               </a>
             )}
             {member.website && (
@@ -124,7 +120,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 rel="noopener noreferrer"
                 className="text-[#b5bfcc] hover:text-indigo-400 transition-colors"
               >
-                <Globe size={18} />
+                <Globe size={16} />
               </a>
             )}
             {member.email && (
@@ -132,7 +128,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 href={`mailto:${member.email}`}
                 className="text-[#b5bfcc] hover:text-green-400 transition-colors"
               >
-                <Mail size={18} />
+                <Mail size={16} />
               </a>
             )}
           </div>
@@ -177,17 +173,21 @@ const Team = () => {
         </TabsList>
         
         <TabsContent value="core">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {coreTeam.map((member) => (
-              <TeamMemberCard key={member.name} member={member} />
+          <div className="flex overflow-x-auto pb-6 gap-6 snap-x scrollbar-thin scrollbar-thumb-indigo-500/30 scrollbar-track-[#1a2436] pr-4 pt-2 pl-2 -ml-2 -mr-4">
+            {coreTeam.map((member, index) => (
+              <div key={member.name} className="min-w-[350px] w-[350px] snap-start flex-shrink-0 h-full">
+                <TeamMemberCard member={member} />
+              </div>
             ))}
           </div>
         </TabsContent>
         
         <TabsContent value="advisors">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {advisors.map((member) => (
-              <TeamMemberCard key={member.name} member={member} />
+          <div className="flex overflow-x-auto pb-6 gap-6 snap-x scrollbar-thin scrollbar-thumb-indigo-500/30 scrollbar-track-[#1a2436] pr-4 pt-2 pl-2 -ml-2 -mr-4">
+            {advisors.map((member, index) => (
+              <div key={member.name} className="min-w-[350px] w-[350px] snap-start flex-shrink-0 h-full">
+                <TeamMemberCard member={member} />
+              </div>
             ))}
           </div>
         </TabsContent>
