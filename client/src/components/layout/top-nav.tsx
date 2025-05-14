@@ -82,7 +82,7 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
             to="/"
             className={cn(
               "text-[#b5bfcc] hover:text-[#3b82f6] hover:bg-[#2a3341] rounded-md transition-all px-3 py-2 font-medium mr-6",
-              location.pathname === "/" && "text-[#3b82f6] border-b-2 border-[#3b82f6] bg-[#2a3341]/50"
+              location.pathname === "/" && "text-[#3b82f6] bg-[#2a3341]/50"
             )}
           >
             Home
@@ -93,66 +93,67 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
           
           {/* Other navigation items grouped */}
           <div className="flex space-x-1 ml-2 bg-[#212b3d] px-1 py-1 rounded-md border border-[#3c4759]">
-          {navItems.slice(1).map((item) => (
-            item.hasDropdown ? (
-              <div key={item.to} className="relative group">
-                <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
-                  <DropdownMenuTrigger asChild>
-                    <div
-                      className={cn(
-                        "flex items-center cursor-pointer text-[#b5bfcc] hover:text-[#3b82f6] hover:bg-[#2a3341] rounded transition-all px-2 py-1 font-medium",
-                        location.pathname.includes(item.to) && "text-[#3b82f6] bg-[#2a3341]/70"
-                      )}
-                    >
-                      {item.label}
-                      <ChevronDown className="ml-1 h-4 w-4" />
-                    </div>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-[#1c2431] border border-[#3c4759] p-1 min-w-[220px] mt-1">
-                    <DropdownMenuItem 
-                      className="focus:bg-[#2a3341] focus:text-[#3b82f6] text-[#b5bfcc] rounded-md mb-1"
-                      onSelect={() => setIsDropdownOpen(false)}
-                    >
-                      <Link 
-                        to={item.to} 
-                        className="w-full"
-                        onClick={() => setIsDropdownOpen(false)}
+            {navItems.slice(1).map((item) => (
+              item.hasDropdown ? (
+                <div key={item.to} className="relative group">
+                  <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
+                    <DropdownMenuTrigger asChild>
+                      <div
+                        className={cn(
+                          "flex items-center cursor-pointer text-[#b5bfcc] hover:text-[#3b82f6] hover:bg-[#2a3341] rounded transition-all px-2 py-1 font-medium",
+                          location.pathname.includes(item.to) && "text-[#3b82f6] bg-[#2a3341]/70"
+                        )}
                       >
-                        View All Grantees
-                      </Link>
-                    </DropdownMenuItem>
-                    <div className="h-px bg-[#3c4759] my-1" />
-                    {grantProjects.map((project) => (
+                        {item.label}
+                        <ChevronDown className="ml-1 h-4 w-4" />
+                      </div>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="bg-[#1c2431] border border-[#3c4759] p-1 min-w-[220px] mt-1">
                       <DropdownMenuItem 
-                        key={project.slug} 
-                        className="focus:bg-[#2a3341] focus:text-[#3b82f6] text-[#b5bfcc] rounded-md"
+                        className="focus:bg-[#2a3341] focus:text-[#3b82f6] text-[#b5bfcc] rounded-md mb-1"
                         onSelect={() => setIsDropdownOpen(false)}
                       >
                         <Link 
-                          to={`/grants/${project.slug}`} 
+                          to={item.to} 
                           className="w-full"
                           onClick={() => setIsDropdownOpen(false)}
                         >
-                          {project.name}
+                          View All Grantees
                         </Link>
                       </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </div>
-            ) : (
-              <Link
-                key={item.to}
-                to={item.to}
-                className={cn(
-                  "text-[#b5bfcc] hover:text-[#3b82f6] hover:bg-[#2a3341] rounded-md transition-all px-3 py-2 font-medium",
-                  location.pathname === item.to && "text-[#3b82f6] border-b-2 border-[#3b82f6] bg-[#2a3341]/50"
-                )}
-              >
-                {item.label}
-              </Link>
-            )
-          ))}
+                      <div className="h-px bg-[#3c4759] my-1" />
+                      {grantProjects.map((project) => (
+                        <DropdownMenuItem 
+                          key={project.slug} 
+                          className="focus:bg-[#2a3341] focus:text-[#3b82f6] text-[#b5bfcc] rounded-md"
+                          onSelect={() => setIsDropdownOpen(false)}
+                        >
+                          <Link 
+                            to={`/grants/${project.slug}`} 
+                            className="w-full"
+                            onClick={() => setIsDropdownOpen(false)}
+                          >
+                            {project.name}
+                          </Link>
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
+              ) : (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className={cn(
+                    "text-[#b5bfcc] hover:text-[#3b82f6] hover:bg-[#2a3341] rounded transition-all px-2 py-1 font-medium",
+                    location.pathname === item.to && "text-[#3b82f6] bg-[#2a3341]/70"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              )
+            ))}
+          </div>
         </div>
         
         {/* Mobile Menu Button */}
