@@ -309,14 +309,16 @@ const Dashboard = () => {
                         {grantProjects
                           .filter((grant: GrantProject) => grant.sector === sector.name)
                           .map((grant: GrantProject) => (
-                            <div key={grant.id} className="p-2 border rounded-md">
-                              <div className="flex justify-between items-center">
-                                <span className="font-medium">{grant.name}</span>
-                                <Badge variant="outline" className={grant.tech === "CORE" ? "bg-green-100 text-green-800" : "bg-blue-100 text-blue-800"}>
-                                  {grant.tech}
-                                </Badge>
+                            <Link key={grant.id} to={`/grants/${grant.slug}`} className="block">
+                              <div className="p-2 border rounded-md card-gradient card-hover neon-glow">
+                                <div className="flex justify-between items-center">
+                                  <span className="font-medium text-gradient">{grant.name}</span>
+                                  <Badge variant="outline" className={grant.tech === "CORE" ? "bg-green-500/20 text-green-400" : "bg-blue-500/20 text-blue-400"}>
+                                    {grant.tech}
+                                  </Badge>
+                                </div>
                               </div>
-                            </div>
+                            </Link>
                           ))}
                       </div>
                     </CardContent>
@@ -349,21 +351,21 @@ const Dashboard = () => {
                     </thead>
                     <tbody className="divide-y">
                       {grantProjects.map((grant: GrantProject) => (
-                        <tr key={grant.id} className="hover:bg-muted/50">
+                        <tr key={grant.id} className="hover:bg-[#232b3d] cursor-pointer transition-colors" onClick={() => window.location.href = `/grants/${grant.slug}`}>
                           <td className="p-3">
-                            <div className="font-medium">{grant.name}</div>
-                            <div className="text-sm text-gray-500 truncate max-w-[250px]">{grant.summary}</div>
+                            <div className="font-medium text-gradient">{grant.name}</div>
+                            <div className="text-sm text-[#b5bfcc] truncate max-w-[250px]">{grant.summary}</div>
                           </td>
                           <td className="p-3">{grant.sector}</td>
                           <td className="p-3">
-                            <Badge className={grant.tech === "CORE" ? "bg-green-100 text-green-800" : "bg-blue-100 text-blue-800"}>
+                            <Badge className={grant.tech === "CORE" ? "bg-green-500/20 text-green-400" : "bg-blue-500/20 text-blue-400"}>
                               {grant.tech}
                             </Badge>
                           </td>
                           <td className="p-3 text-right font-medium">{formatCurrency(grant.totalUsd)}</td>
                           <td className="p-3 text-center">
                             <Link to={`/grants/${grant.slug}`}>
-                              <Button variant="outline" size="sm">View</Button>
+                              <Button variant="outline" size="sm" className="animate-glow-pulse hover:scale-105 transition-transform">View</Button>
                             </Link>
                           </td>
                         </tr>
