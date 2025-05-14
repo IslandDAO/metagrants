@@ -16,13 +16,13 @@ interface ProjectCardProps {
 const getStatusColor = (status: string) => {
   switch (status) {
     case "Active":
-      return "bg-[#bce3c5] text-[#40526c]";
+      return "bg-[#3b82f6] text-[#f1f5fb]";
     case "Completed":
-      return "bg-[#a2dadb] text-[#40526c]";
+      return "bg-[#10b981] text-[#f1f5fb]";
     case "In Development":
-      return "bg-[#f7c6a3] text-[#40526c]";
+      return "bg-[#f97316] text-[#f1f5fb]";
     default:
-      return "bg-gray-100 text-[#40526c]";
+      return "bg-[#3c4759] text-[#f1f5fb]";
   }
 };
 
@@ -41,7 +41,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       transition={{ duration: 0.5 }}
       whileHover={{ scale: 1.03 }}
     >
-      <Card className="overflow-hidden h-full transition hover:shadow-lg border border-[#a2dadb] bg-white">
+      <Card className="overflow-hidden h-full transition hover:shadow-lg border border-[#3c4759] bg-[#1c2431]">
         <div className="w-full h-48 overflow-hidden">
           <img 
             src={imageUrl} 
@@ -51,22 +51,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
         <CardContent className="p-6">
           <div className="flex justify-between items-start mb-2">
-            <h3 className="text-lg font-bold text-[#40526c]">{name}</h3>
+            <h3 className="text-lg font-bold text-[#f1f5fb]">{name}</h3>
             <Badge className={getStatusColor(status)} variant="outline">
               {status}
             </Badge>
           </div>
-          <p className="text-[#40526c] text-sm mb-4">
+          <p className="text-[#b5bfcc] text-sm mb-4">
             {truncateText(description, 100)}
           </p>
           <div className="flex justify-between items-center">
             <div className="flex items-center">
-              <span className="text-sm font-medium text-[#c8444d]">{formatCurrency(fundingAmount)}</span>
-              <span className="text-xs text-[#40526c] ml-1">funding</span>
+              <span className="text-sm font-medium text-[#f97316]">{formatCurrency(fundingAmount)}</span>
+              <span className="text-xs text-[#b5bfcc] ml-1">funding</span>
             </div>
             <Link 
               to={`/projects/${id}`}
-              className="text-[#c8444d] hover:text-[#a03841] text-sm font-medium"
+              className="text-[#3b82f6] hover:text-[#60a5fa] text-sm font-medium"
             >
               Learn More
             </Link>

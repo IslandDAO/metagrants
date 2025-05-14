@@ -46,11 +46,11 @@ const GrantCard: React.FC<GrantCardProps> = ({ grant }) => {
           </p>
           <div className="flex justify-between items-center">
             <div className="flex items-center">
-              <span className="text-sm font-medium text-[#c8444d]">{grant.totalValue}</span>
+              <span className="text-sm font-medium text-[#f97316]">{grant.totalValue}</span>
             </div>
             <Link 
               to={`/grants/${grant.slug}`}
-              className="text-[#c8444d] hover:text-[#a03841] text-sm font-medium"
+              className="text-[#3b82f6] hover:text-[#60a5fa] text-sm font-medium"
             >
               Learn More
             </Link>
