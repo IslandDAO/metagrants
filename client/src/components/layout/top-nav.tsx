@@ -5,7 +5,11 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import MetaplexLogo from "../logos/metaplex-logo";
 
-const TopNav = () => {
+interface TopNavProps {
+  className?: string;
+}
+
+const TopNav: React.FC<TopNavProps> = ({ className }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   
@@ -23,7 +27,7 @@ const TopNav = () => {
   };
   
   return (
-    <nav className="bg-[#1c2431] shadow-md py-4 px-6 fixed top-0 left-0 right-0 z-30 border-b border-[#3c4759]">
+    <nav className={cn("bg-[#1c2431] shadow-md py-4 px-6 fixed top-0 left-0 right-0 z-30 border-b border-[#3c4759]", className)}>
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center">

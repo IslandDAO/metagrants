@@ -1,6 +1,6 @@
 import TopNav from "./top-nav";
 import Footer from "./footer";
-import { PalmTreeBackground } from "../ui/palm-tree-background-simple";
+import { PalmTreeBackground } from "../ui/palm-tree-absolute";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -13,7 +13,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <PalmTreeBackground />
       
       {/* Top Navigation Bar */}
-      <TopNav />
+      <TopNav className="relative z-20" />
       
       {/* Main content area */}
       <main className="flex-grow pt-24 px-4 md:px-8 pb-8 relative z-10">
