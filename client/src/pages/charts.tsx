@@ -893,125 +893,117 @@ const ChartsPage = () => {
               <CardDescription className="text-gray-300">Top funded projects by technology</CardDescription>
             </CardHeader>
             <CardContent className="pt-6">
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="w-full md:w-[70%]">
-                  <ResponsiveContainer width="100%" height={400}>
-                    <RadarChart 
-                      cx="50%" 
-                      cy="50%" 
-                      outerRadius="70%" 
-                      data={projectsByFunding}
-                    >
-                      <defs>
-                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                          <feGaussianBlur stdDeviation="8" result="blur" />
-                          <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                        </filter>
-                        <linearGradient id="coreAreaGradient" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#6366F1" stopOpacity={0.8} />
-                          <stop offset="100%" stopColor="#6366F1" stopOpacity={0.4} />
-                        </linearGradient>
-                        <linearGradient id="m404AreaGradient" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#10B981" stopOpacity={0.8} />
-                          <stop offset="100%" stopColor="#10B981" stopOpacity={0.4} />
-                        </linearGradient>
-                        <filter id="coreDropShadow" height="130%">
-                          <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
-                          <feOffset dx="0" dy="1" result="offsetblur" />
-                          <feComponentTransfer>
-                            <feFuncA type="linear" slope="0.5" />
-                          </feComponentTransfer>
-                          <feMerge>
-                            <feMergeNode />
-                            <feMergeNode in="SourceGraphic" />
-                          </feMerge>
-                        </filter>
-                      </defs>
-                      <PolarGrid stroke="#2a3444" />
-                      <PolarAngleAxis
-                        dataKey="name"
-                        tick={{ fontSize: 12, fill: "#FFFFFF", fontWeight: 500 }}
-                        stroke="#364156"
-                      />
-                      <PolarRadiusAxis angle={30} domain={[0, 25000]} stroke="#364156" />
-                      <Radar
-                        name="Total Funding"
-                        dataKey="totalUsd"
-                        stroke={(entry) => entry.tech === "CORE" ? "#6366F1" : "#10B981"}
-                        fill={(entry) => entry.tech === "CORE" ? "url(#coreAreaGradient)" : "url(#m404AreaGradient)"}
-                        strokeWidth={2}
-                        filter="url(#coreDropShadow)"
-                      />
-                      <Tooltip 
-                        formatter={(value, name, entry) => [`$${value.toLocaleString()}`, name]}
-                        contentStyle={{ 
-                          backgroundColor: 'rgba(18, 24, 32, 0.9)', 
-                          backdropFilter: 'blur(8px)',
-                          border: 'none', 
-                          color: 'white',
-                          boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
-                          padding: '12px',
-                          borderRadius: '8px'
-                        }}
-                      />
-                    </RadarChart>
-                  </ResponsiveContainer>
-                </div>
-                <div className="w-full md:w-[30%] flex flex-col justify-center">
-                  <div className="space-y-4">
-                    <div className="bg-[#151e2a] rounded-lg p-4">
-                      <h3 className="text-lg font-semibold text-white mb-2">Top Funded Projects</h3>
-                      <div className="space-y-3">
-                        {projectsByFunding
-                          .sort((a, b) => b.totalUsd - a.totalUsd)
-                          .slice(0, 3)
-                          .map((project, index) => (
-                            <div key={`top-project-${index}`} className="flex items-center gap-3">
-                              <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                                project.tech === "CORE" ? "bg-indigo-500/20" : "bg-emerald-500/20"
-                              }`}>
-                                <span className={`font-bold text-sm ${
-                                  project.tech === "CORE" ? "text-indigo-400" : "text-emerald-400"
-                                }`}>{index + 1}</span>
-                              </div>
+              <div>
+                <div className="overflow-hidden rounded-lg bg-gradient-to-b from-[#161f2d] to-[#121824]">
+                  <div className="px-4 py-2 bg-[#1a2537] flex justify-between items-center">
+                    <div className="flex items-center gap-2">
+                      <div className="h-3 w-3 rounded-full bg-blue-500"></div>
+                      <h3 className="text-sm font-medium text-white">Top Funded Projects by Category</h3>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-1">
+                        <div className="h-2 w-2 rounded-full bg-indigo-500"></div>
+                        <span className="text-xs text-gray-300">Core</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <div className="h-2 w-2 rounded-full bg-emerald-500"></div>
+                        <span className="text-xs text-gray-300">404</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="p-5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                      {projectsByFunding
+                        .sort((a, b) => b.totalUsd - a.totalUsd)
+                        .slice(0, 6)
+                        .map((project, index) => (
+                          <div 
+                            key={`project-card-${index}`} 
+                            className={`relative overflow-hidden rounded-lg p-4 transition-all shadow-lg
+                              ${project.tech === "CORE" 
+                                ? "bg-gradient-to-br from-indigo-900/20 to-indigo-900/5 border border-indigo-800/30" 
+                                : "bg-gradient-to-br from-emerald-900/20 to-emerald-900/5 border border-emerald-800/30"
+                              }
+                            `}
+                            style={{
+                              boxShadow: project.tech === "CORE" 
+                                ? "0 4px 20px rgba(99, 102, 241, 0.15)" 
+                                : "0 4px 20px rgba(16, 185, 129, 0.15)"
+                            }}
+                          >
+                            <div className={`absolute top-0 right-0 w-16 h-16 opacity-30 -mt-8 -mr-8 rounded-full
+                              ${project.tech === "CORE" ? "bg-indigo-600" : "bg-emerald-600"}
+                            `}></div>
+                            
+                            <div className="flex justify-between items-start mb-3">
+                              <h4 className="font-bold text-lg text-white leading-tight pr-5">
+                                {project.name}
+                              </h4>
+                              <span className={`text-xs px-2 py-1 rounded-md 
+                                ${project.tech === "CORE" 
+                                  ? "bg-indigo-500/20 text-indigo-300 border border-indigo-500/30" 
+                                  : "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
+                                }`}>
+                                {project.tech}
+                              </span>
+                            </div>
+                            
+                            <div className="flex items-end justify-between">
                               <div>
-                                <p className="font-medium text-white">{project.name}</p>
-                                <div className="flex items-center gap-2">
-                                  <span className={`text-xs px-2 py-0.5 rounded-full ${
-                                    project.tech === "CORE" 
-                                      ? "bg-indigo-500/20 text-indigo-300" 
-                                      : "bg-emerald-500/20 text-emerald-300"
-                                  }`}>
-                                    {project.tech}
-                                  </span>
-                                  <span className="text-blue-300 font-medium">${project.totalUsd.toLocaleString()}</span>
+                                <p className="text-sm text-gray-400">{project.sector}</p>
+                              </div>
+                              <div className="text-right">
+                                <p className={`text-xl font-bold 
+                                  ${project.tech === "CORE" ? "text-indigo-300" : "text-emerald-300"}`}>
+                                  ${(project.totalUsd / 1000).toFixed(1)}k
+                                </p>
+                                <div className="w-full bg-gray-800 h-1 mt-2 rounded-full overflow-hidden">
+                                  <div 
+                                    className={`h-full ${project.tech === "CORE" ? "bg-indigo-500" : "bg-emerald-500"}`}
+                                    style={{ 
+                                      width: `${(project.totalUsd / 25000) * 100}%`,
+                                    }}
+                                  ></div>
                                 </div>
                               </div>
                             </div>
-                          ))
-                        }
+                          </div>
+                        ))
+                      }
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Total funding display */}
+                <div className="mt-5 grid grid-cols-1 md:grid-cols-4 gap-4">
+                  <div className="md:col-span-2 flex-1 bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-4 rounded-lg border border-blue-800/30">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <p className="text-sm text-gray-400">Total Funding</p>
+                        <p className="text-3xl font-bold text-white mt-1">$100,000</p>
+                      </div>
+                      <div className="h-12 w-12 bg-blue-500/20 rounded-full flex items-center justify-center">
+                        <TrendingUp className="h-6 w-6 text-blue-400" />
                       </div>
                     </div>
-                    <div className="bg-[#151e2a] rounded-lg p-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <h4 className="text-sm font-medium text-gray-300">Tech Distribution</h4>
-                      </div>
-                      <div className="flex gap-4 items-center">
-                        <div className="w-1/2">
-                          <div className="flex items-center gap-2">
-                            <div className="w-3 h-3 rounded-full bg-indigo-500"></div>
-                            <span className="text-sm text-gray-300">Core</span>
-                          </div>
-                          <div className="flex items-center gap-2 mt-2">
-                            <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
-                            <span className="text-sm text-gray-300">404</span>
-                          </div>
-                        </div>
-                        <div className="w-1/2">
-                          <p className="text-right text-xl font-bold text-white">$100k</p>
-                          <p className="text-right text-xs text-gray-400">Total funding</p>
-                        </div>
-                      </div>
+                  </div>
+                  
+                  <div className="flex-1 bg-gradient-to-r from-indigo-900/20 to-indigo-900/5 p-4 rounded-lg border border-indigo-800/30">
+                    <p className="text-sm text-gray-400">Core Projects</p>
+                    <p className="text-2xl font-bold text-indigo-300 mt-1">$60,500</p>
+                    <div className="flex items-center mt-2">
+                      <div className="h-1.5 bg-indigo-500 rounded-full w-2/3"></div>
+                      <p className="text-xs ml-3 text-indigo-300">61%</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex-1 bg-gradient-to-r from-emerald-900/20 to-emerald-900/5 p-4 rounded-lg border border-emerald-800/30">
+                    <p className="text-sm text-gray-400">404 Projects</p>
+                    <p className="text-2xl font-bold text-emerald-300 mt-1">$39,500</p>
+                    <div className="flex items-center mt-2">
+                      <div className="h-1.5 bg-emerald-500 rounded-full w-1/3"></div>
+                      <p className="text-xs ml-3 text-emerald-300">39%</p>
                     </div>
                   </div>
                 </div>
