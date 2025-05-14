@@ -134,10 +134,9 @@ const Home = () => {
                     <img 
                       src={palmPixelArt} 
                       alt="Pixel Art Palm Tree" 
-                      className="w-auto h-auto object-contain" 
+                      className="w-full h-full object-contain" 
                       style={{
-                        imageRendering: "pixelated",
-                        transform: "scale(1.5)"
+                        imageRendering: "pixelated"
                       }}
                     />
                   </div>
