@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Twitter, Github, MessageCircle } from "lucide-react";
 import islandDaoLogo from "@/assets/logos/island-dao-logo.png";
+import metaplexLogo from "@/assets/logos/metaplex-logo.jpg";
 
 const Footer = () => {
   return (
@@ -9,6 +10,11 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           {/* Logo */}
           <div className="flex items-center">
+            <img 
+              src={metaplexLogo} 
+              alt="Metaplex Logo" 
+              className="h-6 w-6 rounded-full mr-2 border border-gray-700"
+            />
             <span className="text-lg font-bold text-[#f1f5fb]">MetaplexDAO</span>
           </div>
           

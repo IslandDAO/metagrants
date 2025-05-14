@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import islandDaoLogo from "@/assets/logos/island-dao-logo.png";
+import metaplexLogo from "@/assets/logos/metaplex-logo.jpg";
 
 interface TopNavProps {
   className?: string;
@@ -32,6 +33,11 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
         {/* Logo */}
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
+            <img 
+              src={metaplexLogo} 
+              alt="Metaplex Logo" 
+              className="h-7 w-7 rounded-full mr-2 border border-gray-700"
+            />
             <span className="text-xl font-bold text-[#f1f5fb]">MetaplexDAO Grants</span>
           </Link>
           <div className="hidden md:flex items-center ml-3 border-l border-[#3c4759] pl-3">
