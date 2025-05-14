@@ -19,6 +19,13 @@ import { Filter, Search, ExternalLink } from "lucide-react";
 import { grantProjects, GrantProject } from "@/data/grantProjects";
 
 const GrantCard = ({ project }: { project: GrantProject }) => {
+  const navigate = (e: React.MouseEvent) => {
+    // Only navigate if the click was not on the website link or details link
+    if (!(e.target as HTMLElement).closest('a')) {
+      window.location.href = `/grants/${project.slug}`;
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -26,7 +33,10 @@ const GrantCard = ({ project }: { project: GrantProject }) => {
       transition={{ duration: 0.5 }}
       whileHover={{ scale: 1.03 }}
     >
-      <Card className="overflow-hidden h-full card-gradient card-hover neon-glow border-[#3c4759]">
+      <Card 
+        className="overflow-hidden h-full card-gradient card-hover neon-glow border-[#3c4759] cursor-pointer"
+        onClick={handleCardClick}
+      >
         <CardContent className="p-6">
           <div className="flex justify-between items-start mb-3">
             <h3 className="text-xl font-bold text-[#f1f5fb]">{project.name}</h3>
@@ -65,6 +75,7 @@ const GrantCard = ({ project }: { project: GrantProject }) => {
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-[#b5bfcc] hover:text-[#f97316] transition-colors animate-glow-pulse"
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <ExternalLink size={16} className="hover:scale-110 transition-transform" />
                     </a>
@@ -72,6 +83,7 @@ const GrantCard = ({ project }: { project: GrantProject }) => {
                   <Link 
                     to={`/grants/${project.slug}`}
                     className="text-[#f97316] hover:text-[#fb923c] text-sm font-medium transition-colors animate-glow-pulse flex items-center gap-1 hover:underline"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     Details <span className="text-xs">→</span>
                   </Link>
