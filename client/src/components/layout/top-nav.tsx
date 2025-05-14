@@ -96,7 +96,11 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
                       className="focus:bg-[#2a3341] focus:text-[#3b82f6] text-[#b5bfcc] rounded-md mb-1"
                       onSelect={() => setIsDropdownOpen(false)}
                     >
-                      <Link to={item.to} className="w-full">
+                      <Link 
+                        to={item.to} 
+                        className="w-full"
+                        onClick={() => setIsDropdownOpen(false)}
+                      >
                         View All Grantees
                       </Link>
                     </DropdownMenuItem>
@@ -107,7 +111,11 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
                         className="focus:bg-[#2a3341] focus:text-[#3b82f6] text-[#b5bfcc] rounded-md"
                         onSelect={() => setIsDropdownOpen(false)}
                       >
-                        <Link to={`/grants/${project.slug}`} className="w-full">
+                        <Link 
+                          to={`/grants/${project.slug}`} 
+                          className="w-full"
+                          onClick={() => setIsDropdownOpen(false)}
+                        >
                           {project.name}
                         </Link>
                       </DropdownMenuItem>

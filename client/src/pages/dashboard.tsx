@@ -373,7 +373,7 @@ const Dashboard = () => {
                     </thead>
                     <tbody className="divide-y">
                       {grantProjects.map((grant: GrantProject) => (
-                        <tr key={grant.id} className="hover:bg-[#232b3d] cursor-pointer transition-colors" onClick={() => window.location.href = `/grants/${grant.slug}`}>
+                        <tr key={grant.id} className="hover:bg-[#232b3d] cursor-pointer transition-colors relative hover-neon-table" onClick={() => window.location.href = `/grants/${grant.slug}`}>
                           <td className="p-3">
                             <div className="font-medium text-gradient">{grant.name}</div>
                             <div className="text-sm text-[#b5bfcc] truncate max-w-[250px]">{grant.summary}</div>

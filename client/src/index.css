@@ -88,6 +88,14 @@
     @apply opacity-100;
   }
   
+  .hover-neon-table {
+    @apply relative transition-all;
+  }
+  
+  .hover-neon-table:hover {
+    box-shadow: inset 0 0 10px 1px rgba(59, 130, 246, 0.2);
+  }
+  
   .section-heading {
     @apply text-2xl font-bold text-[#f1f5fb] mb-4 flex items-center;
   }
