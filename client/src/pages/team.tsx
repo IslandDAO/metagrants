@@ -17,8 +17,23 @@ import {
 } from "@/components/ui/collapsible";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Twitter, Linkedin, Globe, Mail, Github, ChevronDown } from "lucide-react";
+import { Linkedin, Globe, Mail, Github, ChevronDown } from "lucide-react";
+
 import { team, TeamMember } from "@/data/team";
+
+// X logo SVG component
+const XLogo = ({ size = 18, className = "" }: { size?: number, className?: string }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="currentColor" 
+    className={className}
+  >
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 // Component for team member card
 const TeamMemberCard = ({ member }: { member: TeamMember }) => {
@@ -92,9 +107,9 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 href={member.twitter}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-[#b5bfcc] hover:text-blue-400 transition-colors"
+                className="text-[#b5bfcc] hover:text-gray-100 transition-colors"
               >
-                <Twitter size={18} />
+                <XLogo size={18} />
               </a>
             )}
             {member.linkedin && (
