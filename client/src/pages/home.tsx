@@ -169,16 +169,26 @@ const Home = () => {
               <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
                 <span className="text-orange-400 mr-2">
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 16v3M8 16v3M16 16v3M4 9h16M9 4h6M6 17h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2z" stroke="#fb923c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    {/* Coin outline */}
+                    <circle cx="12" cy="12" r="9" stroke="#fb923c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    {/* Inner circle/rim */}
+                    <circle cx="12" cy="12" r="7" stroke="#fb923c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    {/* Letter 'M' for MPLX */}
+                    <path d="M8 9.5L10 13.5L12 9.5L14 13.5L16 9.5" stroke="#fb923c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <filter id="glow-token">
-                      <feGaussianBlur stdDeviation="2.5" result="blur" />
+                      <feGaussianBlur stdDeviation="3" result="blur" />
                       <feMerge>
                         <feMergeNode in="blur" />
                         <feMergeNode in="SourceGraphic" />
                       </feMerge>
                     </filter>
                     <g filter="url(#glow-token)">
-                      <path d="M12 16v3M8 16v3M16 16v3M4 9h16M9 4h6M6 17h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2z" stroke="#fb923c" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.9"/>
+                      {/* Coin outline */}
+                      <circle cx="12" cy="12" r="9" stroke="#fb923c" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                      {/* Inner circle/rim */}
+                      <circle cx="12" cy="12" r="7" stroke="#fb923c" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                      {/* Letter 'M' for MPLX */}
+                      <path d="M8 9.5L10 13.5L12 9.5L14 13.5L16 9.5" stroke="#fb923c" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
                     </g>
                   </svg>
                 </span>
