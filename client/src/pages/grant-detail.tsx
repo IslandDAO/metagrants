@@ -261,32 +261,32 @@ const GrantDetail = () => {
                   </div>
                   
                   <div className="flex items-center">
-                    <Tag className="h-5 w-5 text-gray-400 mr-2" />
+                    <Tag className="h-5 w-5 text-[#f97316] mr-2" />
                     <div>
-                      <p className="text-sm text-gray-500">Tech Stack</p>
-                      <p className="font-medium">Metaplex {grant.tech}</p>
+                      <p className="text-sm text-[#8896b0]">Tech Stack</p>
+                      <p className="font-medium text-[#f1f5fb]">Metaplex {grant.tech}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center">
-                    <FileText className="h-5 w-5 text-gray-400 mr-2" />
+                    <FileText className="h-5 w-5 text-[#f97316] mr-2" />
                     <div>
-                      <p className="text-sm text-gray-500">Sector</p>
-                      <p className="font-medium">{grant.sector}</p>
+                      <p className="text-sm text-[#8896b0]">Sector</p>
+                      <p className="font-medium text-[#f1f5fb]">{grant.sector}</p>
                     </div>
                   </div>
                 </div>
               </CardContent>
             </Card>
             
-            <Card>
+            <Card className="border-[#3c4759] bg-[#1c2431]">
               <CardHeader>
-                <CardTitle>Project Links</CardTitle>
+                <CardTitle className="text-[#f1f5fb]">Project Links</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   {grant.links?.website && (
-                    <Button variant="outline" className="w-full justify-start" asChild>
+                    <Button variant="outline" className="w-full justify-start border-[#3c4759] text-[#f1f5fb] hover:text-[#f97316] hover:border-[#f97316]" asChild>
                       <a href={grant.links.website} target="_blank" rel="noopener noreferrer">
                         <svg className="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
@@ -300,7 +300,7 @@ const GrantDetail = () => {
                   )}
                   
                   {grant.links?.x && (
-                    <Button variant="outline" className="w-full justify-start" asChild>
+                    <Button variant="outline" className="w-full justify-start border-[#3c4759] text-[#f1f5fb] hover:text-[#f97316] hover:border-[#f97316]" asChild>
                       <a href={grant.links.x} target="_blank" rel="noopener noreferrer">
                         <svg className="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M18.244 2.25H5.756a3.56 3.56 0 0 0-3.53 3.568v12.364a3.56 3.56 0 0 0 3.53 3.568h12.488a3.56 3.56 0 0 0 3.53-3.568V5.818a3.56 3.56 0 0 0-3.53-3.568Zm-7.143 15.955a.936.936 0 0 1-.311.06H8.974c-.324 0-.438-.168-.209-.382l2.156-2.12c.088-.087.088-.262 0-.35L8.77 13.296c-.230-.214-.115-.382.21-.382h1.816c.115 0 .23.029.31.095l2.193 2.045c.344.323.344.85 0 1.173l-2.198 1.978Z"></path>
