@@ -64,10 +64,10 @@ const StatItem = ({ label, value }: { label: string, value: number | string }) =
 
 const Home = () => {
   return (
-    <div className="max-w-7xl mx-auto min-h-[calc(100vh-20rem)]">
+    <div className="max-w-7xl mx-auto">
       {/* Hero Section */}
       <motion.div 
-        className="pt-8 md:pt-16 text-center relative z-10"
+        className="pt-4 md:pt-8 text-center relative z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
@@ -81,7 +81,7 @@ const Home = () => {
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8 max-w-5xl mx-auto">
           <Link to="/grants" className="group">
             <div className="card-gradient rounded-xl p-5 shadow-lg border border-indigo-500/20 card-hover neon-glow">
               <div className="text-center flex flex-col items-center justify-center h-full">
@@ -215,7 +215,7 @@ const Home = () => {
         </div>
         
         {/* Feature section - Highlighting key areas */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto mb-6">
           <Link to="/grants" className="group">
             <div className="card-gradient rounded-xl p-6 shadow-lg border border-blue-500/20 h-full flex flex-col card-hover neon-glow">
               <div className="w-24 h-24 flex items-center justify-center mb-2 mx-auto">
