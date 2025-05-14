@@ -209,11 +209,11 @@ const Learnings = () => {
                   <TabsTrigger 
                     key={index} 
                     value={result.category}
-                    className="relative z-20 px-4 py-2 mx-1 cursor-pointer rounded-md transition-all duration-300 
+                    className="relative z-20 px-4 py-2 mx-1 cursor-pointer rounded-md transition-all duration-300 text-gray-300
                       data-[state=active]:bg-primary/30 
                       data-[state=active]:border-b-2 
                       data-[state=active]:border-primary
-                      data-[state=active]:text-gradient 
+                      data-[state=active]:text-primary 
                       data-[state=active]:shadow-glow 
                       data-[state=active]:font-medium
                       hover:bg-primary/10"
