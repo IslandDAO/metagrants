@@ -214,7 +214,7 @@ const Team = () => {
           We're always looking for talented individuals passionate about web3, decentralized technology, and building the future of digital assets.
         </p>
         <a 
-          href="mailto:team@islanddao.org" 
+          href="mailto:News@defircyptovaults.com" 
           className="px-5 py-2 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 hover:bg-indigo-500/30 transition-colors inline-flex items-center gap-2"
         >
           <Mail size={16} />
