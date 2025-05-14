@@ -89,7 +89,7 @@ export const team: TeamMember[] = [
     name: "Dimitri",
     title: "Comms / Grants Council",
     bio: "Taki is a IslandDAO core contributor in operations, marketing & business development. He runs discord services teams for IslandDAO with clients such as Marinade, Realms, Zignaly Working with Realms on marketing & socials Previously: Solflare (marketing, socials)",
-    imageUrl: "https://pbs.twimg.com/profile_images/1678486528141078528/4w4eMkNL_400x400.jpg",
+    imageUrl: "/src/assets/team-avatars/dimitri.png",
     role: "advisor",
     twitter: "https://x.com/Milimalism",
     expertise: ["Communications", "Grants Council", "Marketing"]
