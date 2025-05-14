@@ -326,38 +326,106 @@ const ChartsPage = () => {
                     <CardDescription className="text-gray-300">USDC and MPLX allocations</CardDescription>
                   </div>
                   <Badge variant="outline" className="bg-purple-500/10 text-purple-400 border-purple-600">
-                    ${(totalUsdc + mplxUsdValue + remainingMplxValue).toLocaleString()}
+                    Program Budget: ${(totalUsdc + mplxUsdValue + remainingMplxValue).toLocaleString()}
                   </Badge>
                 </div>
               </CardHeader>
               <CardContent className="pt-4">
-                <ResponsiveContainer width="100%" height={340}>
-                  <RadialBarChart 
-                    cx="50%" 
-                    cy="50%" 
-                    innerRadius="20%" 
-                    outerRadius="90%" 
-                    barSize={30} 
-                    data={fundingDistributionData}
-                    startAngle={90}
-                    endAngle={-270}
-                  >
-                    <RadialBar
-                      background
-                      dataKey="value"
-                      cornerRadius={12}
-                      label={{ position: 'insideStart', fill: '#fff', fontSize: 12 }}
-                    />
-                    <Tooltip content={<CustomTooltip />} />
-                    <Legend 
-                      iconSize={10}
-                      layout="vertical"
-                      verticalAlign="middle"
-                      align="right"
-                      wrapperStyle={{ fontSize: '12px', color: 'white' }}
-                    />
-                  </RadialBarChart>
-                </ResponsiveContainer>
+                <div className="grid grid-cols-1 gap-6">
+                  {/* Custom visually clear chart */}
+                  <div className="relative pt-2">
+                    <div className="flex justify-between items-center mb-2">
+                      <h3 className="text-lg font-medium text-white">Total Program Allocation</h3>
+                      <p className="text-sm text-gray-400">$200,000 total value</p>
+                    </div>
+                    
+                    <div className="h-16 bg-[#131a25] rounded-lg overflow-hidden flex">
+                      <div 
+                        className="bg-gradient-to-r from-[#2775CA] to-[#2775CA]/80 h-full flex items-center justify-center"
+                        style={{ width: `${(totalUsdc / (totalUsdc + mplxUsdValue + remainingMplxValue)) * 100}%` }}
+                      >
+                        <span className="text-white font-medium text-sm px-2">
+                          USDC
+                        </span>
+                      </div>
+                      <div 
+                        className="bg-gradient-to-r from-[#6366F1]/80 to-[#6366F1] h-full flex items-center justify-center"
+                        style={{ width: `${(mplxUsdValue / (totalUsdc + mplxUsdValue + remainingMplxValue)) * 100}%` }}
+                      >
+                        <span className="text-white font-medium text-sm px-2">
+                          MPLX Used
+                        </span>
+                      </div>
+                      <div 
+                        className="bg-gradient-to-r from-[#A5B4FC]/80 to-[#A5B4FC] h-full flex items-center justify-center"
+                        style={{ width: `${(remainingMplxValue / (totalUsdc + mplxUsdValue + remainingMplxValue)) * 100}%` }}
+                      >
+                        <span className="text-white font-medium text-sm px-2">
+                          MPLX Remaining
+                        </span>
+                      </div>
+                    </div>
+                    
+                    {/* Stats below chart */}
+                    <div className="grid grid-cols-3 gap-4 mt-6">
+                      <div className="bg-[#171f2b] p-4 rounded-lg">
+                        <div className="flex items-center mb-2">
+                          <div className="w-3 h-3 rounded-full bg-[#2775CA] mr-2"></div>
+                          <h4 className="font-medium">USDC Distributed</h4>
+                        </div>
+                        <p className="text-2xl font-bold">${totalUsdc.toLocaleString()}</p>
+                        <p className="text-xs text-gray-400 mt-1">Allocated to 12 Projects</p>
+                      </div>
+                      
+                      <div className="bg-[#171f2b] p-4 rounded-lg">
+                        <div className="flex items-center mb-2">
+                          <div className="w-3 h-3 rounded-full bg-[#6366F1] mr-2"></div>
+                          <h4 className="font-medium">MPLX Distributed</h4>
+                        </div>
+                        <div className="flex items-baseline gap-1">
+                          <p className="text-2xl font-bold">{totalMplx.toLocaleString()}</p>
+                          <p className="text-sm text-gray-400">tokens</p>
+                        </div>
+                        <p className="text-xs text-gray-400 mt-1">≈ ${mplxUsdValue.toLocaleString()} Value</p>
+                      </div>
+                      
+                      <div className="bg-[#171f2b] p-4 rounded-lg">
+                        <div className="flex items-center mb-2">
+                          <div className="w-3 h-3 rounded-full bg-[#A5B4FC] mr-2"></div>
+                          <h4 className="font-medium">MPLX Remaining</h4>
+                        </div>
+                        <div className="flex items-baseline gap-1">
+                          <p className="text-2xl font-bold">410,000</p>
+                          <p className="text-sm text-gray-400">tokens</p>
+                        </div>
+                        <p className="text-xs text-gray-400 mt-1">≈ ${remainingMplxValue.toLocaleString()} Value</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Additional info from PDF */}
+                  <div className="bg-[#171f2b] p-5 rounded-lg mt-4">
+                    <h3 className="text-lg font-medium mb-3 text-white">Program Budget Allocation</h3>
+                    <ul className="space-y-2 pl-2">
+                      <li className="flex items-center gap-2 text-gray-300">
+                        <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+                        <span>Initial allocation: $100,000 USDC and 1,000,000 MPLX tokens</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-gray-300">
+                        <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+                        <span>Average USDC grant size: $8,250</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-gray-300">
+                        <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+                        <span>Overall project acceptance rate: 15.8% (12 of 76 applications)</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-gray-300">
+                        <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+                        <span>Average total grant value: $13,167 per project</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
