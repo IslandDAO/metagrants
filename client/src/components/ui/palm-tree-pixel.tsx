@@ -35,7 +35,7 @@ export function PalmTreeBackground() {
       });
     }, 4000); // Slower refresh for more subtle breathing effect
     
-    // Animation frame for updating brightness
+    // Animation frame for updating brightness with continuous looping
     const animationFrame = () => {
       setTrees(prevTrees => prevTrees.map(tree => {
         let { brightness, increasing, speed } = tree;
@@ -48,6 +48,10 @@ export function PalmTreeBackground() {
           }
         } else {
           brightness -= speed;
+          // When it gets dim enough, start increasing again for continuous loop
+          if (brightness < 0.1) {
+            increasing = true;
+          }
         }
         
         return { ...tree, brightness, increasing };

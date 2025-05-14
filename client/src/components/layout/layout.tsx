@@ -1,6 +1,6 @@
 import TopNav from "./top-nav";
 import Footer from "./footer";
-import { PalmTreeBackground } from "../ui/palm-tree-pixel";
+import { GlowingPalms } from "../ui/glowing-palms";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,10 +9,8 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-[#121820] flex flex-col relative overflow-hidden">
-      <div className="-z-10 fixed inset-0">
-        {/* Palm Tree Background */}
-        <PalmTreeBackground />
-      </div>
+      {/* Palm Tree Background with Glowing Effect */}
+      <GlowingPalms />
       
       {/* Top Navigation Bar */}
       <TopNav className="relative z-20" />
