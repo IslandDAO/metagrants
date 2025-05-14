@@ -558,27 +558,7 @@ const ChartsPage = () => {
                         borderRadius: '6px'
                       }}
                     />
-                    <Legend 
-                      layout="horizontal" 
-                      verticalAlign="bottom" 
-                      align="center"
-                      payload={
-                        sectorFundingData.map((item, index) => ({
-                          id: item.name,
-                          value: `${item.name} ($${(item.value/1000).toFixed(0)}k)`,
-                          type: 'square',
-                          color: `hsl(${index * 50}, 70%, 60%)`
-                        }))
-                      }
-                      wrapperStyle={{
-                        padding: '10px 0',
-                      }}
-                      formatter={(value) => (
-                        <span style={{ color: 'white', fontWeight: 500, fontSize: '14px' }}>
-                          {value}
-                        </span>
-                      )}
-                    />
+{/* Legend removed as requested */}
                   </PieChart>
                 </ResponsiveContainer>
                 
@@ -640,21 +620,7 @@ const ChartsPage = () => {
                       content={<CustomTooltip />}
                       cursor={{ fill: 'rgba(100, 116, 139, 0.1)' }} 
                     />
-                    <Legend 
-                      formatter={(value) => (
-                        <span style={{ color: 'white', fontWeight: 500, fontSize: '14px', padding: '0 8px' }}>
-                          {value}
-                        </span>
-                      )}
-                      iconType="square"
-                      iconSize={12}
-                      wrapperStyle={{
-                        backgroundColor: 'rgba(28, 36, 49, 0.8)',
-                        border: '1px solid #364156',
-                        borderRadius: '6px',
-                        padding: '8px',
-                      }}
-                    />
+{/* Legend removed as requested */}
                     <Bar 
                       dataKey="usdcValue" 
                       name="USDC" 
@@ -839,25 +805,7 @@ const ChartsPage = () => {
                     formatter={(value) => [`$${value.toLocaleString()}`, 'Funding']}
                     contentStyle={{ backgroundColor: '#1c2431', border: '1px solid #364156', color: 'white' }}
                   />
-                  <Legend 
-                    formatter={(value) => (
-                      <span style={{ color: 'white', fontWeight: 500, fontSize: '14px', padding: '0 8px' }}>
-                        {value}
-                      </span>
-                    )}
-                    iconType="square"
-                    iconSize={12}
-                    wrapperStyle={{
-                      backgroundColor: 'rgba(28, 36, 49, 0.8)',
-                      border: '1px solid #364156',
-                      borderRadius: '6px',
-                      padding: '8px',
-                    }}
-                    payload={[
-                      { value: 'Core Project', type: 'square', color: '#6366F1' },
-                      { value: '404 Project', type: 'square', color: '#10B981' }
-                    ]}
-                  />
+{/* Legend removed as requested */}
                   <Bar 
                     dataKey="totalUsd" 
                     name="Total Funding" 
