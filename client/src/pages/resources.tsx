@@ -18,12 +18,21 @@ const Resources = () => {
           Metaplex Resources
         </motion.h1>
         <motion.p 
-          className="text-[#b5bfcc]"
+          className="text-[#b5bfcc] flex items-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Official developer resources for Metaplex technologies
+          Official developer resources for Metaplex technologies. 
+          <a 
+            href="https://www.metaplex.com" 
+            target="_blank"
+            rel="noopener noreferrer" 
+            className="ml-2 text-[#3b82f6] hover:text-[#60a5fa] transition-colors inline-flex items-center group"
+          >
+            Visit Official Website 
+            <Globe size={14} className="ml-1.5 group-hover:translate-x-0.5 transition-transform" />
+          </a>
         </motion.p>
       </div>
 
