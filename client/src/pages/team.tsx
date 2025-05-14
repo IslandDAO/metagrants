@@ -64,24 +64,30 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
           </div>
           
           {/* Bio section - Fixed height with truncation */}
-          <Collapsible 
-            open={isOpen} 
-            onOpenChange={setIsOpen}
-            className="mb-3 flex-grow"
-          >
-            <div className="text-[#b5bfcc] text-xs mb-2">
-              {!isOpen ? (
+          <div className="mb-3 flex-grow flex flex-col">
+            {/* Always display a truncated version when closed */}
+            {!isOpen && (
+              <div className="text-[#b5bfcc] text-xs mb-2">
                 <div className="line-clamp-3">{member.bio}</div>
-              ) : (
-                member.bio
-              )}
-            </div>
+              </div>
+            )}
             
-            <CollapsibleTrigger className="flex items-center justify-center w-full text-xs text-indigo-400 hover:text-indigo-300 transition-colors">
+            {/* Full bio when expanded */}
+            {isOpen && (
+              <div className="text-[#b5bfcc] text-xs mb-2 overflow-y-auto max-h-[180px] pr-1">
+                {member.bio}
+              </div>
+            )}
+            
+            {/* Always visible toggle button */}
+            <button 
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex items-center justify-center w-full text-xs text-indigo-400 hover:text-indigo-300 transition-colors mt-1"
+            >
               <span>{isOpen ? "Read less" : "Read more"}</span>
               <ChevronDown className={`h-3 w-3 ml-1 transition-transform ${isOpen ? "rotate-180" : ""}`} />
-            </CollapsibleTrigger>
-          </Collapsible>
+            </button>
+          </div>
           
           {/* Expertise tags - Scrollable when needed */}
           {member.expertise && member.expertise.length > 0 && (
@@ -200,9 +206,9 @@ const Team = () => {
         </TabsContent>
         
         <TabsContent value="advisors">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="flex flex-nowrap gap-4 overflow-x-auto pb-4 px-1 scrollbar-hide">
             {advisors.map((member) => (
-              <div key={member.name} className="h-[320px]">
+              <div key={member.name} className="flex-none w-[230px] h-[320px] transition-transform hover:scale-[1.02]">
                 <TeamMemberCard member={member} />
               </div>
             ))}
