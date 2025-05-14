@@ -494,13 +494,29 @@ const Home = () => {
                       <circle 
                         cx="30" 
                         cy="15" 
-                        r="5" 
+                        r="4" 
                         stroke="#C084FC" 
                         strokeWidth="3" 
                         strokeLinecap="round"
                       />
                       <path 
-                        d="M30 20v3" 
+                        d="M30 19v3" 
+                        stroke="#C084FC" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      
+                      {/* People around the table - top right */}
+                      <circle 
+                        cx="42" 
+                        cy="20" 
+                        r="4" 
+                        stroke="#C084FC" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M39 23l-2 2" 
                         stroke="#C084FC" 
                         strokeWidth="3" 
                         strokeLinecap="round"
@@ -508,31 +524,31 @@ const Home = () => {
                       
                       {/* People around the table - right */}
                       <circle 
-                        cx="45" 
-                        cy="25" 
-                        r="5" 
+                        cx="48" 
+                        cy="35" 
+                        r="4" 
                         stroke="#C084FC" 
                         strokeWidth="3" 
                         strokeLinecap="round"
                       />
                       <path 
-                        d="M42 29l-2 2" 
+                        d="M44 35h-2" 
                         stroke="#C084FC" 
                         strokeWidth="3" 
                         strokeLinecap="round"
                       />
                       
-                      {/* People around the table - left */}
+                      {/* People around the table - bottom right */}
                       <circle 
-                        cx="15" 
-                        cy="25" 
-                        r="5" 
+                        cx="42" 
+                        cy="50" 
+                        r="4" 
                         stroke="#C084FC" 
                         strokeWidth="3" 
                         strokeLinecap="round"
                       />
                       <path 
-                        d="M18 29l2 2" 
+                        d="M39 47l-2-2" 
                         stroke="#C084FC" 
                         strokeWidth="3" 
                         strokeLinecap="round"
@@ -542,13 +558,61 @@ const Home = () => {
                       <circle 
                         cx="30" 
                         cy="55" 
-                        r="5" 
+                        r="4" 
                         stroke="#C084FC" 
                         strokeWidth="3" 
                         strokeLinecap="round"
                       />
                       <path 
-                        d="M30 50v-3" 
+                        d="M30 51v-3" 
+                        stroke="#C084FC" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      
+                      {/* People around the table - bottom left */}
+                      <circle 
+                        cx="18" 
+                        cy="50" 
+                        r="4" 
+                        stroke="#C084FC" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M21 47l2-2" 
+                        stroke="#C084FC" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      
+                      {/* People around the table - left */}
+                      <circle 
+                        cx="12" 
+                        cy="35" 
+                        r="4" 
+                        stroke="#C084FC" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M16 35h2" 
+                        stroke="#C084FC" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      
+                      {/* People around the table - top left */}
+                      <circle 
+                        cx="18" 
+                        cy="20" 
+                        r="4" 
+                        stroke="#C084FC" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M21 23l2 2" 
                         stroke="#C084FC" 
                         strokeWidth="3" 
                         strokeLinecap="round"
@@ -577,14 +641,32 @@ const Home = () => {
                         <circle 
                           cx="30" 
                           cy="15" 
-                          r="5" 
+                          r="4" 
                           stroke="#C084FC" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
                           opacity="1"
                         />
                         <path 
-                          d="M30 20v3" 
+                          d="M30 19v3" 
+                          stroke="#C084FC" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        
+                        {/* People around the table - top right - glow effect */}
+                        <circle 
+                          cx="42" 
+                          cy="20" 
+                          r="4" 
+                          stroke="#C084FC" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M39 23l-2 2" 
                           stroke="#C084FC" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
@@ -593,34 +675,34 @@ const Home = () => {
                         
                         {/* People around the table - right - glow effect */}
                         <circle 
-                          cx="45" 
-                          cy="25" 
-                          r="5" 
+                          cx="48" 
+                          cy="35" 
+                          r="4" 
                           stroke="#C084FC" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
                           opacity="1"
                         />
                         <path 
-                          d="M42 29l-2 2" 
+                          d="M44 35h-2" 
                           stroke="#C084FC" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
                           opacity="1"
                         />
                         
-                        {/* People around the table - left - glow effect */}
+                        {/* People around the table - bottom right - glow effect */}
                         <circle 
-                          cx="15" 
-                          cy="25" 
-                          r="5" 
+                          cx="42" 
+                          cy="50" 
+                          r="4" 
                           stroke="#C084FC" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
                           opacity="1"
                         />
                         <path 
-                          d="M18 29l2 2" 
+                          d="M39 47l-2-2" 
                           stroke="#C084FC" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
@@ -631,14 +713,68 @@ const Home = () => {
                         <circle 
                           cx="30" 
                           cy="55" 
-                          r="5" 
+                          r="4" 
                           stroke="#C084FC" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
                           opacity="1"
                         />
                         <path 
-                          d="M30 50v-3" 
+                          d="M30 51v-3" 
+                          stroke="#C084FC" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        
+                        {/* People around the table - bottom left - glow effect */}
+                        <circle 
+                          cx="18" 
+                          cy="50" 
+                          r="4" 
+                          stroke="#C084FC" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M21 47l2-2" 
+                          stroke="#C084FC" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        
+                        {/* People around the table - left - glow effect */}
+                        <circle 
+                          cx="12" 
+                          cy="35" 
+                          r="4" 
+                          stroke="#C084FC" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M16 35h2" 
+                          stroke="#C084FC" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        
+                        {/* People around the table - top left - glow effect */}
+                        <circle 
+                          cx="18" 
+                          cy="20" 
+                          r="4" 
+                          stroke="#C084FC" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M21 23l2 2" 
                           stroke="#C084FC" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
