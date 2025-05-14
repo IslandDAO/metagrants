@@ -135,12 +135,16 @@ const Home = () => {
               <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
                 <span className="text-blue-400 mr-2">
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    {/* Money bag base */}
-                    <path d="M12 4L9 7H6.5C5.67157 7 5 7.67157 5 8.5V19C5 19.5523 5.44772 20 6 20H18C18.5523 20 19 19.5523 19 19V8.5C19 7.67157 18.3284 7 17.5 7H15L12 4Z" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    {/* Round Money bag base */}
+                    <path d="M12 3.5C15.5 3.5 19 7 19 10.5V18C19 19.1046 18.1046 20 17 20H7C5.89543 20 5 19.1046 5 18V10.5C5 7 8.5 3.5 12 3.5Z" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    
                     {/* String/tie at top */}
-                    <path d="M10 7V9M14 7V9" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    {/* Gold coins */}
-                    <path d="M9.5 13C9.5 11.8954 10.3954 11 11.5 11H12.5C13.6046 11 14.5 11.8954 14.5 13C14.5 14.1046 13.6046 15 12.5 15H11.5C10.3954 15 9.5 15.8954 9.5 17C9.5 18.1046 10.3954 19 11.5 19H12.5C13.6046 19 14.5 18.1046 14.5 17" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M9 7C9 6 9.5 4 12 4C14.5 4 15 6 15 7" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    
+                    {/* Dollar sign */}
+                    <path d="M12 9V10M12 14V15" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12Z" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round"/>
+                    
                     <filter id="glow-dollar">
                       <feGaussianBlur stdDeviation="3" result="blur" />
                       <feMerge>
@@ -149,12 +153,15 @@ const Home = () => {
                       </feMerge>
                     </filter>
                     <g filter="url(#glow-dollar)">
-                      {/* Money bag base */}
-                      <path d="M12 4L9 7H6.5C5.67157 7 5 7.67157 5 8.5V19C5 19.5523 5.44772 20 6 20H18C18.5523 20 19 19.5523 19 19V8.5C19 7.67157 18.3284 7 17.5 7H15L12 4Z" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
-                      {/* String/tie at top */}
-                      <path d="M10 7V9M14 7V9" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
-                      {/* Gold coins */}
-                      <path d="M9.5 13C9.5 11.8954 10.3954 11 11.5 11H12.5C13.6046 11 14.5 11.8954 14.5 13C14.5 14.1046 13.6046 15 12.5 15H11.5C10.3954 15 9.5 15.8954 9.5 17C9.5 18.1046 10.3954 19 11.5 19H12.5C13.6046 19 14.5 18.1046 14.5 17" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                      {/* Round Money bag base - glow effect */}
+                      <path d="M12 3.5C15.5 3.5 19 7 19 10.5V18C19 19.1046 18.1046 20 17 20H7C5.89543 20 5 19.1046 5 18V10.5C5 7 8.5 3.5 12 3.5Z" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                      
+                      {/* String/tie at top - glow effect */}
+                      <path d="M9 7C9 6 9.5 4 12 4C14.5 4 15 6 15 7" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                      
+                      {/* Dollar sign - glow effect */}
+                      <path d="M12 9V10M12 14V15" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" opacity="1"/>
+                      <path d="M15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12Z" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" opacity="1"/>
                     </g>
                   </svg>
                 </span>
