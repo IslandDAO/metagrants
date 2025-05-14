@@ -86,17 +86,17 @@ const Home = () => {
             <div className="text-center">
               <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
                 <span className="text-indigo-400 mr-2">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 18H20M8 14V18M12 10V18M16 6V18" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <filter id="glow-chart">
-                      <feGaussianBlur stdDeviation="1.5" result="blur" />
+                      <feGaussianBlur stdDeviation="2.5" result="blur" />
                       <feMerge>
                         <feMergeNode in="blur" />
                         <feMergeNode in="SourceGraphic" />
                       </feMerge>
                     </filter>
                     <g filter="url(#glow-chart)">
-                      <path d="M4 18H20M8 14V18M12 10V18M16 6V18" stroke="#818cf8" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.8"/>
+                      <path d="M4 18H20M8 14V18M12 10V18M16 6V18" stroke="#818cf8" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.9"/>
                     </g>
                   </svg>
                 </span>
@@ -110,17 +110,17 @@ const Home = () => {
             <div className="text-center">
               <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
                 <span className="text-purple-400 mr-2">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 6V8M16 6V8M12 14V17M7 19H17M9 17H15M6 10V6H18V10C18 13.3137 15.3137 16 12 16C8.68629 16 6 13.3137 6 10Z" stroke="#c084fc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <filter id="glow-trophy">
-                      <feGaussianBlur stdDeviation="1.5" result="blur" />
+                      <feGaussianBlur stdDeviation="2.5" result="blur" />
                       <feMerge>
                         <feMergeNode in="blur" />
                         <feMergeNode in="SourceGraphic" />
                       </feMerge>
                     </filter>
                     <g filter="url(#glow-trophy)">
-                      <path d="M8 6V8M16 6V8M12 14V17M7 19H17M9 17H15M6 10V6H18V10C18 13.3137 15.3137 16 12 16C8.68629 16 6 13.3137 6 10Z" stroke="#c084fc" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.8"/>
+                      <path d="M8 6V8M16 6V8M12 14V17M7 19H17M9 17H15M6 10V6H18V10C18 13.3137 15.3137 16 12 16C8.68629 16 6 13.3137 6 10Z" stroke="#c084fc" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.9"/>
                     </g>
                   </svg>
                 </span>
@@ -134,10 +134,10 @@ const Home = () => {
             <div className="text-center">
               <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
                 <span className="text-blue-400 mr-2">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 7v10M8 12h8M21 12c0 4.9706-4.0294 9-9 9s-9-4.0294-9-9 4.0294-9 9-9 9 4.0294 9 9z" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <filter id="glow-dollar">
-                      <feGaussianBlur stdDeviation="1.5" result="blur" />
+                      <feGaussianBlur stdDeviation="2.5" result="blur" />
                       <feMerge>
                         <feMergeNode in="blur" />
                         <feMergeNode in="SourceGraphic" />
@@ -158,10 +158,10 @@ const Home = () => {
             <div className="text-center">
               <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
                 <span className="text-orange-400 mr-2">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 16v3M8 16v3M16 16v3M4 9h16M9 4h6M6 17h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2z" stroke="#fb923c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <filter id="glow-token">
-                      <feGaussianBlur stdDeviation="1.5" result="blur" />
+                      <feGaussianBlur stdDeviation="2.5" result="blur" />
                       <feMerge>
                         <feMergeNode in="blur" />
                         <feMergeNode in="SourceGraphic" />
