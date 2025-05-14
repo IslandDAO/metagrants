@@ -36,17 +36,35 @@ const ChartsPage = () => {
   
   const sectors = sectorFundingData.map(sector => sector.name);
 
-  // Set the total USDC value to exactly $100,000 as per the document
-  const totalUsdc = 100000; // Exact value from the document
-  // Exact values from the document: 590,000 MPLX distributed
-  const totalMplx = 590000; // From document (350,000 to 404 projects + 240,000 to Core projects)
+  const totalUsdc = 100000;
+  const totalMplx = 590000; // 350,000 to 404 projects + 240,000 to Core projects
+  const remainingMplx = 410000;
   
-  // Assuming MPLX token value is $0.1 per token based on the data
-  const mplxRate = 0.1;
-  const mplxUsdValue = totalMplx * mplxRate; // $59,000 value
+  // Get current MPLX price from API
+  const [mplxRate, setMplxRate] = useState(0.1);
   
-  // Remaining MPLX tokens - exactly 410,000 as per the document
-  const remainingMplxValue = 410000 * mplxRate; // Exactly $41,000 worth
+  useEffect(() => {
+    const fetchMplxPrice = async () => {
+      try {
+        const response = await fetch('/api/stats');
+        const data = await response.json();
+        const mplxStat = data.find(stat => stat.id === 'mplx');
+        if (mplxStat) {
+          const priceMatch = mplxStat.value.match(/\$([0-9,.]+)/);
+          if (priceMatch) {
+            const totalValue = parseFloat(priceMatch[1].replace(/,/g, ''));
+            setMplxRate(totalValue / 590000);
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching MPLX price:', error);
+      }
+    };
+    fetchMplxPrice();
+  }, []);
+
+  const mplxUsdValue = totalMplx * mplxRate;
+  const remainingMplxValue = remainingMplx * mplxRate;
   
   const fundingDistributionData = [
     { name: "USDC Distributed", value: totalUsdc, fill: "#2775CA" }, // USDC blue
@@ -811,7 +829,7 @@ const ChartsPage = () => {
                 <ZapIcon size={16} className="text-amber-400" />
               </div>
               <span>
-                There is exactly $41,000 worth of MPLX tokens (410,000 MPLX) remaining for future distribution in cohort 2.
+                There are {remainingMplx.toLocaleString()} MPLX tokens (${remainingMplxValue.toLocaleString()}) remaining for future distribution in cohort 2.
               </span>
             </li>
           </ul>
