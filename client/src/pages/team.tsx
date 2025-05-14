@@ -166,9 +166,9 @@ const Team = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          The dedicated team behind the MetaplexDAO grant program managed by IslandDAO. Our combined expertise in 
-          program management, technical evaluation, and community building helps us identify and support promising 
-          projects within the Metaplex ecosystem.
+          The IslandDAO team proudly manages the MetaplexDAO Grants Program on behalf of the MetaplexDAO. 
+          With expertise in program operations, technical evaluation, and community engagement, 
+          we help identify and support builders advancing the Metaplex ecosystem.
         </motion.p>
       </div>
       
