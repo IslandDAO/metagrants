@@ -1069,7 +1069,7 @@ const ChartsPage = () => {
                         </div>
                       </div>
                       <div className="h-12 w-12 bg-blue-500/20 rounded-full flex items-center justify-center">
-                        <TrendingUp className="h-6 w-6 text-blue-400" />
+                        <span className="text-blue-400 text-xl">📊</span>
                       </div>
                     </div>
                     
@@ -1147,7 +1147,7 @@ const ChartsPage = () => {
           <ul className="space-y-4 text-gray-200">
             <li className="flex items-start gap-3">
               <div className="shrink-0 rounded-full bg-blue-500/20 p-1">
-                <ZapIcon size={16} className="text-blue-400" />
+                <span className="text-blue-400">⚡</span>
               </div>
               <span>
                 The notable projects (top 5) received 42% of the total distributed value with an average of $13,258 per project.
@@ -1155,7 +1155,7 @@ const ChartsPage = () => {
             </li>
             <li className="flex items-start gap-3">
               <div className="shrink-0 rounded-full bg-purple-500/20 p-1">
-                <ZapIcon size={16} className="text-purple-400" />
+                <span className="text-purple-400">⚡</span>
               </div>
               <span>
                 Consumer Apps ($52,500) and Gaming ($45,000) sectors received the highest funding, representing 61% of total funding.
@@ -1163,7 +1163,7 @@ const ChartsPage = () => {
             </li>
             <li className="flex items-start gap-3">
               <div className="shrink-0 rounded-full bg-emerald-500/20 p-1">
-                <ZapIcon size={16} className="text-emerald-400" />
+                <span className="text-emerald-400">⚡</span>
               </div>
               <span>
                 $159,000 in total value was distributed ($100,000 in USDC and $59,000 in MPLX token value) across 12 projects.
@@ -1171,7 +1171,7 @@ const ChartsPage = () => {
             </li>
             <li className="flex items-start gap-3">
               <div className="shrink-0 rounded-full bg-amber-500/20 p-1">
-                <ZapIcon size={16} className="text-amber-400" />
+                <span className="text-amber-400">⚡</span>
               </div>
               <span>
                 There are {remainingMplx.toLocaleString()} MPLX tokens (${remainingMplxValue.toLocaleString()}*) remaining for future distribution in cohort 2.

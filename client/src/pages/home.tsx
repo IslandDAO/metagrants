@@ -123,29 +123,64 @@ const Home = () => {
           </div>
         </div>
         
-        <div className="flex flex-col items-center space-y-6 mb-10">
-          <Link to="/grants">
-            <Button 
-              size="lg"
-              className="bg-[#f97316] hover:bg-[#fb923c] text-white font-bold py-6 px-10 rounded-lg text-xl transition transform hover:scale-105"
-            >
-              View Grantees
-            </Button>
+        {/* Feature section - Highlighting key areas */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10">
+          <Link to="/grants" className="group">
+            <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-6 shadow-lg border border-blue-500/20 h-full flex flex-col transition-all transform group-hover:scale-[1.02] group-hover:shadow-blue-500/10">
+              <div className="rounded-full bg-blue-500/20 w-14 h-14 flex items-center justify-center mb-4">
+                <span className="text-3xl">🏆</span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Grantees</h3>
+              <p className="text-sm text-gray-300 mb-4 flex-grow">Explore the 12 innovative projects funded in Cohort 1 building the future of the Metaplex protocol.</p>
+              <div className="flex items-center text-blue-400 font-medium text-sm group-hover:translate-x-1 transition-transform">
+                <span>View funded projects</span>
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
+              </div>
+            </div>
           </Link>
           
-          <div className="flex flex-col items-center mt-8 space-y-3">
-            <div className="bg-gradient-to-r from-transparent via-[#2a3550] to-transparent h-px w-64 opacity-50"></div>
-            <div className="flex items-center">
-              <div className="text-[#a3adc2] text-sm font-medium">Cohort 2 Coming Soon</div>
-              <div className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse ml-2"></div>
+          <Link to="/team" className="group">
+            <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-6 shadow-lg border border-purple-500/20 h-full flex flex-col transition-all transform group-hover:scale-[1.02] group-hover:shadow-purple-500/10">
+              <div className="rounded-full bg-purple-500/20 w-14 h-14 flex items-center justify-center mb-4">
+                <span className="text-3xl">👥</span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Our Team</h3>
+              <p className="text-sm text-gray-300 mb-4 flex-grow">Meet the IslandDAO team members who evaluate, mentor, and support projects in the grants program.</p>
+              <div className="flex items-center text-purple-400 font-medium text-sm group-hover:translate-x-1 transition-transform">
+                <span>Meet the team</span>
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
+              </div>
             </div>
-            <Button 
-              disabled
-              className="bg-[#2a3550] text-[#697287] font-medium py-2 px-6 rounded-lg text-sm cursor-not-allowed opacity-50"
-            >
-              Applications Closed
-            </Button>
+          </Link>
+          
+          <Link to="/charts" className="group">
+            <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-6 shadow-lg border border-emerald-500/20 h-full flex flex-col transition-all transform group-hover:scale-[1.02] group-hover:shadow-emerald-500/10">
+              <div className="rounded-full bg-emerald-500/20 w-14 h-14 flex items-center justify-center mb-4">
+                <span className="text-3xl">📊</span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Analytics</h3>
+              <p className="text-sm text-gray-300 mb-4 flex-grow">Explore interactive visualizations of funding distribution, sector analysis, and program impact.</p>
+              <div className="flex items-center text-emerald-400 font-medium text-sm group-hover:translate-x-1 transition-transform">
+                <span>View analytics</span>
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
+              </div>
+            </div>
+          </Link>
+        </div>
+        
+        {/* Cohort 2 teaser */}
+        <div className="flex flex-col items-center mt-8 space-y-3 mb-12">
+          <div className="bg-gradient-to-r from-transparent via-[#2a3550] to-transparent h-px w-64 opacity-50"></div>
+          <div className="flex items-center">
+            <div className="text-[#a3adc2] text-sm font-medium">Cohort 2 Coming Soon</div>
+            <div className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse ml-2"></div>
           </div>
+          <Button 
+            disabled
+            className="bg-[#2a3550] text-[#697287] font-medium py-2 px-6 rounded-lg text-sm cursor-not-allowed opacity-50"
+          >
+            Applications Closed
+          </Button>
         </div>
       </motion.div>
     </div>
