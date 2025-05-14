@@ -83,10 +83,10 @@ const Home = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto">
           <Link to="/grants" className="group">
-            <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-indigo-500/20 transform transition-all group-hover:scale-105 group-hover:shadow-indigo-500/10">
+            <div className="card-gradient rounded-xl p-5 shadow-lg border border-indigo-500/20 card-hover neon-glow">
               <div className="text-center flex flex-col items-center justify-center h-full">
                 <div className="flex flex-col items-center mb-1">
-                  <span className="text-indigo-400 mb-2">
+                  <span className="text-indigo-400 mb-2 animate-glow-pulse">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M4 18H20M8 14V18M12 10V18M16 6V18" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <filter id="glow-chart">
@@ -217,7 +217,7 @@ const Home = () => {
         {/* Feature section - Highlighting key areas */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10">
           <Link to="/grants" className="group">
-            <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-6 shadow-lg border border-blue-500/20 h-full flex flex-col transition-all transform group-hover:scale-[1.02] group-hover:shadow-blue-500/10">
+            <div className="card-gradient rounded-xl p-6 shadow-lg border border-blue-500/20 h-full flex flex-col card-hover neon-glow">
               <div className="w-24 h-24 flex items-center justify-center mb-2 mx-auto">
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center">
@@ -490,7 +490,7 @@ const Home = () => {
           </Link>
           
           <Link to="/team" className="group">
-            <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-6 shadow-lg border border-purple-500/20 h-full flex flex-col transition-all transform group-hover:scale-[1.02] group-hover:shadow-purple-500/10">
+            <div className="card-gradient rounded-xl p-6 shadow-lg border border-purple-500/20 h-full flex flex-col card-hover neon-glow">
               <div className="w-24 h-24 flex items-center justify-center mb-2 mx-auto">
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center">
