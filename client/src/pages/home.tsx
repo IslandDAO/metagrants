@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import palmPixelArt from "../assets/palm-pixel-art.png";
+import pirateHat from "../assets/pirate-hat.png";
 
 // Counter animation function
 const AnimatedCounter = ({ value, duration = 2000 }: { value: number, duration?: number }) => {
@@ -156,27 +157,14 @@ const Home = () => {
               <div className="w-24 h-24 flex items-center justify-center mb-2 mx-auto">
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="pixelated w-full h-full rounded-full overflow-hidden flex items-center justify-center">
-                    <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-purple-300">
-                      {/* Captain's Hat Base */}
-                      <rect x="8" y="18" width="16" height="4" fill="currentColor" /> {/* Hat brim */}
-                      <rect x="6" y="18" width="2" height="2" fill="currentColor" /> {/* Left brim edge */}
-                      <rect x="24" y="18" width="2" height="2" fill="currentColor" /> {/* Right brim edge */}
-                      
-                      {/* Hat Top */}
-                      <rect x="10" y="12" width="12" height="6" fill="currentColor" /> {/* Main hat */}
-                      <rect x="8" y="14" width="2" height="4" fill="currentColor" /> {/* Left side */}
-                      <rect x="22" y="14" width="2" height="4" fill="currentColor" /> {/* Right side */}
-                      
-                      {/* Captain's Hat Detail */}
-                      <rect x="14" y="6" width="4" height="6" fill="currentColor" /> {/* Top peak */}
-                      <rect x="12" y="10" width="2" height="2" fill="currentColor" /> {/* Left peak extension */}
-                      <rect x="18" y="10" width="2" height="2" fill="currentColor" /> {/* Right peak extension */}
-                      
-                      {/* Hat Decoration */}
-                      <rect x="14" y="14" width="4" height="2" fill="#D8B4FE" /> {/* Center emblem */}
-                      <rect x="13" y="16" width="6" height="1" fill="#D8B4FE" /> {/* Bottom decoration */}
-                      <rect x="15" y="17" width="2" height="1" fill="gold" /> {/* Gold button */}
-                    </svg>
+                    <img 
+                      src={pirateHat} 
+                      alt="Pixel Art Pirate Hat" 
+                      className="w-full h-full object-contain" 
+                      style={{
+                        imageRendering: "pixelated"
+                      }}
+                    />
                   </div>
                 </div>
               </div>
