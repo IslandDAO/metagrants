@@ -63,22 +63,14 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
             <p className="text-indigo-300 text-xs font-medium line-clamp-1">{member.title}</p>
           </div>
           
-          {/* Bio section - Use fixed heights for both states */}
-          <div className="mb-3 flex-grow flex flex-col">
-            {/* Bio content */}
-            <div className={`text-[#b5bfcc] text-xs ${isOpen ? "h-[120px] overflow-y-auto pr-1" : "h-[60px] overflow-hidden"}`}>
+          {/* Bio section - Single paragraph with no truncation */}
+          <div className="mb-3 flex-grow">
+            <div 
+              className="text-[#c5d3e7] text-xs leading-relaxed pr-1 overflow-y-auto" 
+              style={{ maxHeight: "220px" }}
+            >
               {member.bio}
             </div>
-            
-            {/* Toggle button with elegant styling */}
-            <button 
-              onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center justify-center w-full text-xs font-medium text-indigo-300 hover:text-indigo-200 py-1.5 mt-2 transition-all relative group bg-gradient-to-r from-indigo-500/5 via-indigo-500/10 to-indigo-500/5"
-            >
-              <div className="absolute -bottom-px left-1/2 -translate-x-1/2 w-20 h-[2px] bg-indigo-400/40 group-hover:bg-indigo-400/70 transition-colors"></div>
-              <span>{isOpen ? "Read less" : "Read more"}</span>
-              <ChevronDown className={`h-3 w-3 ml-1 transition-transform ${isOpen ? "rotate-180" : ""}`} />
-            </button>
           </div>
           
           {/* Expertise tags - Scrollable when needed */}
@@ -190,7 +182,7 @@ const Team = () => {
         <TabsContent value="core">
           <div className="flex flex-nowrap gap-4 overflow-x-auto pb-4 px-1 scrollbar-hide">
             {coreTeam.map((member) => (
-              <div key={member.name} className="flex-none w-[230px] h-[320px] transition-transform hover:scale-[1.02]">
+              <div key={member.name} className="flex-none w-[230px] h-[380px] transition-transform hover:scale-[1.02]">
                 <TeamMemberCard member={member} />
               </div>
             ))}
@@ -200,7 +192,7 @@ const Team = () => {
         <TabsContent value="advisors">
           <div className="flex flex-nowrap gap-4 overflow-x-auto pb-4 px-1 scrollbar-hide">
             {advisors.map((member) => (
-              <div key={member.name} className="flex-none w-[230px] h-[320px] transition-transform hover:scale-[1.02]">
+              <div key={member.name} className="flex-none w-[230px] h-[380px] transition-transform hover:scale-[1.02]">
                 <TeamMemberCard member={member} />
               </div>
             ))}
