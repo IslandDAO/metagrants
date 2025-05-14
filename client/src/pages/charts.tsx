@@ -337,19 +337,41 @@ const ChartsPage = () => {
                         <Cell fill="url(#coreGradient)" stroke="#6366F1" strokeWidth={2} />
                         <Cell fill="url(#m404Gradient)" stroke="#10B981" strokeWidth={2} />
                       </Pie>
-                      <Tooltip formatter={(value, name, props) => [`${value} Projects (${props.payload.percent}%)`, name]} />
+                      <Tooltip 
+                        formatter={(value, name, props) => [`${value} Projects (${Math.round(props.payload.percent * 100)}%)`, name]}
+                        contentStyle={{ 
+                          backgroundColor: '#1c2431', 
+                          border: '1px solid #364156', 
+                          color: 'white',
+                          boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
+                          padding: '12px',
+                          borderRadius: '6px'
+                        }}
+                      />
                     </PieChart>
                   </ResponsiveContainer>
                 </div>
                 
-                <div className="flex justify-center mt-4 space-x-8">
-                  <div className="text-center">
-                    <p className="text-sm text-gray-400">Core Projects</p>
-                    <p className="text-2xl font-bold text-blue-400">{coreProjects.length}</p>
+                <div className="flex justify-center space-x-2 mt-4">
+                  <div className="bg-[#131a25] p-4 rounded-lg text-center">
+                    <div className="flex items-center justify-center mb-2">
+                      <div className="w-3 h-3 rounded-full bg-[#6366F1] mr-2"></div>
+                      <h5 className="font-medium">Core Projects</h5>
+                    </div>
+                    <p className="text-2xl font-bold text-white">{coreProjects.length}</p>
+                    <p className="text-xs text-gray-400">
+                      {Math.round((coreProjects.length / grantProjects.length) * 100)}% of total
+                    </p>
                   </div>
-                  <div className="text-center">
-                    <p className="text-sm text-gray-400">404 Projects</p>
-                    <p className="text-2xl font-bold text-emerald-400">{m404Projects.length}</p>
+                  <div className="bg-[#131a25] p-4 rounded-lg text-center">
+                    <div className="flex items-center justify-center mb-2">
+                      <div className="w-3 h-3 rounded-full bg-[#10B981] mr-2"></div>
+                      <h5 className="font-medium">404 Projects</h5>
+                    </div>
+                    <p className="text-2xl font-bold text-white">{m404Projects.length}</p>
+                    <p className="text-xs text-gray-400">
+                      {Math.round((m404Projects.length / grantProjects.length) * 100)}% of total
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -513,6 +535,8 @@ const ChartsPage = () => {
                         setIsAnimating(false);
                       }}
                       onMouseLeave={() => setIsAnimating(true)}
+                      label={({ name, value }) => `$${(value/1000).toFixed(0)}k`}
+                      labelLine={{ stroke: 'rgba(255,255,255,0.3)', strokeWidth: 1 }}
                     >
                       {sectorFundingData.map((entry, index) => (
                         <Cell 
@@ -525,7 +549,35 @@ const ChartsPage = () => {
                     </Pie>
                     <Tooltip 
                       formatter={(value) => [`$${value.toLocaleString()}`, 'Funding']}
-                      contentStyle={{ backgroundColor: '#1c2431', border: '1px solid #364156', color: 'white' }}
+                      contentStyle={{ 
+                        backgroundColor: '#1c2431', 
+                        border: '1px solid #364156', 
+                        color: 'white',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
+                        padding: '12px',
+                        borderRadius: '6px'
+                      }}
+                    />
+                    <Legend 
+                      layout="horizontal" 
+                      verticalAlign="bottom" 
+                      align="center"
+                      payload={
+                        sectorFundingData.map((item, index) => ({
+                          id: item.name,
+                          value: `${item.name} ($${(item.value/1000).toFixed(0)}k)`,
+                          type: 'square',
+                          color: `hsl(${index * 50}, 70%, 60%)`
+                        }))
+                      }
+                      wrapperStyle={{
+                        padding: '10px 0',
+                      }}
+                      formatter={(value) => (
+                        <span style={{ color: 'white', fontWeight: 500, fontSize: '14px' }}>
+                          {value}
+                        </span>
+                      )}
                     />
                   </PieChart>
                 </ResponsiveContainer>
@@ -588,7 +640,21 @@ const ChartsPage = () => {
                       content={<CustomTooltip />}
                       cursor={{ fill: 'rgba(100, 116, 139, 0.1)' }} 
                     />
-                    <Legend />
+                    <Legend 
+                      formatter={(value) => (
+                        <span style={{ color: 'white', fontWeight: 500, fontSize: '14px', padding: '0 8px' }}>
+                          {value}
+                        </span>
+                      )}
+                      iconType="square"
+                      iconSize={12}
+                      wrapperStyle={{
+                        backgroundColor: 'rgba(28, 36, 49, 0.8)',
+                        border: '1px solid #364156',
+                        borderRadius: '6px',
+                        padding: '8px',
+                      }}
+                    />
                     <Bar 
                       dataKey="usdcValue" 
                       name="USDC" 
@@ -773,7 +839,25 @@ const ChartsPage = () => {
                     formatter={(value) => [`$${value.toLocaleString()}`, 'Funding']}
                     contentStyle={{ backgroundColor: '#1c2431', border: '1px solid #364156', color: 'white' }}
                   />
-                  <Legend />
+                  <Legend 
+                    formatter={(value) => (
+                      <span style={{ color: 'white', fontWeight: 500, fontSize: '14px', padding: '0 8px' }}>
+                        {value}
+                      </span>
+                    )}
+                    iconType="square"
+                    iconSize={12}
+                    wrapperStyle={{
+                      backgroundColor: 'rgba(28, 36, 49, 0.8)',
+                      border: '1px solid #364156',
+                      borderRadius: '6px',
+                      padding: '8px',
+                    }}
+                    payload={[
+                      { value: 'Core Project', type: 'square', color: '#6366F1' },
+                      { value: '404 Project', type: 'square', color: '#10B981' }
+                    ]}
+                  />
                   <Bar 
                     dataKey="totalUsd" 
                     name="Total Funding" 
