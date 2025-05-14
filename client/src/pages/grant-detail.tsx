@@ -12,27 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ChevronLeft, ExternalLink, DollarSign, Tag, FileText } from "lucide-react";
-import { grantProjects } from "@/data/grants";
-
-// Define the type for grant projects
-interface GrantProject {
-  id: string;
-  slug: string;
-  name: string;
-  sector: string;
-  tech: "CORE" | "404";
-  summary: string;
-  description: string;
-  totalUsd: number;
-  usdc: number;
-  mplx: number;
-  notable: boolean;
-  links?: {
-    website?: string;
-    github?: string;
-    x?: string;
-  };
-}
+import { grantProjects, GrantProject } from "@/data/grantProjects";
 
 const GrantDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -49,7 +29,7 @@ const GrantDetail = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-[60vh]">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#f97316]"></div>
       </div>
     );
   }
@@ -57,8 +37,8 @@ const GrantDetail = () => {
   if (!grant) {
     return (
       <div className="text-center py-12">
-        <h2 className="text-2xl font-bold text-secondary mb-2">Grant Not Found</h2>
-        <p className="text-gray-600 mb-6">The grant you're looking for doesn't exist or has been removed.</p>
+        <h2 className="text-2xl font-bold text-[#f1f5fb] mb-2">Grant Not Found</h2>
+        <p className="text-[#b5bfcc] mb-6">The grant you're looking for doesn't exist or has been removed.</p>
         <Link to="/grants">
           <Button>
             <ChevronLeft className="mr-2 h-4 w-4" />
@@ -72,7 +52,7 @@ const GrantDetail = () => {
   return (
     <div className="max-w-7xl mx-auto">
       <div className="mb-6">
-        <Link to="/grants" className="text-secondary hover:text-secondary-light flex items-center mb-4">
+        <Link to="/grants" className="text-[#f97316] hover:text-[#fb923c] flex items-center mb-4">
           <ChevronLeft className="mr-1 h-4 w-4" />
           Back to Grants
         </Link>
@@ -84,18 +64,18 @@ const GrantDetail = () => {
         >
           <div className="mb-6">
             <div className="flex flex-wrap justify-between items-center mb-4">
-              <h1 className="text-3xl md:text-4xl font-bold text-secondary">{grant.name}</h1>
+              <h1 className="text-3xl md:text-4xl font-bold text-[#f1f5fb]">{grant.name}</h1>
               <div className="flex gap-2 mt-2 md:mt-0">
                 <Badge 
                   className={grant.tech === "CORE" 
-                    ? "bg-green-100 text-green-800" 
-                    : "bg-blue-100 text-blue-800"
+                    ? "bg-[#10b981] text-[#f1f5fb]" 
+                    : "bg-[#3b82f6] text-[#f1f5fb]"
                   } 
                   variant="outline"
                 >
                   {grant.tech}
                 </Badge>
-                <Badge className="bg-gray-100 text-gray-800">{grant.sector}</Badge>
+                <Badge className="bg-[#2c374b] text-[#b5bfcc]">{grant.sector}</Badge>
               </div>
             </div>
             <p className="text-xl text-gray-700">{grant.summary}</p>

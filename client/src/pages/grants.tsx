@@ -130,7 +130,7 @@ const Grants = () => {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#b5bfcc]" size={18} />
                 <Input
                   placeholder="Search projects..."
-                  className="pl-10"
+                  className="pl-10 bg-[#2c374b] border-[#3c4759] text-[#f1f5fb] placeholder:text-[#8896b0]"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -165,7 +165,7 @@ const Grants = () => {
 
       {/* Grant Count */}
       <motion.div
-        className="mb-4 text-sm text-gray-500"
+        className="mb-4 text-sm text-[#8896b0]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
@@ -191,11 +191,11 @@ const Grants = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <Card>
+          <Card className="border-[#3c4759] bg-[#1c2431]">
             <CardContent className="flex flex-col items-center justify-center p-12 text-center">
-              <Filter className="h-12 w-12 text-gray-300 mb-4" />
-              <h3 className="text-xl font-semibold mb-2">No grants found</h3>
-              <p className="text-gray-500">Try adjusting your search or filter criteria</p>
+              <Filter className="h-12 w-12 text-[#3c4759] mb-4" />
+              <h3 className="text-xl font-semibold mb-2 text-[#f1f5fb]">No grants found</h3>
+              <p className="text-[#8896b0]">Try adjusting your search or filter criteria</p>
             </CardContent>
           </Card>
         </motion.div>
