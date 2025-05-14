@@ -207,15 +207,31 @@ const ChartsPage = () => {
     }
   };
 
-  // Custom tooltip for USD values
+  // Custom tooltip for all chart types
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
+      // Check if this is the applications pie chart (first chart) based on payload names
+      const isApplicationChart = payload[0]?.name === "Core" || payload[0]?.name === "404";
+      
       return (
         <div className="bg-[#121820]/95 p-4 backdrop-blur-sm shadow-xl rounded-md text-white">
           <div className="font-bold text-lg text-blue-300 mb-1">{label || payload[0].name}</div>
           {payload.map((entry: any, index: number) => {
-            // For pie charts
-            if (entry.payload && entry.payload.percent) {
+            // For application pie chart - show count without $ sign
+            if (isApplicationChart) {
+              return (
+                <div key={`tooltip-${index}`} className="flex justify-between items-center">
+                  <span className="font-medium text-md mr-4">{entry.name}</span>
+                  <div>
+                    <span className="font-bold text-lg">{entry.value.toLocaleString()} projects</span>
+                    <span className="text-xs text-blue-300 ml-2">({(entry.payload.percent * 100).toFixed(1)}%)</span>
+                  </div>
+                </div>
+              );
+            }
+            
+            // For sector funding pie chart
+            else if (entry.payload && entry.payload.percent) {
               return (
                 <div key={`tooltip-${index}`} className="flex justify-between items-center">
                   <span className="font-medium text-md mr-4">{entry.name}</span>
