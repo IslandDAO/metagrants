@@ -5,7 +5,7 @@ import IslandDaoLogo from "../logos/island-dao-logo";
 
 const Footer = () => {
   return (
-    <footer className="bg-emerald-900 py-6 mt-12 text-orange-50">
+    <footer className="bg-[#f7c6a3] py-6 mt-12 text-[#40526c]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           {/* Logo and Description */}

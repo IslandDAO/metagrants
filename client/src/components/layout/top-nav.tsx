@@ -23,12 +23,12 @@ const TopNav = () => {
   };
   
   return (
-    <nav className="bg-emerald-900 shadow-md py-4 px-6 fixed top-0 left-0 right-0 z-30">
+    <nav className="bg-[#e3a1b6] shadow-md py-4 px-6 fixed top-0 left-0 right-0 z-30">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <MetaplexLogo className="h-8 w-auto" />
-          <span className="ml-2 text-xl font-bold text-orange-100">Grants</span>
+          <span className="ml-2 text-xl font-bold text-[#40526c]">Grants</span>
         </Link>
         
         {/* Desktop Navigation */}
@@ -38,8 +38,8 @@ const TopNav = () => {
               key={item.to}
               to={item.to}
               className={cn(
-                "text-emerald-100 hover:text-orange-200 transition-colors px-1 py-2",
-                location.pathname === item.to && "text-orange-300 font-medium border-b-2 border-orange-300"
+                "text-[#40526c] hover:text-[#c8444d] transition-colors px-1 py-2",
+                location.pathname === item.to && "text-[#c8444d] font-medium border-b-2 border-[#c8444d]"
               )}
             >
               {item.label}
@@ -54,7 +54,7 @@ const TopNav = () => {
             size="icon"
             onClick={toggleMenu}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="text-emerald-100 hover:text-orange-200"
+            className="text-[#40526c] hover:text-[#c8444d]"
           >
             {isMenuOpen ? (
               <X className="h-6 w-6" />
@@ -67,15 +67,15 @@ const TopNav = () => {
       
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-emerald-800 shadow-md py-3 z-20">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-[#bce3c5] shadow-md py-3 z-20">
           <div className="flex flex-col space-y-2 px-6">
             {navItems.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
                 className={cn(
-                  "text-emerald-100 hover:text-orange-200 transition-colors py-2",
-                  location.pathname === item.to && "text-orange-300 font-medium"
+                  "text-[#40526c] hover:text-[#c8444d] transition-colors py-2",
+                  location.pathname === item.to && "text-[#c8444d] font-medium"
                 )}
                 onClick={() => setIsMenuOpen(false)}
               >

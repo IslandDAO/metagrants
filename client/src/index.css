@@ -3,31 +3,32 @@
 @tailwind utilities;
 
 :root {
-  --background: 160 30% 25%;
-  --foreground: 158 100% 92%;
-  --muted: 160 30% 30%;
-  --muted-foreground: 158 100% 85%;
-  --popover: 160 30% 25%;
-  --popover-foreground: 158 100% 92%;
-  --card: 160 30% 20%;
-  --card-foreground: 158 100% 92%;
-  --border: 158 30% 30%;
-  --input: 158 30% 30%;
-  --primary: 158 55% 38%;  /* Dark green */
-  --primary-foreground: 160 100% 98%;
-  --secondary: 32 85% 55%; /* Orange */
-  --secondary-foreground: 32 100% 96%;
-  --accent: 32 70% 90%;
-  --accent-foreground: 32 90% 30%;
+  /* Using the provided color palette */
+  --background: 48 67% 90%;      /* #f7f2d7 Butter Cream */
+  --foreground: 220 24% 34%;     /* #40526c Dull Navy */
+  --muted: 133 39% 82%;          /* #bce3c5 Pale Mint */
+  --muted-foreground: 220 24% 44%; /* #5a6a84 Lighter Dull Navy */
+  --popover: 48 67% 90%;         /* #f7f2d7 Butter Cream */
+  --popover-foreground: 220 24% 34%; /* #40526c Dull Navy */
+  --card: 133 39% 82%;           /* #bce3c5 Pale Mint */
+  --card-foreground: 220 24% 34%; /* #40526c Dull Navy */
+  --border: 36 31% 67%;          /* #c9b290 Khaki Tan */
+  --input: 36 31% 67%;           /* #c9b290 Khaki Tan */
+  --primary: 355 60% 52%;        /* #c8444d Tenenbaum Red */
+  --primary-foreground: 48 67% 90%; /* #f7f2d7 Butter Cream */
+  --secondary: 42 64% 62%;       /* #e1b85c Vintage Mustard */
+  --secondary-foreground: 48 67% 95%; /* #faf9ec Lighter Butter Cream */
+  --accent: 180 45% 75%;         /* #a2dadb Muted Aqua */
+  --accent-foreground: 220 24% 34%; /* #40526c Dull Navy */
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
-  --ring: 158 42% 18%;
+  --ring: 36 31% 67%;            /* #c9b290 Khaki Tan */
   --radius: 0.5rem;
-  --chart-1: 158 55% 45%;
-  --chart-2: 32 85% 55%;
-  --chart-3: 180 55% 45%;
-  --chart-4: 42 85% 55%;
-  --chart-5: 200 55% 50%;
+  --chart-1: 355 60% 52%;        /* #c8444d Tenenbaum Red */
+  --chart-2: 42 64% 62%;         /* #e1b85c Vintage Mustard */
+  --chart-3: 180 45% 75%;        /* #a2dadb Muted Aqua */
+  --chart-4: 342 43% 76%;        /* #e3a1b6 Dusty Rose */
+  --chart-5: 25 77% 80%;         /* #f7c6a3 Faded Coral */
 }
 
 .dark {
@@ -59,7 +60,7 @@
   }
 
   body {
-    @apply font-sans antialiased bg-white text-emerald-900;
+    @apply font-sans antialiased bg-[#f7f2d7] text-[#40526c];
   }
 }
 
