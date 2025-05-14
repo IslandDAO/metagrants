@@ -85,7 +85,21 @@ const Home = () => {
           <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-indigo-500/20 transform transition-all hover:scale-105 hover:shadow-indigo-500/10">
             <div className="text-center">
               <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
-                <span className="text-indigo-400 mr-1">📊</span>
+                <span className="text-indigo-400 mr-2">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 18H20M8 14V18M12 10V18M16 6V18" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <filter id="glow-chart">
+                      <feGaussianBlur stdDeviation="1.5" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                    <g filter="url(#glow-chart)">
+                      <path d="M4 18H20M8 14V18M12 10V18M16 6V18" stroke="#818cf8" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.8"/>
+                    </g>
+                  </svg>
+                </span>
                 <AnimatedCounter value={76} />
               </div>
               <div className="text-sm text-indigo-200">Applications Received</div>
@@ -95,7 +109,21 @@ const Home = () => {
           <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-purple-500/20 transform transition-all hover:scale-105 hover:shadow-purple-500/10">
             <div className="text-center">
               <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
-                <span className="text-purple-400 mr-1">🏆</span>
+                <span className="text-purple-400 mr-2">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 6V8M16 6V8M12 14V17M7 19H17M9 17H15M6 10V6H18V10C18 13.3137 15.3137 16 12 16C8.68629 16 6 13.3137 6 10Z" stroke="#c084fc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <filter id="glow-trophy">
+                      <feGaussianBlur stdDeviation="1.5" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                    <g filter="url(#glow-trophy)">
+                      <path d="M8 6V8M16 6V8M12 14V17M7 19H17M9 17H15M6 10V6H18V10C18 13.3137 15.3137 16 12 16C8.68629 16 6 13.3137 6 10Z" stroke="#c084fc" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.8"/>
+                    </g>
+                  </svg>
+                </span>
                 <AnimatedCounter value={12} />
               </div>
               <div className="text-sm text-purple-200">Grants Funded</div>
@@ -105,7 +133,21 @@ const Home = () => {
           <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-blue-500/20 transform transition-all hover:scale-105 hover:shadow-blue-500/10">
             <div className="text-center">
               <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
-                <span className="text-blue-400 mr-1">💰</span>
+                <span className="text-blue-400 mr-2">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 7v10M8 12h8M21 12c0 4.9706-4.0294 9-9 9s-9-4.0294-9-9 4.0294-9 9-9 9 4.0294 9 9z" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <filter id="glow-dollar">
+                      <feGaussianBlur stdDeviation="1.5" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                    <g filter="url(#glow-dollar)">
+                      <path d="M12 7v10M8 12h8M21 12c0 4.9706-4.0294 9-9 9s-9-4.0294-9-9 4.0294-9 9-9 9 4.0294 9 9z" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.8"/>
+                    </g>
+                  </svg>
+                </span>
                 <span>$100,000</span>
               </div>
               <div className="text-sm text-blue-200">USDC Allocated</div>
@@ -115,7 +157,21 @@ const Home = () => {
           <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-orange-500/20 transform transition-all hover:scale-105 hover:shadow-orange-500/10">
             <div className="text-center">
               <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
-                <span className="text-orange-400 mr-1">🪙</span>
+                <span className="text-orange-400 mr-2">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 16v3M8 16v3M16 16v3M4 9h16M9 4h6M6 17h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2z" stroke="#fb923c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <filter id="glow-token">
+                      <feGaussianBlur stdDeviation="1.5" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                    <g filter="url(#glow-token)">
+                      <path d="M12 16v3M8 16v3M16 16v3M4 9h16M9 4h6M6 17h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2z" stroke="#fb923c" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.8"/>
+                    </g>
+                  </svg>
+                </span>
                 <span>590,000</span>
               </div>
               <div className="text-sm text-orange-200">MPLX Allocated</div>
