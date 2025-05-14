@@ -88,7 +88,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/stats", async (req, res) => {
     try {
       const stats = await storage.getStats();
-      res.json(stats);
+      const mplxPrice = await getMPLXPrice();
+      const mplxValue = (590000 * mplxPrice).toFixed(2);
+      
+      const updatedStats = stats.map(stat => {
+        if (stat.id === 'mplx') {
+          return {
+            ...stat,
+            value: `590,000 ($${mplxValue})`
+          };
+        }
+        return stat;
+      });
+      
+      res.json(updatedStats);
     } catch (error) {
       console.error("Error fetching stats:", error);
       res.status(500).json({ message: "Failed to fetch stats" });
