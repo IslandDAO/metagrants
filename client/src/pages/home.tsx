@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import palmPixelArt from "../assets/palm-pixel-art.png";
 import pirateHat from "../assets/pirate-hat.png";
+import lighthousePixel from "../assets/lighthouse-pixel.png";
 
 // Counter animation function
 const AnimatedCounter = ({ value, duration = 2000 }: { value: number, duration?: number }) => {
@@ -182,32 +183,14 @@ const Home = () => {
               <div className="w-24 h-24 flex items-center justify-center mb-2 mx-auto">
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="pixelated w-full h-full rounded-full overflow-hidden flex items-center justify-center">
-                    <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-emerald-300">
-                      {/* Lighthouse Base */}
-                      <rect x="8" y="24" width="16" height="6" fill="currentColor" /> {/* Base foundation */}
-                      <rect x="6" y="22" width="20" height="2" fill="currentColor" /> {/* Base top */}
-                      
-                      {/* Lighthouse Tower */}
-                      <rect x="12" y="8" width="8" height="14" fill="currentColor" /> {/* Main tower */}
-                      <rect x="10" y="16" width="12" height="2" fill="currentColor" /> {/* Mid section band */}
-                      <rect x="10" y="10" width="12" height="2" fill="currentColor" /> {/* Upper section band */}
-                      
-                      {/* Lighthouse Top */}
-                      <rect x="11" y="4" width="10" height="4" fill="currentColor" /> {/* Light room */}
-                      <rect x="13" y="2" width="6" height="2" fill="currentColor" /> {/* Roof */}
-                      
-                      {/* Light */}
-                      <rect x="14" y="6" width="4" height="2" fill="#FFDD80" /> {/* Light source */}
-                      <rect x="4" y="10" width="2" height="2" fill="#FFDD80" /> {/* Light beam left */}
-                      <rect x="26" y="10" width="2" height="2" fill="#FFDD80" /> {/* Light beam right */}
-                      
-                      {/* Ground */}
-                      <rect x="2" y="30" width="28" height="2" fill="#5EEAD4" /> {/* Water/ground */}
-                      
-                      {/* Windows */}
-                      <rect x="14" y="12" width="4" height="2" fill="#A7F3D0" /> {/* Window 1 */}
-                      <rect x="14" y="18" width="4" height="2" fill="#A7F3D0" /> {/* Window 2 */}
-                    </svg>
+                    <img 
+                      src={lighthousePixel} 
+                      alt="Pixel Art Lighthouse" 
+                      className="w-full h-full object-contain" 
+                      style={{
+                        imageRendering: "pixelated"
+                      }}
+                    />
                   </div>
                 </div>
               </div>
