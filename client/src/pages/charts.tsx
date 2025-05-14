@@ -211,10 +211,10 @@ const ChartsPage = () => {
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-[#1c2431] p-4 border border-[#364156] shadow-lg rounded-md text-white">
-          <p className="font-bold text-lg">{label || payload[0].name}</p>
+        <div className="bg-[#121820]/90 p-4 backdrop-blur-sm shadow-xl rounded-md text-white">
+          <p className="font-bold text-lg text-blue-300">{label || payload[0].name}</p>
           {payload.map((entry: any, index: number) => (
-            <p key={`tooltip-${index}`} style={{ color: entry.color || '#fff' }}>
+            <p key={`tooltip-${index}`} className="font-medium text-md" style={{ color: entry.color || '#fff' }}>
               {entry.name}: ${entry.value.toLocaleString()}
             </p>
           ))}
@@ -331,7 +331,7 @@ const ChartsPage = () => {
                         outerRadius={120}
                         paddingAngle={5}
                         dataKey="value"
-                        label={({ name, percent }) => {
+                        label={({ name, percent, value }) => {
                           return (
                             <text 
                               fill="#FFFFFF" 
@@ -341,7 +341,7 @@ const ChartsPage = () => {
                               strokeWidth="0.5" 
                               paintOrder="stroke"
                             >
-                              {(percent * 100).toFixed(0)}%
+                              {name}: {(percent * 100).toFixed(0)}%
                             </text>
                           );
                         }}
@@ -353,12 +353,13 @@ const ChartsPage = () => {
                       <Tooltip 
                         formatter={(value, name, props) => [`${value} Projects (${Math.round(props.payload.percent * 100)}%)`, name]}
                         contentStyle={{ 
-                          backgroundColor: '#1c2431', 
-                          border: '1px solid #364156', 
+                          backgroundColor: 'rgba(18, 24, 32, 0.9)', 
+                          backdropFilter: 'blur(8px)',
+                          border: 'none', 
                           color: 'white',
-                          boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
+                          boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
                           padding: '12px',
-                          borderRadius: '6px'
+                          borderRadius: '8px'
                         }}
                       />
                     </PieChart>
@@ -548,7 +549,7 @@ const ChartsPage = () => {
                         setIsAnimating(false);
                       }}
                       onMouseLeave={() => setIsAnimating(true)}
-                      label={({ name, value }) => {
+                      label={({ name, value, percent }) => {
                         return (
                           <text 
                             fill="#FFFFFF" 
@@ -558,7 +559,7 @@ const ChartsPage = () => {
                             strokeWidth="0.5" 
                             paintOrder="stroke"
                           >
-                            ${(value/1000).toFixed(0)}k
+                            {name}: ${(value/1000).toFixed(0)}k
                           </text>
                         );
                       }}
@@ -574,14 +575,19 @@ const ChartsPage = () => {
                       ))}
                     </Pie>
                     <Tooltip 
-                      formatter={(value) => [`$${value.toLocaleString()}`, 'Funding']}
+                      formatter={(value: number, name, props) => {
+                        const total = sectorFundingData.reduce((sum, item) => sum + item.value, 0);
+                        const percent = ((value / total) * 100).toFixed(1);
+                        return [`$${value.toLocaleString()} (${percent}%)`, 'Funding'];
+                      }}
                       contentStyle={{ 
-                        backgroundColor: '#1c2431', 
-                        border: '1px solid #364156', 
+                        backgroundColor: 'rgba(18, 24, 32, 0.9)', 
+                        backdropFilter: 'blur(8px)',
+                        border: 'none', 
                         color: 'white',
-                        boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
+                        boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
                         padding: '12px',
-                        borderRadius: '6px'
+                        borderRadius: '8px'
                       }}
                     />
 {/* Legend removed as requested */}
@@ -643,7 +649,17 @@ const ChartsPage = () => {
                     <XAxis type="number" tickFormatter={(value) => `$${value.toLocaleString()}`} stroke="#E5E7EB" />
                     <YAxis type="category" dataKey="name" stroke="#E5E7EB" />
                     <Tooltip 
-                      content={<CustomTooltip />}
+                      contentStyle={{ 
+                        backgroundColor: 'rgba(18, 24, 32, 0.9)', 
+                        backdropFilter: 'blur(8px)',
+                        border: 'none', 
+                        color: 'white',
+                        boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+                        padding: '12px',
+                        borderRadius: '8px'
+                      }}
+                      itemStyle={{ color: '#FFFFFF' }}
+                      labelStyle={{ color: '#93C5FD', fontWeight: 'bold', fontSize: '14px', marginBottom: '5px' }}
                       cursor={{ fill: 'rgba(100, 116, 139, 0.1)' }} 
                     />
 {/* Legend removed as requested */}
@@ -828,8 +844,16 @@ const ChartsPage = () => {
                     stroke="#9CA3AF"
                   />
                   <Tooltip 
-                    formatter={(value) => [`$${value.toLocaleString()}`, 'Funding']}
-                    contentStyle={{ backgroundColor: '#1c2431', border: '1px solid #364156', color: 'white' }}
+                    formatter={(value, name, entry) => [`$${value.toLocaleString()}`, name]}
+                    contentStyle={{ 
+                      backgroundColor: 'rgba(18, 24, 32, 0.9)', 
+                      backdropFilter: 'blur(8px)',
+                      border: 'none', 
+                      color: 'white',
+                      boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+                      padding: '12px',
+                      borderRadius: '8px'
+                    }}
                   />
 {/* Legend removed as requested */}
                   <Bar 
