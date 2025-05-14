@@ -174,10 +174,8 @@ const Resources = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <div className="bg-[#1a202c] py-6 px-8 rounded-lg border border-[#3c4759]/50 inline-flex flex-col items-center max-w-xl mx-auto">
-          <p className="text-[#b5bfcc] mb-4">
-            For more information about Metaplex technologies and grant opportunities:
-          </p>
+        <div className="bg-[#1a202c] py-5 px-7 rounded-lg border border-[#3c4759]/50 inline-flex flex-col items-center max-w-xl mx-auto">
+          <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text mb-3">Metaplex Resources</h3>
           <a 
             href="https://metaplex.com/grants" 
             target="_blank" 
