@@ -36,7 +36,7 @@ const GrantCard = ({ project }: { project: GrantProject }) => {
       whileHover={{ scale: 1.03 }}
     >
       <Card 
-        className="overflow-hidden h-full card-gradient card-hover neon-glow border-[#3c4759] cursor-pointer"
+        className="overflow-hidden h-full card-gradient card-hover neon-glow border border-[#3c4759]/80 hover:border-[#3b82f6]/60 cursor-pointer transition-all duration-300"
         onClick={handleCardClick}
       >
         <CardContent className="p-6">

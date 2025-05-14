@@ -258,7 +258,7 @@ const Dashboard = () => {
                       .map((grant: GrantProject) => (
                         <Card 
                           key={grant.id} 
-                          className="border-primary/20 card-gradient neon-glow cursor-pointer card-hover"
+                          className="border border-[#3c4759]/80 hover:border-[#3b82f6]/60 card-gradient neon-glow cursor-pointer card-hover transition-all duration-300"
                           onClick={() => window.location.href = `/grants/${grant.slug}`}
                         >
                           <CardContent className="p-4">
@@ -332,7 +332,7 @@ const Dashboard = () => {
                           .filter((grant: GrantProject) => grant.sector === sector.name)
                           .map((grant: GrantProject) => (
                             <Link key={grant.id} to={`/grants/${grant.slug}`} className="block">
-                              <div className="p-2 border rounded-md card-gradient card-hover neon-glow">
+                              <div className="p-2 border border-[#3c4759]/80 hover:border-[#3b82f6]/60 rounded-md card-gradient card-hover neon-glow transition-all duration-300">
                                 <div className="flex justify-between items-center">
                                   <span className="font-medium text-gradient">{grant.name}</span>
                                   <Badge variant="outline" className={grant.tech === "CORE" ? "bg-green-500/20 text-green-400" : "bg-blue-500/20 text-blue-400"}>
@@ -373,7 +373,11 @@ const Dashboard = () => {
                     </thead>
                     <tbody className="divide-y">
                       {grantProjects.map((grant: GrantProject) => (
-                        <tr key={grant.id} className="hover:bg-[#232b3d] cursor-pointer transition-colors relative hover-neon-table" onClick={() => window.location.href = `/grants/${grant.slug}`}>
+                        <tr 
+                          key={grant.id} 
+                          className="hover:bg-[#232b3d] cursor-pointer transition-all duration-300 relative hover-neon-table border-b border-[#3c4759]/40 hover:border-[#3b82f6]/50" 
+                          onClick={() => window.location.href = `/grants/${grant.slug}`}
+                        >
                           <td className="p-3">
                             <div className="font-medium text-gradient">{grant.name}</div>
                             <div className="text-sm text-[#b5bfcc] truncate max-w-[250px]">{grant.summary}</div>
