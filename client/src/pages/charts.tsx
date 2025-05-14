@@ -210,8 +210,8 @@ const ChartsPage = () => {
   // Custom tooltip for all chart types
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
-      // Check if this is the applications pie chart (first chart) based on payload names
-      const isApplicationChart = payload[0]?.name === "Core" || payload[0]?.name === "404";
+      // Check if this is the applications pie chart by checking if the payload contains "Metaplex Core" or "MPL 404"
+      const isApplicationChart = payload[0]?.name === "Metaplex Core" || payload[0]?.name === "MPL 404";
       
       return (
         <div className="bg-[#121820]/95 p-4 backdrop-blur-sm shadow-xl rounded-md text-white">
@@ -223,7 +223,7 @@ const ChartsPage = () => {
                 <div key={`tooltip-${index}`} className="flex justify-between items-center">
                   <span className="font-medium text-md mr-4">{entry.name}</span>
                   <div>
-                    <span className="font-bold text-lg">{entry.value.toLocaleString()} projects</span>
+                    <span className="font-bold text-lg">{entry.value} projects</span>
                     <span className="text-xs text-blue-300 ml-2">({(entry.payload.percent * 100).toFixed(1)}%)</span>
                   </div>
                 </div>
