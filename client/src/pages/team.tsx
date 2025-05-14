@@ -69,7 +69,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
             onOpenChange={setIsOpen}
             className="mb-3 flex-grow"
           >
-            <div className="text-[#b5bfcc] text-xs mb-1 line-clamp-3">
+            <div className="text-[#b5bfcc] text-xs mb-1 line-clamp-5">
               {!isOpen && member.bio}
             </div>
             
@@ -89,7 +89,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
           
           {/* Expertise tags - Scrollable when needed */}
           {member.expertise && member.expertise.length > 0 && (
-            <div className="flex flex-wrap gap-1 mb-3 max-h-[60px] overflow-y-auto scrollbar-hide">
+            <div className="flex flex-wrap gap-1 mb-3 max-h-[70px] overflow-y-auto scrollbar-hide">
               {member.expertise.map((skill) => (
                 <Badge 
                   key={skill} 
@@ -196,7 +196,7 @@ const Team = () => {
         <TabsContent value="core">
           <div className="flex flex-nowrap gap-4 overflow-x-auto pb-4 px-1 scrollbar-hide">
             {coreTeam.map((member) => (
-              <div key={member.name} className="flex-none w-[230px] h-[320px] transition-transform hover:scale-[1.02]">
+              <div key={member.name} className="flex-none w-[270px] h-[350px] transition-transform hover:scale-[1.02]">
                 <TeamMemberCard member={member} />
               </div>
             ))}
@@ -206,7 +206,7 @@ const Team = () => {
         <TabsContent value="advisors">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {advisors.map((member) => (
-              <div key={member.name} className="h-[320px]">
+              <div key={member.name} className="h-[350px] w-[270px] mx-auto md:mx-0">
                 <TeamMemberCard member={member} />
               </div>
             ))}
