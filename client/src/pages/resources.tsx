@@ -34,10 +34,7 @@ const Resources = () => {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="mb-8 relative group"
       >
-        <div 
-          className="absolute inset-0 z-10 cursor-pointer rounded-md"
-          onClick={() => window.open('https://developers.metaplex.com/docs/token-metadata', '_blank')}
-        ></div>
+
         <Card className="border border-[#3c4759]/80 hover:border-[#3b82f6]/60 hover:shadow-[0_0_8px_rgba(59,130,246,0.25)] card-gradient transition-all duration-500 relative">
           <CardHeader className="pb-2">
             <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-500 via-blue-400 to-purple-500 text-transparent bg-clip-text flex items-center">
@@ -107,10 +104,7 @@ const Resources = () => {
         transition={{ duration: 0.5, delay: 0.3 }}
         className="relative group"
       >
-        <div 
-          className="absolute inset-0 z-10 cursor-pointer rounded-md"
-          onClick={() => window.open('https://developers.metaplex.com/docs/mpl-hybrid/overview', '_blank')}
-        ></div>
+
         <Card className="border border-[#3c4759]/80 hover:border-[#8b5cf6]/60 hover:shadow-[0_0_8px_rgba(139,92,246,0.25)] card-gradient transition-all duration-500 relative">
           <CardHeader className="pb-2">
             <CardTitle className="text-3xl font-bold bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-500 text-transparent bg-clip-text flex items-center">
