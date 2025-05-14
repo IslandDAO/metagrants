@@ -196,11 +196,11 @@ const Team = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >  
-        {/* Split team into two rows */}
+        {/* Two rows with specific number of portraits */}
         <div className="flex flex-col space-y-10">
-          {/* First row */}
+          {/* First row - 5 portraits */}
           <div className="flex flex-wrap justify-center gap-6">
-            {sortedTeam.slice(0, Math.ceil(sortedTeam.length / 2)).map((member, index) => (
+            {sortedTeam.slice(0, 5).map((member, index) => (
               <TeamMemberCard 
                 key={member.name} 
                 member={member} 
@@ -210,9 +210,9 @@ const Team = () => {
             ))}
           </div>
           
-          {/* Second row */}
+          {/* Second row - 4 portraits */}
           <div className="flex flex-wrap justify-center gap-6">
-            {sortedTeam.slice(Math.ceil(sortedTeam.length / 2)).map((member, index) => (
+            {sortedTeam.slice(5).map((member, index) => (
               <TeamMemberCard 
                 key={member.name} 
                 member={member} 
