@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import islandDaoLogo from "@/assets/logos/island-dao-logo.png";
 
 interface TopNavProps {
   className?: string;
@@ -29,9 +30,28 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
     <nav className={cn("bg-[#1c2431] shadow-md py-4 px-6 fixed top-0 left-0 right-0 z-30 border-b border-[#3c4759]", className)}>
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="flex items-center">
-          <span className="text-xl font-bold text-[#f1f5fb]">MetaplexDAO Grants</span>
-        </Link>
+        <div className="flex items-center">
+          <Link to="/" className="flex items-center">
+            <span className="text-xl font-bold text-[#f1f5fb]">MetaplexDAO Grants</span>
+          </Link>
+          <div className="hidden md:flex items-center ml-3 border-l border-[#3c4759] pl-3">
+            <a 
+              href="https://islanddao.org/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center opacity-60 hover:opacity-100 transition-opacity group"
+            >
+              <img 
+                src={islandDaoLogo} 
+                alt="IslandDAO Logo" 
+                className="h-4 w-auto mr-1.5 grayscale group-hover:grayscale-0 transition-all" 
+              />
+              <span className="text-xs text-[#8896b0] group-hover:text-[#a0e0a8] transition-colors">
+                Powered by IslandDAO
+              </span>
+            </a>
+          </div>
+        </div>
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-8">

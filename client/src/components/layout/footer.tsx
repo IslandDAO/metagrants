@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Twitter, Github, MessageCircle } from "lucide-react";
+import islandDaoLogo from "@/assets/logos/island-dao-logo.png";
 
 const Footer = () => {
   return (
@@ -54,6 +55,23 @@ const Footer = () => {
         
         <div className="mt-4 text-center text-xs text-[#b5bfcc]">
           <p>© 2023-2025 Metaplex Foundation. All rights reserved.</p>
+          <div className="flex items-center justify-center mt-3 opacity-70 hover:opacity-100 transition-opacity">
+            <a 
+              href="https://islanddao.org/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center group"
+            >
+              <img 
+                src={islandDaoLogo} 
+                alt="IslandDAO Logo" 
+                className="h-5 w-auto mr-2 grayscale group-hover:grayscale-0 transition-all" 
+              />
+              <span className="text-xs text-[#8896b0] group-hover:text-[#a0e0a8] transition-colors">
+                Powered by IslandDAO
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
