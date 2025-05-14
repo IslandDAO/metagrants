@@ -70,12 +70,14 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
               {member.bio}
             </div>
             
-            {/* Toggle button with distinct styling */}
+            {/* Toggle button with elegant styling */}
             <button 
               onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center justify-center w-full text-xs bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 p-1 rounded mt-2 border border-indigo-500/20"
+              className="flex items-center justify-center w-full text-xs font-medium text-indigo-300 hover:text-indigo-200 py-1.5 mt-2 transition-all relative group bg-gradient-to-r from-indigo-500/5 via-indigo-500/10 to-indigo-500/5"
             >
-              <span>{isOpen ? "Show Less ↑" : "Show More ↓"}</span>
+              <div className="absolute -bottom-px left-1/2 -translate-x-1/2 w-20 h-[2px] bg-indigo-400/40 group-hover:bg-indigo-400/70 transition-colors"></div>
+              <span>{isOpen ? "Read less" : "Read more"}</span>
+              <ChevronDown className={`h-3 w-3 ml-1 transition-transform ${isOpen ? "rotate-180" : ""}`} />
             </button>
           </div>
           
