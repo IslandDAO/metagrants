@@ -702,7 +702,7 @@ const ChartsPage = () => {
                         </div>
                         <div>
                           <p className="text-white font-medium">Agreement & Execution</p>
-                          <p className="text-sm text-gray-400">MOU issued with milestone-based funding (85% of grants)</p>
+                          <p className="text-sm text-gray-400">MOU issued with milestone-based funding</p>
                         </div>
                       </div>
                     </div>
