@@ -84,23 +84,6 @@ const Resources = () => {
                   <span>GitHub Repo</span>
                 </Button>
               </a>
-              
-              <a 
-                href="https://metaplex.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="group"
-              >
-                <Button 
-                  variant="outline" 
-                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#3b82f6] text-[#f1f5fb] hover:text-white hover:shadow-[0_0_10px_rgba(59,130,246,0.5)] animate-glow-pulse transition-all duration-300"
-                >
-                  <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-r from-[#3b82f6]/20 to-[#8b5cf6]/20 border border-[#3b82f6]/50 mr-2 group-hover:border-[#3b82f6]">
-                    <Globe size={14} className="text-[#3b82f6] group-hover:text-[#60a5fa]" />
-                  </div>
-                  <span>Metaplex Site</span>
-                </Button>
-              </a>
             </div>
           </CardContent>
         </Card>
@@ -161,23 +144,6 @@ const Resources = () => {
                     <Github size={14} className="text-[#8b5cf6] group-hover:text-[#a78bfa]" />
                   </div>
                   <span>GitHub Repo</span>
-                </Button>
-              </a>
-              
-              <a 
-                href="https://metaplex.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="group"
-              >
-                <Button 
-                  variant="outline" 
-                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#8b5cf6] text-[#f1f5fb] hover:text-white hover:shadow-[0_0_10px_rgba(139,92,246,0.5)] animate-glow-pulse transition-all duration-300"
-                >
-                  <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-r from-[#8b5cf6]/20 to-[#3b82f6]/20 border border-[#8b5cf6]/50 mr-2 group-hover:border-[#8b5cf6]">
-                    <Globe size={14} className="text-[#8b5cf6] group-hover:text-[#a78bfa]" />
-                  </div>
-                  <span>Metaplex Site</span>
                 </Button>
               </a>
             </div>
