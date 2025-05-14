@@ -168,13 +168,13 @@ const ChartsPage = () => {
   
     return (
       <g>
-        <text x={cx} y={cy - 20} dy={8} textAnchor="middle" fill="#333" fontSize={16} fontWeight="bold">
+        <text x={cx} y={cy - 20} dy={8} textAnchor="middle" fill="#FFFFFF" fontSize={16} fontWeight="bold">
           {payload.name}
         </text>
-        <text x={cx} y={cy + 10} textAnchor="middle" fill="#666">
+        <text x={cx} y={cy + 10} textAnchor="middle" fill="#E5E7EB" fontSize={14}>
           ${value.toLocaleString()}
         </text>
-        <text x={cx} y={cy + 30} textAnchor="middle" fill="#999">
+        <text x={cx} y={cy + 30} textAnchor="middle" fill="#E5E7EB" fontSize={12}>
           ({(percent * 100).toFixed(0)}%)
         </text>
         <Sector
@@ -331,8 +331,21 @@ const ChartsPage = () => {
                         outerRadius={120}
                         paddingAngle={5}
                         dataKey="value"
-                        label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
-                        labelLine={{ stroke: '#6366F1', strokeWidth: 1 }}
+                        label={({ name, percent }) => {
+                          return (
+                            <text 
+                              fill="#FFFFFF" 
+                              fontWeight="500" 
+                              fontSize="14"
+                              stroke="#000" 
+                              strokeWidth="0.5" 
+                              paintOrder="stroke"
+                            >
+                              {(percent * 100).toFixed(0)}%
+                            </text>
+                          );
+                        }}
+                        labelLine={{ stroke: 'rgba(255,255,255,0.6)', strokeWidth: 1 }}
                       >
                         <Cell fill="url(#coreGradient)" stroke="#6366F1" strokeWidth={2} />
                         <Cell fill="url(#m404Gradient)" stroke="#10B981" strokeWidth={2} />
@@ -535,8 +548,21 @@ const ChartsPage = () => {
                         setIsAnimating(false);
                       }}
                       onMouseLeave={() => setIsAnimating(true)}
-                      label={({ name, value }) => `$${(value/1000).toFixed(0)}k`}
-                      labelLine={{ stroke: 'rgba(255,255,255,0.3)', strokeWidth: 1 }}
+                      label={({ name, value }) => {
+                        return (
+                          <text 
+                            fill="#FFFFFF" 
+                            fontWeight="500" 
+                            fontSize="14" 
+                            stroke="#000" 
+                            strokeWidth="0.5" 
+                            paintOrder="stroke"
+                          >
+                            ${(value/1000).toFixed(0)}k
+                          </text>
+                        );
+                      }}
+                      labelLine={{ stroke: 'rgba(255,255,255,0.6)', strokeWidth: 1 }}
                     >
                       {sectorFundingData.map((entry, index) => (
                         <Cell 
@@ -614,8 +640,8 @@ const ChartsPage = () => {
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" stroke="#364156" />
-                    <XAxis type="number" tickFormatter={(value) => `$${value.toLocaleString()}`} stroke="#9CA3AF" />
-                    <YAxis type="category" dataKey="name" stroke="#9CA3AF" />
+                    <XAxis type="number" tickFormatter={(value) => `$${value.toLocaleString()}`} stroke="#E5E7EB" />
+                    <YAxis type="category" dataKey="name" stroke="#E5E7EB" />
                     <Tooltip 
                       content={<CustomTooltip />}
                       cursor={{ fill: 'rgba(100, 116, 139, 0.1)' }} 
@@ -814,8 +840,9 @@ const ChartsPage = () => {
                     label={{
                       position: 'top',
                       formatter: (value) => `$${(value/1000).toFixed(0)}k`,
-                      fontSize: 11,
-                      fill: '#9CA3AF'
+                      fontSize: 14,
+                      fill: '#FFFFFF',
+                      fontWeight: 600
                     }}
                   />
                 </BarChart>
