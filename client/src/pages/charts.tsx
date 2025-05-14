@@ -151,6 +151,8 @@ const ChartsPage = () => {
   const projectsByFunding = grantProjects.map(p => ({
     name: p.name,
     totalUsd: p.totalUsd,
+    usdc: p.usdc,
+    mplx: p.mplx,
     tech: p.tech,
     sector: p.sector
   })).sort((a, b) => b.totalUsd - a.totalUsd).slice(0, 8); // Top 8 projects
@@ -954,15 +956,29 @@ const ChartsPage = () => {
                                 <p className="text-sm text-gray-400">{project.sector}</p>
                               </div>
                               <div className="text-right">
-                                <p className={`text-xl font-bold 
-                                  ${project.tech === "CORE" ? "text-indigo-300" : "text-emerald-300"}`}>
-                                  ${(project.totalUsd / 1000).toFixed(1)}k
-                                </p>
-                                <div className="w-full bg-gray-800 h-1 mt-2 rounded-full overflow-hidden">
+                                <div className="flex flex-col items-end">
+                                  <p className={`text-xl font-bold 
+                                    ${project.tech === "CORE" ? "text-indigo-300" : "text-emerald-300"}`}>
+                                    ${(project.totalUsd / 1000).toFixed(1)}k
+                                  </p>
+                                  <div className="flex items-center gap-2 text-xs">
+                                    <span className="text-blue-300">${project.usdc.toLocaleString()} USDC</span>
+                                    <span className="text-purple-300">+{project.mplx.toLocaleString()} MPLX</span>
+                                  </div>
+                                </div>
+                                <div className="w-full bg-gray-800 h-2 mt-2 rounded-full overflow-hidden flex">
+                                  {/* USDC portion */}
                                   <div 
-                                    className={`h-full ${project.tech === "CORE" ? "bg-indigo-500" : "bg-emerald-500"}`}
+                                    className={`h-full bg-blue-500`}
                                     style={{ 
-                                      width: `${(project.totalUsd / 25000) * 100}%`,
+                                      width: `${(project.usdc / project.totalUsd) * 100}%`,
+                                    }}
+                                  ></div>
+                                  {/* MPLX portion (at MPLX = 0.1 USDC) */}
+                                  <div 
+                                    className={`h-full bg-purple-500`}
+                                    style={{ 
+                                      width: `${((project.mplx * 0.1) / project.totalUsd) * 100}%`,
                                     }}
                                   ></div>
                                 </div>
@@ -976,37 +992,87 @@ const ChartsPage = () => {
                 </div>
                 
                 {/* Total funding display */}
-                <div className="mt-5 grid grid-cols-1 md:grid-cols-4 gap-4">
-                  <div className="md:col-span-2 flex-1 bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-4 rounded-lg border border-blue-800/30">
-                    <div className="flex justify-between items-center">
+                <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="flex-1 bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-4 rounded-lg border border-blue-800/30">
+                    <div className="flex justify-between items-start">
                       <div>
                         <p className="text-sm text-gray-400">Total Funding</p>
-                        <p className="text-3xl font-bold text-white mt-1">$100,000</p>
+                        <p className="text-3xl font-bold text-white mt-1">$159,000</p>
+                        <div className="flex gap-3 mt-2">
+                          <div className="flex items-center gap-1.5">
+                            <div className="h-2.5 w-2.5 rounded-full bg-blue-500"></div>
+                            <span className="text-xs text-blue-300">$100,000 USDC</span>
+                          </div>
+                          <div className="flex items-center gap-1.5">
+                            <div className="h-2.5 w-2.5 rounded-full bg-purple-500"></div>
+                            <span className="text-xs text-purple-300">$59,000 MPLX*</span>
+                          </div>
+                        </div>
                       </div>
                       <div className="h-12 w-12 bg-blue-500/20 rounded-full flex items-center justify-center">
                         <TrendingUp className="h-6 w-6 text-blue-400" />
                       </div>
                     </div>
+                    
+                    <div className="mt-3 bg-gray-800/50 h-3 rounded-full overflow-hidden flex">
+                      <div className="h-full bg-blue-500" style={{width: '63%'}}></div>
+                      <div className="h-full bg-purple-500" style={{width: '37%'}}></div>
+                    </div>
                   </div>
                   
                   <div className="flex-1 bg-gradient-to-r from-indigo-900/20 to-indigo-900/5 p-4 rounded-lg border border-indigo-800/30">
                     <p className="text-sm text-gray-400">Core Projects</p>
-                    <p className="text-2xl font-bold text-indigo-300 mt-1">$60,500</p>
-                    <div className="flex items-center mt-2">
-                      <div className="h-1.5 bg-indigo-500 rounded-full w-2/3"></div>
-                      <p className="text-xs ml-3 text-indigo-300">61%</p>
+                    <p className="text-2xl font-bold text-indigo-300 mt-1">$95,000</p>
+                    
+                    <div className="flex gap-2 mt-1.5">
+                      <span className="text-xs text-blue-300">$60,500 USDC</span>
+                      <span className="text-xs text-purple-300">+ $34,500 MPLX*</span>
+                    </div>
+                    
+                    <div className="flex flex-col mt-3 gap-2">
+                      <div className="flex items-center">
+                        <div className="w-full bg-gray-800/50 h-2 rounded-full overflow-hidden flex">
+                          <div className="h-full bg-blue-500" style={{width: '64%'}}></div>
+                          <div className="h-full bg-purple-500" style={{width: '36%'}}></div>
+                        </div>
+                        <p className="text-xs ml-3 text-indigo-300 whitespace-nowrap">60%</p>
+                      </div>
+                      
+                      <div className="flex justify-between text-xs text-gray-400">
+                        <span>7 projects</span>
+                        <span>CORE</span>
+                      </div>
                     </div>
                   </div>
                   
                   <div className="flex-1 bg-gradient-to-r from-emerald-900/20 to-emerald-900/5 p-4 rounded-lg border border-emerald-800/30">
                     <p className="text-sm text-gray-400">404 Projects</p>
-                    <p className="text-2xl font-bold text-emerald-300 mt-1">$39,500</p>
-                    <div className="flex items-center mt-2">
-                      <div className="h-1.5 bg-emerald-500 rounded-full w-1/3"></div>
-                      <p className="text-xs ml-3 text-emerald-300">39%</p>
+                    <p className="text-2xl font-bold text-emerald-300 mt-1">$64,000</p>
+                    
+                    <div className="flex gap-2 mt-1.5">
+                      <span className="text-xs text-blue-300">$39,500 USDC</span>
+                      <span className="text-xs text-purple-300">+ $24,500 MPLX*</span>
+                    </div>
+                    
+                    <div className="flex flex-col mt-3 gap-2">
+                      <div className="flex items-center">
+                        <div className="w-full bg-gray-800/50 h-2 rounded-full overflow-hidden flex">
+                          <div className="h-full bg-blue-500" style={{width: '62%'}}></div>
+                          <div className="h-full bg-purple-500" style={{width: '38%'}}></div>
+                        </div>
+                        <p className="text-xs ml-3 text-emerald-300 whitespace-nowrap">40%</p>
+                      </div>
+                      
+                      <div className="flex justify-between text-xs text-gray-400">
+                        <span>5 projects</span>
+                        <span>404</span>
+                      </div>
                     </div>
                   </div>
                 </div>
+                
+                {/* Footnote */}
+                <p className="text-right mt-2 text-xs text-gray-500">* MPLX token value calculated at $0.1 USDC per MPLX</p>
               </div>
             </CardContent>
           </Card>
