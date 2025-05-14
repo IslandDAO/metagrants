@@ -21,7 +21,13 @@ import { Twitter, Linkedin, Globe, Mail, Github, ChevronDown } from "lucide-reac
 import { team, TeamMember } from "@/data/team";
 
 // Component for team member card
-const TeamMemberCard = ({ member }: { member: TeamMember }) => {
+const TeamMemberCard = ({ 
+  member, 
+  highlighted = false 
+}: { 
+  member: TeamMember, 
+  highlighted?: boolean 
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const initials = member.name
     .split(" ")
@@ -34,16 +40,22 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className="h-full"
+      whileHover={highlighted ? { scale: 1, y: 0 } : { scale: 1.02, y: -5 }}
     >
-      <Card className="h-full bg-[#1c2431] border-[#364156] overflow-hidden relative">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
-        <CardContent className="p-6 flex flex-col h-full">
+      <Card className={`h-full ${highlighted ? 'bg-gradient-to-b from-[#1c2a42] to-[#1a2436]' : 'bg-[#1c2431]'} border-[#364156] overflow-hidden relative ${highlighted ? 'shadow-xl shadow-indigo-500/10' : ''}`}>
+        <div className={`absolute top-0 left-0 right-0 h-1 ${highlighted ? 'h-1.5' : 'h-1'} bg-gradient-to-r ${highlighted ? 'from-indigo-400 via-purple-400 to-blue-400' : 'from-indigo-500 to-purple-500'}`}></div>
+        
+        {highlighted && (
+          <div className="absolute inset-0 bg-indigo-500/5 opacity-50"></div>
+        )}
+        
+        <CardContent className={`${highlighted ? 'p-8' : 'p-6'} flex flex-col h-full relative z-10`}>
           <div className="flex flex-col items-center text-center mb-4">
-            <Avatar className="h-20 w-20 mb-4 ring-2 ring-indigo-500/30 ring-offset-2 ring-offset-[#1c2431]">
+            <Avatar className={`${highlighted ? 'h-28 w-28 mb-5' : 'h-20 w-20 mb-4'} ring-2 ${highlighted ? 'ring-indigo-400' : 'ring-indigo-500/30'} ring-offset-2 ring-offset-[#1c2431]`}>
               <AvatarImage src={member.imageUrl} alt={member.name} />
               <AvatarFallback className="bg-indigo-500/20 text-indigo-200">{initials}</AvatarFallback>
             </Avatar>
-            <h3 className="text-xl font-bold text-[#f1f5fb]">{member.name}</h3>
+            <h3 className={`${highlighted ? 'text-2xl' : 'text-xl'} font-bold text-[#f1f5fb]`}>{member.name}</h3>
             <p className="text-indigo-300 text-sm font-medium mb-2">{member.title}</p>
           </div>
           
@@ -140,8 +152,8 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
 
 // Main team page component
 const Team = () => {
-  const coreTeam = team.filter((member) => member.role === "core");
-  const advisors = team.filter((member) => member.role === "advisor");
+  const lead = team.find(member => member.role === "lead");
+  const members = team.filter(member => member.role === "member");
   
   return (
     <div className="max-w-7xl mx-auto">
@@ -166,32 +178,41 @@ const Team = () => {
         </motion.p>
       </div>
       
-      <Tabs defaultValue="core" className="mb-12">
-        <TabsList className="mb-8 bg-[#1a2436] border border-[#364156]">
-          <TabsTrigger value="core" className="data-[state=active]:bg-indigo-500/20 data-[state=active]:text-indigo-300">Core Team</TabsTrigger>
-          <TabsTrigger value="advisors" className="data-[state=active]:bg-indigo-500/20 data-[state=active]:text-indigo-300">Advisors</TabsTrigger>
-        </TabsList>
-        
-        <TabsContent value="core">
-          <div className="flex overflow-x-auto pb-6 gap-6 snap-x scrollbar-thin scrollbar-thumb-indigo-500/30 scrollbar-track-[#1a2436] pr-4 pt-2 pl-2 -ml-2 -mr-4">
-            {coreTeam.map((member, index) => (
-              <div key={member.name} className="min-w-[350px] w-[350px] snap-start flex-shrink-0 h-full">
-                <TeamMemberCard member={member} />
-              </div>
-            ))}
+      {/* Lead Admin */}
+      {lead && (
+        <motion.div 
+          className="mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <div className="flex items-center mb-6">
+            <h2 className="text-2xl font-bold text-[#f1f5fb]">Lead Administrator</h2>
           </div>
-        </TabsContent>
-        
-        <TabsContent value="advisors">
-          <div className="flex overflow-x-auto pb-6 gap-6 snap-x scrollbar-thin scrollbar-thumb-indigo-500/30 scrollbar-track-[#1a2436] pr-4 pt-2 pl-2 -ml-2 -mr-4">
-            {advisors.map((member, index) => (
-              <div key={member.name} className="min-w-[350px] w-[350px] snap-start flex-shrink-0 h-full">
-                <TeamMemberCard member={member} />
-              </div>
-            ))}
+          
+          <div className="max-w-lg mx-auto">
+            <TeamMemberCard member={lead} highlighted={true} />
           </div>
-        </TabsContent>
-      </Tabs>
+        </motion.div>
+      )}
+      
+      {/* All other team members */}
+      <motion.div 
+        className="mb-12"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        <div className="flex items-center mb-6">
+          <h2 className="text-2xl font-bold text-[#f1f5fb]">Team Members</h2>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {members.map((member, index) => (
+            <TeamMemberCard key={member.name} member={member} />
+          ))}
+        </div>
+      </motion.div>
       
       <motion.div
         className="bg-gradient-to-r from-[#1a2436] to-[#1d2a40] p-8 rounded-lg border border-indigo-500/20 text-center mb-6 overflow-hidden relative"
