@@ -570,73 +570,124 @@ const ChartsPage = () => {
               </CardContent>
             </Card>
             
-            {/* Notable vs Regular Projects */}
+            {/* Application & Selection Process */}
             <Card className="bg-[#1c2431] border-[#364156]">
               <CardHeader className="pb-2">
-                <CardTitle className="text-xl text-white">Project Types</CardTitle>
-                <CardDescription className="text-gray-300">Notable vs Regular Projects</CardDescription>
+                <CardTitle className="text-xl text-white">Application Process</CardTitle>
+                <CardDescription className="text-gray-300">Applications & Selection Details</CardDescription>
               </CardHeader>
               <CardContent className="pt-6">
-                <ResponsiveContainer width="100%" height={350}>
-                  <ScatterChart
-                    margin={{ top: 10, right: 30, left: 10, bottom: 40 }}
-                  >
-                    <defs>
-                      <radialGradient id="scatterGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                        <stop offset="0%" stopColor="#6366F1" stopOpacity={0.9} />
-                        <stop offset="100%" stopColor="#6366F1" stopOpacity={0.4} />
-                      </radialGradient>
-                    </defs>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#364156" />
-                    <XAxis 
-                      type="number" 
-                      dataKey="count" 
-                      name="Projects" 
-                      stroke="#9CA3AF"
-                      label={{ value: 'Number of Projects', position: 'bottom', fill: '#9CA3AF' }}
-                    />
-                    <YAxis 
-                      type="number" 
-                      dataKey="value" 
-                      name="Funding" 
-                      stroke="#9CA3AF"
-                      tickFormatter={(value) => `$${(value/1000).toFixed(0)}k`}
-                      label={{ value: 'Total Funding', angle: -90, position: 'insideLeft', fill: '#9CA3AF' }}
-                    />
-                    <ZAxis 
-                      type="number" 
-                      dataKey="avgFunding" 
-                      range={[60, 200]} 
-                      name="Avg Funding" 
-                    />
-                    <Tooltip 
-                      cursor={{ strokeDasharray: '3 3' }}
-                      formatter={(value, name) => {
-                        if (name === 'Funding') return [`$${value.toLocaleString()}`, name];
-                        if (name === 'Projects') return [value, name];
-                        if (name === 'Avg Funding') return [`$${value.toLocaleString()}`, 'Avg Per Project'];
-                        return [value, name];
-                      }}
-                      contentStyle={{ backgroundColor: '#1c2431', border: '1px solid #364156', color: 'white' }}
-                    />
-                    <Scatter 
-                      name="Projects" 
-                      data={projectTypeData} 
-                      fill="url(#scatterGradient)"
-                      shape={(props) => {
-                        const { cx, cy, fill, r } = props;
-                        return (
-                          <g>
-                            <circle cx={cx} cy={cy} r={r} fill={fill} />
-                            <text x={cx} y={cy} textAnchor="middle" fill="#fff" fontSize={12} dy=".3em">
-                              {props.payload.name}
-                            </text>
-                          </g>
-                        );
-                      }}
-                    />
-                  </ScatterChart>
-                </ResponsiveContainer>
+                <div className="grid grid-cols-1 gap-6">
+                  {/* Application stats */}
+                  <div className="bg-gradient-to-br from-[#1a2436] to-[#151e2a] rounded-lg p-5">
+                    <h3 className="text-lg font-semibold mb-4 text-blue-300">Application Statistics</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <div className="h-5 w-full bg-[#131a25] rounded-full overflow-hidden">
+                          <div 
+                            className="h-full bg-gradient-to-r from-blue-600 to-blue-400"
+                            style={{ width: '68%' }}
+                          ></div>
+                        </div>
+                        <div className="flex justify-between mt-2 text-sm">
+                          <span className="text-gray-400">Metaplex Core</span>
+                          <span className="text-white font-medium">52 (68%)</span>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <div className="h-5 w-full bg-[#131a25] rounded-full overflow-hidden">
+                          <div 
+                            className="h-full bg-gradient-to-r from-emerald-600 to-emerald-400"
+                            style={{ width: '32%' }}
+                          ></div>
+                        </div>
+                        <div className="flex justify-between mt-2 text-sm">
+                          <span className="text-gray-400">MPL 404</span>
+                          <span className="text-white font-medium">24 (32%)</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6">
+                      <div className="bg-[#131a25] p-3 rounded-lg flex flex-col items-center">
+                        <span className="text-xs text-gray-400">Total Applications</span>
+                        <span className="text-xl font-bold text-white">76</span>
+                      </div>
+                      
+                      <div className="bg-[#131a25] p-3 rounded-lg flex flex-col items-center">
+                        <span className="text-xs text-gray-400">Acceptance Rate</span>
+                        <span className="text-xl font-bold text-white">15.8%</span>
+                      </div>
+                      
+                      <div className="bg-[#131a25] p-3 rounded-lg flex flex-col items-center">
+                        <span className="text-xs text-gray-400">Avg Request</span>
+                        <span className="text-xl font-bold text-white">$39,618</span>
+                      </div>
+                      
+                      <div className="bg-[#131a25] p-3 rounded-lg flex flex-col items-center">
+                        <span className="text-xs text-gray-400">Avg Awarded</span>
+                        <span className="text-xl font-bold text-white">$13,167</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Selection Process */}
+                  <div className="bg-gradient-to-br from-[#1a2436] to-[#151e2a] rounded-lg p-5">
+                    <h3 className="text-lg font-semibold mb-4 text-purple-300">Selection Process</h3>
+                    <div className="flex flex-col space-y-3">
+                      <div className="flex items-center">
+                        <div className="rounded-full bg-blue-500/20 w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                          <span className="text-blue-400 font-semibold">1</span>
+                        </div>
+                        <div>
+                          <p className="text-white font-medium">Application Intake</p>
+                          <p className="text-sm text-gray-400">Applications submitted via Google Form and tracked in CRM</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center">
+                        <div className="rounded-full bg-blue-500/20 w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                          <span className="text-blue-400 font-semibold">2</span>
+                        </div>
+                        <div>
+                          <p className="text-white font-medium">Initial Review</p>
+                          <p className="text-sm text-gray-400">Projects discussed in weekly council calls</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center">
+                        <div className="rounded-full bg-blue-500/20 w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                          <span className="text-blue-400 font-semibold">3</span>
+                        </div>
+                        <div>
+                          <p className="text-white font-medium">Intro Call</p>
+                          <p className="text-sm text-gray-400">20-minute introductory calls with promising teams</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center">
+                        <div className="rounded-full bg-blue-500/20 w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                          <span className="text-blue-400 font-semibold">4</span>
+                        </div>
+                        <div>
+                          <p className="text-white font-medium">Technical Diligence</p>
+                          <p className="text-sm text-gray-400">Technical specs and milestone planning</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center">
+                        <div className="rounded-full bg-blue-500/20 w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                          <span className="text-blue-400 font-semibold">5</span>
+                        </div>
+                        <div>
+                          <p className="text-white font-medium">Agreement & Execution</p>
+                          <p className="text-sm text-gray-400">MOU issued with milestone-based funding (85% of grants)</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
