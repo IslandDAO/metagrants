@@ -1,6 +1,6 @@
 import TopNav from "./top-nav";
 import Footer from "./footer";
-import { GlowingPalms } from "../ui/breathing-palms";
+import { GlowingPalms } from "../ui/smooth-palms";
 
 interface LayoutProps {
   children: React.ReactNode;
