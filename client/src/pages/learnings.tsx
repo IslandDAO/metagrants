@@ -204,9 +204,14 @@ const Learnings = () => {
                   <TabsTrigger 
                     key={index} 
                     value={result.category}
-                    className="data-[state=active]:bg-primary/20 data-[state=active]:text-gradient data-[state=active]:shadow-glow"
+                    className="data-[state=active]:bg-primary/20 data-[state=active]:text-gradient data-[state=active]:shadow-glow hover:bg-primary/10 transition-colors cursor-pointer"
                   >
-                    {result.category}
+                    <span className="flex items-center">
+                      {result.category}
+                      {result.category !== keyResults[0].category && (
+                        <span className="ml-1 text-xs text-primary animate-pulse">•</span>
+                      )}
+                    </span>
                   </TabsTrigger>
                 ))}
               </TabsList>
