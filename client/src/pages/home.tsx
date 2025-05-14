@@ -95,7 +95,7 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
           <StatItem label="Applications Received" value={76} />
           <StatItem label="Grants Funded" value={12} />
-          <StatItem label="USDC Allocated" value="$99,000" />
+          <StatItem label="USDC Allocated" value="$100,000" />
           <StatItem label="MPLX Allocated" value="590,000" />
         </div>
         
