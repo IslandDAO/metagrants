@@ -47,27 +47,35 @@ const GrantCard = ({ project }: { project: GrantProject }) => {
             {project.summary}
           </p>
           <div className="border-t border-[#3c4759] pt-3 mt-auto">
-            <div className="flex justify-between items-center">
-              <div className="text-sm font-medium text-[#f1f5fb]">
-                ${project.totalUsd.toLocaleString()}
-              </div>
-              <div className="flex space-x-2">
-                {project.links?.website && (
-                  <a 
-                    href={project.links.website} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-[#b5bfcc] hover:text-[#f97316]"
+            <div className="flex flex-col gap-1">
+              <div className="flex justify-between items-center">
+                <div>
+                  <div className="text-sm font-medium text-[#f1f5fb]">
+                    ${project.totalUsd.toLocaleString()}
+                  </div>
+                  <div className="flex gap-2 text-xs text-[#8896b0]">
+                    <span>${project.usdc.toLocaleString()} USDC</span>
+                    <span>+{project.mplx.toLocaleString()} MPLX*</span>
+                  </div>
+                </div>
+                <div className="flex space-x-2">
+                  {project.links?.website && (
+                    <a 
+                      href={project.links.website} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-[#b5bfcc] hover:text-[#f97316]"
+                    >
+                      <ExternalLink size={16} />
+                    </a>
+                  )}
+                  <Link 
+                    to={`/grants/${project.slug}`}
+                    className="text-[#f97316] hover:text-[#fb923c] text-sm font-medium"
                   >
-                    <ExternalLink size={16} />
-                  </a>
-                )}
-                <Link 
-                  to={`/grants/${project.slug}`}
-                  className="text-[#f97316] hover:text-[#fb923c] text-sm font-medium"
-                >
-                  Details
-                </Link>
+                    Details
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -198,6 +206,18 @@ const Grants = () => {
               <p className="text-[#8896b0]">Try adjusting your search or filter criteria</p>
             </CardContent>
           </Card>
+        </motion.div>
+      )}
+      
+      {/* Footnote */}
+      {filteredGrants.length > 0 && (
+        <motion.div
+          className="mt-8 text-right text-xs text-[#8896b0]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          * MPLX token value calculated at $0.1 USDC per MPLX
         </motion.div>
       )}
     </div>
