@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Social Preview Image</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      width: 1200px;
+      height: 630px;
+      background-color: #121820;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    /* Gradient top border */
+    .top-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 12px;
+      background: linear-gradient(90deg, #6366F1, #8B5CF6, #EC4899);
+    }
+    
+    /* Content container */
+    .container {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 10;
+    }
+    
+    /* Logo section */
+    .logos {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .logo-text {
+      color: #b5bfcc;
+      font-size: 24px;
+      margin-top: 10px;
+    }
+    
+    /* Title section */
+    .title {
+      font-size: 72px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #6366F1, #8B5CF6, #EC4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .subtitle {
+      font-size: 36px;
+      color: #b5bfcc;
+      margin-bottom: 60px;
+    }
+    
+    .island-text {
+      color: #bcf0c0;
+    }
+    
+    /* Stats section */
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      width: 90%;
+      margin-top: 30px;
+    }
+    
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+    }
+    
+    .stat-value {
+      font-size: 48px;
+      font-weight: 700;
+      color: white;
+    }
+    
+    .stat-label {
+      font-size: 20px;
+      color: #b5bfcc;
+      margin-top: 5px;
+    }
+    
+    /* Palm trees background */
+    .palm {
+      position: absolute;
+      opacity: 0.15;
+      transform-origin: bottom center;
+    }
+    
+    .palm-1 {
+      left: 5%;
+      bottom: -50px;
+      transform: scale(0.8) rotate(-10deg);
+    }
+    
+    .palm-2 {
+      right: 5%;
+      bottom: -50px;
+      transform: scale(0.8) rotate(10deg);
+    }
+    
+    .palm-3 {
+      left: 25%;
+      bottom: -30px;
+      transform: scale(0.6) rotate(-5deg);
+    }
+    
+    .palm-4 {
+      right: 25%;
+      bottom: -30px;
+      transform: scale(0.6) rotate(5deg);
+    }
+    
+    /* Palm tree SVG styling */
+    .palm-tree {
+      stroke: #4ADE80;
+      stroke-width: 3;
+      stroke-linecap: round;
+    }
+    
+    /* Glow effect */
+    .glow {
+      filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.5));
+    }
+  </style>
+</head>
+<body>
+  <!-- Top gradient border -->
+  <div class="top-gradient"></div>
+  
+  <!-- Background palm trees -->
+  <div class="palm palm-1">
+    <svg width="200" height="350" viewBox="0 0 200 350" class="glow">
+      <!-- Tree trunk -->
+      <path d="M100 350V250" class="palm-tree" />
+      <!-- Lower branches -->
+      <path d="M100 250C100 250 70 220 50 240" class="palm-tree" />
+      <path d="M100 250C100 250 130 220 150 240" class="palm-tree" />
+      <!-- Middle branches -->
+      <path d="M100 200C100 200 60 160 40 180" class="palm-tree" />
+      <path d="M100 200C100 200 140 160 160 180" class="palm-tree" />
+      <!-- Upper branches -->
+      <path d="M100 150C100 150 70 110 50 130" class="palm-tree" />
+      <path d="M100 150C100 150 130 110 150 130" class="palm-tree" />
+      <!-- Top trunk -->
+      <path d="M100 150V100" class="palm-tree" />
+    </svg>
+  </div>
+  
+  <div class="palm palm-2">
+    <svg width="200" height="350" viewBox="0 0 200 350" class="glow">
+      <!-- Tree trunk -->
+      <path d="M100 350V250" class="palm-tree" />
+      <!-- Lower branches -->
+      <path d="M100 250C100 250 70 220 50 240" class="palm-tree" />
+      <path d="M100 250C100 250 130 220 150 240" class="palm-tree" />
+      <!-- Middle branches -->
+      <path d="M100 200C100 200 60 160 40 180" class="palm-tree" />
+      <path d="M100 200C100 200 140 160 160 180" class="palm-tree" />
+      <!-- Upper branches -->
+      <path d="M100 150C100 150 70 110 50 130" class="palm-tree" />
+      <path d="M100 150C100 150 130 110 150 130" class="palm-tree" />
+      <!-- Top trunk -->
+      <path d="M100 150V100" class="palm-tree" />
+    </svg>
+  </div>
+  
+  <div class="palm palm-3">
+    <svg width="200" height="350" viewBox="0 0 200 350" class="glow">
+      <!-- Tree trunk -->
+      <path d="M100 350V250" class="palm-tree" />
+      <!-- Lower branches -->
+      <path d="M100 250C100 250 70 220 50 240" class="palm-tree" />
+      <path d="M100 250C100 250 130 220 150 240" class="palm-tree" />
+      <!-- Middle branches -->
+      <path d="M100 200C100 200 60 160 40 180" class="palm-tree" />
+      <path d="M100 200C100 200 140 160 160 180" class="palm-tree" />
+      <!-- Upper branches -->
+      <path d="M100 150C100 150 70 110 50 130" class="palm-tree" />
+      <path d="M100 150C100 150 130 110 150 130" class="palm-tree" />
+      <!-- Top trunk -->
+      <path d="M100 150V100" class="palm-tree" />
+    </svg>
+  </div>
+  
+  <div class="palm palm-4">
+    <svg width="200" height="350" viewBox="0 0 200 350" class="glow">
+      <!-- Tree trunk -->
+      <path d="M100 350V250" class="palm-tree" />
+      <!-- Lower branches -->
+      <path d="M100 250C100 250 70 220 50 240" class="palm-tree" />
+      <path d="M100 250C100 250 130 220 150 240" class="palm-tree" />
+      <!-- Middle branches -->
+      <path d="M100 200C100 200 60 160 40 180" class="palm-tree" />
+      <path d="M100 200C100 200 140 160 160 180" class="palm-tree" />
+      <!-- Upper branches -->
+      <path d="M100 150C100 150 70 110 50 130" class="palm-tree" />
+      <path d="M100 150C100 150 130 110 150 130" class="palm-tree" />
+      <!-- Top trunk -->
+      <path d="M100 150V100" class="palm-tree" />
+    </svg>
+  </div>
+  
+  <!-- Main content -->
+  <div class="container">
+    <!-- Logo section -->
+    <div class="logos">
+      <div class="logo-container">
+        <img src="metaplex-logo.jpg" alt="Metaplex Logo" width="120" height="120" style="border-radius: 60px;">
+        <div class="logo-text">METAPLEX DAO</div>
+      </div>
+      
+      <div class="logo-container">
+        <img src="island-dao-logo.png" alt="Island DAO Logo" width="120" height="120" style="border-radius: 60px;">
+        <div class="logo-text">ISLAND DAO</div>
+      </div>
+    </div>
+    
+    <!-- Title section -->
+    <h1 class="title">MetaplexDAO Grants</h1>
+    <div class="subtitle">Cohort 1 • Managed by <span class="island-text">IslandDAO</span></div>
+    
+    <!-- Stats section -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value">76</div>
+        <div class="stat-label">Applications</div>
+      </div>
+      
+      <div class="stat">
+        <div class="stat-value">12</div>
+        <div class="stat-label">Projects Funded</div>
+      </div>
+      
+      <div class="stat">
+        <div class="stat-value">$159k</div>
+        <div class="stat-label">Total Funding</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
