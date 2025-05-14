@@ -176,12 +176,12 @@ const Learnings = () => {
         transition={{ duration: 0.6, delay: 0.2 }}
       >
         <h2 className="text-2xl font-bold text-gradient mb-6">Cohort 1 Overview</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-7 gap-2">
           {cohortStats.map((stat, index) => (
             <Card key={index} className="text-center card-gradient card-hover neon-glow">
-              <CardContent className="p-4">
-                <p className="text-2xl font-bold text-gradient animate-glow-pulse">{stat.value}</p>
-                <p className="text-sm text-[#b5bfcc]">{stat.label}</p>
+              <CardContent className="p-3">
+                <p className="text-xl font-bold text-gradient animate-glow-pulse">{stat.value}</p>
+                <p className="text-xs text-[#b5bfcc]">{stat.label}</p>
               </CardContent>
             </Card>
           ))}
