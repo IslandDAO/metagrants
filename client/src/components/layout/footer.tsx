@@ -10,14 +10,19 @@ const Footer = () => {
         <div className="flex flex-wrap md:flex-nowrap items-center justify-between">
           {/* Logo with Powered by IslandDAO */}
           <div className="flex items-center mb-2 md:mb-0">
-            <div className="flex items-center">
+            <a 
+              href="https://www.metaplex.com/grants" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center hover:opacity-80 transition-opacity"
+            >
               <img 
                 src={metaplexLogo} 
                 alt="Metaplex Logo" 
                 className="h-6 w-6 rounded-full mr-2 border border-gray-700"
               />
-              <span className="text-sm font-bold text-[#f1f5fb]">MetaplexDAO</span>
-            </div>
+              <span className="text-sm font-bold text-[#f1f5fb] hover:text-[#3b82f6] transition-colors">MetaplexDAO</span>
+            </a>
             
             <div className="flex items-center ml-3 border-l border-[#3c4759] pl-3">
               <a 
