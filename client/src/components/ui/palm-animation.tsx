@@ -8,7 +8,6 @@ interface Palm {
   size: number;
   brightness: number;
   active: boolean;
-  duration?: number; // Time in seconds that the palm stays lit
 }
 
 export const GlowingPalms: React.FC = () => {
@@ -72,8 +71,6 @@ export const GlowingPalms: React.FC = () => {
       if (!initialActiveIndices.includes(index)) {
         initialActiveIndices.push(index);
         initialPalms[index].active = true;
-        // Add random duration property (between 2-5 seconds)
-        initialPalms[index].duration = 2 + Math.random() * 3;
       }
     }
     
@@ -131,8 +128,6 @@ export const GlowingPalms: React.FC = () => {
               
               newActiveIndices.push(selectedIndex);
               newPalms[selectedIndex].active = true;
-              // Assign random duration between 2-5 seconds
-              newPalms[selectedIndex].duration = 2 + Math.random() * 3;
               
               // Remove this index from available indices
               availableIndices.splice(randomPosition, 1);
@@ -145,44 +140,31 @@ export const GlowingPalms: React.FC = () => {
           });
         }
         
-        // Update brightness based on individual durations
+        // Update brightness based on phase
         setPalms(prevPalms => {
-          // Calculate total cycle time in seconds (approximately)
-          const totalCycleTime = 250; // ~250 frames at 30fps ≈ 8.3 seconds
-          
           return prevPalms.map(palm => {
             let newBrightness = 0;
             
             if (palm.active) {
-              // Use palm's individual duration (2-5 seconds) or default to 3 seconds
-              const palmDuration = palm.duration || 3;
-              // Convert duration to phase fraction (e.g., 3s duration = 0.36 of total cycle)
-              const palmPhaseEnd = palmDuration / totalCycleTime;
+              // Randomize the glow pattern by using a unique phase for each palm
+              // by using the palm.id as a modifier
+              const uniquePhaseOffset = ((palm.id % 5) / 16); // Creates 5 different phase patterns
+              const adjustedPhase = (phaseRef.current + uniquePhaseOffset) % 1;
               
-              // First 1/3 of palm's duration is fade-in, remaining 2/3 is stable before fade-out
-              const fadeInPhase = palmPhaseEnd / 3;
-              const stableEnd = palmPhaseEnd * 0.9; // End stable at 90% of palm's duration
-              
-              if (phaseRef.current < fadeInPhase) {
-                // Fade in period - normalize to 0-1 range
-                newBrightness = phaseRef.current / fadeInPhase;
-              } 
-              else if (phaseRef.current < stableEnd) {
-                // Stable period - full brightness
-                newBrightness = 1;
-              } 
-              else if (phaseRef.current < palmPhaseEnd) {
-                // Fade out period - normalize to 1-0 range
-                const fadeOutProgress = (phaseRef.current - stableEnd) / (palmPhaseEnd - stableEnd);
-                newBrightness = 1 - fadeOutProgress;
-              }
-              else {
-                // Beyond this palm's duration
-                newBrightness = 0;
+              // Longer fade-in, faster fade-out
+              if (adjustedPhase < 0.6) {
+                // Slow fade in (0 to 0.6 phase)
+                newBrightness = (adjustedPhase / 0.6);
+              } else {
+                // Fast fade out (0.6 to 1.0 phase)
+                const fadeOutProgress = (adjustedPhase - 0.6) / 0.4;
+                const acceleratedProgress = fadeOutProgress * 1.4; // 40% faster
+                const clampedProgress = Math.min(1, acceleratedProgress);
+                newBrightness = 1 - clampedProgress;
               }
             } else {
-              // Inactive palms fade out quickly
-              newBrightness = Math.max(0, palm.brightness - 0.04);
+              // Inactive palms fade out slowly if they have brightness
+              newBrightness = Math.max(0, palm.brightness - 0.02);
             }
             
             return {
