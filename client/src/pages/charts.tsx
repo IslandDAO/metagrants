@@ -667,29 +667,31 @@ const ChartsPage = () => {
                   </ResponsiveContainer>
                 </div>
                 
-                {/* Grid of sector buttons with improved spacing */}
+                {/* Redesigned grid of sector buttons */}
                 <div className="mt-10 pt-6 border-t border-[#2a3444]">
                   <h3 className="text-lg font-semibold text-white mb-4">All Sectors</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  <div className="flex flex-wrap gap-4">
                     {sectorFundingData.map((sector, index) => (
                       <div 
                         key={`sector-${index}`} 
-                        className={`p-4 rounded-lg transition-all duration-300 transform hover:scale-105 cursor-pointer
+                        className={`flex-grow min-w-[200px] max-w-[250px] p-4 rounded-lg transition-all
                           ${activeIndex === index 
-                            ? 'bg-blue-900/30 ring-2 ring-blue-500 shadow-lg shadow-blue-500/20' 
-                            : 'bg-[#171f2b] hover:bg-[#1d2534]'}`}
+                            ? 'bg-blue-900/30 border-l-4 border-blue-500 shadow-lg shadow-blue-500/10' 
+                            : 'bg-[#171f2b] border-l-4 border-transparent hover:border-blue-500/50'}`}
                         onMouseEnter={() => setActiveIndex(index)}
                       >
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center gap-3">
                           <div 
-                            className="w-4 h-4 rounded-full" 
+                            className="w-5 h-5 rounded-full flex-shrink-0" 
                             style={{ backgroundColor: `hsl(${index * 50}, 70%, 60%)` }}
                           />
-                          <h5 className="font-medium truncate">{sector.name}</h5>
+                          <h5 className="font-medium text-white">{sector.name}</h5>
                         </div>
-                        <div className="mt-3">
-                          <p className="text-xl font-bold">${sector.value.toLocaleString()}</p>
-                          <p className="text-xs text-gray-400">{sector.projects} project{sector.projects !== 1 ? 's' : ''}</p>
+                        <div className="mt-3 flex justify-between items-baseline">
+                          <p className="text-xl font-bold text-white">${sector.value.toLocaleString()}</p>
+                          <p className="text-sm text-blue-300">{sector.projects} 
+                            <span className="text-blue-300/70 text-xs"> project{sector.projects !== 1 ? 's' : ''}</span>
+                          </p>
                         </div>
                       </div>
                     ))}
