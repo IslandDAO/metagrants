@@ -55,11 +55,11 @@ const AnimatedCounter = ({ value, duration = 2000 }: { value: number, duration?:
 // StatItem component
 const StatItem = ({ label, value }: { label: string, value: number | string }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 text-center">
-      <div className="text-3xl md:text-4xl font-bold text-secondary mb-2">
+    <div className="bg-emerald-700 rounded-lg shadow-lg p-5 text-center transform transition-all hover:scale-105">
+      <div className="text-2xl md:text-3xl font-bold text-orange-200 mb-2">
         {typeof value === 'number' ? <AnimatedCounter value={value} /> : value}
       </div>
-      <div className="text-gray-600">{label}</div>
+      <div className="text-emerald-100 text-sm">{label}</div>
     </div>
   );
 };
@@ -77,31 +77,32 @@ const Home = () => {
         <div className="flex justify-center mb-6">
           <MetaplexLogo className="h-10 w-auto" />
         </div>
-        <h1 className="text-4xl md:text-6xl font-bold text-secondary mb-6">
+        <h1 className="text-4xl md:text-6xl font-bold text-orange-200 mb-6">
           MetaplexDAO Grants — Cohort 1
         </h1>
         <div className="mb-4 flex flex-col items-center">
-          <div className="bg-primary p-3 rounded-lg inline-block mb-3">
+          <div className="bg-emerald-600 p-3 rounded-lg inline-block mb-3">
             <IslandDaoLogo className="h-16 w-auto" />
           </div>
-          <h2 className="text-xl md:text-2xl text-gray-700">
+          <h2 className="text-xl md:text-2xl text-emerald-200">
             Managed by IslandDAO
           </h2>
         </div>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+        <p className="text-xl text-emerald-300 max-w-3xl mx-auto mb-12">
           Showcasing 12 projects funded to grow the Metaplex protocol
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
           <StatItem label="Applications Received" value={76} />
           <StatItem label="Grants Funded" value={12} />
-          <StatItem label="Total Funding" value="$100,000 USDC + 1,000,000 MPLX" />
+          <StatItem label="USDC Allocated" value="$99,000" />
+          <StatItem label="MPLX Allocated" value="590,000" />
         </div>
         
         <Link to="/grants">
           <Button 
             size="lg"
-            className="bg-secondary hover:bg-secondary-light text-white font-bold py-6 px-10 rounded-lg text-xl transition transform hover:scale-105"
+            className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-6 px-10 rounded-lg text-xl transition transform hover:scale-105"
           >
             View Grantees
           </Button>

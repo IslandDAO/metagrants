@@ -23,7 +23,7 @@ const TopNav = () => {
   };
   
   return (
-    <nav className="bg-emerald-800 shadow-md py-4 px-6 fixed top-0 left-0 right-0 z-30">
+    <nav className="bg-emerald-900 shadow-md py-4 px-6 fixed top-0 left-0 right-0 z-30">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center">
@@ -67,7 +67,7 @@ const TopNav = () => {
       
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-emerald-700 shadow-md py-3 z-20">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-emerald-800 shadow-md py-3 z-20">
           <div className="flex flex-col space-y-2 px-6">
             {navItems.map((item) => (
               <Link
