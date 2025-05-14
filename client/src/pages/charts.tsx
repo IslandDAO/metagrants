@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { grantProjects } from "@/data/grantProjects";
 import { Badge } from "@/components/ui/badge";
-import { Lightbulb, TrendingUp, Award, ZapIcon } from "lucide-react";
+// No longer needed icon imports
 
 const ChartsPage = () => {
   // Calculate Tech Breakdown (Core vs 404)
@@ -304,45 +304,45 @@ const ChartsPage = () => {
 
       {/* Dashboard Overview */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-        <Card className="bg-gradient-to-br from-[#1c2431] to-[#171f2b] border-[#364156]">
-          <CardContent className="p-6 flex flex-col items-center">
-            <div className="rounded-full bg-blue-500/20 p-4 mb-4">
-              <Award size={28} className="text-blue-400" />
+        <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-purple-500/20 transform transition-all hover:scale-105 hover:shadow-purple-500/10">
+          <div className="text-center">
+            <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
+              <span className="text-purple-400 mr-1">🏆</span>
+              <span>12</span>
             </div>
-            <p className="text-lg text-gray-300 mb-1">Total Grants</p>
-            <h3 className="text-3xl font-bold">12</h3>
-          </CardContent>
-        </Card>
+            <div className="text-sm text-purple-200">Total Grants</div>
+          </div>
+        </div>
         
-        <Card className="bg-gradient-to-br from-[#1c2431] to-[#171f2b] border-[#364156]">
-          <CardContent className="p-6 flex flex-col items-center">
-            <div className="rounded-full bg-purple-500/20 p-4 mb-4">
-              <TrendingUp size={28} className="text-purple-400" />
+        <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-indigo-500/20 transform transition-all hover:scale-105 hover:shadow-indigo-500/10">
+          <div className="text-center">
+            <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
+              <span className="text-indigo-400 mr-1">📊</span>
+              <span>$159,000</span>
             </div>
-            <p className="text-lg text-gray-300 mb-1">Total Value</p>
-            <h3 className="text-3xl font-bold">$159,000</h3>
-          </CardContent>
-        </Card>
+            <div className="text-sm text-indigo-200">Total Value</div>
+          </div>
+        </div>
         
-        <Card className="bg-gradient-to-br from-[#1c2431] to-[#171f2b] border-[#364156]">
-          <CardContent className="p-6 flex flex-col items-center">
-            <div className="rounded-full bg-emerald-500/20 p-4 mb-4">
-              <Lightbulb size={28} className="text-emerald-400" />
+        <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-blue-500/20 transform transition-all hover:scale-105 hover:shadow-blue-500/10">
+          <div className="text-center">
+            <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
+              <span className="text-blue-400 mr-1">💰</span>
+              <span>$100,000</span>
             </div>
-            <p className="text-lg text-gray-300 mb-1">USDC Distributed</p>
-            <h3 className="text-3xl font-bold">$100,000</h3>
-          </CardContent>
-        </Card>
+            <div className="text-sm text-blue-200">USDC Distributed</div>
+          </div>
+        </div>
         
-        <Card className="bg-gradient-to-br from-[#1c2431] to-[#171f2b] border-[#364156]">
-          <CardContent className="p-6 flex flex-col items-center">
-            <div className="rounded-full bg-amber-500/20 p-4 mb-4">
-              <ZapIcon size={28} className="text-amber-400" />
+        <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-orange-500/20 transform transition-all hover:scale-105 hover:shadow-orange-500/10">
+          <div className="text-center">
+            <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
+              <span className="text-orange-400 mr-1">🪙</span>
+              <span>$59,000</span>
             </div>
-            <p className="text-lg text-gray-300 mb-1">MPLX Value</p>
-            <h3 className="text-3xl font-bold">$59,000</h3>
-          </CardContent>
-        </Card>
+            <div className="text-sm text-orange-200">MPLX Value</div>
+          </div>
+        </div>
       </div>
 
       <Tabs defaultValue="overview" className="mb-12">
