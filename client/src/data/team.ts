@@ -73,7 +73,7 @@ export const team: TeamMember[] = [
     name: "Parzicano",
     title: "Grants Council Member",
     bio: "Serves on the grants council as an account management and research lead. Parzicano evaluates applications, provides technical and strategic assessment, and contributes to the council's collective decision-making process. His research expertise helps inform the program's direction and identify promising areas for investment.",
-    imageUrl: "/src/assets/team-avatars/parzicano.png",
+    imageUrl: parzicanoImg,
     role: "advisor",
     twitter: "https://x.com/Parzicano",
     expertise: ["Account Management", "Research", "Application Review"]
@@ -82,7 +82,7 @@ export const team: TeamMember[] = [
     name: "Shadyy",
     title: "Grants Council Member",
     bio: "Key member of the grants council focusing on account management and research. Shady's expertise helps evaluate applications and manage relationships with funded projects. His role in research helps identify trends and opportunities that inform the council's funding decisions and strategic direction.",
-    imageUrl: "/src/assets/team-avatars/shadyy.png",
+    imageUrl: shadyyImg,
     role: "advisor",
     twitter: "https://x.com/notemxem",
     expertise: ["Account Management", "Research", "Grant Evaluation"]
@@ -91,7 +91,7 @@ export const team: TeamMember[] = [
     name: "iCoder",
     title: "Grants Council Member",
     bio: "Active member of the grants council with a focus on account management and research initiatives. iCoder helps evaluate technical aspects of applications and maintains relationships with grantees. His research contributions help the council stay informed about emerging technologies and approaches relevant to the program's objectives.",
-    imageUrl: "/src/assets/team-avatars/icoder.png",
+    imageUrl: icoderImg,
     role: "advisor",
     twitter: "https://x.com/Ify_Ezeugwu",
     expertise: ["Account Management", "Research", "Technical Assessment"]
@@ -100,7 +100,7 @@ export const team: TeamMember[] = [
     name: "Dimitri",
     title: "Comms / Grants Council",
     bio: "Taki is a IslandDAO core contributor in operations, marketing & business development. He runs discord services teams for IslandDAO with clients such as Marinade, Realms, Zignaly Working with Realms on marketing & socials Previously: Solflare (marketing, socials)",
-    imageUrl: "/src/assets/team-avatars/dimitri.png",
+    imageUrl: dimitriImg,
     role: "advisor",
     twitter: "https://x.com/Milimalism",
     expertise: ["Communications", "Grants Council", "Marketing"]
