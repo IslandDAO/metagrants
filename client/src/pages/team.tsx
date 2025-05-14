@@ -1,12 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs";
-import {
   Card,
   CardContent,
 } from "@/components/ui/card";
@@ -146,9 +140,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
 
 // Main team page component
 const Team = () => {
-  const coreTeam = team.filter((member) => member.role === "core");
-  const advisors = team.filter((member) => member.role === "advisor");
-  
+  // No need to filter by role anymore - everyone is part of the team
   return (
     <div className="max-w-7xl mx-auto">
       <div className="mb-8">
@@ -172,32 +164,15 @@ const Team = () => {
         </motion.p>
       </div>
       
-      <Tabs defaultValue="core" className="mb-12">
-        <TabsList className="mb-8 bg-[#1a2436] border border-[#364156]">
-          <TabsTrigger value="core" className="data-[state=active]:bg-indigo-500/20 data-[state=active]:text-indigo-300">Core Team</TabsTrigger>
-          <TabsTrigger value="advisors" className="data-[state=active]:bg-indigo-500/20 data-[state=active]:text-indigo-300">Advisors</TabsTrigger>
-        </TabsList>
-        
-        <TabsContent value="core">
-          <div className="flex flex-nowrap gap-4 overflow-x-auto pb-4 px-1 scrollbar-hide">
-            {coreTeam.map((member) => (
-              <div key={member.name} className="flex-none w-[230px] h-[550px] transition-transform hover:scale-[1.02]">
-                <TeamMemberCard member={member} />
-              </div>
-            ))}
-          </div>
-        </TabsContent>
-        
-        <TabsContent value="advisors">
-          <div className="flex flex-nowrap gap-4 overflow-x-auto pb-4 px-1 scrollbar-hide">
-            {advisors.map((member) => (
-              <div key={member.name} className="flex-none w-[230px] h-[550px] transition-transform hover:scale-[1.02]">
-                <TeamMemberCard member={member} />
-              </div>
-            ))}
-          </div>
-        </TabsContent>
-      </Tabs>
+      <div className="mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+          {team.map((member) => (
+            <div key={member.name} className="h-[550px] transition-transform hover:scale-[1.02]">
+              <TeamMemberCard member={member} />
+            </div>
+          ))}
+        </div>
+      </div>
       
       <motion.div
         className="bg-gradient-to-r from-[#1a2436] to-[#1d2a40] p-8 rounded-lg border border-indigo-500/20 text-center mb-6 overflow-hidden relative"
