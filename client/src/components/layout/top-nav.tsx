@@ -75,23 +75,24 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
           </div>
         </div>
         
-        {/* Desktop Navigation - Split into left and right sections */}
-        <div className="hidden md:flex items-center justify-between flex-grow ml-6">
-          <div className="flex items-center">
-            {/* Home Link separated */}
+        {/* Desktop Navigation - everything pushed to the right */}
+        <div className="hidden md:flex items-center justify-end flex-grow ml-6">
+          {/* All navigation items grouped - pushed to the right */}
+          <div className="flex space-x-1 bg-[#212b3d] px-1 py-1 rounded-md border border-[#3c4759]">
+            {/* Home Link */}
             <Link
               to="/"
               className={cn(
-                "text-[#b5bfcc] hover:text-[#3b82f6] hover:bg-[#2a3341] rounded-md transition-all px-3 py-2 font-medium",
-                location.pathname === "/" && "text-[#3b82f6] bg-[#2a3341]/50"
+                "text-[#b5bfcc] hover:text-[#3b82f6] hover:bg-[#2a3341] rounded transition-all px-2 py-1 font-medium",
+                location.pathname === "/" && "text-[#3b82f6] bg-[#2a3341]/70"
               )}
             >
               Home
             </Link>
-          </div>
-          
-          {/* Other navigation items grouped - pushed to the right */}
-          <div className="flex space-x-1 bg-[#212b3d] px-1 py-1 rounded-md border border-[#3c4759]">
+            
+            {/* Divider after Home */}
+            <div className="h-6 w-px bg-[#3c4759] mx-0.5"></div>
+            
             {navItems.slice(1).map((item) => (
               item.hasDropdown ? (
                 <div key={item.to} className="relative group">
@@ -177,7 +178,22 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-[#2a3341] shadow-md py-3 z-20 border-b border-[#3c4759]">
           <div className="flex flex-col space-y-2 px-6">
-            {navItems.map((item) => (
+            {/* Home always first in mobile menu too */}
+            <Link
+              to="/"
+              className={cn(
+                "text-[#b5bfcc] hover:text-[#3b82f6] transition-colors py-2",
+                location.pathname === "/" && "text-[#3b82f6] font-medium"
+              )}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </Link>
+            
+            {/* Separator */}
+            <div className="h-px bg-[#3c4759] my-1"></div>
+            
+            {navItems.slice(1).map((item) => (
               item.hasDropdown ? (
                 <div key={item.to} className="py-2">
                   <Link
