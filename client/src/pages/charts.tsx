@@ -241,7 +241,6 @@ const ChartsPage = () => {
                   <span className="font-medium text-md mr-4">{entry.name}</span>
                   <div>
                     <span className="font-bold text-lg">{entry.value} projects</span>
-                    <span className="text-xs text-blue-300 ml-2">({(entry.payload.percent * 100).toFixed(1)})</span>
                   </div>
                 </div>
               );
