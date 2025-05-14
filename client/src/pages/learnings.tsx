@@ -204,12 +204,19 @@ const Learnings = () => {
           }}>
           <CardContent className="p-6">
             <Tabs defaultValue={keyResults[0].category}>
-              <TabsList className="mb-6 bg-[#1c2431]/50 border-primary/30 relative z-10 p-1">
+              <TabsList className="mb-6 bg-[#1c2431]/50 border-primary/30 relative z-10 p-1 flex justify-start w-full overflow-x-auto">
                 {keyResults.map((result, index) => (
                   <TabsTrigger 
                     key={index} 
                     value={result.category}
-                    className="data-[state=active]:bg-primary/20 data-[state=active]:text-gradient data-[state=active]:shadow-glow hover:bg-primary/10 cursor-pointer transition-colors relative z-20 px-4 py-2 mx-1"
+                    className="relative z-20 px-4 py-2 mx-1 cursor-pointer rounded-md transition-all duration-300 
+                      data-[state=active]:bg-primary/30 
+                      data-[state=active]:border-b-2 
+                      data-[state=active]:border-primary
+                      data-[state=active]:text-gradient 
+                      data-[state=active]:shadow-glow 
+                      data-[state=active]:font-medium
+                      hover:bg-primary/10"
                     onClick={(e) => {
                       // Prevent events from propagating to parent elements
                       e.stopPropagation();
@@ -226,10 +233,14 @@ const Learnings = () => {
               </TabsList>
               
               {keyResults.map((result, index) => (
-                <TabsContent key={index} value={result.category}>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <TabsContent 
+                  key={index} 
+                  value={result.category}
+                  className="animate-in fade-in-50 slide-in-from-bottom-5 duration-300"
+                >
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     {result.results.map((item, idx) => (
-                      <li key={idx} className="flex items-start">
+                      <li key={idx} className="flex items-start bg-[#1c2431]/30 p-3 rounded-md hover:bg-[#1c2431]/50 transition-colors">
                         <span className="text-primary font-bold mr-2 animate-glow-pulse">✓</span>
                         <span className="text-[#f1f5fb]">{item}</span>
                       </li>
