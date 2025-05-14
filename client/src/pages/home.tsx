@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import lighthousePixel from "../assets/lighthouse-pixel.png";
+import palmTreePixel from "../assets/palm-tree-pixel.png";
+import pirateHat from "../assets/pirate-hat.png";
 
 // Counter animation function
 const AnimatedCounter = ({ value, duration = 2000 }: { value: number, duration?: number }) => {
@@ -130,16 +133,14 @@ const Home = () => {
               <div className="w-24 h-24 flex items-center justify-center mb-2 mx-auto">
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center">
-                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M30 8C30 8 24 15 24 18C24 21 26 23 30 23C34 23 36 21 36 18C36 15 30 8 30 8Z" fill="#4ADE80" />
-                      <path d="M30 8C30 8 24 15 24 18C24 21 26 23 30 23C34 23 36 21 36 18C36 15 30 8 30 8Z" fill="#4ADE80" transform="rotate(60 30 18)" />
-                      <path d="M30 8C30 8 24 15 24 18C24 21 26 23 30 23C34 23 36 21 36 18C36 15 30 8 30 8Z" fill="#4ADE80" transform="rotate(120 30 18)" />
-                      <path d="M30 8C30 8 24 15 24 18C24 21 26 23 30 23C34 23 36 21 36 18C36 15 30 8 30 8Z" fill="#4ADE80" transform="rotate(180 30 18)" />
-                      <path d="M30 8C30 8 24 15 24 18C24 21 26 23 30 23C34 23 36 21 36 18C36 15 30 8 30 8Z" fill="#4ADE80" transform="rotate(240 30 18)" />
-                      <path d="M30 8C30 8 24 15 24 18C24 21 26 23 30 23C34 23 36 21 36 18C36 15 30 8 30 8Z" fill="#4ADE80" transform="rotate(300 30 18)" />
-                      <rect x="29" y="18" width="2" height="24" fill="#8B4513" />
-                      <rect x="24" y="42" width="12" height="2" fill="#D2B48C" />
-                    </svg>
+                    <img 
+                      src={palmTreePixel} 
+                      alt="Pixel Art Palm Tree" 
+                      className="w-full h-full object-contain" 
+                      style={{
+                        imageRendering: "pixelated"
+                      }}
+                    />
                   </div>
                 </div>
               </div>
@@ -157,13 +158,14 @@ const Home = () => {
               <div className="w-24 h-24 flex items-center justify-center mb-2 mx-auto">
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center">
-                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="30" cy="30" r="12" fill="#C084FC" opacity="0.6" />
-                      <circle cx="20" cy="30" r="7" fill="#C084FC" opacity="0.7" />
-                      <circle cx="40" cy="30" r="7" fill="#C084FC" opacity="0.7" />
-                      <circle cx="30" cy="20" r="7" fill="#C084FC" opacity="0.7" />
-                      <circle cx="30" cy="40" r="7" fill="#C084FC" opacity="0.7" />
-                    </svg>
+                    <img 
+                      src={pirateHat} 
+                      alt="Pixel Art Pirate Hat" 
+                      className="w-full h-full object-contain" 
+                      style={{
+                        imageRendering: "pixelated"
+                      }}
+                    />
                   </div>
                 </div>
               </div>
@@ -181,14 +183,14 @@ const Home = () => {
               <div className="w-24 h-24 flex items-center justify-center mb-2 mx-auto">
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center">
-                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="25" y="22" width="10" height="30" fill="#34D399" opacity="0.7" />
-                      <polygon points="30,5 20,22 40,22" fill="#34D399" opacity="0.8" />
-                      <rect x="20" y="48" width="20" height="4" rx="1" fill="#34D399" opacity="0.9" />
-                      <rect x="23" y="30" width="14" height="2" fill="#FFF" opacity="0.8" />
-                      <rect x="23" y="38" width="14" height="2" fill="#FFF" opacity="0.8" />
-                      <circle cx="30" cy="15" r="3" fill="#FFF" opacity="0.9" />
-                    </svg>
+                    <img 
+                      src={lighthousePixel} 
+                      alt="Pixel Art Lighthouse" 
+                      className="w-full h-full object-contain" 
+                      style={{
+                        imageRendering: "pixelated"
+                      }}
+                    />
                   </div>
                 </div>
               </div>
