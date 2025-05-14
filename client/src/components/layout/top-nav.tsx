@@ -75,24 +75,23 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
           </div>
         </div>
         
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center">
-          {/* Home Link separated */}
-          <Link
-            to="/"
-            className={cn(
-              "text-[#b5bfcc] hover:text-[#3b82f6] hover:bg-[#2a3341] rounded-md transition-all px-3 py-2 font-medium mr-6",
-              location.pathname === "/" && "text-[#3b82f6] bg-[#2a3341]/50"
-            )}
-          >
-            Home
-          </Link>
+        {/* Desktop Navigation - Split into left and right sections */}
+        <div className="hidden md:flex items-center justify-between flex-grow ml-6">
+          <div className="flex items-center">
+            {/* Home Link separated */}
+            <Link
+              to="/"
+              className={cn(
+                "text-[#b5bfcc] hover:text-[#3b82f6] hover:bg-[#2a3341] rounded-md transition-all px-3 py-2 font-medium",
+                location.pathname === "/" && "text-[#3b82f6] bg-[#2a3341]/50"
+              )}
+            >
+              Home
+            </Link>
+          </div>
           
-          {/* Divider */}
-          <div className="h-6 w-px bg-[#3c4759] mx-1"></div>
-          
-          {/* Other navigation items grouped */}
-          <div className="flex space-x-1 ml-4 bg-[#212b3d] px-1 py-1 rounded-md border border-[#3c4759]">
+          {/* Other navigation items grouped - pushed to the right */}
+          <div className="flex space-x-1 bg-[#212b3d] px-1 py-1 rounded-md border border-[#3c4759]">
             {navItems.slice(1).map((item) => (
               item.hasDropdown ? (
                 <div key={item.to} className="relative group">
