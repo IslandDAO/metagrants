@@ -207,44 +207,120 @@ const Home = () => {
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center">
                     <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      {/* Palm tree trunk */}
+                      {/* Tree 1 (left) */}
                       <path 
-                        d="M30 50V28" 
-                        stroke="#4ADE80" 
-                        strokeWidth="3" 
-                        strokeLinecap="round"
-                      />
-                      {/* Palm tree leaves */}
-                      <path 
-                        d="M30 28C30 28 24 20 18 24" 
+                        d="M15 50V40" 
                         stroke="#4ADE80" 
                         strokeWidth="3" 
                         strokeLinecap="round"
                       />
                       <path 
-                        d="M30 28C30 28 36 20 42 24" 
+                        d="M15 40C15 40 12 35 10 38" 
                         stroke="#4ADE80" 
                         strokeWidth="3" 
                         strokeLinecap="round"
                       />
                       <path 
-                        d="M30 28C30 28 25 16 20 18" 
+                        d="M15 40C15 40 18 35 20 38" 
                         stroke="#4ADE80" 
                         strokeWidth="3" 
                         strokeLinecap="round"
                       />
                       <path 
-                        d="M30 28C30 28 35 16 40 18" 
+                        d="M15 35C15 35 11 30 9 33" 
                         stroke="#4ADE80" 
                         strokeWidth="3" 
                         strokeLinecap="round"
                       />
                       <path 
-                        d="M30 28C30 28 30 12 30 8" 
+                        d="M15 35C15 35 19 30 21 33" 
                         stroke="#4ADE80" 
                         strokeWidth="3" 
                         strokeLinecap="round"
                       />
+                      <path 
+                        d="M15 30C15 30 15 25 15 20" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      
+                      {/* Tree 2 (center) - taller */}
+                      <path 
+                        d="M30 50V35" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M30 35C30 35 25 30 23 32" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M30 35C30 35 35 30 37 32" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M30 28C30 28 26 22 24 24" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M30 28C30 28 34 22 36 24" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M30 22C30 22 30 16 30 12" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      
+                      {/* Tree 3 (right) */}
+                      <path 
+                        d="M45 50V42" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M45 42C45 42 42 38 40 40" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M45 42C45 42 48 38 50 40" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M45 36C45 36 41 32 39 34" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M45 36C45 36 49 32 51 34" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M45 30C45 30 45 25 45 22" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      
                       <filter id="glow1">
                         <feGaussianBlur stdDeviation="3" result="blur" />
                         <feMerge>
@@ -253,45 +329,132 @@ const Home = () => {
                         </feMerge>
                       </filter>
                       <g filter="url(#glow1)">
-                        {/* Palm tree trunk - glow effect */}
+                        {/* Tree 1 (left) - glow effect */}
                         <path 
-                          d="M30 50V28" 
-                          stroke="#4ADE80" 
-                          strokeWidth="1.5" 
-                          strokeLinecap="round"
-                          opacity="1"
-                        />
-                        {/* Palm tree leaves - glow effect */}
-                        <path 
-                          d="M30 28C30 28 24 20 18 24" 
+                          d="M15 50V40" 
                           stroke="#4ADE80" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
                           opacity="1"
                         />
                         <path 
-                          d="M30 28C30 28 36 20 42 24" 
+                          d="M15 40C15 40 12 35 10 38" 
                           stroke="#4ADE80" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
                           opacity="1"
                         />
                         <path 
-                          d="M30 28C30 28 25 16 20 18" 
+                          d="M15 40C15 40 18 35 20 38" 
                           stroke="#4ADE80" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
                           opacity="1"
                         />
                         <path 
-                          d="M30 28C30 28 35 16 40 18" 
+                          d="M15 35C15 35 11 30 9 33" 
                           stroke="#4ADE80" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
                           opacity="1"
                         />
                         <path 
-                          d="M30 28C30 28 30 12 30 8" 
+                          d="M15 35C15 35 19 30 21 33" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M15 30C15 30 15 25 15 20" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        
+                        {/* Tree 2 (center) - taller - glow effect */}
+                        <path 
+                          d="M30 50V35" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M30 35C30 35 25 30 23 32" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M30 35C30 35 35 30 37 32" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M30 28C30 28 26 22 24 24" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M30 28C30 28 34 22 36 24" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M30 22C30 22 30 16 30 12" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        
+                        {/* Tree 3 (right) - glow effect */}
+                        <path 
+                          d="M45 50V42" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M45 42C45 42 42 38 40 40" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M45 42C45 42 48 38 50 40" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M45 36C45 36 41 32 39 34" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M45 36C45 36 49 32 51 34" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M45 30C45 30 45 25 45 22" 
                           stroke="#4ADE80" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
