@@ -80,12 +80,9 @@ const Home = () => {
         <h1 className="text-4xl md:text-6xl font-bold text-[#f1f5fb] mb-6">
           MetaplexDAO Grants — Cohort 1
         </h1>
-        <div className="mb-4 flex flex-col items-center">
-          <div className="bg-[#1c2431] p-3 rounded-lg inline-block mb-3 border border-[#3c4759]">
-            <IslandDaoLogo className="h-16 w-auto" />
-          </div>
+        <div className="mb-4 text-center">
           <h2 className="text-xl md:text-2xl text-[#b5bfcc]">
-            Managed by IslandDAO
+            Managed by <a href="https://islanddao.org/" target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-400 transition-colors">IslandDAO</a>
           </h2>
         </div>
         <p className="text-xl text-[#b5bfcc] max-w-3xl mx-auto mb-12">

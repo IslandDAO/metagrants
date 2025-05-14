@@ -8,11 +8,9 @@ const Footer = () => {
     <footer className="bg-[#1c2431] py-6 mt-12 text-[#b5bfcc] border-t border-[#3c4759]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          {/* Logo and Description */}
-          <div className="flex items-center gap-4">
+          {/* Logo */}
+          <div className="flex items-center">
             <MetaplexLogo className="h-7 w-auto" />
-            <div className="h-6 w-0.5 bg-[#3c4759]"></div>
-            <IslandDaoLogo className="h-7 w-auto" />
           </div>
           
           {/* Links - Horizontal Layout */}
@@ -57,7 +55,7 @@ const Footer = () => {
         </div>
         
         <div className="mt-4 text-center text-xs text-[#b5bfcc]">
-          <p>© 2023-2025 Metaplex Foundation & IslandDAO. All rights reserved.</p>
+          <p>© 2023-2025 Metaplex Foundation. All rights reserved.</p>
         </div>
       </div>
     </footer>
