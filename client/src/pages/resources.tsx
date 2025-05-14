@@ -141,10 +141,10 @@ const Resources = () => {
               >
                 <Button 
                   variant="outline" 
-                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#8b5cf6]/40 text-[#f1f5fb] hover:text-white hover:shadow-[0_0_5px_rgba(139,92,246,0.3)] transition-all duration-500"
+                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#8b5cf6]/60 text-[#f1f5fb] hover:text-white hover:shadow-[0_0_5px_rgba(139,92,246,0.4)] transition-all duration-500"
                 >
-                  <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-r from-[#8b5cf6]/20 to-[#3b82f6]/20 border border-[#8b5cf6]/30 mr-2 group-hover:border-[#8b5cf6]/40">
-                    <BookOpen size={14} className="text-[#8b5cf6]/80 group-hover:text-[#a78bfa]/90" />
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-r from-[#8b5cf6]/20 to-[#3b82f6]/20 border border-[#8b5cf6]/30 mr-2 group-hover:border-[#8b5cf6]/60">
+                    <BookOpen size={14} className="text-[#8b5cf6]/80 group-hover:text-[#a78bfa]" />
                   </div>
                   <span>Documentation</span>
                 </Button>
@@ -159,10 +159,10 @@ const Resources = () => {
               >
                 <Button 
                   variant="outline" 
-                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#8b5cf6]/40 text-[#f1f5fb] hover:text-white hover:shadow-[0_0_5px_rgba(139,92,246,0.3)] transition-all duration-500"
+                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#8b5cf6]/60 text-[#f1f5fb] hover:text-white hover:shadow-[0_0_5px_rgba(139,92,246,0.4)] transition-all duration-500"
                 >
-                  <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-r from-[#8b5cf6]/20 to-[#3b82f6]/20 border border-[#8b5cf6]/30 mr-2 group-hover:border-[#8b5cf6]/40">
-                    <Github size={14} className="text-[#8b5cf6]/80 group-hover:text-[#a78bfa]/90" />
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-r from-[#8b5cf6]/20 to-[#3b82f6]/20 border border-[#8b5cf6]/30 mr-2 group-hover:border-[#8b5cf6]/60">
+                    <Github size={14} className="text-[#8b5cf6]/80 group-hover:text-[#a78bfa]" />
                   </div>
                   <span>GitHub Repo</span>
                 </Button>
