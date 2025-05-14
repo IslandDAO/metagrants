@@ -26,7 +26,7 @@ export const team: TeamMember[] = [
     name: "BeeMan",
     title: "Technical Lead, Council Member",
     bio: "Leads technical due diligence across all applications. Reviews build specs, advises grantees on implementation, and helps shape milestone structuring. In Cohort Two, he will continue this role while also expanding his 'build in public' video content initiative, which he launched in collaboration with the Metaplex marketing team.",
-    imageUrl: "https://pbs.twimg.com/profile_images/1693002722967797760/5xnfaZtG_400x400.jpg",
+    imageUrl: "/src/assets/team-avatars/beeman.png",
     role: "core",
     twitter: "https://x.com/beeman_nl",
     expertise: ["Technical Evaluation", "Developer Content", "Milestone Structuring"]
@@ -35,7 +35,7 @@ export const team: TeamMember[] = [
     name: "Tony",
     title: "Developer Relations, Foundation Liaison",
     bio: "Technical and developer relations lead from the Metaplex Foundation. Plays a critical role in ensuring that top-of-funnel grantees are successfully onboarded into the Metaplex developer ecosystem. Advises teams on how to integrate with existing Metaplex tools and helps avoid redundancy by guiding applicants toward underutilized capabilities in the stack.",
-    imageUrl: "https://pbs.twimg.com/profile_images/1475060399815905282/iFMyaEmW_400x400.jpg",
+    imageUrl: "/src/assets/team-avatars/tony.png",
     role: "core",
     twitter: "https://x.com/tonyboyletweets",
     expertise: ["Developer Relations", "Product Education", "Ecosystem Awareness"]
