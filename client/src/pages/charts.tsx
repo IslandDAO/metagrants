@@ -331,7 +331,7 @@ const ChartsPage = () => {
                         outerRadius={120}
                         paddingAngle={5}
                         dataKey="value"
-                        label={({ name, percent, value }) => {
+                        label={({ percent }) => {
                           return (
                             <text 
                               fill="#FFFFFF" 
@@ -341,7 +341,7 @@ const ChartsPage = () => {
                               strokeWidth="0.5" 
                               paintOrder="stroke"
                             >
-                              {name}: {(percent * 100).toFixed(0)}%
+                              {(percent * 100).toFixed(0)}%
                             </text>
                           );
                         }}
@@ -549,7 +549,7 @@ const ChartsPage = () => {
                         setIsAnimating(false);
                       }}
                       onMouseLeave={() => setIsAnimating(true)}
-                      label={({ name, value, percent }) => {
+                      label={({ value }) => {
                         return (
                           <text 
                             fill="#FFFFFF" 
@@ -559,7 +559,7 @@ const ChartsPage = () => {
                             strokeWidth="0.5" 
                             paintOrder="stroke"
                           >
-                            {name}: ${(value/1000).toFixed(0)}k
+                            ${(value/1000).toFixed(0)}k
                           </text>
                         );
                       }}
