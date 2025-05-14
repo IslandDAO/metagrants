@@ -154,7 +154,7 @@ const Home = () => {
                       {/* String/tie at top */}
                       <path d="M10 7V9M14 7V9" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
                       {/* Gold coins */}
-                      <path d="M9.5 13C9.5 11.8954 10.3954 11 11.5 11H12.5C13.6046 11 14.5 11.8954 14.5 13C14.5 14.1046 13.6046 15 12.5 15H11.5C10.3954 15 9.5 15.8954 9.5 17C9.5 18.1046 10.3954 19 11.5 19H12.5C13.6046 19 14.5 18.1046 14.5 17" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.9"/>
+                      <path d="M9.5 13C9.5 11.8954 10.3954 11 11.5 11H12.5C13.6046 11 14.5 11.8954 14.5 13C14.5 14.1046 13.6046 15 12.5 15H11.5C10.3954 15 9.5 15.8954 9.5 17C9.5 18.1046 10.3954 19 11.5 19H12.5C13.6046 19 14.5 18.1046 14.5 17" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
                     </g>
                   </svg>
                 </span>
@@ -228,21 +228,21 @@ const Home = () => {
                           stroke="#4ADE80" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
-                          opacity="0.7"
+                          opacity="1"
                         />
                         <path 
                           d="M30 25C30 25 35 20 40 25" 
                           stroke="#4ADE80" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
-                          opacity="0.7"
+                          opacity="1"
                         />
                         <path 
                           d="M30 20C30 20 25 15 20 20" 
                           stroke="#4ADE80" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
-                          opacity="0.7"
+                          opacity="1"
                         />
                       </g>
                     </svg>
@@ -293,7 +293,7 @@ const Home = () => {
                         strokeLinecap="round"
                       />
                       <filter id="glow2">
-                        <feGaussianBlur stdDeviation="2.5" result="blur" />
+                        <feGaussianBlur stdDeviation="3" result="blur" />
                         <feMerge>
                           <feMergeNode in="blur" />
                           <feMergeNode in="SourceGraphic" />
@@ -305,14 +305,14 @@ const Home = () => {
                           stroke="#C084FC" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
-                          opacity="0.7"
+                          opacity="1"
                         />
                         <path 
                           d="M25 33H25.5M35 33H35.5" 
                           stroke="#C084FC" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
-                          opacity="0.7"
+                          opacity="1"
                         />
                         <path 
                           d="M25 40C25 43 35 43 35 40" 
