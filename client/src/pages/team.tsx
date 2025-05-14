@@ -50,31 +50,31 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
       transition={{ duration: 0.5 }}
       className="h-full"
     >
-      <Card className="h-full bg-[#1c2431] border-[#364156] overflow-hidden relative flex flex-col shadow-lg">
+      <Card className="h-full bg-[#1c2431] border-[#364156] overflow-hidden relative flex flex-col">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
-        <CardContent className="p-5 flex flex-col h-full">
+        <CardContent className="p-4 flex flex-col h-full">
           {/* Header - Fixed height */}
-          <div className="flex flex-col items-center text-center mb-4">
-            <Avatar className="h-20 w-20 mb-3 ring-2 ring-indigo-500/40 ring-offset-2 ring-offset-[#1c2431]">
+          <div className="flex flex-col items-center text-center mb-3">
+            <Avatar className="h-16 w-16 mb-2 ring-2 ring-indigo-500/30 ring-offset-2 ring-offset-[#1c2431]">
               <AvatarImage src={member.imageUrl} alt={member.name} />
               <AvatarFallback className="bg-indigo-500/20 text-indigo-200">{initials}</AvatarFallback>
             </Avatar>
-            <h3 className="text-lg font-bold text-[#f1f5fb] line-clamp-1">{member.name}</h3>
-            <p className="text-indigo-300 text-sm font-medium line-clamp-1 mb-1">{member.title}</p>
+            <h3 className="text-base font-bold text-[#f1f5fb] line-clamp-1">{member.name}</h3>
+            <p className="text-indigo-300 text-xs font-medium line-clamp-1">{member.title}</p>
           </div>
           
-          {/* Bio section with more visible content */}
+          {/* Bio section - Fixed height with truncation */}
           <Collapsible 
             open={isOpen} 
             onOpenChange={setIsOpen}
-            className="mb-4 flex-grow"
+            className="mb-3 flex-grow"
           >
-            <div className="text-[#b5bfcc] text-sm mb-2 max-h-[100px] overflow-y-auto scrollbar-hide">
+            <div className="text-[#b5bfcc] text-xs mb-1 line-clamp-3">
               {!isOpen && member.bio}
             </div>
             
-            <CollapsibleContent className="text-[#b5bfcc] text-sm">
-              <div className="mt-1 max-h-[150px] overflow-y-auto scrollbar-hide">
+            <CollapsibleContent className="text-[#b5bfcc] text-xs">
+              <div className="mt-1">
                 {member.bio}
               </div>
             </CollapsibleContent>
@@ -89,7 +89,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
           
           {/* Expertise tags - Scrollable when needed */}
           {member.expertise && member.expertise.length > 0 && (
-            <div className="flex flex-wrap gap-1 mb-4 max-h-[70px] overflow-y-auto scrollbar-hide">
+            <div className="flex flex-wrap gap-1 mb-3 max-h-[60px] overflow-y-auto scrollbar-hide">
               {member.expertise.map((skill) => (
                 <Badge 
                   key={skill} 
@@ -103,7 +103,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
           )}
           
           {/* Social links - Fixed height */}
-          <div className="flex justify-center space-x-4 pt-2 border-t border-[#364156] mt-auto">
+          <div className="flex justify-center space-x-3 pt-2 border-t border-[#364156] mt-auto">
             {member.twitter && (
               <a 
                 href={member.twitter}
@@ -111,7 +111,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 rel="noopener noreferrer"
                 className="text-[#b5bfcc] hover:text-gray-100 transition-colors"
               >
-                <XLogo size={18} />
+                <XLogo size={16} />
               </a>
             )}
             {member.linkedin && (
@@ -121,7 +121,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 rel="noopener noreferrer"
                 className="text-[#b5bfcc] hover:text-blue-400 transition-colors"
               >
-                <Linkedin size={18} />
+                <Linkedin size={16} />
               </a>
             )}
             {member.github && (
@@ -131,7 +131,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 rel="noopener noreferrer"
                 className="text-[#b5bfcc] hover:text-purple-400 transition-colors"
               >
-                <Github size={18} />
+                <Github size={16} />
               </a>
             )}
             {member.website && (
@@ -141,7 +141,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 rel="noopener noreferrer"
                 className="text-[#b5bfcc] hover:text-indigo-400 transition-colors"
               >
-                <Globe size={18} />
+                <Globe size={16} />
               </a>
             )}
             {member.email && (
@@ -149,7 +149,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 href={`mailto:${member.email}`}
                 className="text-[#b5bfcc] hover:text-green-400 transition-colors"
               >
-                <Mail size={18} />
+                <Mail size={16} />
               </a>
             )}
           </div>
@@ -196,7 +196,7 @@ const Team = () => {
         <TabsContent value="core">
           <div className="flex flex-nowrap gap-4 overflow-x-auto pb-4 px-1 scrollbar-hide">
             {coreTeam.map((member) => (
-              <div key={member.name} className="flex-none w-[300px] h-[380px] transition-transform hover:scale-[1.02]">
+              <div key={member.name} className="flex-none w-[230px] h-[320px] transition-transform hover:scale-[1.02]">
                 <TeamMemberCard member={member} />
               </div>
             ))}
@@ -204,9 +204,9 @@ const Team = () => {
         </TabsContent>
         
         <TabsContent value="advisors">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {advisors.map((member) => (
-              <div key={member.name} className="h-[380px] w-[300px] mx-auto md:mx-0">
+              <div key={member.name} className="h-[320px]">
                 <TeamMemberCard member={member} />
               </div>
             ))}
