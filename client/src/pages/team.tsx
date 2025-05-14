@@ -69,22 +69,18 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
             onOpenChange={setIsOpen}
             className="mb-3 flex-grow"
           >
-            <div className="text-[#b5bfcc] text-xs mb-1 line-clamp-3">
-              {!isOpen && member.bio}
+            <div className="text-[#b5bfcc] text-xs mb-2">
+              {!isOpen ? (
+                <div className="line-clamp-3">{member.bio}</div>
+              ) : (
+                member.bio
+              )}
             </div>
             
-            <CollapsibleContent className="text-[#b5bfcc] text-xs">
-              <div className="mt-1">
-                {member.bio}
-              </div>
-            </CollapsibleContent>
-            
-            {member.bio.length > 100 && (
-              <CollapsibleTrigger className="flex items-center justify-center w-full mt-1 text-xs text-indigo-400 hover:text-indigo-300 transition-colors">
-                <span>{isOpen ? "Read less" : "Read more"}</span>
-                <ChevronDown className={`h-3 w-3 ml-1 transition-transform ${isOpen ? "rotate-180" : ""}`} />
-              </CollapsibleTrigger>
-            )}
+            <CollapsibleTrigger className="flex items-center justify-center w-full text-xs text-indigo-400 hover:text-indigo-300 transition-colors">
+              <span>{isOpen ? "Read less" : "Read more"}</span>
+              <ChevronDown className={`h-3 w-3 ml-1 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+            </CollapsibleTrigger>
           </Collapsible>
           
           {/* Expertise tags - Scrollable when needed */}
