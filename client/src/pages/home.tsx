@@ -66,10 +66,10 @@ const StatItem = ({ label, value }: { label: string, value: number | string }) =
 
 const Home = () => {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto min-h-[calc(100vh-20rem)]">
       {/* Hero Section */}
       <motion.div 
-        className="mb-16 pt-8 md:pt-16 text-center"
+        className="mb-16 pt-8 md:pt-16 text-center relative z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
@@ -102,7 +102,7 @@ const Home = () => {
         <Link to="/grants">
           <Button 
             size="lg"
-            className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-6 px-10 rounded-lg text-xl transition transform hover:scale-105"
+            className="bg-[#f97316] hover:bg-[#fb923c] text-white font-bold py-6 px-10 rounded-lg text-xl transition transform hover:scale-105"
           >
             View Grantees
           </Button>

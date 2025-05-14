@@ -17,7 +17,7 @@ export function ParticlesBackground({ className }: ParticlesBackgroundProps) {
   }, []);
 
   return (
-    <div className={`fixed inset-0 -z-10 ${className}`}>
+    <div className={`absolute inset-0 -z-1 pointer-events-none ${className}`}>
       <Particles
         id="tsparticles"
         init={particlesInit}
@@ -56,12 +56,12 @@ export function ParticlesBackground({ className }: ParticlesBackgroundProps) {
             number: {
               density: {
                 enable: true,
-                area: 1000,
+                area: 1200,
               },
-              value: 30,
+              value: 25,
             },
             opacity: {
-              value: 0.15,
+              value: 0.12,
               random: true,
               anim: {
                 enable: true,
