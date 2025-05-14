@@ -166,34 +166,6 @@ const Resources = () => {
           </CardContent>
         </Card>
       </motion.div>
-      
-      {/* Additional Info */}
-      <motion.div 
-        className="mt-12 text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-      >
-        <div className="bg-[#1a202c] py-5 px-7 rounded-lg border border-[#3c4759]/50 inline-flex flex-col items-center max-w-xl mx-auto">
-          <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text mb-3">Metaplex Resources</h3>
-          <a 
-            href="https://metaplex.com/grants" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="group"
-          >
-            <Button 
-              variant="outline" 
-              className="bg-gradient-to-r from-[#2a3341] to-[#1c2431] border-[#3c4759] hover:border-[#3b82f6]/40 text-[#f1f5fb] hover:text-white hover:shadow-[0_0_8px_rgba(59,130,246,0.3)] transition-all duration-500"
-            >
-              <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-r from-[#3b82f6]/20 to-[#8b5cf6]/20 border border-[#3b82f6]/30 mr-2 group-hover:border-[#3b82f6]/40">
-                <Globe size={14} className="text-[#3b82f6]/80 group-hover:text-[#60a5fa]/90" />
-              </div>
-              <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent font-medium">Visit Metaplex Grants</span>
-            </Button>
-          </a>
-        </div>
-      </motion.div>
     </div>
   );
 };
