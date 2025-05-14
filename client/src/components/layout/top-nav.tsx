@@ -76,7 +76,7 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
         </div>
         
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex space-x-4">
           {navItems.map((item) => (
             item.hasDropdown ? (
               <div key={item.to} className="relative group">
@@ -84,8 +84,8 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
                   <DropdownMenuTrigger asChild>
                     <div
                       className={cn(
-                        "flex items-center cursor-pointer text-[#b5bfcc] hover:text-[#3b82f6] transition-colors px-1 py-2",
-                        location.pathname.includes(item.to) && "text-[#3b82f6] font-medium border-b-2 border-[#3b82f6]"
+                        "flex items-center cursor-pointer text-[#b5bfcc] hover:text-[#3b82f6] hover:bg-[#2a3341] rounded-md transition-all px-3 py-2 font-medium",
+                        location.pathname.includes(item.to) && "text-[#3b82f6] border-b-2 border-[#3b82f6] bg-[#2a3341]/50"
                       )}
                     >
                       {item.label}
@@ -129,8 +129,8 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
                 key={item.to}
                 to={item.to}
                 className={cn(
-                  "text-[#b5bfcc] hover:text-[#3b82f6] transition-colors px-1 py-2",
-                  location.pathname === item.to && "text-[#3b82f6] font-medium border-b-2 border-[#3b82f6]"
+                  "text-[#b5bfcc] hover:text-[#3b82f6] hover:bg-[#2a3341] rounded-md transition-all px-3 py-2 font-medium",
+                  location.pathname === item.to && "text-[#3b82f6] border-b-2 border-[#3b82f6] bg-[#2a3341]/50"
                 )}
               >
                 {item.label}
