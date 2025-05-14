@@ -69,7 +69,7 @@ const Home = () => {
     <div className="max-w-7xl mx-auto min-h-[calc(100vh-20rem)]">
       {/* Hero Section */}
       <motion.div 
-        className="mb-16 pt-8 md:pt-16 text-center relative z-10"
+        className="pt-8 md:pt-16 text-center relative z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}

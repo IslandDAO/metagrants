@@ -1,6 +1,6 @@
 import TopNav from "./top-nav";
 import Footer from "./footer";
-import { ParticlesBackground } from "../ui/particles-background";
+import { PalmTreeBackground } from "../ui/palm-tree-background";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,10 +9,8 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-[#121820] flex flex-col relative overflow-hidden">
-      {/* Particle Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <ParticlesBackground />
-      </div>
+      {/* Palm Tree Background */}
+      <PalmTreeBackground />
       
       {/* Top Navigation Bar */}
       <TopNav />
