@@ -656,8 +656,10 @@ const ChartsPage = () => {
                           <Cell 
                             key={`cell-${index}`} 
                             fill={`url(#sectorGradient${index})`} 
-                            stroke="#1c2431"
-                            strokeWidth={2}
+                            stroke={activeIndex === index ? "#FFFFFF" : "#1c2431"}
+                            strokeWidth={activeIndex === index ? 4 : 2}
+                            strokeDasharray={activeIndex === index ? "0" : "0"}
+                            opacity={activeIndex === index ? 1 : 0.8}
                           />
                         ))}
                       </Pie>
@@ -665,27 +667,33 @@ const ChartsPage = () => {
                   </ResponsiveContainer>
                 </div>
                 
-                {/* Add back the grid of sector buttons */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8 w-full">
-                  {sectorFundingData.map((sector, index) => (
-                    <div 
-                      key={`sector-${index}`} 
-                      className={`p-4 rounded-lg transition-all ${activeIndex === index ? 'bg-blue-900/30 ring-2 ring-blue-500' : 'bg-[#171f2b]'}`}
-                      onMouseEnter={() => setActiveIndex(index)}
-                    >
-                      <div className="flex items-center space-x-2">
-                        <div 
-                          className="w-3 h-3 rounded-full" 
-                          style={{ backgroundColor: `hsl(${index * 50}, 70%, 60%)` }}
-                        />
-                        <h5 className="font-medium truncate">{sector.name}</h5>
+                {/* Grid of sector buttons with improved spacing */}
+                <div className="mt-10 pt-6 border-t border-[#2a3444]">
+                  <h3 className="text-lg font-semibold text-white mb-4">All Sectors</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {sectorFundingData.map((sector, index) => (
+                      <div 
+                        key={`sector-${index}`} 
+                        className={`p-4 rounded-lg transition-all duration-300 transform hover:scale-105 cursor-pointer
+                          ${activeIndex === index 
+                            ? 'bg-blue-900/30 ring-2 ring-blue-500 shadow-lg shadow-blue-500/20' 
+                            : 'bg-[#171f2b] hover:bg-[#1d2534]'}`}
+                        onMouseEnter={() => setActiveIndex(index)}
+                      >
+                        <div className="flex items-center space-x-2">
+                          <div 
+                            className="w-4 h-4 rounded-full" 
+                            style={{ backgroundColor: `hsl(${index * 50}, 70%, 60%)` }}
+                          />
+                          <h5 className="font-medium truncate">{sector.name}</h5>
+                        </div>
+                        <div className="mt-3">
+                          <p className="text-xl font-bold">${sector.value.toLocaleString()}</p>
+                          <p className="text-xs text-gray-400">{sector.projects} project{sector.projects !== 1 ? 's' : ''}</p>
+                        </div>
                       </div>
-                      <div className="mt-2">
-                        <p className="text-xl font-bold">${sector.value.toLocaleString()}</p>
-                        <p className="text-xs text-gray-400">{sector.projects} project{sector.projects !== 1 ? 's' : ''}</p>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </CardContent>
