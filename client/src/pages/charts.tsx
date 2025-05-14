@@ -805,7 +805,7 @@ const ChartsPage = () => {
                 <ZapIcon size={16} className="text-blue-400" />
               </div>
               <span>
-                Metaplex Core received the majority of applications (68%) but 404 projects received higher funding on average ($19,625 vs $10,750).
+                The notable projects (top 5) received 42% of the total distributed value with an average of $13,258 per project.
               </span>
             </li>
             <li className="flex items-start gap-3">
@@ -821,7 +821,7 @@ const ChartsPage = () => {
                 <ZapIcon size={16} className="text-emerald-400" />
               </div>
               <span>
-                Exactly $159,000 in total value was distributed ($100,000 in USDC and $59,000 in MPLX token value) across 12 projects.
+                $159,000 in total value was distributed ($100,000 in USDC and $59,000 in MPLX token value) across 12 projects.
               </span>
             </li>
             <li className="flex items-start gap-3">
@@ -829,12 +829,17 @@ const ChartsPage = () => {
                 <ZapIcon size={16} className="text-amber-400" />
               </div>
               <span>
-                There are {remainingMplx.toLocaleString()} MPLX tokens (${remainingMplxValue.toLocaleString()}) remaining for future distribution in cohort 2.
+                There are {remainingMplx.toLocaleString()} MPLX tokens (${remainingMplxValue.toLocaleString()}*) remaining for future distribution in cohort 2.
               </span>
             </li>
           </ul>
         </CardContent>
       </Card>
+      
+      {/* Footnote for MPLX calculation */}
+      <div className="text-right mt-4 text-xs text-gray-400 pr-4">
+        * Calculations assume $MPLX = 0.1 $USDC
+      </div>
     </div>
   );
 };
