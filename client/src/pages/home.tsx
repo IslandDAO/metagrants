@@ -319,14 +319,14 @@ const Home = () => {
                           stroke="#C084FC" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
-                          opacity="0.7"
+                          opacity="1"
                         />
                         <path 
                           d="M15 20L45 45M45 20L15 45" 
                           stroke="#C084FC" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
-                          opacity="0.7"
+                          opacity="1"
                         />
                       </g>
                     </svg>
@@ -378,7 +378,7 @@ const Home = () => {
                         strokeLinecap="round"
                       />
                       <filter id="glow3">
-                        <feGaussianBlur stdDeviation="2.5" result="blur" />
+                        <feGaussianBlur stdDeviation="3" result="blur" />
                         <feMerge>
                           <feMergeNode in="blur" />
                           <feMergeNode in="SourceGraphic" />
@@ -390,7 +390,7 @@ const Home = () => {
                           stroke="#34D399" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
-                          opacity="0.7"
+                          opacity="1"
                         />
                         <path 
                           d="M25 50V20L30 15L35 20V50" 
@@ -398,21 +398,21 @@ const Home = () => {
                           strokeWidth="1.5" 
                           strokeLinecap="round" 
                           strokeLinejoin="round"
-                          opacity="0.7"
+                          opacity="1"
                         />
                         <path 
                           d="M30 25L45 20M30 25L15 20M30 25L45 30M30 25L15 30" 
                           stroke="#34D399" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
-                          opacity="0.7"
+                          opacity="1"
                         />
                         <path 
                           d="M25 30H35M25 40H35" 
                           stroke="#34D399" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
-                          opacity="0.7"
+                          opacity="1"
                         />
                       </g>
                     </svg>
