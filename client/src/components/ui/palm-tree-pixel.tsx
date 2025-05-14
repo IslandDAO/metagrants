@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import palmPattern from "../../assets/palm-tree-pattern.png";
-import pixelPalm from "../../assets/pixel-palm.png";
+import pixelPalm from "../../assets/transparent-palm.png";
 
 interface GlowingTree {
   id: number;
@@ -17,23 +17,23 @@ export function PalmTreeBackground() {
   
   useEffect(() => {
     // Create initial trees
-    const initialTrees = createRandomTrees(8); // More trees for better visibility
+    const initialTrees = createRandomTrees(6); // Fewer trees for a more subtle effect
     setTrees(initialTrees);
     
-    // Every 2.5 seconds, add some new trees
+    // Every 4 seconds, add some new trees - slower refresh for a breathing effect
     const interval = setInterval(() => {
       setTrees(prev => {
         // Filter out trees that are fully faded
         const activeTrees = prev.filter(tree => tree.brightness > 0 || tree.increasing);
         
-        // If we have fewer than 5 active trees, add more
-        if (activeTrees.length < 5) {
-          return [...activeTrees, ...createRandomTrees(Math.floor(Math.random() * 3) + 3)];
+        // If we have fewer than 4 active trees, add more
+        if (activeTrees.length < 4) {
+          return [...activeTrees, ...createRandomTrees(Math.floor(Math.random() * 2) + 2)]; // Add 2-3 trees
         }
         
         return activeTrees;
       });
-    }, 2500); // Slightly faster refresh
+    }, 4000); // Slower refresh for more subtle breathing effect
     
     // Animation frame for updating brightness
     const animationFrame = () => {
@@ -75,7 +75,7 @@ export function PalmTreeBackground() {
         brightness: 0,
         size: 50 + Math.random() * 20, // Larger size to show pixel details
         increasing: true,
-        speed: 0.005 + Math.random() * 0.01,
+        speed: 0.002 + Math.random() * 0.003, // Much slower speed for breathing effect
       });
     }
     
@@ -90,31 +90,33 @@ export function PalmTreeBackground() {
           width: `${size}px`, 
           height: `${size}px`, 
           position: 'relative',
-          filter: `drop-shadow(0 0 ${15 * brightness}px rgba(249, 115, 22, 0.9))`,
+          filter: `drop-shadow(0 0 ${8 * brightness}px rgba(249, 115, 22, 0.5))`, // More subtle drop shadow
         }}
       >
-        {/* Using the actual pixel palm tree image */}
+        {/* Using the actual pixel palm tree image with transparent background */}
         <img 
           src={pixelPalm} 
           alt="Pixel Palm Tree"
           style={{
             width: '100%',
             height: '100%',
-            opacity: 0.7 + brightness * 0.3,
-            filter: brightness > 0.5 ? `brightness(${1 + brightness})` : 'none',
+            opacity: 0.8 + brightness * 0.2, // Less opacity change for subtle effect
+            filter: brightness > 0.5 ? `brightness(${1 + brightness * 0.5})` : 'none', // More subtle brightness change
+            transition: 'opacity 0.5s, filter 0.5s', // Smooth transitions
           }}
         />
 
-        {/* Orange Glow Overlay */}
+        {/* Subtle Orange Glow Overlay */}
         <div 
           style={{
             position: 'absolute',
-            inset: '-150%',
-            background: 'radial-gradient(circle, rgba(249, 115, 22, 0.8) 0%, rgba(249, 115, 22, 0.4) 30%, rgba(249, 115, 22, 0) 70%)',
-            opacity: brightness,
-            transform: 'scale(2)',
+            inset: '-120%',
+            background: 'radial-gradient(circle, rgba(249, 115, 22, 0.4) 0%, rgba(249, 115, 22, 0.2) 30%, rgba(249, 115, 22, 0) 70%)',
+            opacity: brightness * 0.7, // More subtle glow
+            transform: 'scale(1.8)',
             zIndex: -1,
             pointerEvents: 'none',
+            transition: 'opacity 0.5s', // Smooth transition
           }}
         />
       </div>
