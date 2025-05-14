@@ -667,9 +667,8 @@ const ChartsPage = () => {
                   </ResponsiveContainer>
                 </div>
                 
-                {/* Redesigned grid of sector buttons */}
-                <div className="mt-10 pt-6 border-t border-[#2a3444]">
-                  <h3 className="text-lg font-semibold text-white mb-4">All Sectors</h3>
+                {/* Sector buttons without separator */}
+                <div className="mt-8">
                   <div className="flex flex-wrap gap-4">
                     {sectorFundingData.map((sector, index) => (
                       <div 
