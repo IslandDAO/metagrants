@@ -64,18 +64,17 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
           </div>
           
           {/* Bio section - Single paragraph with no truncation */}
-          <div className="mb-4 flex-grow">
+          <div className="mb-5 flex-grow">
             <div 
-              className="text-[#c5d3e7] text-xs leading-relaxed pr-1 overflow-y-auto" 
-              style={{ maxHeight: "270px" }}
+              className="text-[#c5d3e7] text-xs leading-relaxed pr-1" 
             >
               {member.bio}
             </div>
           </div>
           
-          {/* Expertise tags - Scrollable when needed */}
+          {/* Expertise tags */}
           {member.expertise && member.expertise.length > 0 && (
-            <div className="flex flex-wrap gap-1.5 mb-5 max-h-[80px] overflow-y-auto scrollbar-hide">
+            <div className="flex flex-wrap gap-1.5 mb-6">
               {member.expertise.map((skill) => (
                 <Badge 
                   key={skill} 
@@ -182,7 +181,7 @@ const Team = () => {
         <TabsContent value="core">
           <div className="flex flex-nowrap gap-4 overflow-x-auto pb-4 px-1 scrollbar-hide">
             {coreTeam.map((member) => (
-              <div key={member.name} className="flex-none w-[230px] h-[490px] transition-transform hover:scale-[1.02]">
+              <div key={member.name} className="flex-none w-[230px] h-[550px] transition-transform hover:scale-[1.02]">
                 <TeamMemberCard member={member} />
               </div>
             ))}
@@ -192,7 +191,7 @@ const Team = () => {
         <TabsContent value="advisors">
           <div className="flex flex-nowrap gap-4 overflow-x-auto pb-4 px-1 scrollbar-hide">
             {advisors.map((member) => (
-              <div key={member.name} className="flex-none w-[230px] h-[490px] transition-transform hover:scale-[1.02]">
+              <div key={member.name} className="flex-none w-[230px] h-[550px] transition-transform hover:scale-[1.02]">
                 <TeamMemberCard member={member} />
               </div>
             ))}

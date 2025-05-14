@@ -52,7 +52,7 @@ export const team: TeamMember[] = [
   {
     name: "Chris",
     title: "Grants Council / Admin Support",
-    bio: "Whale's Friend is a core contributor to IslandDAO and a Co-Founder of Grape Protocol. He has played an integral role in IslandDAO's administration, operations, and business strategy, while also leading numerous feedback and coordination initiatives for the community.\n\nIn addition to his operational work, Chris has produced over 400 hours of Solana-focused video content and currently serves as the lead coordinator of the IslandDAO Hackathon juges team for Coloseum Hackathons.",
+    bio: "Whale's Friend is a core IslandDAO contributor and Co-Founder of Grape Protocol. He leads DAO operations and strategy, coordinates community feedback, and produces Solana video content. He also heads the IslandDAO judges team for Colosseum hackathons.",
     imageUrl: "/src/assets/team-avatars/chris.png",
     role: "core",
     twitter: "https://x.com/Whalesfriend",
