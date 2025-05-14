@@ -480,34 +480,80 @@ const Home = () => {
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center">
                     <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      {/* Skull basic shape */}
-                      <path 
-                        d="M20 40C20 30 20 25 30 25C40 25 40 30 40 40" 
+                      {/* Round table */}
+                      <circle 
+                        cx="30" 
+                        cy="35" 
+                        r="15" 
                         stroke="#C084FC" 
                         strokeWidth="3" 
                         strokeLinecap="round"
                       />
-                      {/* Eyes */}
-                      <path 
-                        d="M25 33H25.5M35 33H35.5" 
+                      
+                      {/* People around the table - top */}
+                      <circle 
+                        cx="30" 
+                        cy="15" 
+                        r="5" 
                         stroke="#C084FC" 
                         strokeWidth="3" 
                         strokeLinecap="round"
                       />
-                      {/* Jaw */}
                       <path 
-                        d="M25 40C25 43 35 43 35 40" 
+                        d="M30 20v3" 
                         stroke="#C084FC" 
                         strokeWidth="3" 
                         strokeLinecap="round"
                       />
-                      {/* Crossed bones */}
-                      <path 
-                        d="M15 20L45 45M45 20L15 45" 
+                      
+                      {/* People around the table - right */}
+                      <circle 
+                        cx="45" 
+                        cy="25" 
+                        r="5" 
                         stroke="#C084FC" 
                         strokeWidth="3" 
                         strokeLinecap="round"
                       />
+                      <path 
+                        d="M42 29l-2 2" 
+                        stroke="#C084FC" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      
+                      {/* People around the table - left */}
+                      <circle 
+                        cx="15" 
+                        cy="25" 
+                        r="5" 
+                        stroke="#C084FC" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M18 29l2 2" 
+                        stroke="#C084FC" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      
+                      {/* People around the table - bottom */}
+                      <circle 
+                        cx="30" 
+                        cy="55" 
+                        r="5" 
+                        stroke="#C084FC" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M30 50v-3" 
+                        stroke="#C084FC" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      
                       <filter id="glow2">
                         <feGaussianBlur stdDeviation="3" result="blur" />
                         <feMerge>
@@ -516,29 +562,83 @@ const Home = () => {
                         </feMerge>
                       </filter>
                       <g filter="url(#glow2)">
-                        <path 
-                          d="M20 40C20 30 20 25 30 25C40 25 40 30 40 40" 
+                        {/* Round table - glow effect */}
+                        <circle 
+                          cx="30" 
+                          cy="35" 
+                          r="15" 
+                          stroke="#C084FC" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        
+                        {/* People around the table - top - glow effect */}
+                        <circle 
+                          cx="30" 
+                          cy="15" 
+                          r="5" 
                           stroke="#C084FC" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
                           opacity="1"
                         />
                         <path 
-                          d="M25 33H25.5M35 33H35.5" 
+                          d="M30 20v3" 
+                          stroke="#C084FC" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        
+                        {/* People around the table - right - glow effect */}
+                        <circle 
+                          cx="45" 
+                          cy="25" 
+                          r="5" 
                           stroke="#C084FC" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
                           opacity="1"
                         />
                         <path 
-                          d="M25 40C25 43 35 43 35 40" 
+                          d="M42 29l-2 2" 
+                          stroke="#C084FC" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        
+                        {/* People around the table - left - glow effect */}
+                        <circle 
+                          cx="15" 
+                          cy="25" 
+                          r="5" 
                           stroke="#C084FC" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
                           opacity="1"
                         />
                         <path 
-                          d="M15 20L45 45M45 20L15 45" 
+                          d="M18 29l2 2" 
+                          stroke="#C084FC" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        
+                        {/* People around the table - bottom - glow effect */}
+                        <circle 
+                          cx="30" 
+                          cy="55" 
+                          r="5" 
+                          stroke="#C084FC" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M30 50v-3" 
                           stroke="#C084FC" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
