@@ -25,13 +25,23 @@ const ChartsPage = () => {
   // Direct values from document: 
   // Consumer Apps ($52.5K), Gaming ($45K), Creator & NFT Infra ($24.5K), 
   // Social & Identity ($18K), Data & Analytics ($8K)
+  
+  // Group projects by sector for the tooltip
+  const projectsBySector = grantProjects.reduce((acc, project) => {
+    if (!acc[project.sector]) {
+      acc[project.sector] = [];
+    }
+    acc[project.sector].push(project.name);
+    return acc;
+  }, {} as Record<string, string[]>);
+  
   const sectorFundingData = [
-    { name: "Consumer App", value: 52500, projects: 3 },
-    { name: "Gaming", value: 45000, projects: 3 },
-    { name: "Creator & NFT Infra", value: 24500, projects: 2 },
-    { name: "Social & Identity", value: 18000, projects: 2 },
-    { name: "Data & Analytics", value: 8000, projects: 1 },
-    { name: "Creator & Culture", value: 12500, projects: 1 }
+    { name: "Consumer App", value: 52500, projects: 3, projectList: projectsBySector["Consumer App"] || [] },
+    { name: "Gaming", value: 45000, projects: 3, projectList: projectsBySector["Gaming"] || [] },
+    { name: "Creator & NFT Infra", value: 24500, projects: 2, projectList: projectsBySector["Creator & NFT Infra"] || [] },
+    { name: "Social & Identity", value: 18000, projects: 2, projectList: projectsBySector["Social & Identity"] || [] },
+    { name: "Data & Analytics", value: 8000, projects: 1, projectList: projectsBySector["Data & Analytics"] || [] },
+    { name: "Creator & Culture", value: 12500, projects: 1, projectList: projectsBySector["Creator & Culture"] || [] }
   ].sort((a, b) => b.value - a.value);
   
   const sectors = sectorFundingData.map(sector => sector.name);
@@ -213,6 +223,9 @@ const ChartsPage = () => {
       // Check if this is the applications pie chart by checking if the payload contains "Metaplex Core" or "MPL 404"
       const isApplicationChart = payload[0]?.name === "Metaplex Core" || payload[0]?.name === "MPL 404";
       
+      // Check if this is the sector funding pie chart
+      const isSectorChart = payload[0]?.payload?.projectList !== undefined;
+      
       return (
         <div className="bg-[#121820]/95 p-4 backdrop-blur-sm shadow-xl rounded-md text-white">
           <div className="font-bold text-lg text-blue-300 mb-1">{label || payload[0].name}</div>
@@ -230,14 +243,30 @@ const ChartsPage = () => {
               );
             }
             
-            // For sector funding pie chart
-            else if (entry.payload && entry.payload.percent) {
+            // For sector funding pie chart - show project list
+            else if (isSectorChart) {
+              const projectList = entry.payload.projectList || [];
+              const totalFunding = entry.value;
+              const percentOfTotal = entry.payload.percent;
+              
               return (
-                <div key={`tooltip-${index}`} className="flex justify-between items-center">
-                  <span className="font-medium text-md mr-4">{entry.name}</span>
-                  <div>
-                    <span className="font-bold text-lg">${entry.value.toLocaleString()}</span>
-                    <span className="text-xs text-blue-300 ml-2">({(entry.payload.percent * 100).toFixed(1)}%)</span>
+                <div key={`tooltip-${index}`} className="flex flex-col">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="font-medium text-md">{entry.name} Sector</span>
+                    <div>
+                      <span className="font-bold text-lg">${totalFunding.toLocaleString()}</span>
+                      <span className="text-xs text-blue-300 ml-2">({(percentOfTotal * 100).toFixed(1)}%)</span>
+                    </div>
+                  </div>
+                  
+                  {/* Project list */}
+                  <div className="bg-[#1a2436] p-2 rounded mt-1">
+                    <p className="text-sm font-medium text-blue-200 mb-1">Projects in this sector:</p>
+                    <ul className="list-disc pl-4 text-sm space-y-1">
+                      {projectList.map((projectName: string, i: number) => (
+                        <li key={`project-${i}`}>{projectName}</li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               );
