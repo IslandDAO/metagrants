@@ -15,13 +15,12 @@ export interface TeamMember {
 export const team: TeamMember[] = [
   {
     name: "Mark",
-    title: "Program Lead, Council Chair",
-    bio: "Leads all aspects of the program—from application intake and milestone tracking to council coordination and communications. In Cohort Two, Mark will also serve as the public face of the Grants Program, acting as primary liaison to the Metaplex Foundation Comms Team, hosting Twitter Spaces and grant updates, and representing the Grants Program on Metaplex DAO-wide calls.",
+    title: "Lead Admin / Grants Council",
+    bio: "A founding partner of Cultur3 Capital, a crypto focused VC with a number of investments across Solana, SoCalStreet has been active in the broader ecosystem since 2021. He has led the current DecentraGrants program for IslandDAO, and has been an advisor to Metaplex since the protocols launch.",
     imageUrl: "https://randomuser.me/api/portraits/men/32.jpg",
     role: "core",
-    twitter: "https://twitter.com/markmetaplex",
-    email: "mark@islanddao.org",
-    expertise: ["Admin Lead", "Treasury Operations", "Communications Lead"]
+    twitter: "https://twitter.com/socal_street",
+    expertise: ["Admin Lead", "Grants Council", "Advisor"]
   },
   {
     name: "BeeMan",
@@ -45,22 +44,21 @@ export const team: TeamMember[] = [
   },
   {
     name: "Kai",
-    title: "Analytics & Content Lead, Council Member",
-    bio: "In the first cohort, supported admin workflows, data tracking, and general operations alongside his role vetting applications on the grants council. In the second cohort, he will lead the analytics integration initiative, partnering with Glint Analytics to track key on-chain metrics for each grantee, and oversee digital media production—including demo reels, project intros, and storytelling content for grantees. Kai is a professional video and digital editor.",
+    title: "Grants Council / Admin Support",
+    bio: "Kai is a core member of the IslandDAO and is active as a Research/Write. Previous Streamflow Content & Research. Produced research in collaboration with protocols including Reserve Protocol, Forgd (previously TokenomicsDAO), and more. Currently, Blocmates Research Analyst.",
     imageUrl: "https://randomuser.me/api/portraits/men/29.jpg",
     role: "core",
-    twitter: "https://twitter.com/kaimetaplex",
-    expertise: ["Analytics Integration", "Media Production", "Treasury Operations"]
+    twitter: "https://twitter.com/malachi",
+    expertise: ["Grants Council", "Admin Support", "Research"]
   },
   {
     name: "Chris",
-    title: "Co-founder, Admin Lead, Council Member",
-    bio: "Co-founder of Dean's List (Now Island DAO) and serves as administrative lead for the LLC that issues grants from the program (distinct from Island DAO). As a core member of Island DAOs, Chris is a driving force behind their IRL events and works to ensure alignment with the grants program. He is also an active participant in the Grants Council, regularly reviewing applications, evaluating milestone structures, and contributing to applicant selection.",
+    title: "Grants Council / Admin Support",
+    bio: "Whale's is a core member of the IslandDAO community. Beyond leading numerous feedback initiatives for the DAO, Whales has been integral in the operations of the DAO handling administration, operations and business strategy.",
     imageUrl: "https://randomuser.me/api/portraits/men/52.jpg",
     role: "core",
-    twitter: "https://twitter.com/chrismetaplex",
-    linkedin: "https://linkedin.com/in/chrismetaplex",
-    expertise: ["Treasury Operations", "Application Review", "IRL Events"]
+    twitter: "https://twitter.com/whale_friend",
+    expertise: ["Grants Council", "Admin Support", "Operations"]
   },
   {
     name: "Parzicano",
