@@ -90,7 +90,7 @@ export function PalmTreeBackground() {
           width: `${size}px`, 
           height: `${size}px`, 
           position: 'relative',
-          filter: `drop-shadow(0 0 ${10 * brightness}px rgba(249, 115, 22, 0.8))`,
+          filter: `drop-shadow(0 0 ${15 * brightness}px rgba(249, 115, 22, 0.9))`,
         }}
       >
         {/* Using the actual pixel palm tree image */}
@@ -100,7 +100,8 @@ export function PalmTreeBackground() {
           style={{
             width: '100%',
             height: '100%',
-            opacity: 0.5 + brightness * 0.5,
+            opacity: 0.7 + brightness * 0.3,
+            filter: brightness > 0.5 ? `brightness(${1 + brightness})` : 'none',
           }}
         />
 
@@ -108,11 +109,12 @@ export function PalmTreeBackground() {
         <div 
           style={{
             position: 'absolute',
-            inset: '-100%',
-            background: 'radial-gradient(circle, rgba(249, 115, 22, 0.7) 0%, rgba(249, 115, 22, 0.3) 30%, rgba(249, 115, 22, 0) 70%)',
+            inset: '-150%',
+            background: 'radial-gradient(circle, rgba(249, 115, 22, 0.8) 0%, rgba(249, 115, 22, 0.4) 30%, rgba(249, 115, 22, 0) 70%)',
             opacity: brightness,
-            transform: 'scale(1.5)',
+            transform: 'scale(2)',
             zIndex: -1,
+            pointerEvents: 'none',
           }}
         />
       </div>
@@ -124,14 +126,20 @@ export function PalmTreeBackground() {
       className="fixed inset-0 w-full h-full overflow-hidden" 
       style={{ 
         pointerEvents: 'none',
-        backgroundImage: `url(${palmPattern})`,
-        backgroundRepeat: 'repeat',
-        backgroundSize: '100px 100px',
-        opacity: 0.15,
-        zIndex: 0,
+        zIndex: 5,
       }}
     >
-      <div className="absolute inset-0 bg-[#121820] opacity-90"></div>
+      <div 
+        className="absolute inset-0" 
+        style={{
+          backgroundImage: `url(${palmPattern})`,
+          backgroundRepeat: 'repeat',
+          backgroundSize: '100px 100px',
+          opacity: 0.15,
+          zIndex: 0,
+        }}
+      ></div>
+      <div className="absolute inset-0 bg-[#121820] opacity-70"></div>
       
       {trees.map(tree => (
         <div
@@ -140,8 +148,9 @@ export function PalmTreeBackground() {
           style={{
             top: tree.top,
             left: tree.left,
-            opacity: tree.brightness,
+            opacity: 1, // Always show tree
             transition: 'opacity 0.5s',
+            zIndex: 10, // Ensure it appears above background
           }}
         >
           <PixelPalmTree size={tree.size} brightness={tree.brightness} />

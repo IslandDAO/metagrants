@@ -9,8 +9,10 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-[#121820] flex flex-col relative overflow-hidden">
-      {/* Palm Tree Background */}
-      <PalmTreeBackground />
+      <div className="-z-10 fixed inset-0">
+        {/* Palm Tree Background */}
+        <PalmTreeBackground />
+      </div>
       
       {/* Top Navigation Bar */}
       <TopNav className="relative z-20" />
