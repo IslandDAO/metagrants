@@ -31,9 +31,10 @@ const Resources = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="mb-8"
+        className="mb-8 relative group"
       >
-        <Card className="border border-[#3c4759]/80 hover:border-[#3b82f6]/60 card-gradient neon-glow transition-all duration-300">
+        <div className="absolute inset-0 z-10 cursor-pointer" onClick={() => window.open('https://developers.metaplex.com/docs/token-metadata', '_blank')}></div>
+        <Card className="border border-[#3c4759]/80 hover:border-[#3b82f6]/60 card-gradient neon-glow transition-all duration-300 relative">
           <CardHeader className="pb-2">
             <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-500 via-blue-400 to-purple-500 text-transparent bg-clip-text flex items-center">
               <div className="w-10 h-10 rounded-md flex items-center justify-center bg-gradient-to-br from-[#3b82f6]/20 to-[#8b5cf6]/20 border border-[#3b82f6]/30 mr-3 animate-glow-pulse">
@@ -50,12 +51,13 @@ const Resources = () => {
               Metaplex Core is a lightweight, flexible NFT standard on Solana designed for developers building dynamic, composable digital assets. It supports features like modular metadata, on-chain traits, and seamless integration with hybrid DeFi frameworks like MPL-404. Core is ideal for teams building gaming primitives, collectibles, and identity-based NFTs. It's the foundation for the next wave of interoperable web3 assets.
             </p>
             
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 relative z-20">
               <a 
-                href="https://developers.metaplex.com/mpl-core" 
+                href="https://developers.metaplex.com/docs/token-metadata" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="group"
+                onClick={(e) => e.stopPropagation()}
               >
                 <Button 
                   variant="outline" 
@@ -73,6 +75,7 @@ const Resources = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="group"
+                onClick={(e) => e.stopPropagation()}
               >
                 <Button 
                   variant="outline" 
@@ -94,8 +97,10 @@ const Resources = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
+        className="relative group"
       >
-        <Card className="border border-[#3c4759]/80 hover:border-[#3b82f6]/60 card-gradient neon-glow transition-all duration-300">
+        <div className="absolute inset-0 z-10 cursor-pointer" onClick={() => window.open('https://developers.metaplex.com/docs/mpl-hybrid/overview', '_blank')}></div>
+        <Card className="border border-[#3c4759]/80 hover:border-[#8b5cf6]/60 card-gradient neon-glow transition-all duration-300 relative">
           <CardHeader className="pb-2">
             <CardTitle className="text-3xl font-bold bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-500 text-transparent bg-clip-text flex items-center">
               <div className="w-10 h-10 rounded-md flex items-center justify-center bg-gradient-to-br from-[#8b5cf6]/20 to-[#3b82f6]/20 border border-[#8b5cf6]/30 mr-3 animate-glow-pulse">
@@ -114,7 +119,7 @@ const Resources = () => {
             
             <div className="flex flex-wrap gap-4">
               <a 
-                href="https://developers.metaplex.com/mpl-hybrid" 
+                href="https://developers.metaplex.com/docs/mpl-hybrid/overview" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="group"
