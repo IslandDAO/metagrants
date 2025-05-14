@@ -145,26 +145,44 @@ export const GlowingPalms: React.FC = () => {
           });
         }
         
-        // Update brightness based on phase
+        // Update brightness based on individual durations
         setPalms(prevPalms => {
+          // Calculate total cycle time in seconds (approximately)
+          const totalCycleTime = 250; // ~250 frames at 30fps ≈ 8.3 seconds
+          
           return prevPalms.map(palm => {
             let newBrightness = 0;
             
             if (palm.active) {
-              // Longer fade-in, faster fade-out
-              if (phaseRef.current < 0.6) {
-                // Slow fade in (0 to 0.6 phase)
-                newBrightness = (phaseRef.current / 0.6);
-              } else {
-                // Fast fade out (0.6 to 1.0 phase)
-                const fadeOutProgress = (phaseRef.current - 0.6) / 0.4;
-                const acceleratedProgress = fadeOutProgress * 1.4; // 40% faster
-                const clampedProgress = Math.min(1, acceleratedProgress);
-                newBrightness = 1 - clampedProgress;
+              // Use palm's individual duration (2-5 seconds) or default to 3 seconds
+              const palmDuration = palm.duration || 3;
+              // Convert duration to phase fraction (e.g., 3s duration = 0.36 of total cycle)
+              const palmPhaseEnd = palmDuration / totalCycleTime;
+              
+              // First 1/3 of palm's duration is fade-in, remaining 2/3 is stable before fade-out
+              const fadeInPhase = palmPhaseEnd / 3;
+              const stableEnd = palmPhaseEnd * 0.9; // End stable at 90% of palm's duration
+              
+              if (phaseRef.current < fadeInPhase) {
+                // Fade in period - normalize to 0-1 range
+                newBrightness = phaseRef.current / fadeInPhase;
+              } 
+              else if (phaseRef.current < stableEnd) {
+                // Stable period - full brightness
+                newBrightness = 1;
+              } 
+              else if (phaseRef.current < palmPhaseEnd) {
+                // Fade out period - normalize to 1-0 range
+                const fadeOutProgress = (phaseRef.current - stableEnd) / (palmPhaseEnd - stableEnd);
+                newBrightness = 1 - fadeOutProgress;
+              }
+              else {
+                // Beyond this palm's duration
+                newBrightness = 0;
               }
             } else {
-              // Inactive palms fade out slowly if they have brightness
-              newBrightness = Math.max(0, palm.brightness - 0.02);
+              // Inactive palms fade out quickly
+              newBrightness = Math.max(0, palm.brightness - 0.04);
             }
             
             return {
