@@ -163,7 +163,9 @@ const Learnings = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Insights and outcomes from our first cohort of MetaplexDAO grants. We're sharing what worked, what we learned, and how we're improving the program for future rounds.
+          Insights and outcomes from our first cohort of MetaplexDAO grants.
+          <br />
+          We're sharing what worked, what we learned, and how we're improving the program for future rounds.
         </motion.p>
       </div>
 
