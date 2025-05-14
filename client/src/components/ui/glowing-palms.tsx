@@ -49,16 +49,7 @@ export const GlowingPalms: React.FC<PalmProps> = ({ positions = [] }) => {
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 5 }}>
-      {/* Background palm pattern */}
-      <div 
-        className="absolute inset-0" 
-        style={{
-          backgroundImage: `url(${transparentPalm})`,
-          backgroundRepeat: 'repeat',
-          backgroundSize: '200px 200px',
-          opacity: 0.1,
-        }}
-      />
+      {/* Solid background color - no pattern */}
 
       {/* Glowing palms */}
       {palmPositions.map((position, index) => (
@@ -89,24 +80,12 @@ export const GlowingPalms: React.FC<PalmProps> = ({ positions = [] }) => {
                 height: '100%',
                 objectFit: 'contain',
                 filter: index === activeIndex 
-                  ? `drop-shadow(0 0 10px rgba(249, 115, 22, ${opacity * 0.8})) brightness(${1 + opacity * 0.5})` 
+                  ? `brightness(${1 + opacity * 0.7})` 
                   : 'none',
                 transition: 'filter 0.3s',
+                opacity: index === activeIndex ? 0.7 + opacity * 0.3 : 0.3,
               }}
             />
-            
-            {/* Glow effect for active palm */}
-            {index === activeIndex && (
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: '-50%',
-                  background: 'radial-gradient(circle, rgba(249, 115, 22, 0.7) 0%, rgba(249, 115, 22, 0.3) 30%, rgba(249, 115, 22, 0) 70%)',
-                  opacity: opacity * 0.8,
-                  zIndex: -1,
-                }}
-              />
-            )}
           </div>
         </div>
       ))}
