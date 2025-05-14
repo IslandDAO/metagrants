@@ -136,7 +136,7 @@ const Home = () => {
                     <img 
                       src={palmTreeNew} 
                       alt="Pixel Art Palm Tree" 
-                      className="w-[75%] h-[75%] object-contain" 
+                      className="w-[112.5%] h-[112.5%] object-contain transform scale-[1.5]" 
                       style={{
                         imageRendering: "pixelated"
                       }}
@@ -161,7 +161,7 @@ const Home = () => {
                     <img 
                       src={pirateHat} 
                       alt="Pixel Art Pirate Hat" 
-                      className="w-[75%] h-[75%] object-contain" 
+                      className="w-[112.5%] h-[112.5%] object-contain transform scale-[1.5]" 
                       style={{
                         imageRendering: "pixelated"
                       }}
@@ -186,7 +186,7 @@ const Home = () => {
                     <img 
                       src={lighthousePixel} 
                       alt="Pixel Art Lighthouse" 
-                      className="w-[75%] h-[75%] object-contain" 
+                      className="w-[112.5%] h-[112.5%] object-contain transform scale-[1.5]" 
                       style={{
                         imageRendering: "pixelated"
                       }}
