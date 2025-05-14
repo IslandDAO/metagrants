@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Menu, X } from "lucide-react";
@@ -19,6 +19,7 @@ interface TopNavProps {
 
 const TopNav: React.FC<TopNavProps> = ({ className }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation();
   
   const navItems = [
@@ -78,7 +79,7 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
           {navItems.map((item) => (
             item.hasDropdown ? (
               <div key={item.to} className="relative group">
-                <DropdownMenu>
+                <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
                   <DropdownMenuTrigger asChild>
                     <div
                       className={cn(
@@ -91,7 +92,10 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
                     </div>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="bg-[#1c2431] border border-[#3c4759] p-1 min-w-[220px] mt-1">
-                    <DropdownMenuItem className="focus:bg-[#2a3341] focus:text-[#3b82f6] text-[#b5bfcc] rounded-md mb-1">
+                    <DropdownMenuItem 
+                      className="focus:bg-[#2a3341] focus:text-[#3b82f6] text-[#b5bfcc] rounded-md mb-1"
+                      onSelect={() => setIsDropdownOpen(false)}
+                    >
                       <Link to={item.to} className="w-full">
                         View All Grantees
                       </Link>
@@ -101,6 +105,7 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
                       <DropdownMenuItem 
                         key={project.slug} 
                         className="focus:bg-[#2a3341] focus:text-[#3b82f6] text-[#b5bfcc] rounded-md"
+                        onSelect={() => setIsDropdownOpen(false)}
                       >
                         <Link to={`/grants/${project.slug}`} className="w-full">
                           {project.name}
