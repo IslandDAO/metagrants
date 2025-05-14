@@ -78,7 +78,7 @@ const GrantDetail = () => {
                 <Badge className="bg-[#2c374b] text-[#b5bfcc]">{grant.sector}</Badge>
               </div>
             </div>
-            <p className="text-xl text-gray-700">{grant.summary}</p>
+            <p className="text-xl text-[#b5bfcc]">{grant.summary}</p>
           </div>
         </motion.div>
       </div>
@@ -99,17 +99,17 @@ const GrantDetail = () => {
             </TabsList>
             
             <TabsContent value="overview">
-              <Card>
+              <Card className="border-[#3c4759] bg-[#1c2431]">
                 <CardHeader>
-                  <CardTitle>Project Description</CardTitle>
-                  <CardDescription>Details about the project</CardDescription>
+                  <CardTitle className="text-[#f1f5fb]">Project Description</CardTitle>
+                  <CardDescription className="text-[#b5bfcc]">Details about the project</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="text-gray-700">{grant.description || "Detailed description will be available soon."}</p>
+                  <p className="text-[#b5bfcc]">{grant.description || "Detailed description will be available soon."}</p>
                   
                   <div className="mt-6">
-                    <h3 className="font-semibold text-lg mb-2">Technical Details</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-semibold text-lg mb-2 text-[#f1f5fb]">Technical Details</h3>
+                    <p className="text-[#b5bfcc]">
                       This project utilizes the MetaplexDAO {grant.tech} technology to build innovative solutions
                       in the {grant.sector} space. The development team is focused on creating a user-friendly
                       product that addresses key challenges in the ecosystem.
@@ -117,8 +117,8 @@ const GrantDetail = () => {
                   </div>
                   
                   <div className="mt-6">
-                    <h3 className="font-semibold text-lg mb-2">Impact & Outcomes</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-semibold text-lg mb-2 text-[#f1f5fb]">Impact & Outcomes</h3>
+                    <p className="text-[#b5bfcc]">
                       The grant supports development of crucial infrastructure that will benefit the
                       broader Metaplex community. Key outcomes include improved user experiences,
                       enhanced functionality, and greater ecosystem integration.
@@ -129,10 +129,10 @@ const GrantDetail = () => {
             </TabsContent>
             
             <TabsContent value="milestones">
-              <Card>
+              <Card className="border-[#3c4759] bg-[#1c2431]">
                 <CardHeader>
-                  <CardTitle>Project Milestones</CardTitle>
-                  <CardDescription>Development timeline and goals</CardDescription>
+                  <CardTitle className="text-[#f1f5fb]">Project Milestones</CardTitle>
+                  <CardDescription className="text-[#b5bfcc]">Development timeline and goals</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-6">
@@ -162,17 +162,17 @@ const GrantDetail = () => {
                         completed: false 
                       }
                     ].map((milestone, index) => (
-                      <div key={index} className="relative pl-8 pb-6 border-l-2 border-gray-200 last:pb-0">
+                      <div key={index} className="relative pl-8 pb-6 border-l-2 border-[#3c4759] last:pb-0">
                         <div className="absolute -left-2 mt-1.5">
-                          <div className={`rounded-full h-4 w-4 ${milestone.completed ? 'bg-green-500' : 'bg-gray-300'}`}></div>
+                          <div className={`rounded-full h-4 w-4 ${milestone.completed ? 'bg-[#10b981]' : 'bg-[#3c4759]'}`}></div>
                         </div>
                         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1">
-                          <h3 className="text-lg font-semibold">{milestone.title}</h3>
-                          <Badge variant="outline" className="sm:ml-2 mb-2 sm:mb-0 w-fit">
+                          <h3 className="text-lg font-semibold text-[#f1f5fb]">{milestone.title}</h3>
+                          <Badge variant="outline" className="sm:ml-2 mb-2 sm:mb-0 w-fit border-[#3c4759] text-[#b5bfcc]">
                             {milestone.date}
                           </Badge>
                         </div>
-                        <p className="text-gray-600">{milestone.description}</p>
+                        <p className="text-[#b5bfcc]">{milestone.description}</p>
                       </div>
                     ))}
                   </div>
@@ -181,10 +181,10 @@ const GrantDetail = () => {
             </TabsContent>
             
             <TabsContent value="team">
-              <Card>
+              <Card className="border-[#3c4759] bg-[#1c2431]">
                 <CardHeader>
-                  <CardTitle>Project Team</CardTitle>
-                  <CardDescription>The people behind the project</CardDescription>
+                  <CardTitle className="text-[#f1f5fb]">Project Team</CardTitle>
+                  <CardDescription className="text-[#b5bfcc]">The people behind the project</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -210,10 +210,10 @@ const GrantDetail = () => {
                         bio: "Handles community outreach, user feedback collection, and ecosystem partnership development",
                       }
                     ].map((member, index) => (
-                      <div key={index} className="p-4 border rounded-lg">
-                        <h3 className="font-semibold text-lg">{member.name}</h3>
-                        <p className="text-sm text-primary-foreground font-medium">{member.role}</p>
-                        <p className="text-gray-600 mt-2 text-sm">{member.bio}</p>
+                      <div key={index} className="p-4 border border-[#3c4759] rounded-lg bg-[#2c374b]">
+                        <h3 className="font-semibold text-lg text-[#f1f5fb]">{member.name}</h3>
+                        <p className="text-sm text-[#f97316] font-medium">{member.role}</p>
+                        <p className="text-[#b5bfcc] mt-2 text-sm">{member.bio}</p>
                       </div>
                     ))}
                   </div>
@@ -230,33 +230,33 @@ const GrantDetail = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <div className="space-y-6">
-            <Card>
+            <Card className="border-[#3c4759] bg-[#1c2431]">
               <CardHeader>
-                <CardTitle>Grant Details</CardTitle>
+                <CardTitle className="text-[#f1f5fb]">Grant Details</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div className="flex items-center">
-                    <DollarSign className="h-5 w-5 text-gray-400 mr-2" />
+                    <DollarSign className="h-5 w-5 text-[#f97316] mr-2" />
                     <div>
-                      <p className="text-sm text-gray-500">Total Grant Value</p>
-                      <p className="font-medium">${grant.totalUsd.toLocaleString()} USD</p>
+                      <p className="text-sm text-[#8896b0]">Total Grant Value</p>
+                      <p className="font-medium text-[#f1f5fb]">${grant.totalUsd.toLocaleString()} USD</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center">
-                    <DollarSign className="h-5 w-5 text-gray-400 mr-2" />
+                    <DollarSign className="h-5 w-5 text-[#f97316] mr-2" />
                     <div>
-                      <p className="text-sm text-gray-500">USDC Allocation</p>
-                      <p className="font-medium">${grant.usdc.toLocaleString()} USDC</p>
+                      <p className="text-sm text-[#8896b0]">USDC Allocation</p>
+                      <p className="font-medium text-[#f1f5fb]">${grant.usdc.toLocaleString()} USDC</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center">
-                    <DollarSign className="h-5 w-5 text-gray-400 mr-2" />
+                    <DollarSign className="h-5 w-5 text-[#f97316] mr-2" />
                     <div>
-                      <p className="text-sm text-gray-500">MPLX Tokens</p>
-                      <p className="font-medium">{grant.mplx.toLocaleString()} MPLX</p>
+                      <p className="text-sm text-[#8896b0]">MPLX Tokens</p>
+                      <p className="font-medium text-[#f1f5fb]">{grant.mplx.toLocaleString()} MPLX</p>
                     </div>
                   </div>
                   
