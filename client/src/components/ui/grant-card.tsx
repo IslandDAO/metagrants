@@ -17,12 +17,12 @@ const GrantCard: React.FC<GrantCardProps> = ({ grant }) => {
       transition={{ duration: 0.5 }}
       whileHover={{ scale: 1.03 }}
     >
-      <Card className="overflow-hidden h-full transition hover:shadow-lg border border-[#3c4759] bg-[#1c2431]">
-        <div className="w-full h-48 overflow-hidden">
+      <Card className="overflow-hidden h-full card-gradient card-hover neon-glow rounded-xl">
+        <div className="w-full h-48 overflow-hidden rounded-t-xl">
           <img 
             src={grant.imageUrl} 
             alt={grant.name} 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
           />
         </div>
         <CardContent className="p-6">
@@ -30,8 +30,8 @@ const GrantCard: React.FC<GrantCardProps> = ({ grant }) => {
             <h3 className="text-lg font-bold text-[#f1f5fb]">{grant.name}</h3>
             <Badge 
               className={grant.techStack === "Core" 
-                ? "bg-[#3b82f6] text-[#f1f5fb]" 
-                : "bg-[#8b5cf6] text-[#f1f5fb]"
+                ? "bg-[#3b82f6] text-[#f1f5fb] animate-glow-pulse" 
+                : "bg-[#8b5cf6] text-[#f1f5fb] animate-glow-pulse"
               } 
               variant="outline"
             >
@@ -44,15 +44,18 @@ const GrantCard: React.FC<GrantCardProps> = ({ grant }) => {
           <p className="text-[#b5bfcc] text-sm mb-4">
             {truncateText(grant.summary, 100)}
           </p>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center mt-auto">
             <div className="flex items-center">
               <span className="text-sm font-medium text-[#f97316]">{grant.totalValue}</span>
             </div>
             <Link 
               to={`/grants/${grant.slug}`}
-              className="text-[#3b82f6] hover:text-[#60a5fa] text-sm font-medium"
+              className="text-[#3b82f6] hover:text-[#60a5fa] text-sm font-medium flex items-center"
             >
               Learn More
+              <svg className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+              </svg>
             </Link>
           </div>
         </CardContent>

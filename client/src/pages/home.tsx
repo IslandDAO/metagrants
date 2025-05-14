@@ -72,10 +72,10 @@ const Home = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        <h1 className="text-4xl md:text-6xl font-bold text-[#f1f5fb] mb-6">
+        <h1 className="text-4xl md:text-6xl font-bold text-gradient mb-6">
           MetaplexDAO Grants — Cohort 1
         </h1>
-        <div className="mb-4 text-center">
+        <div className="mb-6 text-center">
           <h2 className="text-xl md:text-2xl text-[#b5bfcc]">
             Managed by <a href="https://islanddao.org/" target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-400 transition-colors">IslandDAO</a>
           </h2>
