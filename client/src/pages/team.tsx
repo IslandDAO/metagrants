@@ -34,15 +34,16 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <Card className="h-full">
+      <Card className="h-full bg-[#1c2431] border-[#364156] overflow-hidden relative">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
         <CardContent className="p-6">
           <div className="flex flex-col items-center text-center mb-4">
-            <Avatar className="h-24 w-24 mb-4">
+            <Avatar className="h-24 w-24 mb-4 ring-2 ring-indigo-500/30 ring-offset-2 ring-offset-[#1c2431]">
               <AvatarImage src={member.imageUrl} alt={member.name} />
-              <AvatarFallback>{initials}</AvatarFallback>
+              <AvatarFallback className="bg-indigo-500/20 text-indigo-200">{initials}</AvatarFallback>
             </Avatar>
-            <h3 className="text-xl font-bold">{member.name}</h3>
-            <p className="text-primary text-sm font-medium">{member.title}</p>
+            <h3 className="text-xl font-bold text-[#f1f5fb]">{member.name}</h3>
+            <p className="text-indigo-300 text-sm font-medium">{member.title}</p>
           </div>
           
           <Collapsible 
@@ -50,21 +51,21 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
             onOpenChange={setIsOpen}
             className="mb-4"
           >
-            <div className="text-gray-600 text-sm mb-2">
+            <div className="text-[#b5bfcc] text-sm mb-2">
               {member.bio.length > 100 
                 ? `${member.bio.substring(0, 100)}...` 
                 : member.bio
               }
             </div>
             
-            <CollapsibleContent className="text-gray-600 text-sm">
+            <CollapsibleContent className="text-[#b5bfcc] text-sm">
               <div className="mt-2">
                 {member.bio}
               </div>
             </CollapsibleContent>
             
             {member.bio.length > 100 && (
-              <CollapsibleTrigger className="flex items-center justify-center w-full mt-2 text-xs text-primary-600 hover:text-primary-800">
+              <CollapsibleTrigger className="flex items-center justify-center w-full mt-2 text-xs text-indigo-400 hover:text-indigo-300 transition-colors">
                 <span>{isOpen ? "Read less" : "Read more"}</span>
                 <ChevronDown className={`h-4 w-4 ml-1 transition-transform ${isOpen ? "rotate-180" : ""}`} />
               </CollapsibleTrigger>
@@ -74,20 +75,24 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
           {member.expertise && member.expertise.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-4">
               {member.expertise.map((skill) => (
-                <Badge key={skill} variant="outline" className="bg-gray-100">
+                <Badge 
+                  key={skill} 
+                  variant="outline" 
+                  className="bg-indigo-500/10 border-indigo-500/30 text-indigo-200 hover:bg-indigo-500/20 transition-colors"
+                >
                   {skill}
                 </Badge>
               ))}
             </div>
           )}
           
-          <div className="flex justify-center space-x-3 pt-2 border-t">
+          <div className="flex justify-center space-x-3 pt-2 border-t border-[#364156]">
             {member.twitter && (
               <a 
                 href={member.twitter}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-blue-400"
+                className="text-[#b5bfcc] hover:text-blue-400 transition-colors"
               >
                 <Twitter size={18} />
               </a>
@@ -97,7 +102,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 href={member.linkedin}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-blue-700"
+                className="text-[#b5bfcc] hover:text-blue-400 transition-colors"
               >
                 <Linkedin size={18} />
               </a>
@@ -107,7 +112,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 href={member.github}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-gray-900"
+                className="text-[#b5bfcc] hover:text-purple-400 transition-colors"
               >
                 <Github size={18} />
               </a>
@@ -117,7 +122,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 href={member.website}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-purple-600"
+                className="text-[#b5bfcc] hover:text-indigo-400 transition-colors"
               >
                 <Globe size={18} />
               </a>
@@ -125,7 +130,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
             {member.email && (
               <a 
                 href={`mailto:${member.email}`}
-                className="text-gray-500 hover:text-green-600"
+                className="text-[#b5bfcc] hover:text-green-400 transition-colors"
               >
                 <Mail size={18} />
               </a>
@@ -146,7 +151,7 @@ const Team = () => {
     <div className="max-w-7xl mx-auto">
       <div className="mb-8">
         <motion.h1 
-          className="text-3xl font-bold text-secondary mb-2"
+          className="text-3xl font-bold text-[#f1f5fb] mb-2"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -154,7 +159,7 @@ const Team = () => {
           Meet Our Team
         </motion.h1>
         <motion.p 
-          className="text-gray-600 max-w-3xl"
+          className="text-[#b5bfcc] max-w-3xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -166,9 +171,9 @@ const Team = () => {
       </div>
       
       <Tabs defaultValue="core" className="mb-12">
-        <TabsList className="mb-8">
-          <TabsTrigger value="core">Core Team</TabsTrigger>
-          <TabsTrigger value="advisors">Advisors</TabsTrigger>
+        <TabsList className="mb-8 bg-[#1a2436] border border-[#364156]">
+          <TabsTrigger value="core" className="data-[state=active]:bg-indigo-500/20 data-[state=active]:text-indigo-300">Core Team</TabsTrigger>
+          <TabsTrigger value="advisors" className="data-[state=active]:bg-indigo-500/20 data-[state=active]:text-indigo-300">Advisors</TabsTrigger>
         </TabsList>
         
         <TabsContent value="core">
@@ -189,20 +194,25 @@ const Team = () => {
       </Tabs>
       
       <motion.div
-        className="bg-gray-50 p-8 rounded-lg border text-center mb-6"
+        className="bg-gradient-to-r from-[#1a2436] to-[#1d2a40] p-8 rounded-lg border border-indigo-500/20 text-center mb-6 overflow-hidden relative"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        <h2 className="text-2xl font-bold text-secondary mb-4">Join Our Team</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto mb-4">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+        <div className="absolute -bottom-16 -right-16 w-64 h-64 bg-indigo-500/5 rounded-full"></div>
+        <div className="absolute -top-16 -left-16 w-64 h-64 bg-purple-500/5 rounded-full"></div>
+        
+        <h2 className="text-2xl font-bold text-[#f1f5fb] mb-4">Join Our Team</h2>
+        <p className="text-[#b5bfcc] max-w-2xl mx-auto mb-6">
           We're always looking for talented individuals passionate about web3, decentralized technology, and building the future of digital assets.
         </p>
         <a 
           href="mailto:team@islanddao.org" 
-          className="text-primary hover:text-primary-dark font-medium"
+          className="px-5 py-2 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 hover:bg-indigo-500/30 transition-colors inline-flex items-center gap-2"
         >
-          Reach out to learn about open positions
+          <Mail size={16} />
+          <span>Reach out to learn about open positions</span>
         </a>
       </motion.div>
     </div>

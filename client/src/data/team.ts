@@ -23,6 +23,15 @@ export const team: TeamMember[] = [
     expertise: ["Admin Lead", "Grants Council", "Advisor"]
   },
   {
+    name: "Dimitri",
+    title: "Comms / Grants Council",
+    bio: "Taki is a IslandDAO core contributor in operations, marketing & business development. He runs discord services teams for IslandDAO with clients such as Marinade, Realms, Zignaly Working with Realms on marketing & socials Previously: Solflare (marketing, socials)",
+    imageUrl: "https://randomuser.me/api/portraits/men/36.jpg",
+    role: "core",
+    twitter: "https://twitter.com/takisoul",
+    expertise: ["Communications", "Grants Council", "Marketing"]
+  },
+  {
     name: "BeeMan",
     title: "Technical Lead, Council Member",
     bio: "Leads technical due diligence across all applications. Reviews build specs, advises grantees on implementation, and helps shape milestone structuring. In Cohort Two, he will continue this role while also expanding his 'build in public' video content initiative, which he launched in collaboration with the Metaplex marketing team.",
