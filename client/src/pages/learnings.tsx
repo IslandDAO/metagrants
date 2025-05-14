@@ -149,7 +149,7 @@ const Learnings = () => {
     <div className="max-w-7xl mx-auto">
       <div className="mb-10">
         <motion.h1 
-          className="text-3xl font-bold text-secondary mb-2"
+          className="text-3xl font-bold text-gradient mb-2"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -157,7 +157,7 @@ const Learnings = () => {
           Program Learnings
         </motion.h1>
         <motion.p 
-          className="text-gray-600 max-w-3xl"
+          className="text-[#b5bfcc] max-w-3xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -234,7 +234,7 @@ const Learnings = () => {
         <Accordion type="single" collapsible className="mb-6">
           {learningCategories.map((category, index) => (
             <AccordionItem key={index} value={category.id}>
-              <AccordionTrigger className="text-xl font-semibold py-4">
+              <AccordionTrigger className="text-xl font-semibold py-4 text-gradient">
                 {category.title}
               </AccordionTrigger>
               <AccordionContent>
@@ -283,32 +283,32 @@ const Learnings = () => {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              <p className="text-gray-700">
+              <p className="text-[#b5bfcc]">
                 Based on the success and learnings from our first cohort, we're excited to announce that planning for Cohort 2 is underway.
                 The next round will incorporate the improvements identified during our first phase, with a few key changes:
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-                <div className="border border-gray-500 rounded-lg p-4 bg-[#1c2431]">
-                  <h3 className="font-semibold mb-2 text-white">Focused Funding Tracks</h3>
-                  <p className="text-sm text-gray-300">
+                <div className="rounded-lg p-4 card-gradient neon-glow card-hover">
+                  <h3 className="font-semibold mb-2 text-gradient">Focused Funding Tracks</h3>
+                  <p className="text-sm text-[#b5bfcc]">
                     We'll offer specific funding tracks aligned with ecosystem priorities, including infrastructure, consumer applications, and developer tooling.
                   </p>
                 </div>
-                <div className="border border-gray-500 rounded-lg p-4 bg-[#1c2431]">
-                  <h3 className="font-semibold mb-2 text-white">Enhanced Support Program</h3>
-                  <p className="text-sm text-gray-300">
+                <div className="rounded-lg p-4 card-gradient neon-glow card-hover">
+                  <h3 className="font-semibold mb-2 text-gradient">Enhanced Support Program</h3>
+                  <p className="text-sm text-[#b5bfcc]">
                     Expanding technical mentorship, business development support, and community resources available to grantees.
                   </p>
                 </div>
-                <div className="border border-gray-500 rounded-lg p-4 bg-[#1c2431]">
-                  <h3 className="font-semibold mb-2 text-white">Collaborative Selection</h3>
-                  <p className="text-sm text-gray-300">
+                <div className="rounded-lg p-4 card-gradient neon-glow card-hover">
+                  <h3 className="font-semibold mb-2 text-gradient">Collaborative Selection</h3>
+                  <p className="text-sm text-[#b5bfcc]">
                     Adding a community voting component to the selection process while maintaining technical evaluation standards.
                   </p>
                 </div>
-                <div className="border border-gray-500 rounded-lg p-4 bg-[#1c2431]">
-                  <h3 className="font-semibold mb-2 text-white">Increased Funding Pool</h3>
-                  <p className="text-sm text-gray-300">
+                <div className="rounded-lg p-4 card-gradient neon-glow card-hover">
+                  <h3 className="font-semibold mb-2 text-gradient">Increased Funding Pool</h3>
+                  <p className="text-sm text-[#b5bfcc]">
                     Growing the total funding allocation to support more projects and enable larger grants for ambitious initiatives.
                   </p>
                 </div>
