@@ -196,28 +196,62 @@ const Learnings = () => {
         transition={{ duration: 0.6, delay: 0.3 }}
       >
         <h2 className="text-2xl font-bold text-gradient mb-6">Key Results</h2>
-        <Card className="card-gradient neon-glow">
-          <CardContent className="p-6">
-            <Tabs defaultValue={keyResults[0].category}>
-              <TabsList className="mb-6 bg-[#1c2431]/50 border-primary/30">
-                {keyResults.map((result, index) => (
-                  <TabsTrigger 
-                    key={index} 
-                    value={result.category}
-                    className="data-[state=active]:bg-primary/20 data-[state=active]:text-gradient data-[state=active]:shadow-glow hover:bg-primary/10 transition-colors cursor-pointer"
-                  >
-                    <span className="flex items-center">
-                      {result.category}
-                      {result.category !== keyResults[0].category && (
-                        <span className="ml-1 text-xs text-primary animate-pulse">•</span>
-                      )}
-                    </span>
-                  </TabsTrigger>
-                ))}
-              </TabsList>
+        <Card className="card-gradient neon-glow overflow-hidden">
+          <CardContent className="p-6 pt-4">
+            <div className="flex flex-col">
+              {/* Custom Tab Headers */}
+              <div className="flex space-x-2 mb-6 overflow-x-auto pb-2">
+                {keyResults.map((result, index) => {
+                  const isActive = keyResults[0].category === result.category;
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        // Update all tab buttons to remove active state
+                        const tabButtons = document.querySelectorAll('.tab-button');
+                        tabButtons.forEach(button => {
+                          button.classList.remove('active-tab');
+                          button.classList.remove('bg-primary/20');
+                          button.classList.remove('text-gradient');
+                          button.classList.remove('shadow-glow');
+                        });
+                        
+                        // Update all content sections to hide them
+                        const contentSections = document.querySelectorAll('.tab-content');
+                        contentSections.forEach(section => {
+                          section.classList.add('hidden');
+                        });
+                        
+                        // Show the selected content and update button state
+                        document.getElementById(`tab-content-${index}`)?.classList.remove('hidden');
+                        document.getElementById(`tab-button-${index}`)?.classList.add('active-tab');
+                        document.getElementById(`tab-button-${index}`)?.classList.add('bg-primary/20');
+                        document.getElementById(`tab-button-${index}`)?.classList.add('text-gradient');
+                        document.getElementById(`tab-button-${index}`)?.classList.add('shadow-glow');
+                      }}
+                      id={`tab-button-${index}`}
+                      className={`tab-button px-4 py-2 rounded-md text-sm font-medium transition-all cursor-pointer
+                        ${isActive ? 'active-tab bg-primary/20 text-gradient shadow-glow' : 'text-gray-300 hover:bg-primary/10'}
+                      `}
+                    >
+                      <span className="flex items-center">
+                        {result.category}
+                        {!isActive && (
+                          <span className="ml-1 text-xs text-primary animate-pulse">•</span>
+                        )}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
               
+              {/* Custom Tab Content */}
               {keyResults.map((result, index) => (
-                <TabsContent key={index} value={result.category}>
+                <div 
+                  key={index} 
+                  id={`tab-content-${index}`}
+                  className={`tab-content ${index === 0 ? '' : 'hidden'}`}
+                >
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {result.results.map((item, idx) => (
                       <li key={idx} className="flex items-start">
@@ -226,9 +260,9 @@ const Learnings = () => {
                       </li>
                     ))}
                   </ul>
-                </TabsContent>
+                </div>
               ))}
-            </Tabs>
+            </div>
           </CardContent>
         </Card>
       </motion.div>
