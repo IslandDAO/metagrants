@@ -893,65 +893,129 @@ const ChartsPage = () => {
               <CardDescription className="text-gray-300">Top funded projects by technology</CardDescription>
             </CardHeader>
             <CardContent className="pt-6">
-              <ResponsiveContainer width="100%" height={400}>
-                <BarChart
-                  data={projectsByFunding}
-                  margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
-                  barGap={0}
-                  barCategoryGap="15%"
-                >
-                  <defs>
-                    <linearGradient id="coreBarGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#6366F1" stopOpacity={0.8} />
-                      <stop offset="100%" stopColor="#6366F1" stopOpacity={0.2} />
-                    </linearGradient>
-                    <linearGradient id="m404BarGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#10B981" stopOpacity={0.8} />
-                      <stop offset="100%" stopColor="#10B981" stopOpacity={0.2} />
-                    </linearGradient>
-                  </defs>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#364156" vertical={false} />
-                  <XAxis 
-                    dataKey="name" 
-                    stroke="#9CA3AF"
-                    angle={-45}
-                    textAnchor="end"
-                    tick={{ fontSize: 12 }}
-                    interval={0}
-                    height={60}
-                  />
-                  <YAxis 
-                    tickFormatter={(value) => `$${(value/1000).toFixed(0)}k`} 
-                    stroke="#9CA3AF"
-                  />
-                  <Tooltip 
-                    formatter={(value, name, entry) => [`$${value.toLocaleString()}`, name]}
-                    contentStyle={{ 
-                      backgroundColor: 'rgba(18, 24, 32, 0.9)', 
-                      backdropFilter: 'blur(8px)',
-                      border: 'none', 
-                      color: 'white',
-                      boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
-                      padding: '12px',
-                      borderRadius: '8px'
-                    }}
-                  />
-{/* Legend removed as requested */}
-                  <Bar 
-                    dataKey="totalUsd" 
-                    name="Total Funding" 
-                    radius={[8, 8, 0, 0]}
-                    fill={(entry) => entry.tech === "CORE" ? "url(#coreBarGradient)" : "url(#m404BarGradient)"}
-                    label={{
-                      position: 'top',
-                      formatter: (value) => `$${(value/1000).toFixed(0)}k`,
-                      fontSize: 14,
-                      fill: '#FFFFFF',
-                      fontWeight: 600
-                    }}
-                  />
-                </BarChart>
-              </ResponsiveContainer>
+              <div className="flex flex-col md:flex-row gap-6">
+                <div className="w-full md:w-[70%]">
+                  <ResponsiveContainer width="100%" height={400}>
+                    <RadarChart 
+                      cx="50%" 
+                      cy="50%" 
+                      outerRadius="70%" 
+                      data={projectsByFunding}
+                    >
+                      <defs>
+                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                          <feGaussianBlur stdDeviation="8" result="blur" />
+                          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                        <linearGradient id="coreAreaGradient" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor="#6366F1" stopOpacity={0.8} />
+                          <stop offset="100%" stopColor="#6366F1" stopOpacity={0.4} />
+                        </linearGradient>
+                        <linearGradient id="m404AreaGradient" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor="#10B981" stopOpacity={0.8} />
+                          <stop offset="100%" stopColor="#10B981" stopOpacity={0.4} />
+                        </linearGradient>
+                        <filter id="coreDropShadow" height="130%">
+                          <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+                          <feOffset dx="0" dy="1" result="offsetblur" />
+                          <feComponentTransfer>
+                            <feFuncA type="linear" slope="0.5" />
+                          </feComponentTransfer>
+                          <feMerge>
+                            <feMergeNode />
+                            <feMergeNode in="SourceGraphic" />
+                          </feMerge>
+                        </filter>
+                      </defs>
+                      <PolarGrid stroke="#2a3444" />
+                      <PolarAngleAxis
+                        dataKey="name"
+                        tick={{ fontSize: 12, fill: "#FFFFFF", fontWeight: 500 }}
+                        stroke="#364156"
+                      />
+                      <PolarRadiusAxis angle={30} domain={[0, 25000]} stroke="#364156" />
+                      <Radar
+                        name="Total Funding"
+                        dataKey="totalUsd"
+                        stroke={(entry) => entry.tech === "CORE" ? "#6366F1" : "#10B981"}
+                        fill={(entry) => entry.tech === "CORE" ? "url(#coreAreaGradient)" : "url(#m404AreaGradient)"}
+                        strokeWidth={2}
+                        filter="url(#coreDropShadow)"
+                      />
+                      <Tooltip 
+                        formatter={(value, name, entry) => [`$${value.toLocaleString()}`, name]}
+                        contentStyle={{ 
+                          backgroundColor: 'rgba(18, 24, 32, 0.9)', 
+                          backdropFilter: 'blur(8px)',
+                          border: 'none', 
+                          color: 'white',
+                          boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+                          padding: '12px',
+                          borderRadius: '8px'
+                        }}
+                      />
+                    </RadarChart>
+                  </ResponsiveContainer>
+                </div>
+                <div className="w-full md:w-[30%] flex flex-col justify-center">
+                  <div className="space-y-4">
+                    <div className="bg-[#151e2a] rounded-lg p-4">
+                      <h3 className="text-lg font-semibold text-white mb-2">Top Funded Projects</h3>
+                      <div className="space-y-3">
+                        {projectsByFunding
+                          .sort((a, b) => b.totalUsd - a.totalUsd)
+                          .slice(0, 3)
+                          .map((project, index) => (
+                            <div key={`top-project-${index}`} className="flex items-center gap-3">
+                              <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                                project.tech === "CORE" ? "bg-indigo-500/20" : "bg-emerald-500/20"
+                              }`}>
+                                <span className={`font-bold text-sm ${
+                                  project.tech === "CORE" ? "text-indigo-400" : "text-emerald-400"
+                                }`}>{index + 1}</span>
+                              </div>
+                              <div>
+                                <p className="font-medium text-white">{project.name}</p>
+                                <div className="flex items-center gap-2">
+                                  <span className={`text-xs px-2 py-0.5 rounded-full ${
+                                    project.tech === "CORE" 
+                                      ? "bg-indigo-500/20 text-indigo-300" 
+                                      : "bg-emerald-500/20 text-emerald-300"
+                                  }`}>
+                                    {project.tech}
+                                  </span>
+                                  <span className="text-blue-300 font-medium">${project.totalUsd.toLocaleString()}</span>
+                                </div>
+                              </div>
+                            </div>
+                          ))
+                        }
+                      </div>
+                    </div>
+                    <div className="bg-[#151e2a] rounded-lg p-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <h4 className="text-sm font-medium text-gray-300">Tech Distribution</h4>
+                      </div>
+                      <div className="flex gap-4 items-center">
+                        <div className="w-1/2">
+                          <div className="flex items-center gap-2">
+                            <div className="w-3 h-3 rounded-full bg-indigo-500"></div>
+                            <span className="text-sm text-gray-300">Core</span>
+                          </div>
+                          <div className="flex items-center gap-2 mt-2">
+                            <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                            <span className="text-sm text-gray-300">404</span>
+                          </div>
+                        </div>
+                        <div className="w-1/2">
+                          <p className="text-right text-xl font-bold text-white">$100k</p>
+                          <p className="text-right text-xs text-gray-400">Total funding</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
