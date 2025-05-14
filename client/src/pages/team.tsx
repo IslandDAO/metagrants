@@ -50,16 +50,16 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
       transition={{ duration: 0.5 }}
       className="h-full"
     >
-      <Card className="h-full bg-[#1c2431] border-[#364156] overflow-hidden relative flex flex-col">
+      <Card className="h-full card-gradient border-[#364156] overflow-hidden relative flex flex-col card-hover neon-glow">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
         <CardContent className="p-4 flex flex-col h-full">
           {/* Header - Fixed height */}
           <div className="flex flex-col items-center text-center mb-4">
-            <Avatar className="h-16 w-16 mb-2 ring-2 ring-indigo-500/30 ring-offset-2 ring-offset-[#1c2431]">
+            <Avatar className="h-16 w-16 mb-2 ring-2 ring-indigo-500/50 ring-offset-2 ring-offset-[#1c2431] animate-glow-pulse">
               <AvatarImage src={member.imageUrl} alt={member.name} />
               <AvatarFallback className="bg-indigo-500/20 text-indigo-200">{initials}</AvatarFallback>
             </Avatar>
-            <h3 className="text-base font-bold text-[#f1f5fb] line-clamp-1">{member.name}</h3>
+            <h3 className="text-base font-bold text-gradient line-clamp-1">{member.name}</h3>
             <p className="text-indigo-300 text-xs font-medium line-clamp-1">{member.title}</p>
           </div>
           
@@ -94,7 +94,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 href={member.twitter}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-[#c5d3e7] hover:text-gray-100 transition-colors"
+                className="text-[#c5d3e7] hover:text-gray-100 transition-colors hover:scale-110 animate-glow-pulse"
               >
                 <XLogo size={18} />
               </a>
@@ -104,7 +104,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 href={member.linkedin}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-[#c5d3e7] hover:text-blue-400 transition-colors"
+                className="text-[#c5d3e7] hover:text-blue-400 transition-colors hover:scale-110 animate-glow-pulse"
               >
                 <Linkedin size={18} />
               </a>
@@ -114,7 +114,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 href={member.github}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-[#c5d3e7] hover:text-purple-400 transition-colors"
+                className="text-[#c5d3e7] hover:text-purple-400 transition-colors hover:scale-110 animate-glow-pulse"
               >
                 <Github size={18} />
               </a>
@@ -124,7 +124,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 href={member.website}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-[#c5d3e7] hover:text-indigo-400 transition-colors"
+                className="text-[#c5d3e7] hover:text-indigo-400 transition-colors hover:scale-110 animate-glow-pulse"
               >
                 <Globe size={18} />
               </a>
