@@ -80,7 +80,7 @@ export const team: TeamMember[] = [
     name: "iCoder",
     title: "Grants Council Member",
     bio: "Active member of the grants council with a focus on account management and research initiatives. iCoder helps evaluate technical aspects of applications and maintains relationships with grantees. His research contributions help the council stay informed about emerging technologies and approaches relevant to the program's objectives.",
-    imageUrl: "https://pbs.twimg.com/profile_images/1739682646876889088/AUDhBMt-_400x400.jpg",
+    imageUrl: "/src/assets/team-avatars/icoder.png",
     role: "advisor",
     twitter: "https://x.com/Ify_Ezeugwu",
     expertise: ["Account Management", "Research", "Technical Assessment"]
