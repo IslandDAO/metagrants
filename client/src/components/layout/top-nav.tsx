@@ -1,10 +1,17 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import islandDaoLogo from "@/assets/logos/island-dao-logo.png";
 import metaplexLogo from "@/assets/logos/metaplex-logo.jpg";
+import { grantProjects } from "@/data/grantProjects";
 
 interface TopNavProps {
   className?: string;
@@ -16,7 +23,7 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
   
   const navItems = [
     { to: "/", label: "Home" },
-    { to: "/grants", label: "Grantees" },
+    { to: "/grants", label: "Grantees", hasDropdown: true },
     { to: "/charts", label: "Analytics" },
     { to: "/process", label: "Evaluation Process" },
     { to: "/team", label: "Team" },
@@ -62,16 +69,52 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-8">
           {navItems.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              className={cn(
-                "text-[#b5bfcc] hover:text-[#3b82f6] transition-colors px-1 py-2",
-                location.pathname === item.to && "text-[#3b82f6] font-medium border-b-2 border-[#3b82f6]"
-              )}
-            >
-              {item.label}
-            </Link>
+            item.hasDropdown ? (
+              <div key={item.to} className="relative group">
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <div
+                      className={cn(
+                        "flex items-center cursor-pointer text-[#b5bfcc] hover:text-[#3b82f6] transition-colors px-1 py-2",
+                        location.pathname.includes(item.to) && "text-[#3b82f6] font-medium border-b-2 border-[#3b82f6]"
+                      )}
+                    >
+                      {item.label}
+                      <ChevronDown className="ml-1 h-4 w-4" />
+                    </div>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-[#1c2431] border border-[#3c4759] p-1 min-w-[220px] mt-1">
+                    <DropdownMenuItem className="focus:bg-[#2a3341] focus:text-[#3b82f6] text-[#b5bfcc] rounded-md mb-1">
+                      <Link to={item.to} className="w-full">
+                        View All Grantees
+                      </Link>
+                    </DropdownMenuItem>
+                    <div className="h-px bg-[#3c4759] my-1" />
+                    {grantProjects.map((project) => (
+                      <DropdownMenuItem 
+                        key={project.slug} 
+                        className="focus:bg-[#2a3341] focus:text-[#3b82f6] text-[#b5bfcc] rounded-md"
+                      >
+                        <Link to={`/grants/${project.slug}`} className="w-full">
+                          {project.name}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+            ) : (
+              <Link
+                key={item.to}
+                to={item.to}
+                className={cn(
+                  "text-[#b5bfcc] hover:text-[#3b82f6] transition-colors px-1 py-2",
+                  location.pathname === item.to && "text-[#3b82f6] font-medium border-b-2 border-[#3b82f6]"
+                )}
+              >
+                {item.label}
+              </Link>
+            )
           ))}
         </div>
         
@@ -98,17 +141,45 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
         <div className="md:hidden absolute top-full left-0 right-0 bg-[#2a3341] shadow-md py-3 z-20 border-b border-[#3c4759]">
           <div className="flex flex-col space-y-2 px-6">
             {navItems.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                className={cn(
-                  "text-[#b5bfcc] hover:text-[#3b82f6] transition-colors py-2",
-                  location.pathname === item.to && "text-[#3b82f6] font-medium"
-                )}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
+              item.hasDropdown ? (
+                <div key={item.to} className="py-2">
+                  <Link
+                    to={item.to}
+                    className={cn(
+                      "text-[#b5bfcc] hover:text-[#3b82f6] transition-colors font-medium py-2 flex items-center",
+                      location.pathname.includes(item.to) && "text-[#3b82f6]"
+                    )}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                  
+                  <div className="ml-4 mt-2 flex flex-col space-y-2 border-l border-[#3c4759] pl-4">
+                    {grantProjects.map((project) => (
+                      <Link
+                        key={project.slug}
+                        to={`/grants/${project.slug}`}
+                        className="text-sm text-[#a0acbd] hover:text-[#3b82f6] transition-colors py-1"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {project.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className={cn(
+                    "text-[#b5bfcc] hover:text-[#3b82f6] transition-colors py-2",
+                    location.pathname === item.to && "text-[#3b82f6] font-medium"
+                  )}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
           </div>
         </div>

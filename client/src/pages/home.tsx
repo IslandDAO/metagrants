@@ -82,128 +82,136 @@ const Home = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto">
-          <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-indigo-500/20 transform transition-all hover:scale-105 hover:shadow-indigo-500/10">
-            <div className="text-center flex flex-col items-center justify-center h-full">
-              <div className="flex flex-col items-center mb-1">
-                <span className="text-indigo-400 mb-2">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 18H20M8 14V18M12 10V18M16 6V18" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <filter id="glow-chart">
-                      <feGaussianBlur stdDeviation="3" result="blur" />
-                      <feMerge>
-                        <feMergeNode in="blur" />
-                        <feMergeNode in="SourceGraphic" />
-                      </feMerge>
-                    </filter>
-                    <g filter="url(#glow-chart)">
-                      <path d="M4 18H20M8 14V18M12 10V18M16 6V18" stroke="#818cf8" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
-                    </g>
-                  </svg>
-                </span>
-                <span className="text-3xl font-bold text-white">76</span>
+          <Link to="/grants" className="group">
+            <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-indigo-500/20 transform transition-all group-hover:scale-105 group-hover:shadow-indigo-500/10">
+              <div className="text-center flex flex-col items-center justify-center h-full">
+                <div className="flex flex-col items-center mb-1">
+                  <span className="text-indigo-400 mb-2">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 18H20M8 14V18M12 10V18M16 6V18" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <filter id="glow-chart">
+                        <feGaussianBlur stdDeviation="3" result="blur" />
+                        <feMerge>
+                          <feMergeNode in="blur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                      <g filter="url(#glow-chart)">
+                        <path d="M4 18H20M8 14V18M12 10V18M16 6V18" stroke="#818cf8" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                      </g>
+                    </svg>
+                  </span>
+                  <span className="text-3xl font-bold text-white">76</span>
+                </div>
+                <div className="text-sm text-indigo-200">Applications Received</div>
               </div>
-              <div className="text-sm text-indigo-200">Applications Received</div>
             </div>
-          </div>
+          </Link>
           
-          <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-purple-500/20 transform transition-all hover:scale-105 hover:shadow-purple-500/10">
-            <div className="text-center flex flex-col items-center justify-center h-full">
-              <div className="flex flex-col items-center mb-1">
-                <span className="text-purple-400 mb-2">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 6V8M16 6V8M12 14V17M7 19H17M9 17H15M6 10V6H18V10C18 13.3137 15.3137 16 12 16C8.68629 16 6 13.3137 6 10Z" stroke="#c084fc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <filter id="glow-trophy">
-                      <feGaussianBlur stdDeviation="3" result="blur" />
-                      <feMerge>
-                        <feMergeNode in="blur" />
-                        <feMergeNode in="SourceGraphic" />
-                      </feMerge>
-                    </filter>
-                    <g filter="url(#glow-trophy)">
-                      <path d="M8 6V8M16 6V8M12 14V17M7 19H17M9 17H15M6 10V6H18V10C18 13.3137 15.3137 16 12 16C8.68629 16 6 13.3137 6 10Z" stroke="#c084fc" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
-                    </g>
-                  </svg>
-                </span>
-                <span className="text-3xl font-bold text-white">12</span>
+          <Link to="/grants" className="group">
+            <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-purple-500/20 transform transition-all group-hover:scale-105 group-hover:shadow-purple-500/10">
+              <div className="text-center flex flex-col items-center justify-center h-full">
+                <div className="flex flex-col items-center mb-1">
+                  <span className="text-purple-400 mb-2">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8 6V8M16 6V8M12 14V17M7 19H17M9 17H15M6 10V6H18V10C18 13.3137 15.3137 16 12 16C8.68629 16 6 13.3137 6 10Z" stroke="#c084fc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <filter id="glow-trophy">
+                        <feGaussianBlur stdDeviation="3" result="blur" />
+                        <feMerge>
+                          <feMergeNode in="blur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                      <g filter="url(#glow-trophy)">
+                        <path d="M8 6V8M16 6V8M12 14V17M7 19H17M9 17H15M6 10V6H18V10C18 13.3137 15.3137 16 12 16C8.68629 16 6 13.3137 6 10Z" stroke="#c084fc" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                      </g>
+                    </svg>
+                  </span>
+                  <span className="text-3xl font-bold text-white">12</span>
+                </div>
+                <div className="text-sm text-purple-200">Grants Funded</div>
               </div>
-              <div className="text-sm text-purple-200">Grants Funded</div>
             </div>
-          </div>
+          </Link>
           
-          <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-blue-500/20 transform transition-all hover:scale-105 hover:shadow-blue-500/10">
-            <div className="text-center flex flex-col items-center justify-center h-full">
-              <div className="flex flex-col items-center mb-1">
-                <span className="text-blue-400 mb-2">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    {/* Round Money bag base */}
-                    <path d="M12 3.5C15.5 3.5 19 7 19 10.5V18C19 19.1046 18.1046 20 17 20H7C5.89543 20 5 19.1046 5 18V10.5C5 7 8.5 3.5 12 3.5Z" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    
-                    {/* String/tie at top */}
-                    <path d="M9 7C9 6 9.5 4 12 4C14.5 4 15 6 15 7" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    
-                    {/* Dollar sign */}
-                    <path d="M12 9V10M12 14V15" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12Z" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round"/>
-                    
-                    <filter id="glow-dollar">
-                      <feGaussianBlur stdDeviation="3" result="blur" />
-                      <feMerge>
-                        <feMergeNode in="blur" />
-                        <feMergeNode in="SourceGraphic" />
-                      </feMerge>
-                    </filter>
-                    <g filter="url(#glow-dollar)">
-                      {/* Round Money bag base - glow effect */}
-                      <path d="M12 3.5C15.5 3.5 19 7 19 10.5V18C19 19.1046 18.1046 20 17 20H7C5.89543 20 5 19.1046 5 18V10.5C5 7 8.5 3.5 12 3.5Z" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+          <Link to="/grants" className="group">
+            <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-blue-500/20 transform transition-all group-hover:scale-105 group-hover:shadow-blue-500/10">
+              <div className="text-center flex flex-col items-center justify-center h-full">
+                <div className="flex flex-col items-center mb-1">
+                  <span className="text-blue-400 mb-2">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      {/* Round Money bag base */}
+                      <path d="M12 3.5C15.5 3.5 19 7 19 10.5V18C19 19.1046 18.1046 20 17 20H7C5.89543 20 5 19.1046 5 18V10.5C5 7 8.5 3.5 12 3.5Z" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       
-                      {/* String/tie at top - glow effect */}
-                      <path d="M9 7C9 6 9.5 4 12 4C14.5 4 15 6 15 7" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                      {/* String/tie at top */}
+                      <path d="M9 7C9 6 9.5 4 12 4C14.5 4 15 6 15 7" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       
-                      {/* Dollar sign - glow effect */}
-                      <path d="M12 9V10M12 14V15" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" opacity="1"/>
-                      <path d="M15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12Z" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" opacity="1"/>
-                    </g>
-                  </svg>
-                </span>
-                <span className="text-3xl font-bold text-white">$100k</span>
+                      {/* Dollar sign */}
+                      <path d="M12 9V10M12 14V15" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round"/>
+                      <path d="M15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12Z" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round"/>
+                      
+                      <filter id="glow-dollar">
+                        <feGaussianBlur stdDeviation="3" result="blur" />
+                        <feMerge>
+                          <feMergeNode in="blur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                      <g filter="url(#glow-dollar)">
+                        {/* Round Money bag base - glow effect */}
+                        <path d="M12 3.5C15.5 3.5 19 7 19 10.5V18C19 19.1046 18.1046 20 17 20H7C5.89543 20 5 19.1046 5 18V10.5C5 7 8.5 3.5 12 3.5Z" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                        
+                        {/* String/tie at top - glow effect */}
+                        <path d="M9 7C9 6 9.5 4 12 4C14.5 4 15 6 15 7" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                        
+                        {/* Dollar sign - glow effect */}
+                        <path d="M12 9V10M12 14V15" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" opacity="1"/>
+                        <path d="M15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12Z" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" opacity="1"/>
+                      </g>
+                    </svg>
+                  </span>
+                  <span className="text-3xl font-bold text-white">$100k</span>
+                </div>
+                <div className="text-sm text-blue-200">USDC Allocated</div>
               </div>
-              <div className="text-sm text-blue-200">USDC Allocated</div>
             </div>
-          </div>
+          </Link>
           
-          <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-orange-500/20 transform transition-all hover:scale-105 hover:shadow-orange-500/10">
-            <div className="text-center flex flex-col items-center justify-center h-full">
-              <div className="flex flex-col items-center mb-1">
-                <span className="text-orange-400 mb-2">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    {/* Coin outline */}
-                    <circle cx="12" cy="12" r="9" stroke="#fb923c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    {/* Inner circle/rim */}
-                    <circle cx="12" cy="12" r="7" stroke="#fb923c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    {/* Letter 'M' for MPLX */}
-                    <path d="M8 14.5L8 9.5L12 12.5L16 9.5L16 14.5" stroke="#fb923c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <filter id="glow-token">
-                      <feGaussianBlur stdDeviation="3" result="blur" />
-                      <feMerge>
-                        <feMergeNode in="blur" />
-                        <feMergeNode in="SourceGraphic" />
-                      </feMerge>
-                    </filter>
-                    <g filter="url(#glow-token)">
+          <Link to="/grants" className="group">
+            <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-orange-500/20 transform transition-all group-hover:scale-105 group-hover:shadow-orange-500/10">
+              <div className="text-center flex flex-col items-center justify-center h-full">
+                <div className="flex flex-col items-center mb-1">
+                  <span className="text-orange-400 mb-2">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       {/* Coin outline */}
-                      <circle cx="12" cy="12" r="9" stroke="#fb923c" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                      <circle cx="12" cy="12" r="9" stroke="#fb923c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       {/* Inner circle/rim */}
-                      <circle cx="12" cy="12" r="7" stroke="#fb923c" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                      <circle cx="12" cy="12" r="7" stroke="#fb923c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       {/* Letter 'M' for MPLX */}
-                      <path d="M8 14.5L8 9.5L12 12.5L16 9.5L16 14.5" stroke="#fb923c" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
-                    </g>
-                  </svg>
-                </span>
-                <span className="text-3xl font-bold text-white">590k</span>
+                      <path d="M8 14.5L8 9.5L12 12.5L16 9.5L16 14.5" stroke="#fb923c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <filter id="glow-token">
+                        <feGaussianBlur stdDeviation="3" result="blur" />
+                        <feMerge>
+                          <feMergeNode in="blur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                      <g filter="url(#glow-token)">
+                        {/* Coin outline */}
+                        <circle cx="12" cy="12" r="9" stroke="#fb923c" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                        {/* Inner circle/rim */}
+                        <circle cx="12" cy="12" r="7" stroke="#fb923c" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                        {/* Letter 'M' for MPLX */}
+                        <path d="M8 14.5L8 9.5L12 12.5L16 9.5L16 14.5" stroke="#fb923c" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                      </g>
+                    </svg>
+                  </span>
+                  <span className="text-3xl font-bold text-white">590k</span>
+                </div>
+                <div className="text-sm text-orange-200">MPLX Allocated</div>
               </div>
-              <div className="text-sm text-orange-200">MPLX Allocated</div>
             </div>
-          </div>
+          </Link>
         </div>
         
         {/* Feature section - Highlighting key areas */}

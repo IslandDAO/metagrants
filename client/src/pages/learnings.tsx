@@ -288,27 +288,27 @@ const Learnings = () => {
                 The next round will incorporate the improvements identified during our first phase, with a few key changes:
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-                <div className="border rounded-lg p-4">
-                  <h3 className="font-semibold mb-2">Focused Funding Tracks</h3>
-                  <p className="text-sm text-gray-600">
+                <div className="border border-gray-500 rounded-lg p-4 bg-[#1c2431]">
+                  <h3 className="font-semibold mb-2 text-white">Focused Funding Tracks</h3>
+                  <p className="text-sm text-gray-300">
                     We'll offer specific funding tracks aligned with ecosystem priorities, including infrastructure, consumer applications, and developer tooling.
                   </p>
                 </div>
-                <div className="border rounded-lg p-4">
-                  <h3 className="font-semibold mb-2">Enhanced Support Program</h3>
-                  <p className="text-sm text-gray-600">
+                <div className="border border-gray-500 rounded-lg p-4 bg-[#1c2431]">
+                  <h3 className="font-semibold mb-2 text-white">Enhanced Support Program</h3>
+                  <p className="text-sm text-gray-300">
                     Expanding technical mentorship, business development support, and community resources available to grantees.
                   </p>
                 </div>
-                <div className="border rounded-lg p-4">
-                  <h3 className="font-semibold mb-2">Collaborative Selection</h3>
-                  <p className="text-sm text-gray-600">
+                <div className="border border-gray-500 rounded-lg p-4 bg-[#1c2431]">
+                  <h3 className="font-semibold mb-2 text-white">Collaborative Selection</h3>
+                  <p className="text-sm text-gray-300">
                     Adding a community voting component to the selection process while maintaining technical evaluation standards.
                   </p>
                 </div>
-                <div className="border rounded-lg p-4">
-                  <h3 className="font-semibold mb-2">Increased Funding Pool</h3>
-                  <p className="text-sm text-gray-600">
+                <div className="border border-gray-500 rounded-lg p-4 bg-[#1c2431]">
+                  <h3 className="font-semibold mb-2 text-white">Increased Funding Pool</h3>
+                  <p className="text-sm text-gray-300">
                     Growing the total funding allocation to support more projects and enable larger grants for ambitious initiatives.
                   </p>
                 </div>
