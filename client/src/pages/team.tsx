@@ -20,6 +20,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Linkedin, Globe, Mail, Github, ChevronDown } from "lucide-react";
 
 import { team, TeamMember } from "@/data/team";
+import islandDaoLogo from "../assets/logos/island-dao-logo.png";
 
 // X logo SVG component
 const XLogo = ({ size = 18, className = "" }: { size?: number, className?: string }) => (
@@ -55,10 +56,21 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
         <CardContent className="p-4 flex flex-col h-full">
           {/* Header - Fixed height */}
           <div className="flex flex-col items-center text-center mb-4">
-            <Avatar className="h-16 w-16 mb-2 ring-2 ring-indigo-500/50 ring-offset-2 ring-offset-[#1c2431] animate-glow-pulse">
-              <AvatarImage src={member.imageUrl} alt={member.name} />
-              <AvatarFallback className="bg-indigo-500/20 text-indigo-200">{initials}</AvatarFallback>
-            </Avatar>
+            <div className="relative">
+              <Avatar className="h-16 w-16 mb-2 ring-2 ring-indigo-500/50 ring-offset-2 ring-offset-[#1c2431] animate-glow-pulse">
+                <AvatarImage src={member.imageUrl} alt={member.name} />
+                <AvatarFallback className="bg-indigo-500/20 text-indigo-200">{initials}</AvatarFallback>
+              </Avatar>
+              {/* IslandDAO citizen indicator */}
+              <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green-300 p-0.5 border-2 border-[#1c2431] shadow-md">
+                <img 
+                  src={islandDaoLogo} 
+                  alt="IslandDAO Citizen" 
+                  className="w-full h-full object-contain"
+                  title="IslandDAO Citizen"
+                />
+              </div>
+            </div>
             <h3 className="text-base font-bold text-gradient line-clamp-1">{member.name}</h3>
             <p className="text-indigo-300 text-xs font-medium line-clamp-1">{member.title}</p>
           </div>
