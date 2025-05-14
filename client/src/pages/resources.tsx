@@ -33,7 +33,14 @@ const Resources = () => {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="mb-8 relative group"
       >
-        <div className="absolute inset-0 z-10 cursor-pointer" onClick={() => window.open('https://developers.metaplex.com/docs/token-metadata', '_blank')}></div>
+        <div 
+          className="absolute inset-0 z-10 cursor-pointer flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#121820]/50 rounded-md" 
+          onClick={() => window.open('https://developers.metaplex.com/docs/token-metadata', '_blank')}
+        >
+          <div className="bg-[#1c2431]/80 backdrop-blur-sm px-4 py-2 rounded-md border border-[#3b82f6]/60 shadow-lg text-white">
+            Click to view documentation
+          </div>
+        </div>
         <Card className="border border-[#3c4759]/80 hover:border-[#3b82f6]/60 card-gradient neon-glow transition-all duration-300 relative">
           <CardHeader className="pb-2">
             <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-500 via-blue-400 to-purple-500 text-transparent bg-clip-text flex items-center">
@@ -99,7 +106,14 @@ const Resources = () => {
         transition={{ duration: 0.5, delay: 0.3 }}
         className="relative group"
       >
-        <div className="absolute inset-0 z-10 cursor-pointer" onClick={() => window.open('https://developers.metaplex.com/docs/mpl-hybrid/overview', '_blank')}></div>
+        <div 
+          className="absolute inset-0 z-10 cursor-pointer flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#121820]/50 rounded-md" 
+          onClick={() => window.open('https://developers.metaplex.com/docs/mpl-hybrid/overview', '_blank')}
+        >
+          <div className="bg-[#1c2431]/80 backdrop-blur-sm px-4 py-2 rounded-md border border-[#8b5cf6]/60 shadow-lg text-white">
+            Click to view documentation
+          </div>
+        </div>
         <Card className="border border-[#3c4759]/80 hover:border-[#8b5cf6]/60 card-gradient neon-glow transition-all duration-300 relative">
           <CardHeader className="pb-2">
             <CardTitle className="text-3xl font-bold bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-500 text-transparent bg-clip-text flex items-center">
@@ -117,12 +131,13 @@ const Resources = () => {
               MPL-404 is a hybrid asset framework that lets users swap between NFTs and fungible tokens using a dual-escrow mechanism. Built on the MPL-Hybrid protocol, it powers game mechanics like rerolling traits or loot-box style swaps — ideal for dynamic economies. MPL-404 leverages Metaplex Core NFTs and SPL tokens to create composable, gamified experiences across DeFi and NFTs.
             </p>
             
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 relative z-20">
               <a 
                 href="https://developers.metaplex.com/docs/mpl-hybrid/overview" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="group"
+                onClick={(e) => e.stopPropagation()}
               >
                 <Button 
                   variant="outline" 
@@ -140,6 +155,7 @@ const Resources = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="group"
+                onClick={(e) => e.stopPropagation()}
               >
                 <Button 
                   variant="outline" 
