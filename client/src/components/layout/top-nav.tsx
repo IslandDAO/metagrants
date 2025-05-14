@@ -76,16 +76,32 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
         </div>
         
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-4">
-          {navItems.map((item) => (
+        <div className="hidden md:flex items-center">
+          {/* Home Link separated */}
+          <Link
+            to="/"
+            className={cn(
+              "text-[#b5bfcc] hover:text-[#3b82f6] hover:bg-[#2a3341] rounded-md transition-all px-3 py-2 font-medium mr-6",
+              location.pathname === "/" && "text-[#3b82f6] border-b-2 border-[#3b82f6] bg-[#2a3341]/50"
+            )}
+          >
+            Home
+          </Link>
+          
+          {/* Divider */}
+          <div className="h-6 w-px bg-[#3c4759] mx-1"></div>
+          
+          {/* Other navigation items grouped */}
+          <div className="flex space-x-1 ml-2 bg-[#212b3d] px-1 py-1 rounded-md border border-[#3c4759]">
+          {navItems.slice(1).map((item) => (
             item.hasDropdown ? (
               <div key={item.to} className="relative group">
                 <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
                   <DropdownMenuTrigger asChild>
                     <div
                       className={cn(
-                        "flex items-center cursor-pointer text-[#b5bfcc] hover:text-[#3b82f6] hover:bg-[#2a3341] rounded-md transition-all px-3 py-2 font-medium",
-                        location.pathname.includes(item.to) && "text-[#3b82f6] border-b-2 border-[#3b82f6] bg-[#2a3341]/50"
+                        "flex items-center cursor-pointer text-[#b5bfcc] hover:text-[#3b82f6] hover:bg-[#2a3341] rounded transition-all px-2 py-1 font-medium",
+                        location.pathname.includes(item.to) && "text-[#3b82f6] bg-[#2a3341]/70"
                       )}
                     >
                       {item.label}
