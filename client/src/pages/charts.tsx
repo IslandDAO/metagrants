@@ -615,6 +615,33 @@ const ChartsPage = () => {
                           setIsAnimating(false);
                         }}
                         onMouseLeave={() => setIsAnimating(true)}
+                        label={({name, value, percent, x, y, midAngle}) => {
+                          const RADIAN = Math.PI / 180;
+                          const radius = 170;
+                          const cx = 250;  // Center X of pie chart (estimated)
+                          const cy = 200;  // Center Y of pie chart (estimated)
+                          const sin = Math.sin(-RADIAN * midAngle);
+                          const cos = Math.cos(-RADIAN * midAngle);
+                          const tx = cx + radius * cos;
+                          const ty = cy + radius * sin;
+                          
+                          return (
+                            <text 
+                              x={tx} 
+                              y={ty} 
+                              fill="#FFFFFF" 
+                              textAnchor={cos >= 0 ? 'start' : 'end'}
+                              dominantBaseline="central"
+                              fontSize={12}
+                              fontWeight="600"
+                              stroke="#000000"
+                              strokeWidth="0.5"
+                              paintOrder="stroke"
+                            >
+                              ${(value/1000).toFixed(0)}k
+                            </text>
+                          );
+                        }}
                       >
                         {sectorFundingData.map((entry, index) => (
                           <Cell 
@@ -627,6 +654,29 @@ const ChartsPage = () => {
                       </Pie>
                     </PieChart>
                   </ResponsiveContainer>
+                </div>
+                
+                {/* Add back the grid of sector buttons */}
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8 w-full">
+                  {sectorFundingData.map((sector, index) => (
+                    <div 
+                      key={`sector-${index}`} 
+                      className={`p-4 rounded-lg transition-all ${activeIndex === index ? 'bg-blue-900/30 ring-2 ring-blue-500' : 'bg-[#171f2b]'}`}
+                      onMouseEnter={() => setActiveIndex(index)}
+                    >
+                      <div className="flex items-center space-x-2">
+                        <div 
+                          className="w-3 h-3 rounded-full" 
+                          style={{ backgroundColor: `hsl(${index * 50}, 70%, 60%)` }}
+                        />
+                        <h5 className="font-medium truncate">{sector.name}</h5>
+                      </div>
+                      <div className="mt-2">
+                        <p className="text-xl font-bold">${sector.value.toLocaleString()}</p>
+                        <p className="text-xs text-gray-400">{sector.projects} project{sector.projects !== 1 ? 's' : ''}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </CardContent>
