@@ -53,12 +53,12 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
         <CardContent className="p-6">
           <div className="flex flex-col items-center text-center mb-4">
-            <Avatar className="h-24 w-24 mb-4 ring-2 ring-indigo-500/30 ring-offset-2 ring-offset-[#1c2431]">
+            <Avatar className="h-20 w-20 mb-3 ring-2 ring-indigo-500/30 ring-offset-2 ring-offset-[#1c2431]">
               <AvatarImage src={member.imageUrl} alt={member.name} />
               <AvatarFallback className="bg-indigo-500/20 text-indigo-200">{initials}</AvatarFallback>
             </Avatar>
-            <h3 className="text-xl font-bold text-[#f1f5fb]">{member.name}</h3>
-            <p className="text-indigo-300 text-sm font-medium">{member.title}</p>
+            <h3 className="text-base font-bold text-[#f1f5fb]">{member.name}</h3>
+            <p className="text-indigo-300 text-xs font-medium">{member.title}</p>
           </div>
           
           <Collapsible 
@@ -192,9 +192,11 @@ const Team = () => {
         </TabsList>
         
         <TabsContent value="core">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex flex-nowrap gap-4 overflow-x-auto pb-4 px-1 scrollbar-hide">
             {coreTeam.map((member) => (
-              <TeamMemberCard key={member.name} member={member} />
+              <div key={member.name} className="flex-none w-[260px] transition-transform hover:scale-[1.02]">
+                <TeamMemberCard member={member} />
+              </div>
             ))}
           </div>
         </TabsContent>
