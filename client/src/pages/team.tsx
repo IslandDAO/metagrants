@@ -41,7 +41,7 @@ const TeamMemberCard = ({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: isFirst ? 0.1 : 0.2 }}
-      className="h-full"
+      className="h-full w-[240px]"
       whileHover={{ scale: 1.02, y: -5 }}
     >
       <Card 
@@ -196,15 +196,31 @@ const Team = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >  
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {sortedTeam.map((member, index) => (
-            <TeamMemberCard 
-              key={member.name} 
-              member={member} 
-              highlighted={member.role === "lead"}
-              isFirst={index === 0}
-            />
-          ))}
+        {/* Split team into two rows */}
+        <div className="flex flex-col space-y-10">
+          {/* First row */}
+          <div className="flex flex-wrap justify-center gap-6">
+            {sortedTeam.slice(0, Math.ceil(sortedTeam.length / 2)).map((member, index) => (
+              <TeamMemberCard 
+                key={member.name} 
+                member={member} 
+                highlighted={member.role === "lead"}
+                isFirst={index === 0}
+              />
+            ))}
+          </div>
+          
+          {/* Second row */}
+          <div className="flex flex-wrap justify-center gap-6">
+            {sortedTeam.slice(Math.ceil(sortedTeam.length / 2)).map((member, index) => (
+              <TeamMemberCard 
+                key={member.name} 
+                member={member} 
+                highlighted={member.role === "lead"}
+                isFirst={false}
+              />
+            ))}
+          </div>
         </div>
       </motion.div>
       
