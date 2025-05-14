@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { GlowingPalms } from "@/components/ui/smooth-palms";
+import { GlowingPalms } from "@/components/ui/palm-animation";
 
 export default function NotFound() {
   return (

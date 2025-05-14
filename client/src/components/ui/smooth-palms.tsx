@@ -64,11 +64,11 @@ export const GlowingPalms: React.FC = () => {
     // Skip if no palms
     if (palms.length === 0) return;
     
-    // Animation and cycle management
+    // Animation and cycle management - Slower animation
     const intervalId = setInterval(() => {
       // Update animation phase (0 to 1 and back)
       setAnimationPhase(prevPhase => {
-        const newPhase = prevPhase + 0.01;
+        const newPhase = prevPhase + 0.005; // Half the speed
         
         // Complete cycle
         if (newPhase >= 1) {
@@ -78,25 +78,33 @@ export const GlowingPalms: React.FC = () => {
         
         return newPhase;
       });
-    }, 16); // ~60fps
+    }, 25); // ~40fps, slower update frequency
     
     return () => clearInterval(intervalId);
   }, [palms.length]);
   
-  // Manage transitions between cycles
+  // Manage transitions between cycles - With delay for slower transitions
   useEffect(() => {
     if (cycleCount === 0 || palms.length === 0) return;
     
-    // When we start a new cycle, choose new palms
-    setPalms(prevPalms => {
-      const newPalms = [...prevPalms];
-      const prevActivePalms = newPalms.filter(palm => palm.active);
-      
-      // Deactivate all currently active palms
-      newPalms.forEach(palm => {
-        palm.active = false;
-        palm.transitioning = false;
-      });
+    // Add a slight delay between cycles to make transition more noticeable
+    const transitionDelay = setTimeout(() => {
+      // When we start a new cycle, choose new palms
+      setPalms(prevPalms => {
+        const newPalms = [...prevPalms];
+        const prevActivePalms = newPalms.filter(palm => palm.active);
+        
+        // Keep the currently active palms in a transitioning state
+        // but mark them as inactive so they'll start fading out
+        newPalms.forEach(palm => {
+          if (palm.active) {
+            palm.active = false;
+            palm.transitioning = true;
+          }
+        });
+    
+    return () => clearTimeout(transitionDelay);
+    }, 350); // 350ms delay between cycles
       
       // Choose new random palms that weren't active before
       const availablePalms = newPalms.filter(
@@ -133,22 +141,22 @@ export const GlowingPalms: React.FC = () => {
     setPalms(prevPalms => {
       return prevPalms.map(palm => {
         if (!palm.active) {
-          // Inactive palms fade out quickly
+          // Inactive palms fade out slowly
           return {
             ...palm,
-            brightness: Math.max(0, palm.brightness - 0.05)
+            brightness: Math.max(0, palm.brightness - 0.03) // Slower fade out
           };
         }
         
         // For active palms, calculate brightness based on breathing pattern
         let newBrightness = palm.brightness;
         
-        if (animationPhase < 0.5) {
+        if (animationPhase < 0.6) { // Extend the fade-in period
           // Fade in period (slower)
-          newBrightness = animationPhase * 2;
+          newBrightness = animationPhase * 1.67; // Scale to reach 1.0 at 0.6
         } else {
-          // Fade out period (faster by 40%)
-          const fadeOutProgress = (animationPhase - 0.5) * 2; // 0 to 1
+          // Fade out period (faster by 40%, but in a smaller range)
+          const fadeOutProgress = (animationPhase - 0.6) * 2.5; // Scale 0.6-1.0 to 0-1
           const acceleratedProgress = fadeOutProgress * 1.4;
           const clampedProgress = Math.min(1, acceleratedProgress);
           newBrightness = 1 - clampedProgress;
