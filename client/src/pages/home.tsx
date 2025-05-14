@@ -2,9 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import lighthousePixel from "../assets/lighthouse-pixel.png";
-import palmTreePixel from "../assets/palm-tree-pixel.png";
-import pirateHat from "../assets/pirate-hat.png";
 
 // Counter animation function
 const AnimatedCounter = ({ value, duration = 2000 }: { value: number, duration?: number }) => {
@@ -133,14 +130,56 @@ const Home = () => {
               <div className="w-24 h-24 flex items-center justify-center mb-2 mx-auto">
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center">
-                    <img 
-                      src={palmTreePixel} 
-                      alt="Pixel Art Palm Tree" 
-                      className="w-[85%] h-[85%] object-contain" 
-                      style={{
-                        imageRendering: "pixelated"
-                      }}
-                    />
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path 
+                        d="M30 10C30 10 25 20 25 25C25 30 30 32 30 40V50" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M30 25C30 25 35 20 40 25" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M30 20C30 20 25 15 20 20" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <filter id="glow1">
+                        <feGaussianBlur stdDeviation="2.5" result="blur" />
+                        <feMerge>
+                          <feMergeNode in="blur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                      <g filter="url(#glow1)">
+                        <path 
+                          d="M30 10C30 10 25 20 25 25C25 30 30 32 30 40V50" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="0.7"
+                        />
+                        <path 
+                          d="M30 25C30 25 35 20 40 25" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="0.7"
+                        />
+                        <path 
+                          d="M30 20C30 20 25 15 20 20" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="0.7"
+                        />
+                      </g>
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -158,14 +197,73 @@ const Home = () => {
               <div className="w-24 h-24 flex items-center justify-center mb-2 mx-auto">
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center">
-                    <img 
-                      src={pirateHat} 
-                      alt="Pixel Art Pirate Hat" 
-                      className="w-[85%] h-[85%] object-contain" 
-                      style={{
-                        imageRendering: "pixelated"
-                      }}
-                    />
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      {/* Skull basic shape */}
+                      <path 
+                        d="M20 40C20 30 20 25 30 25C40 25 40 30 40 40" 
+                        stroke="#C084FC" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      {/* Eyes */}
+                      <path 
+                        d="M25 33H25.5M35 33H35.5" 
+                        stroke="#C084FC" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      {/* Jaw */}
+                      <path 
+                        d="M25 40C25 43 35 43 35 40" 
+                        stroke="#C084FC" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      {/* Crossed bones */}
+                      <path 
+                        d="M15 20L45 45M45 20L15 45" 
+                        stroke="#C084FC" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <filter id="glow2">
+                        <feGaussianBlur stdDeviation="2.5" result="blur" />
+                        <feMerge>
+                          <feMergeNode in="blur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                      <g filter="url(#glow2)">
+                        <path 
+                          d="M20 40C20 30 20 25 30 25C40 25 40 30 40 40" 
+                          stroke="#C084FC" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="0.7"
+                        />
+                        <path 
+                          d="M25 33H25.5M35 33H35.5" 
+                          stroke="#C084FC" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="0.7"
+                        />
+                        <path 
+                          d="M25 40C25 43 35 43 35 40" 
+                          stroke="#C084FC" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="0.7"
+                        />
+                        <path 
+                          d="M15 20L45 45M45 20L15 45" 
+                          stroke="#C084FC" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="0.7"
+                        />
+                      </g>
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -183,14 +281,75 @@ const Home = () => {
               <div className="w-24 h-24 flex items-center justify-center mb-2 mx-auto">
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center">
-                    <img 
-                      src={lighthousePixel} 
-                      alt="Pixel Art Lighthouse" 
-                      className="w-[85%] h-[85%] object-contain" 
-                      style={{
-                        imageRendering: "pixelated"
-                      }}
-                    />
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      {/* Lighthouse base */}
+                      <path 
+                        d="M20 50H40" 
+                        stroke="#34D399" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      {/* Lighthouse body */}
+                      <path 
+                        d="M25 50V20L30 15L35 20V50" 
+                        stroke="#34D399" 
+                        strokeWidth="3" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round"
+                      />
+                      {/* Light beams */}
+                      <path 
+                        d="M30 25L45 20M30 25L15 20M30 25L45 30M30 25L15 30" 
+                        stroke="#34D399" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      {/* Middle sections */}
+                      <path 
+                        d="M25 30H35M25 40H35" 
+                        stroke="#34D399" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <filter id="glow3">
+                        <feGaussianBlur stdDeviation="2.5" result="blur" />
+                        <feMerge>
+                          <feMergeNode in="blur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                      <g filter="url(#glow3)">
+                        <path 
+                          d="M20 50H40" 
+                          stroke="#34D399" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="0.7"
+                        />
+                        <path 
+                          d="M25 50V20L30 15L35 20V50" 
+                          stroke="#34D399" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round"
+                          opacity="0.7"
+                        />
+                        <path 
+                          d="M30 25L45 20M30 25L15 20M30 25L45 30M30 25L15 30" 
+                          stroke="#34D399" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="0.7"
+                        />
+                        <path 
+                          d="M25 30H35M25 40H35" 
+                          stroke="#34D399" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="0.7"
+                        />
+                      </g>
+                    </svg>
                   </div>
                 </div>
               </div>
