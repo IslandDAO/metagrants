@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { BookOpen, Github, Globe } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Resources = () => {
   return (
@@ -33,11 +34,14 @@ const Resources = () => {
         className="mb-8"
       >
         <Card className="border border-[#3c4759]/80 hover:border-[#3b82f6]/60 card-gradient neon-glow transition-all duration-300">
-          <CardHeader>
-            <CardTitle className="text-2xl font-bold text-gradient flex items-center">
-              <span className="mr-2">🧱</span> Metaplex Core
+          <CardHeader className="pb-2">
+            <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-500 via-blue-400 to-purple-500 text-transparent bg-clip-text flex items-center">
+              <div className="w-10 h-10 rounded-md flex items-center justify-center bg-gradient-to-br from-[#3b82f6]/20 to-[#8b5cf6]/20 border border-[#3b82f6]/30 mr-3 animate-glow-pulse">
+                <span className="text-xl">🧱</span>
+              </div>
+              Metaplex Core
             </CardTitle>
-            <CardDescription className="text-[#b5bfcc] text-base">
+            <CardDescription className="text-[#b5bfcc] text-lg pl-[52px]">
               A lightweight, flexible NFT standard on Solana
             </CardDescription>
           </CardHeader>
@@ -55,9 +59,11 @@ const Resources = () => {
               >
                 <Button 
                   variant="outline" 
-                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#3b82f6]/60 text-[#f1f5fb] space-x-2 hover:bg-[#2a3341]/80 group-hover:animate-glow-pulse transition-all"
+                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#3b82f6] text-[#f1f5fb] hover:text-white hover:shadow-[0_0_10px_rgba(59,130,246,0.5)] animate-glow-pulse transition-all duration-300"
                 >
-                  <BookOpen size={18} className="mr-2" />
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-r from-[#3b82f6]/20 to-[#8b5cf6]/20 border border-[#3b82f6]/50 mr-2 group-hover:border-[#3b82f6]">
+                    <BookOpen size={14} className="text-[#3b82f6] group-hover:text-[#60a5fa]" />
+                  </div>
                   <span>Documentation</span>
                 </Button>
               </a>
@@ -70,9 +76,11 @@ const Resources = () => {
               >
                 <Button 
                   variant="outline" 
-                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#3b82f6]/60 text-[#f1f5fb] space-x-2 hover:bg-[#2a3341]/80 group-hover:animate-glow-pulse transition-all"
+                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#3b82f6] text-[#f1f5fb] hover:text-white hover:shadow-[0_0_10px_rgba(59,130,246,0.5)] animate-glow-pulse transition-all duration-300"
                 >
-                  <Github size={18} className="mr-2" />
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-r from-[#3b82f6]/20 to-[#8b5cf6]/20 border border-[#3b82f6]/50 mr-2 group-hover:border-[#3b82f6]">
+                    <Github size={14} className="text-[#3b82f6] group-hover:text-[#60a5fa]" />
+                  </div>
                   <span>GitHub Repo</span>
                 </Button>
               </a>
@@ -85,9 +93,11 @@ const Resources = () => {
               >
                 <Button 
                   variant="outline" 
-                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#3b82f6]/60 text-[#f1f5fb] space-x-2 hover:bg-[#2a3341]/80 group-hover:animate-glow-pulse transition-all"
+                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#3b82f6] text-[#f1f5fb] hover:text-white hover:shadow-[0_0_10px_rgba(59,130,246,0.5)] animate-glow-pulse transition-all duration-300"
                 >
-                  <Globe size={18} className="mr-2" />
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-r from-[#3b82f6]/20 to-[#8b5cf6]/20 border border-[#3b82f6]/50 mr-2 group-hover:border-[#3b82f6]">
+                    <Globe size={14} className="text-[#3b82f6] group-hover:text-[#60a5fa]" />
+                  </div>
                   <span>Metaplex Site</span>
                 </Button>
               </a>
@@ -103,12 +113,15 @@ const Resources = () => {
         transition={{ duration: 0.5, delay: 0.3 }}
       >
         <Card className="border border-[#3c4759]/80 hover:border-[#3b82f6]/60 card-gradient neon-glow transition-all duration-300">
-          <CardHeader>
-            <CardTitle className="text-2xl font-bold text-gradient flex items-center">
-              <span className="mr-2">🔁</span> MPL-404 (Hybrid DeFi Protocol)
+          <CardHeader className="pb-2">
+            <CardTitle className="text-3xl font-bold bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-500 text-transparent bg-clip-text flex items-center">
+              <div className="w-10 h-10 rounded-md flex items-center justify-center bg-gradient-to-br from-[#8b5cf6]/20 to-[#3b82f6]/20 border border-[#8b5cf6]/30 mr-3 animate-glow-pulse">
+                <span className="text-xl">🔁</span>
+              </div>
+              MPL-404
             </CardTitle>
-            <CardDescription className="text-[#b5bfcc] text-base">
-              A hybrid asset framework for swapping between NFTs and fungible tokens
+            <CardDescription className="text-[#b5bfcc] text-lg pl-[52px]">
+              Hybrid DeFi Protocol for NFTs and fungible tokens
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
@@ -125,9 +138,11 @@ const Resources = () => {
               >
                 <Button 
                   variant="outline" 
-                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#3b82f6]/60 text-[#f1f5fb] space-x-2 hover:bg-[#2a3341]/80 group-hover:animate-glow-pulse transition-all"
+                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#8b5cf6] text-[#f1f5fb] hover:text-white hover:shadow-[0_0_10px_rgba(139,92,246,0.5)] animate-glow-pulse transition-all duration-300"
                 >
-                  <BookOpen size={18} className="mr-2" />
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-r from-[#8b5cf6]/20 to-[#3b82f6]/20 border border-[#8b5cf6]/50 mr-2 group-hover:border-[#8b5cf6]">
+                    <BookOpen size={14} className="text-[#8b5cf6] group-hover:text-[#a78bfa]" />
+                  </div>
                   <span>Documentation</span>
                 </Button>
               </a>
@@ -140,9 +155,11 @@ const Resources = () => {
               >
                 <Button 
                   variant="outline" 
-                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#3b82f6]/60 text-[#f1f5fb] space-x-2 hover:bg-[#2a3341]/80 group-hover:animate-glow-pulse transition-all"
+                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#8b5cf6] text-[#f1f5fb] hover:text-white hover:shadow-[0_0_10px_rgba(139,92,246,0.5)] animate-glow-pulse transition-all duration-300"
                 >
-                  <Github size={18} className="mr-2" />
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-r from-[#8b5cf6]/20 to-[#3b82f6]/20 border border-[#8b5cf6]/50 mr-2 group-hover:border-[#8b5cf6]">
+                    <Github size={14} className="text-[#8b5cf6] group-hover:text-[#a78bfa]" />
+                  </div>
                   <span>GitHub Repo</span>
                 </Button>
               </a>
@@ -155,9 +172,11 @@ const Resources = () => {
               >
                 <Button 
                   variant="outline" 
-                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#3b82f6]/60 text-[#f1f5fb] space-x-2 hover:bg-[#2a3341]/80 group-hover:animate-glow-pulse transition-all"
+                  className="bg-[#2a3341] border-[#3c4759] hover:border-[#8b5cf6] text-[#f1f5fb] hover:text-white hover:shadow-[0_0_10px_rgba(139,92,246,0.5)] animate-glow-pulse transition-all duration-300"
                 >
-                  <Globe size={18} className="mr-2" />
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-r from-[#8b5cf6]/20 to-[#3b82f6]/20 border border-[#8b5cf6]/50 mr-2 group-hover:border-[#8b5cf6]">
+                    <Globe size={14} className="text-[#8b5cf6] group-hover:text-[#a78bfa]" />
+                  </div>
                   <span>Metaplex Site</span>
                 </Button>
               </a>
@@ -168,14 +187,32 @@ const Resources = () => {
       
       {/* Additional Info */}
       <motion.div 
-        className="mt-8 text-center text-[#8896b0] text-sm"
+        className="mt-12 text-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <p>
-          For more information about Metaplex technologies and grant opportunities, visit <a href="https://metaplex.com" target="_blank" rel="noopener noreferrer" className="text-[#3b82f6] hover:text-[#60a5fa] animate-glow-pulse">metaplex.com</a>
-        </p>
+        <div className="bg-[#1a202c] py-6 px-8 rounded-lg border border-[#3c4759]/50 inline-flex flex-col items-center max-w-xl mx-auto">
+          <p className="text-[#b5bfcc] mb-4">
+            For more information about Metaplex technologies and grant opportunities:
+          </p>
+          <a 
+            href="https://metaplex.com/grants" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group"
+          >
+            <Button 
+              variant="outline" 
+              className="bg-gradient-to-r from-[#2a3341] to-[#1c2431] border-[#3c4759] hover:border-[#3b82f6] text-[#f1f5fb] hover:text-white hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] animate-glow-pulse transition-all duration-300"
+            >
+              <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-r from-[#3b82f6]/20 to-[#8b5cf6]/20 border border-[#3b82f6]/50 mr-2 group-hover:border-[#3b82f6]">
+                <Globe size={14} className="text-[#3b82f6] group-hover:text-[#60a5fa]" />
+              </div>
+              <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent font-medium">Visit Metaplex Grants</span>
+            </Button>
+          </a>
+        </div>
       </motion.div>
     </div>
   );
