@@ -127,8 +127,19 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10">
           <Link to="/grants" className="group">
             <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-6 shadow-lg border border-blue-500/20 h-full flex flex-col transition-all transform group-hover:scale-[1.02] group-hover:shadow-blue-500/10">
-              <div className="rounded-full bg-blue-500/20 w-14 h-14 flex items-center justify-center mb-4">
-                <span className="text-3xl">🏆</span>
+              <div className="w-14 h-14 flex items-center justify-center mb-4 relative overflow-hidden">
+                <div className="absolute inset-0 bg-blue-500/20 transform rotate-45"></div>
+                <div className="relative z-10 text-blue-300 font-bold pixelated">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="12" y="2" width="8" height="4" fill="currentColor" />
+                    <rect x="8" y="6" width="16" height="4" fill="currentColor" />
+                    <rect x="10" y="10" width="12" height="10" fill="currentColor" />
+                    <rect x="6" y="14" width="4" height="6" fill="currentColor" />
+                    <rect x="22" y="14" width="4" height="6" fill="currentColor" />
+                    <rect x="14" y="20" width="4" height="4" fill="currentColor" />
+                    <rect x="10" y="24" width="12" height="4" fill="currentColor" />
+                  </svg>
+                </div>
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Grantees</h3>
               <p className="text-sm text-gray-300 mb-4 flex-grow">Explore the 12 innovative projects funded in Cohort 1 building the future of the Metaplex protocol.</p>
@@ -141,8 +152,17 @@ const Home = () => {
           
           <Link to="/team" className="group">
             <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-6 shadow-lg border border-purple-500/20 h-full flex flex-col transition-all transform group-hover:scale-[1.02] group-hover:shadow-purple-500/10">
-              <div className="rounded-full bg-purple-500/20 w-14 h-14 flex items-center justify-center mb-4">
-                <span className="text-3xl">👥</span>
+              <div className="w-14 h-14 flex items-center justify-center mb-4 relative overflow-hidden">
+                <div className="absolute inset-0 bg-purple-500/20 transform rotate-45"></div>
+                <div className="relative z-10 text-purple-300 font-bold pixelated">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="8" width="8" height="8" fill="currentColor" />
+                    <rect x="6" y="16" width="4" height="8" fill="currentColor" />
+                    <rect x="20" y="8" width="8" height="8" fill="currentColor" />
+                    <rect x="22" y="16" width="4" height="8" fill="currentColor" />
+                    <rect x="10" y="22" width="12" height="4" fill="currentColor" />
+                  </svg>
+                </div>
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Our Team</h3>
               <p className="text-sm text-gray-300 mb-4 flex-grow">Meet the IslandDAO team members who evaluate, mentor, and support projects in the grants program.</p>
@@ -155,8 +175,17 @@ const Home = () => {
           
           <Link to="/charts" className="group">
             <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-6 shadow-lg border border-emerald-500/20 h-full flex flex-col transition-all transform group-hover:scale-[1.02] group-hover:shadow-emerald-500/10">
-              <div className="rounded-full bg-emerald-500/20 w-14 h-14 flex items-center justify-center mb-4">
-                <span className="text-3xl">📊</span>
+              <div className="w-14 h-14 flex items-center justify-center mb-4 relative overflow-hidden">
+                <div className="absolute inset-0 bg-emerald-500/20 transform rotate-45"></div>
+                <div className="relative z-10 text-emerald-300 font-bold pixelated">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="22" width="4" height="6" fill="currentColor" />
+                    <rect x="10" y="18" width="4" height="10" fill="currentColor" />
+                    <rect x="16" y="14" width="4" height="14" fill="currentColor" />
+                    <rect x="22" y="8" width="4" height="20" fill="currentColor" />
+                    <rect x="4" y="4" width="24" height="2" fill="currentColor" />
+                  </svg>
+                </div>
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Analytics</h3>
               <p className="text-sm text-gray-300 mb-4 flex-grow">Explore interactive visualizations of funding distribution, sector analysis, and program impact.</p>
@@ -168,19 +197,40 @@ const Home = () => {
           </Link>
         </div>
         
-        {/* Cohort 2 teaser */}
-        <div className="flex flex-col items-center mt-8 space-y-3 mb-12">
-          <div className="bg-gradient-to-r from-transparent via-[#2a3550] to-transparent h-px w-64 opacity-50"></div>
-          <div className="flex items-center">
-            <div className="text-[#a3adc2] text-sm font-medium">Cohort 2 Coming Soon</div>
-            <div className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse ml-2"></div>
+        {/* Cohort 2 teaser - Enhanced version */}
+        <div className="mt-12 mb-16">
+          <div className="bg-gradient-to-r from-[#1a1e2d] via-[#2a3550] to-[#1a1e2d] p-6 rounded-xl max-w-3xl mx-auto relative overflow-hidden border border-indigo-500/30">
+            {/* Animated background elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl animate-pulse-slow"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl animate-pulse-slow delay-1000"></div>
+            
+            {/* Content */}
+            <div className="relative z-10">
+              <div className="flex items-center justify-center mb-4">
+                <h3 className="text-xl md:text-2xl font-bold text-white mr-3">Cohort 2 Coming Soon</h3>
+                <div className="w-3 h-3 rounded-full bg-indigo-500 animate-pulse"></div>
+              </div>
+              
+              <p className="text-center text-[#a3adc2] mb-6 max-w-2xl mx-auto">
+                Get ready for an even bigger grants program! Cohort 2 will feature increased funding, 
+                expanded categories, and enhanced support for builders in the Metaplex ecosystem.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button 
+                  disabled
+                  className="bg-indigo-900/30 text-indigo-300/50 border border-indigo-500/30 font-medium py-2 px-6 rounded-lg text-sm cursor-not-allowed relative overflow-hidden group w-64 sm:w-auto"
+                >
+                  <span className="relative z-10">Applications Opening Soon</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/0 via-indigo-600/10 to-indigo-600/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </Button>
+                
+                <div className="text-[#8495bd] text-xs">
+                  <span className="inline-block animate-bounce mr-1">↓</span> Stay tuned for announcements <span className="inline-block animate-bounce ml-1">↓</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <Button 
-            disabled
-            className="bg-[#2a3550] text-[#697287] font-medium py-2 px-6 rounded-lg text-sm cursor-not-allowed opacity-50"
-          >
-            Applications Closed
-          </Button>
         </div>
       </motion.div>
     </div>
