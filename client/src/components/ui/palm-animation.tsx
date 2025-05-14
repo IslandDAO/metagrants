@@ -8,6 +8,7 @@ interface Palm {
   size: number;
   brightness: number;
   active: boolean;
+  duration?: number; // Time in seconds that the palm stays lit
 }
 
 export const GlowingPalms: React.FC = () => {
@@ -63,7 +64,7 @@ export const GlowingPalms: React.FC = () => {
     }
     
     // Select random palms to activate initially
-    const numToActivate = 12 + Math.floor(Math.random() * 4); // 12-15 palms
+    const numToActivate = 16 + Math.floor(Math.random() * 4); // 16-19 palms
     const initialActiveIndices: number[] = [];
     
     while (initialActiveIndices.length < numToActivate) {
@@ -71,6 +72,8 @@ export const GlowingPalms: React.FC = () => {
       if (!initialActiveIndices.includes(index)) {
         initialActiveIndices.push(index);
         initialPalms[index].active = true;
+        // Add random duration property (between 2-5 seconds)
+        initialPalms[index].duration = 2 + Math.random() * 3;
       }
     }
     
@@ -119,7 +122,7 @@ export const GlowingPalms: React.FC = () => {
               .filter(i => !lastActivePalmsRef.current.includes(i));
               
             // Select new random palms
-            const numToActivate = 12 + Math.floor(Math.random() * 4); // 12-15 palms
+            const numToActivate = 16 + Math.floor(Math.random() * 4); // 16-19 palms
             const newActiveIndices: number[] = [];
             
             while (newActiveIndices.length < numToActivate && availableIndices.length > 0) {
@@ -128,6 +131,8 @@ export const GlowingPalms: React.FC = () => {
               
               newActiveIndices.push(selectedIndex);
               newPalms[selectedIndex].active = true;
+              // Assign random duration between 2-5 seconds
+              newPalms[selectedIndex].duration = 2 + Math.random() * 3;
               
               // Remove this index from available indices
               availableIndices.splice(randomPosition, 1);
