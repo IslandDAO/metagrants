@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import palmPixelArt from "../assets/palm-pixel-art.png";
+import palmTreeNew from "../assets/palm-tree-new.png";
 import pirateHat from "../assets/pirate-hat.png";
 import lighthousePixel from "../assets/lighthouse-pixel.png";
 
@@ -134,7 +134,7 @@ const Home = () => {
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="pixelated w-full h-full rounded-full overflow-hidden flex items-center justify-center">
                     <img 
-                      src={palmPixelArt} 
+                      src={palmTreeNew} 
                       alt="Pixel Art Palm Tree" 
                       className="w-full h-full object-contain" 
                       style={{
