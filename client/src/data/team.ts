@@ -44,7 +44,7 @@ export const team: TeamMember[] = [
     name: "Kai",
     title: "Grants Council / Admin Support",
     bio: "Kai is a core member of the IslandDAO and is active as a Research/Write. Previous Streamflow Content & Research. Produced research in collaboration with protocols including Reserve Protocol, Forgd (previously TokenomicsDAO), and more. Currently, Blocmates Research Analyst.",
-    imageUrl: "https://pbs.twimg.com/profile_images/1742246520467456000/DPWIxL_0_400x400.jpg",
+    imageUrl: "/src/assets/team-avatars/kai.png",
     role: "core",
     twitter: "https://x.com/DefiVaults",
     expertise: ["Grants Council", "Admin Support", "Research"]
