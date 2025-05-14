@@ -17,7 +17,7 @@ export const team: TeamMember[] = [
     name: "Mark",
     title: "Lead Admin / Grants Council",
     bio: "A founding partner of Cultur3 Capital, a crypto focused VC with a number of investments across Solana, SoCalStreet has been active in the broader ecosystem since 2021. He has led the current DecentraGrants program for IslandDAO, and has been an advisor to Metaplex since the protocols launch.",
-    imageUrl: "https://pbs.twimg.com/profile_images/1550159036731473921/2Nw7nH3k_400x400.jpg",
+    imageUrl: "/src/assets/team-avatars/mark.png",
     role: "core",
     twitter: "https://x.com/socalstreet",
     expertise: ["Admin Lead", "Grants Council", "Advisor"]
