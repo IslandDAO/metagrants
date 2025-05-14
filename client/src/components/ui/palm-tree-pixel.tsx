@@ -75,7 +75,7 @@ export function PalmTreeBackground() {
         brightness: 0,
         size: 50 + Math.random() * 20, // Larger size to show pixel details
         increasing: true,
-        speed: 0.002 + Math.random() * 0.003, // Much slower speed for breathing effect
+        speed: 0.003 + Math.random() * 0.004, // Adjusted speed for visible breathing effect
       });
     }
     
@@ -90,7 +90,7 @@ export function PalmTreeBackground() {
           width: `${size}px`, 
           height: `${size}px`, 
           position: 'relative',
-          filter: `drop-shadow(0 0 ${8 * brightness}px rgba(249, 115, 22, 0.5))`, // More subtle drop shadow
+          filter: `drop-shadow(0 0 ${15 * brightness}px rgba(249, 115, 22, 0.8))`, // Stronger drop shadow for visibility
         }}
       >
         {/* Using the actual pixel palm tree image with transparent background */}
@@ -100,23 +100,23 @@ export function PalmTreeBackground() {
           style={{
             width: '100%',
             height: '100%',
-            opacity: 0.8 + brightness * 0.2, // Less opacity change for subtle effect
-            filter: brightness > 0.5 ? `brightness(${1 + brightness * 0.5})` : 'none', // More subtle brightness change
-            transition: 'opacity 0.5s, filter 0.5s', // Smooth transitions
+            opacity: 0.7 + brightness * 0.3, // More visible opacity change
+            filter: `brightness(${1 + brightness * 1.2})`, // More noticeable brightness change
+            transition: 'opacity 1s, filter 1s', // Slower transitions for breathing effect
           }}
         />
 
-        {/* Subtle Orange Glow Overlay */}
+        {/* Enhanced Orange Glow Overlay */}
         <div 
           style={{
             position: 'absolute',
-            inset: '-120%',
-            background: 'radial-gradient(circle, rgba(249, 115, 22, 0.4) 0%, rgba(249, 115, 22, 0.2) 30%, rgba(249, 115, 22, 0) 70%)',
-            opacity: brightness * 0.7, // More subtle glow
-            transform: 'scale(1.8)',
+            inset: '-100%',
+            background: 'radial-gradient(circle, rgba(249, 115, 22, 0.6) 0%, rgba(249, 115, 22, 0.3) 30%, rgba(249, 115, 22, 0) 70%)',
+            opacity: brightness * 0.9, // More visible glow
+            transform: 'scale(1.5)',
             zIndex: -1,
             pointerEvents: 'none',
-            transition: 'opacity 0.5s', // Smooth transition
+            transition: 'opacity 1s', // Slower transition for breathing effect
           }}
         />
       </div>
@@ -137,11 +137,11 @@ export function PalmTreeBackground() {
           backgroundImage: `url(${palmPattern})`,
           backgroundRepeat: 'repeat',
           backgroundSize: '100px 100px',
-          opacity: 0.15,
+          opacity: 0.25, // Slightly more visible background
           zIndex: 0,
         }}
       ></div>
-      <div className="absolute inset-0 bg-[#121820] opacity-70"></div>
+      <div className="absolute inset-0 bg-[#121820] opacity-60"></div>
       
       {trees.map(tree => (
         <div
