@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { formatCurrency, truncateText } from "@/lib/utils";
-import { Link } from "wouter";
+import { Link } from "react-router-dom";
 
 interface ProjectCardProps {
   id: string;
@@ -16,13 +16,13 @@ interface ProjectCardProps {
 const getStatusColor = (status: string) => {
   switch (status) {
     case "Active":
-      return "bg-green-100 text-green-800";
+      return "bg-[#bce3c5] text-[#40526c]";
     case "Completed":
-      return "bg-blue-100 text-blue-800";
+      return "bg-[#a2dadb] text-[#40526c]";
     case "In Development":
-      return "bg-yellow-100 text-yellow-800";
+      return "bg-[#f7c6a3] text-[#40526c]";
     default:
-      return "bg-gray-100 text-gray-800";
+      return "bg-gray-100 text-[#40526c]";
   }
 };
 
@@ -41,7 +41,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       transition={{ duration: 0.5 }}
       whileHover={{ scale: 1.03 }}
     >
-      <Card className="overflow-hidden h-full transition hover:shadow-lg">
+      <Card className="overflow-hidden h-full transition hover:shadow-lg border border-[#a2dadb] bg-white">
         <div className="w-full h-48 overflow-hidden">
           <img 
             src={imageUrl} 
@@ -51,22 +51,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
         <CardContent className="p-6">
           <div className="flex justify-between items-start mb-2">
-            <h3 className="text-lg font-bold text-secondary">{name}</h3>
+            <h3 className="text-lg font-bold text-[#40526c]">{name}</h3>
             <Badge className={getStatusColor(status)} variant="outline">
               {status}
             </Badge>
           </div>
-          <p className="text-gray-600 text-sm mb-4">
+          <p className="text-[#40526c] text-sm mb-4">
             {truncateText(description, 100)}
           </p>
           <div className="flex justify-between items-center">
             <div className="flex items-center">
-              <span className="text-sm font-medium text-gray-900">{formatCurrency(fundingAmount)}</span>
-              <span className="text-xs text-gray-500 ml-1">funding</span>
+              <span className="text-sm font-medium text-[#c8444d]">{formatCurrency(fundingAmount)}</span>
+              <span className="text-xs text-[#40526c] ml-1">funding</span>
             </div>
             <Link 
-              href={`/projects/${id}`}
-              className="text-secondary hover:text-secondary-light text-sm font-medium"
+              to={`/projects/${id}`}
+              className="text-[#c8444d] hover:text-[#a03841] text-sm font-medium"
             >
               Learn More
             </Link>

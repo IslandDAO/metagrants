@@ -16,11 +16,11 @@ const StatCard: React.FC<StatCardProps> = ({ title, value, className }) => {
       transition={{ duration: 0.5 }}
     >
       <Card className={cn(
-        "bg-white rounded-xl shadow-md p-6 flex flex-col items-center text-center transition transform hover:scale-105",
+        "bg-white rounded-xl shadow-md p-6 flex flex-col items-center text-center transition transform hover:scale-105 border border-[#a2dadb]",
         className
       )}>
-        <div className="text-4xl font-bold text-secondary mb-2">{value}</div>
-        <div className="text-gray-600">{title}</div>
+        <div className="text-4xl font-bold text-[#c8444d] mb-2">{value}</div>
+        <div className="text-[#40526c]">{title}</div>
       </Card>
     </motion.div>
   );
