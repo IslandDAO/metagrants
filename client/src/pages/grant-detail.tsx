@@ -257,6 +257,7 @@ const GrantDetail = () => {
                     <div>
                       <p className="text-sm text-[#8896b0]">MPLX Tokens</p>
                       <p className="font-medium text-[#f1f5fb]">{grant.mplx.toLocaleString()} MPLX</p>
+                      <p className="text-xs text-[#8896b0] mt-1">* MPLX token value calculated at $0.1 USDC per MPLX</p>
                     </div>
                   </div>
                   

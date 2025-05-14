@@ -1183,7 +1183,7 @@ const ChartsPage = () => {
       
       {/* Footnote for MPLX calculation */}
       <div className="text-right mt-4 text-xs text-gray-400 pr-4">
-        * Calculations assume $MPLX = 0.1 $USDC
+        * MPLX token value calculated at $0.1 USDC per MPLX
       </div>
     </div>
   );
