@@ -601,6 +601,42 @@ const ChartsPage = () => {
                         ))}
                       </defs>
                       
+                      {/* Active Sector Info Display in Center */}
+                      <text 
+                        x="50%" 
+                        y="50%" 
+                        textAnchor="middle" 
+                        dominantBaseline="middle" 
+                        fill="#FFFFFF" 
+                        fontSize={16} 
+                        fontWeight="bold"
+                      >
+                        {sectorFundingData[activeIndex].name}
+                      </text>
+                      <text 
+                        x="50%" 
+                        y="50%" 
+                        dy="25" 
+                        textAnchor="middle" 
+                        dominantBaseline="middle" 
+                        fill="#FFFFFF" 
+                        fontSize={14}
+                      >
+                        ${sectorFundingData[activeIndex].value.toLocaleString()}
+                      </text>
+                      <text 
+                        x="50%" 
+                        y="50%" 
+                        dy="45" 
+                        textAnchor="middle" 
+                        dominantBaseline="middle" 
+                        fill="#9CA3AF" 
+                        fontSize={12}
+                      >
+                        ({Math.round((sectorFundingData[activeIndex].value / 
+                          sectorFundingData.reduce((sum, item) => sum + item.value, 0)) * 100)}%)
+                      </text>
+                      
                       <Pie
                         activeIndex={activeIndex}
                         data={sectorFundingData}
@@ -615,33 +651,6 @@ const ChartsPage = () => {
                           setIsAnimating(false);
                         }}
                         onMouseLeave={() => setIsAnimating(true)}
-                        label={({name, value, percent, x, y, midAngle}) => {
-                          const RADIAN = Math.PI / 180;
-                          const radius = 170;
-                          const cx = 250;  // Center X of pie chart (estimated)
-                          const cy = 200;  // Center Y of pie chart (estimated)
-                          const sin = Math.sin(-RADIAN * midAngle);
-                          const cos = Math.cos(-RADIAN * midAngle);
-                          const tx = cx + radius * cos;
-                          const ty = cy + radius * sin;
-                          
-                          return (
-                            <text 
-                              x={tx} 
-                              y={ty} 
-                              fill="#FFFFFF" 
-                              textAnchor={cos >= 0 ? 'start' : 'end'}
-                              dominantBaseline="central"
-                              fontSize={12}
-                              fontWeight="600"
-                              stroke="#000000"
-                              strokeWidth="0.5"
-                              paintOrder="stroke"
-                            >
-                              ${(value/1000).toFixed(0)}k
-                            </text>
-                          );
-                        }}
                       >
                         {sectorFundingData.map((entry, index) => (
                           <Cell 
