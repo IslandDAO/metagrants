@@ -211,13 +211,31 @@ const ChartsPage = () => {
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-[#121820]/90 p-4 backdrop-blur-sm shadow-xl rounded-md text-white">
-          <p className="font-bold text-lg text-blue-300">{label || payload[0].name}</p>
-          {payload.map((entry: any, index: number) => (
-            <p key={`tooltip-${index}`} className="font-medium text-md" style={{ color: entry.color || '#fff' }}>
-              {entry.name}: ${entry.value.toLocaleString()}
-            </p>
-          ))}
+        <div className="bg-[#121820]/95 p-4 backdrop-blur-sm shadow-xl rounded-md text-white">
+          <div className="font-bold text-lg text-blue-300 mb-1">{label || payload[0].name}</div>
+          {payload.map((entry: any, index: number) => {
+            // For pie charts
+            if (entry.payload && entry.payload.percent) {
+              return (
+                <div key={`tooltip-${index}`} className="flex justify-between items-center">
+                  <span className="font-medium text-md mr-4">{entry.name}</span>
+                  <div>
+                    <span className="font-bold text-lg">${entry.value.toLocaleString()}</span>
+                    <span className="text-xs text-blue-300 ml-2">({(entry.payload.percent * 100).toFixed(1)}%)</span>
+                  </div>
+                </div>
+              );
+            }
+            
+            // For other charts
+            return (
+              <div key={`tooltip-${index}`} className="flex items-center">
+                <div className="w-3 h-3 rounded-full mr-2" style={{ backgroundColor: entry.color || '#6366F1' }}></div>
+                <span className="font-medium mr-2">{entry.name}:</span>
+                <span className="font-bold">${entry.value.toLocaleString()}</span>
+              </div>
+            );
+          })}
         </div>
       );
     }
@@ -331,36 +349,14 @@ const ChartsPage = () => {
                         outerRadius={120}
                         paddingAngle={5}
                         dataKey="value"
-                        label={({ percent }) => {
-                          return (
-                            <text 
-                              fill="#FFFFFF" 
-                              fontWeight="500" 
-                              fontSize="14"
-                              stroke="#000" 
-                              strokeWidth="0.5" 
-                              paintOrder="stroke"
-                            >
-                              {(percent * 100).toFixed(0)}%
-                            </text>
-                          );
-                        }}
-                        labelLine={{ stroke: 'rgba(255,255,255,0.6)', strokeWidth: 1 }}
+
                       >
                         <Cell fill="url(#coreGradient)" stroke="#6366F1" strokeWidth={2} />
                         <Cell fill="url(#m404Gradient)" stroke="#10B981" strokeWidth={2} />
                       </Pie>
                       <Tooltip 
-                        formatter={(value, name, props) => [`${value} Projects (${Math.round(props.payload.percent * 100)}%)`, name]}
-                        contentStyle={{ 
-                          backgroundColor: 'rgba(18, 24, 32, 0.9)', 
-                          backdropFilter: 'blur(8px)',
-                          border: 'none', 
-                          color: 'white',
-                          boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
-                          padding: '12px',
-                          borderRadius: '8px'
-                        }}
+                        content={<CustomTooltip />}
+                        cursor={false}
                       />
                     </PieChart>
                   </ResponsiveContainer>
@@ -549,21 +545,6 @@ const ChartsPage = () => {
                         setIsAnimating(false);
                       }}
                       onMouseLeave={() => setIsAnimating(true)}
-                      label={({ value }) => {
-                        return (
-                          <text 
-                            fill="#FFFFFF" 
-                            fontWeight="500" 
-                            fontSize="14" 
-                            stroke="#000" 
-                            strokeWidth="0.5" 
-                            paintOrder="stroke"
-                          >
-                            ${(value/1000).toFixed(0)}k
-                          </text>
-                        );
-                      }}
-                      labelLine={{ stroke: 'rgba(255,255,255,0.6)', strokeWidth: 1 }}
                     >
                       {sectorFundingData.map((entry, index) => (
                         <Cell 
@@ -575,20 +556,8 @@ const ChartsPage = () => {
                       ))}
                     </Pie>
                     <Tooltip 
-                      formatter={(value: number, name, props) => {
-                        const total = sectorFundingData.reduce((sum, item) => sum + item.value, 0);
-                        const percent = ((value / total) * 100).toFixed(1);
-                        return [`$${value.toLocaleString()} (${percent}%)`, 'Funding'];
-                      }}
-                      contentStyle={{ 
-                        backgroundColor: 'rgba(18, 24, 32, 0.9)', 
-                        backdropFilter: 'blur(8px)',
-                        border: 'none', 
-                        color: 'white',
-                        boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
-                        padding: '12px',
-                        borderRadius: '8px'
-                      }}
+                      content={<CustomTooltip />}
+                      cursor={false}
                     />
 {/* Legend removed as requested */}
                   </PieChart>
