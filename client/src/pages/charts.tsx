@@ -104,12 +104,14 @@ const ChartsPage = () => {
       name: "Core", 
       usdcValue: core404RatioData.core.usdcValue,
       mplxValue: core404RatioData.core.mplxValue,
+      totalValue: core404RatioData.core.usdcValue + core404RatioData.core.mplxValue,
       projectCount: core404RatioData.core.projectCount
     },
     { 
       name: "404", 
       usdcValue: core404RatioData.m404.usdcValue,
       mplxValue: core404RatioData.m404.mplxValue,
+      totalValue: core404RatioData.m404.usdcValue + core404RatioData.m404.mplxValue,
       projectCount: core404RatioData.m404.projectCount
     }
   ];
@@ -712,56 +714,113 @@ const ChartsPage = () => {
                 <CardDescription className="text-gray-300">Core vs 404 Funding</CardDescription>
               </CardHeader>
               <CardContent className="pt-6">
-                <ResponsiveContainer width="100%" height={350}>
-                  <BarChart
-                    data={techDistributionData}
-                    layout="vertical"
-                    margin={{ top: 10, right: 30, left: 20, bottom: 10 }}
-                  >
-                    <defs>
-                      <linearGradient id="usdcGradient" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stopColor="#2775CA" stopOpacity={0.8} />
-                        <stop offset="100%" stopColor="#2775CA" stopOpacity={1} />
-                      </linearGradient>
-                      <linearGradient id="mplxGradient" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stopColor="#6366F1" stopOpacity={0.8} />
-                        <stop offset="100%" stopColor="#6366F1" stopOpacity={1} />
-                      </linearGradient>
-                    </defs>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#364156" />
-                    <XAxis type="number" tickFormatter={(value) => `$${value.toLocaleString()}`} stroke="#E5E7EB" />
-                    <YAxis type="category" dataKey="name" stroke="#E5E7EB" />
-                    <Tooltip 
-                      contentStyle={{ 
-                        backgroundColor: 'rgba(18, 24, 32, 0.9)', 
-                        backdropFilter: 'blur(8px)',
-                        border: 'none', 
-                        color: 'white',
-                        boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
-                        padding: '12px',
-                        borderRadius: '8px'
-                      }}
-                      itemStyle={{ color: '#FFFFFF' }}
-                      labelStyle={{ color: '#93C5FD', fontWeight: 'bold', fontSize: '14px', marginBottom: '5px' }}
-                      cursor={{ fill: 'rgba(100, 116, 139, 0.1)' }} 
-                    />
-{/* Legend removed as requested */}
-                    <Bar 
-                      dataKey="usdcValue" 
-                      name="USDC" 
-                      stackId="a" 
-                      fill="url(#usdcGradient)" 
-                      radius={[0, 8, 8, 0]}
-                    />
-                    <Bar 
-                      dataKey="mplxValue" 
-                      name="MPLX Value" 
-                      stackId="a" 
-                      fill="url(#mplxGradient)" 
-                      radius={[0, 8, 8, 0]}
-                    />
-                  </BarChart>
-                </ResponsiveContainer>
+                {/* Custom visualization instead of BarChart */}
+                <div className="space-y-8">
+                  {techDistributionData.map((tech, index) => (
+                    <div key={index} className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <span className={`text-lg font-semibold ${tech.name === "Core" ? "text-indigo-300" : "text-emerald-300"}`}>
+                            {tech.name}
+                          </span>
+                          <span className="text-xs ml-2 text-gray-400">
+                            {tech.name === "Core" ? "7 projects" : "5 projects"}
+                          </span>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-xl font-bold text-white">${tech.totalValue.toLocaleString()}</span>
+                        </div>
+                      </div>
+                      
+                      {/* Main progress bar */}
+                      <div className="h-6 w-full bg-gray-800/60 rounded-lg overflow-hidden relative">
+                        <div 
+                          className={`h-full ${tech.name === "Core" ? "bg-indigo-500/70" : "bg-emerald-500/70"}`}
+                          style={{
+                            width: `${(tech.totalValue / 95000) * 100}%`, // Using the higher value (Core) as baseline
+                            transition: "width 1s ease-in-out"
+                          }}
+                        />
+                        
+                        {/* Labels inside bar */}
+                        <div className="absolute inset-0 flex items-center justify-between px-3">
+                          <div className="flex gap-2 items-center text-white text-xs">
+                            <div className={`h-2 w-2 rounded-full ${tech.name === "Core" ? "bg-indigo-300" : "bg-emerald-300"}`} />
+                            <span>{tech.name === "Core" ? "$60,500 USDC + $34,500 MPLX" : "$39,500 USDC + $24,500 MPLX"}</span>
+                          </div>
+                          <div className="text-white text-xs font-medium">
+                            {tech.name === "Core" ? "60%" : "40%"}
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* USDC and MPLX detailed breakdown */}
+                      <div className="flex gap-4">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-1.5 mb-1">
+                            <div className="h-2 w-2 rounded-full bg-blue-500"></div>
+                            <span className="text-xs text-blue-300">USDC</span>
+                          </div>
+                          <div className="h-2 w-full bg-gray-800/40 rounded-full overflow-hidden">
+                            <div 
+                              className="h-full bg-blue-500"
+                              style={{
+                                width: `${(tech.usdcValue / tech.totalValue) * 100}%`,
+                                transition: "width 1.2s ease-in-out"
+                              }}
+                            />
+                          </div>
+                          <div className="flex justify-between mt-1">
+                            <span className="text-xs text-gray-400">${tech.usdcValue.toLocaleString()}</span>
+                            <span className="text-xs text-gray-400">{Math.round((tech.usdcValue / tech.totalValue) * 100)}%</span>
+                          </div>
+                        </div>
+                        
+                        <div className="flex-1">
+                          <div className="flex items-center gap-1.5 mb-1">
+                            <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                            <span className="text-xs text-purple-300">MPLX</span>
+                          </div>
+                          <div className="h-2 w-full bg-gray-800/40 rounded-full overflow-hidden">
+                            <div 
+                              className="h-full bg-purple-500"
+                              style={{
+                                width: `${(tech.mplxValue / tech.totalValue) * 100}%`,
+                                transition: "width 1.2s ease-in-out"
+                              }}
+                            />
+                          </div>
+                          <div className="flex justify-between mt-1">
+                            <span className="text-xs text-gray-400">${tech.mplxValue.toLocaleString()}</span>
+                            <span className="text-xs text-gray-400">{Math.round((tech.mplxValue / tech.totalValue) * 100)}%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                  
+                  {/* Comparison metrics */}
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-3 border-t border-gray-700/50">
+                    <div className="bg-[#1a2436]/50 p-3 rounded-lg">
+                      <p className="text-xs text-gray-400">Average Grant (Core)</p>
+                      <p className="text-lg font-bold text-indigo-300">$13,571</p>
+                    </div>
+                    <div className="bg-[#1a2436]/50 p-3 rounded-lg">
+                      <p className="text-xs text-gray-400">Average Grant (404)</p>
+                      <p className="text-lg font-bold text-emerald-300">$12,800</p>
+                    </div>
+                    <div className="bg-[#1a2436]/50 p-3 rounded-lg">
+                      <p className="text-xs text-gray-400">USDC/MPLX Ratio (Core)</p>
+                      <p className="text-lg font-bold text-blue-300">64/36</p>
+                    </div>
+                    <div className="bg-[#1a2436]/50 p-3 rounded-lg">
+                      <p className="text-xs text-gray-400">USDC/MPLX Ratio (404)</p>
+                      <p className="text-lg font-bold text-blue-300">62/38</p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-xs text-right text-gray-500">* MPLX token value calculated at $0.1 USDC per MPLX</p>
+                </div>
               </CardContent>
             </Card>
             
