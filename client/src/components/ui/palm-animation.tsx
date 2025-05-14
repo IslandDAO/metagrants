@@ -20,17 +20,36 @@ export const GlowingPalms: React.FC = () => {
   
   // Create the palm grid
   useEffect(() => {
-    // Create an evenly spaced grid of palms
-    const rows = 6;
-    const cols = 8;
+    // Create an evenly spaced grid of palms - with more rows/columns to compensate for avoided areas
+    const rows = 7;
+    const cols = 10;
     const palmSize = 60;
     const initialPalms: Palm[] = [];
+    
+    // Areas to avoid (approximate areas where text content appears)
+    const avoidAreas = [
+      // Main content area - just avoid the middle
+      { x1: 35, x2: 65, y1: 30, y2: 60 },
+      // Navigation area
+      { x1: 20, x2: 80, y1: 5, y2: 12 },
+      // Footer area
+      { x1: 25, x2: 75, y1: 85, y2: 95 },
+    ];
+    
+    const isInAvoidArea = (x: number, y: number) => {
+      return avoidAreas.some(area => 
+        x >= area.x1 && x <= area.x2 && y >= area.y1 && y <= area.y2
+      );
+    };
     
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
         // Calculate position as percentage
         const x = (col * 100 / (cols - 1)) * 0.9 + 5; // 5-95% range
         const y = (row * 100 / (rows - 1)) * 0.9 + 5; // 5-95% range
+        
+        // Skip positions in avoid areas
+        if (isInAvoidArea(x, y)) continue;
         
         initialPalms.push({
           id: row * cols + col,
