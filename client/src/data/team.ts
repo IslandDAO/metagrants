@@ -1,3 +1,14 @@
+// Import team member images
+import markImg from '@/assets/team-avatars/mark.png';
+import beemanImg from '@/assets/team-avatars/beeman.png';
+import tonyImg from '@/assets/team-avatars/tony.png';
+import kaiImg from '@/assets/team-avatars/kai.png';
+import chrisImg from '@/assets/team-avatars/chris.png';
+import parzicanoImg from '@/assets/team-avatars/parzicano.png';
+import shadyyImg from '@/assets/team-avatars/shadyy.png';
+import icoderImg from '@/assets/team-avatars/icoder.png';
+import dimitriImg from '@/assets/team-avatars/dimitri.png';
+
 export interface TeamMember {
   name: string;
   title: string;
@@ -17,7 +28,7 @@ export const team: TeamMember[] = [
     name: "Mark",
     title: "Lead Admin / Grants Council",
     bio: "A founding partner of Cultur3 Capital, a crypto focused VC with a number of investments across Solana, SoCalStreet has been active in the broader ecosystem since 2021. He has led the current DecentraGrants program for IslandDAO, and has been an advisor to Metaplex since the protocols launch.",
-    imageUrl: "/src/assets/team-avatars/mark.png",
+    imageUrl: markImg,
     role: "core",
     twitter: "https://x.com/socalstreet",
     expertise: ["Admin Lead", "Grants Council", "Advisor"]
@@ -26,7 +37,7 @@ export const team: TeamMember[] = [
     name: "BeeMan",
     title: "Technical Lead, Council Member",
     bio: "Leads technical due diligence across all applications. Reviews build specs, advises grantees on implementation, and helps shape milestone structuring. In Cohort Two, he will continue this role while also expanding his 'build in public' video content initiative, which he launched in collaboration with the Metaplex marketing team.",
-    imageUrl: "/src/assets/team-avatars/beeman.png",
+    imageUrl: beemanImg,
     role: "core",
     twitter: "https://x.com/beeman_nl",
     expertise: ["Technical Evaluation", "Developer Content", "Milestone Structuring"]
@@ -35,7 +46,7 @@ export const team: TeamMember[] = [
     name: "Tony",
     title: "Developer Relations, Foundation Liaison",
     bio: "Technical and developer relations lead from the Metaplex Foundation. Plays a critical role in ensuring that top-of-funnel grantees are successfully onboarded into the Metaplex developer ecosystem. Advises teams on how to integrate with existing Metaplex tools and helps avoid redundancy by guiding applicants toward underutilized capabilities in the stack.",
-    imageUrl: "/src/assets/team-avatars/tony.png",
+    imageUrl: tonyImg,
     role: "core",
     twitter: "https://x.com/tonyboyletweets",
     expertise: ["Developer Relations", "Product Education", "Ecosystem Awareness"]
@@ -44,7 +55,7 @@ export const team: TeamMember[] = [
     name: "Kai",
     title: "Grants Council / Admin Support",
     bio: "Kai is a core member of the IslandDAO and is active as a Research/Write. Previous Streamflow Content & Research. Produced research in collaboration with protocols including Reserve Protocol, Forgd (previously TokenomicsDAO), and more. Currently, Blocmates Research Analyst.",
-    imageUrl: "/src/assets/team-avatars/kai.png",
+    imageUrl: kaiImg,
     role: "core",
     twitter: "https://x.com/DefiVaults",
     expertise: ["Grants Council", "Admin Support", "Research"]
@@ -53,7 +64,7 @@ export const team: TeamMember[] = [
     name: "Chris",
     title: "Grants Council / Admin Support",
     bio: "Whale's Friend is a core IslandDAO contributor and Co-Founder of Grape Protocol. He leads DAO operations and strategy, coordinates community feedback, and produces Solana video content. He also heads the IslandDAO judges team for Colosseum hackathons.",
-    imageUrl: "/src/assets/team-avatars/chris.png",
+    imageUrl: chrisImg,
     role: "core",
     twitter: "https://x.com/Whalesfriend",
     expertise: ["Grants Council", "Admin Support", "Operations"]
