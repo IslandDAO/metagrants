@@ -2,8 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import MetaplexLogo from "@/components/logos/metaplex-logo";
-import IslandDaoLogo from "@/components/logos/island-dao-logo";
 
 // Counter animation function
 const AnimatedCounter = ({ value, duration = 2000 }: { value: number, duration?: number }) => {
@@ -74,9 +72,6 @@ const Home = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        <div className="flex justify-center mb-6">
-          <MetaplexLogo className="h-10 w-auto" />
-        </div>
         <h1 className="text-4xl md:text-6xl font-bold text-[#f1f5fb] mb-6">
           MetaplexDAO Grants — Cohort 1
         </h1>

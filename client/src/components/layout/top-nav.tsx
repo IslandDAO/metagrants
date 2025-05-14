@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import MetaplexLogo from "../logos/metaplex-logo";
 
 interface TopNavProps {
   className?: string;
@@ -31,8 +30,7 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <MetaplexLogo className="h-8 w-auto" />
-          <span className="ml-2 text-xl font-bold text-[#f1f5fb]">Grants</span>
+          <span className="text-xl font-bold text-[#f1f5fb]">MetaplexDAO Grants</span>
         </Link>
         
         {/* Desktop Navigation */}
