@@ -174,13 +174,13 @@ const Learnings = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <h2 className="text-2xl font-bold text-secondary mb-6">Cohort 1 Overview</h2>
+        <h2 className="text-2xl font-bold text-gradient mb-6">Cohort 1 Overview</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {cohortStats.map((stat, index) => (
-            <Card key={index} className="text-center">
+            <Card key={index} className="text-center card-gradient card-hover neon-glow">
               <CardContent className="p-4">
-                <p className="text-2xl font-bold text-secondary">{stat.value}</p>
-                <p className="text-sm text-gray-600">{stat.label}</p>
+                <p className="text-2xl font-bold text-gradient animate-glow-pulse">{stat.value}</p>
+                <p className="text-sm text-[#b5bfcc]">{stat.label}</p>
               </CardContent>
             </Card>
           ))}
@@ -194,8 +194,8 @@ const Learnings = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-        <h2 className="text-2xl font-bold text-secondary mb-6">Key Results</h2>
-        <Card>
+        <h2 className="text-2xl font-bold text-gradient mb-6">Key Results</h2>
+        <Card className="card-gradient neon-glow">
           <CardContent className="p-6">
             <Tabs defaultValue={keyResults[0].category}>
               <TabsList className="mb-6">
@@ -211,8 +211,8 @@ const Learnings = () => {
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {result.results.map((item, idx) => (
                       <li key={idx} className="flex items-start">
-                        <span className="text-primary font-bold mr-2">✓</span>
-                        <span>{item}</span>
+                        <span className="text-primary font-bold mr-2 animate-glow-pulse">✓</span>
+                        <span className="text-[#f1f5fb]">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -229,7 +229,7 @@ const Learnings = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        <h2 className="text-2xl font-bold text-secondary mb-6">Program Learnings</h2>
+        <h2 className="text-2xl font-bold text-gradient mb-6">Program Learnings</h2>
         
         <Accordion type="single" collapsible className="mb-6">
           {learningCategories.map((category, index) => (
@@ -240,15 +240,15 @@ const Learnings = () => {
               <AccordionContent>
                 <div className="grid grid-cols-1 gap-4 pt-2">
                   {category.learnings.map((learning, idx) => (
-                    <Card key={idx}>
+                    <Card key={idx} className="card-gradient neon-glow card-hover">
                       <CardHeader className="pb-2">
                         <div className="flex justify-between items-start">
-                          <CardTitle className="text-lg">{learning.title}</CardTitle>
+                          <CardTitle className="text-lg text-gradient">{learning.title}</CardTitle>
                           <Badge 
                             className={
                               learning.impact === "High" 
-                                ? "bg-green-100 text-green-800" 
-                                : "bg-blue-100 text-blue-800"
+                                ? "bg-green-500/20 text-green-400" 
+                                : "bg-blue-500/20 text-blue-400"
                             }
                           >
                             {learning.impact} Impact
@@ -256,7 +256,7 @@ const Learnings = () => {
                         </div>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-gray-700">{learning.description}</p>
+                        <p className="text-[#b5bfcc]">{learning.description}</p>
                       </CardContent>
                     </Card>
                   ))}
@@ -274,10 +274,10 @@ const Learnings = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
       >
-        <Card className="bg-primary/5 border-primary/20">
+        <Card className="card-gradient neon-glow">
           <CardHeader>
-            <CardTitle>Looking Ahead: Cohort 2</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-gradient">Looking Ahead: Cohort 2</CardTitle>
+            <CardDescription className="text-[#b5bfcc]">
               How we're applying these learnings to future grant rounds
             </CardDescription>
           </CardHeader>
