@@ -50,6 +50,7 @@ const Footer = () => {
             <Link to="/process" className="text-[#b5bfcc] hover:text-[#3b82f6]">Evaluation</Link>
             <Link to="/learnings" className="text-[#b5bfcc] hover:text-[#3b82f6]">Learnings</Link>
             <Link to="/charts" className="text-[#b5bfcc] hover:text-[#3b82f6]">Analytics</Link>
+            <Link to="/resources" className="text-[#b5bfcc] hover:text-[#3b82f6]">Resources</Link>
           </div>
           
           {/* Social Links and Copyright */}

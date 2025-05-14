@@ -17,6 +17,7 @@ import Insights from "@/pages/insights";
 import Grants from "@/pages/grants";
 import GrantDetail from "@/pages/grant-detail";
 import Charts from "@/pages/charts";
+import Resources from "@/pages/resources";
 
 function Router() {
   return (
@@ -35,6 +36,7 @@ function Router() {
           <Route path="/learnings" element={<Learnings />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/charts" element={<Charts />} />
+          <Route path="/resources" element={<Resources />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>

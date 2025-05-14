@@ -29,6 +29,7 @@ const TopNav: React.FC<TopNavProps> = ({ className }) => {
     { to: "/process", label: "Evaluation Process" },
     { to: "/team", label: "Team" },
     { to: "/learnings", label: "Learnings" },
+    { to: "/resources", label: "Resources" },
   ];
   
   const toggleMenu = () => {
