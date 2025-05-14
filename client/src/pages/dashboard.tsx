@@ -131,10 +131,10 @@ const Dashboard = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.3 }}
         >
-          <Card>
+          <Card className="card-gradient neon-glow card-hover">
             <CardContent className="pt-6">
-              <div className="text-3xl font-bold text-primary mb-1">{formatCurrency(averageGrant)}</div>
-              <p className="text-sm text-gray-500">Average Grant</p>
+              <div className="text-3xl font-bold text-gradient mb-1">{formatCurrency(averageGrant)}</div>
+              <p className="text-sm text-[#b5bfcc]">Average Grant</p>
             </CardContent>
           </Card>
         </motion.div>
@@ -144,10 +144,10 @@ const Dashboard = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.4 }}
         >
-          <Card>
+          <Card className="card-gradient neon-glow card-hover">
             <CardContent className="pt-6">
-              <div className="text-3xl font-bold text-primary mb-1">{sectors.length}</div>
-              <p className="text-sm text-gray-500">Sectors Funded</p>
+              <div className="text-3xl font-bold text-gradient mb-1">{sectors.length}</div>
+              <p className="text-sm text-[#b5bfcc]">Sectors Funded</p>
             </CardContent>
           </Card>
         </motion.div>
@@ -161,19 +161,34 @@ const Dashboard = () => {
         className="mb-6"
       >
         <Tabs defaultValue="overview" onValueChange={setActiveTab}>
-          <TabsList className="mb-8">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="sectors">Sectors</TabsTrigger>
-            <TabsTrigger value="table">Grant Table</TabsTrigger>
+          <TabsList className="mb-8 bg-[#1c2431]/50 border-primary/30">
+            <TabsTrigger 
+              value="overview"
+              className="data-[state=active]:bg-primary/20 data-[state=active]:text-gradient data-[state=active]:shadow-glow"
+            >
+              Overview
+            </TabsTrigger>
+            <TabsTrigger 
+              value="sectors"
+              className="data-[state=active]:bg-primary/20 data-[state=active]:text-gradient data-[state=active]:shadow-glow"
+            >
+              Sectors
+            </TabsTrigger>
+            <TabsTrigger 
+              value="table"
+              className="data-[state=active]:bg-primary/20 data-[state=active]:text-gradient data-[state=active]:shadow-glow"
+            >
+              Grant Table
+            </TabsTrigger>
           </TabsList>
           
           {/* Overview Tab */}
           <TabsContent value="overview">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <Card>
+              <Card className="card-gradient neon-glow">
                 <CardHeader>
-                  <CardTitle>Technology Distribution</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="text-gradient">Technology Distribution</CardTitle>
+                  <CardDescription className="text-[#b5bfcc]">
                     Breakdown of grants by technology stack
                   </CardDescription>
                 </CardHeader>
@@ -203,10 +218,10 @@ const Dashboard = () => {
                 </CardContent>
               </Card>
               
-              <Card>
+              <Card className="card-gradient neon-glow">
                 <CardHeader>
-                  <CardTitle>Funding Distribution</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="text-gradient">Funding Distribution</CardTitle>
+                  <CardDescription className="text-[#b5bfcc]">
                     Top sectors by funding allocation
                   </CardDescription>
                 </CardHeader>
@@ -228,10 +243,10 @@ const Dashboard = () => {
                 </CardContent>
               </Card>
               
-              <Card className="lg:col-span-2">
+              <Card className="lg:col-span-2 card-gradient neon-glow">
                 <CardHeader>
-                  <CardTitle>Grant Highlights</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="text-gradient">Grant Highlights</CardTitle>
+                  <CardDescription className="text-[#b5bfcc]">
                     Notable projects from Cohort 1
                   </CardDescription>
                 </CardHeader>
