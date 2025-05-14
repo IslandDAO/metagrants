@@ -53,7 +53,7 @@ export const team: TeamMember[] = [
     name: "Chris",
     title: "Grants Council / Admin Support",
     bio: "Whale's is a core member of the IslandDAO community. Beyond leading numerous feedback initiatives for the DAO, Whales has been integral in the operations of the DAO handling administration, operations and business strategy.",
-    imageUrl: "https://pbs.twimg.com/profile_images/1611064305707577344/a3qrfNX__400x400.jpg",
+    imageUrl: "/src/assets/team-avatars/chris.png",
     role: "core",
     twitter: "https://x.com/Whalesfriend",
     expertise: ["Grants Council", "Admin Support", "Operations"]
