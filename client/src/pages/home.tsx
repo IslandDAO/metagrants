@@ -77,7 +77,7 @@ const Home = () => {
         </h1>
         <div className="mb-4 text-center">
           <h2 className="text-xl md:text-2xl text-[#b5bfcc]">
-            Managed by <a href="https://islanddao.org/" target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-400 transition-colors">IslandDAO</a>
+            Managed by <a href="https://islanddao.org/" target="_blank" rel="noopener noreferrer" className="text-[#bcf0c0] hover:text-[#9fe3a3] transition-colors">IslandDAO</a>
           </h2>
         </div>
         
