@@ -47,6 +47,9 @@ export const GlowingPalms: React.FC = () => {
     setPalms(initialPalms);
   }, []);
   
+  // Track the last set of active palm indices for completely different selection each cycle
+  const lastActivePalmsRef = useRef<Set<number>>(new Set());
+  
   // Breathing animation
   useEffect(() => {
     if (palms.length === 0) return;
@@ -59,62 +62,74 @@ export const GlowingPalms: React.FC = () => {
       if (time - lastUpdateTimeRef.current >= frameDuration) {
         lastUpdateTimeRef.current = time;
         
-        // Update animation phase (0 to 2π) - slower for a more noticeable breathing effect
-        animationPhaseRef.current = (animationPhaseRef.current + 0.005) % (Math.PI * 2);
+        // Update animation phase (0 to 2π) - with increased speed (40% faster fade out)
+        // Adjust the sine wave to make the fade-out faster
+        animationPhaseRef.current = (animationPhaseRef.current + 0.007) % (Math.PI * 2);
         
         // Check if we've completed a full cycle
-        const cycleComplete = animationPhaseRef.current < 0.005;
+        const cycleComplete = animationPhaseRef.current < 0.007;
         
         setPalms(prevPalms => {
           const newPalms = [...prevPalms];
           
-          // If animation cycle is complete, choose new random palms
+          // If animation cycle is complete, choose completely new random palms
           if (cycleComplete) {
-            // We'll replace only some of the active palms for a better transition
-            // First, get currently active palms
-            const activePalmIndices = newPalms
-              .map((palm, index) => palm.active ? index : -1)
-              .filter(index => index !== -1);
-            
-            // Keep some of the current active palms (about half)
-            const palmsToKeep = Math.max(1, Math.floor(activePalmIndices.length / 2));
-            const palmsToReplace = activePalmIndices.length - palmsToKeep;
-            
-            // Randomly select which palms to replace
-            const palmsToReplaceIndices = new Set<number>();
-            while (palmsToReplaceIndices.size < palmsToReplace) {
-              const randomIndex = activePalmIndices[Math.floor(Math.random() * activePalmIndices.length)];
-              palmsToReplaceIndices.add(randomIndex);
-            }
-            
-            // Deactivate the palms we're replacing
-            palmsToReplaceIndices.forEach(index => {
-              newPalms[index].active = false;
+            // Clear all active palms
+            newPalms.forEach(palm => {
+              palm.active = false;
             });
             
-            // Get all inactive palms
-            const inactivePalmIndices = newPalms
-              .map((palm, index) => palm.active ? -1 : index)
-              .filter(index => index !== -1);
+            // Get all available palm indices
+            const availablePalmIndices = newPalms.map((_, index) => index);
             
-            // Choose new random palms to activate
-            const newActivePalms = new Set<number>();
-            while (newActivePalms.size < palmsToReplace) {
-              const randomIndex = inactivePalmIndices[Math.floor(Math.random() * inactivePalmIndices.length)];
-              newActivePalms.add(randomIndex);
+            // Filter out palms that were active in the previous cycle
+            const filteredIndices = availablePalmIndices.filter(
+              index => !lastActivePalmsRef.current.has(index)
+            );
+            
+            // Choose 3-5 completely new random palms
+            const numToActivate = 3 + Math.floor(Math.random() * 3); // 3-5 palms
+            const newActiveIndices = new Set<number>();
+            
+            // Try to use filtered indices first (palms that weren't active last time)
+            const indicesPool = filteredIndices.length >= numToActivate ? 
+              filteredIndices : availablePalmIndices;
+            
+            while (newActiveIndices.size < numToActivate) {
+              const randomIdx = Math.floor(Math.random() * indicesPool.length);
+              const palmIdx = indicesPool[randomIdx];
+              newActiveIndices.add(palmIdx);
             }
             
+            // Remember these palms for the next cycle
+            lastActivePalmsRef.current = newActiveIndices;
+            
             // Activate the new palms
-            newActivePalms.forEach(index => {
-              newPalms[index].active = true;
+            newActiveIndices.forEach(index => {
+              if (index >= 0 && index < newPalms.length) {
+                newPalms[index].active = true;
+              }
             });
           }
           
           // Update brightness with breathing effect
           newPalms.forEach(palm => {
             if (palm.active) {
-              // Sine wave for smooth breathing effect (0 to 1)
-              palm.brightness = (Math.sin(animationPhaseRef.current) + 1) / 2;
+              // Modified sine wave with faster fade-out
+              const phase = animationPhaseRef.current;
+              // Use standard sine wave for the first half (brighten up)
+              if (phase < Math.PI / 2) {
+                palm.brightness = (Math.sin(phase) + 1) / 2;
+              } 
+              // Use accelerated fade out for the second half
+              else {
+                // Make the fadeout 40% faster
+                const remainingPhase = phase - Math.PI / 2;
+                const acceleratedPhase = (remainingPhase * 1.4) + Math.PI / 2;
+                // Clamp to valid range
+                const clampedPhase = Math.min(acceleratedPhase, Math.PI * 2);
+                palm.brightness = (Math.sin(clampedPhase) + 1) / 2;
+              }
             } else {
               palm.brightness = 0;
             }
@@ -151,7 +166,7 @@ export const GlowingPalms: React.FC = () => {
             top: `${palm.y}%`,
             transform: 'translate(-50%, -50%)',
             opacity: palm.brightness,
-            transition: 'opacity 0.1s', // Smoother transitions during breathing
+            transition: 'opacity 0.06s', // Faster transition (40% faster than 0.1s)
             width: `${palmSize}px`,
             height: `${palmSize}px`,
           }}
