@@ -1,6 +1,6 @@
 import TopNav from "./top-nav";
 import Footer from "./footer";
-import { PalmTreeBackground } from "../ui/palm-tree-background";
+import { PalmTreeBackground } from "../ui/palm-tree-background-simple";
 
 interface LayoutProps {
   children: React.ReactNode;
