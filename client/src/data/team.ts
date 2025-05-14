@@ -62,7 +62,7 @@ export const team: TeamMember[] = [
     name: "Parzicano",
     title: "Grants Council Member",
     bio: "Serves on the grants council as an account management and research lead. Parzicano evaluates applications, provides technical and strategic assessment, and contributes to the council's collective decision-making process. His research expertise helps inform the program's direction and identify promising areas for investment.",
-    imageUrl: "https://pbs.twimg.com/profile_images/1722647097133809664/L9k5Kbey_400x400.jpg",
+    imageUrl: "/src/assets/team-avatars/parzicano.png",
     role: "advisor",
     twitter: "https://x.com/Parzicano",
     expertise: ["Account Management", "Research", "Application Review"]
