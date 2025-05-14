@@ -174,7 +174,7 @@ const Home = () => {
                     {/* Inner circle/rim */}
                     <circle cx="12" cy="12" r="7" stroke="#fb923c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     {/* Letter 'M' for MPLX */}
-                    <path d="M8 9.5L10 13.5L12 9.5L14 13.5L16 9.5" stroke="#fb923c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M8 14.5L8 9.5L12 12.5L16 9.5L16 14.5" stroke="#fb923c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <filter id="glow-token">
                       <feGaussianBlur stdDeviation="3" result="blur" />
                       <feMerge>
@@ -188,7 +188,7 @@ const Home = () => {
                       {/* Inner circle/rim */}
                       <circle cx="12" cy="12" r="7" stroke="#fb923c" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
                       {/* Letter 'M' for MPLX */}
-                      <path d="M8 9.5L10 13.5L12 9.5L14 13.5L16 9.5" stroke="#fb923c" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                      <path d="M8 14.5L8 9.5L12 12.5L16 9.5L16 14.5" stroke="#fb923c" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
                     </g>
                   </svg>
                 </span>
