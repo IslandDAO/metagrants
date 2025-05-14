@@ -63,29 +63,19 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
             <p className="text-indigo-300 text-xs font-medium line-clamp-1">{member.title}</p>
           </div>
           
-          {/* Bio section - Fixed height with truncation */}
+          {/* Bio section - Use fixed heights for both states */}
           <div className="mb-3 flex-grow flex flex-col">
-            {/* Always display a truncated version when closed */}
-            {!isOpen && (
-              <div className="text-[#b5bfcc] text-xs mb-2">
-                <div className="line-clamp-3">{member.bio}</div>
-              </div>
-            )}
+            {/* Bio content */}
+            <div className={`text-[#b5bfcc] text-xs ${isOpen ? "h-[120px] overflow-y-auto pr-1" : "h-[60px] overflow-hidden"}`}>
+              {member.bio}
+            </div>
             
-            {/* Full bio when expanded */}
-            {isOpen && (
-              <div className="text-[#b5bfcc] text-xs mb-2 overflow-y-auto max-h-[180px] pr-1">
-                {member.bio}
-              </div>
-            )}
-            
-            {/* Always visible toggle button */}
+            {/* Toggle button with distinct styling */}
             <button 
               onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center justify-center w-full text-xs text-indigo-400 hover:text-indigo-300 transition-colors mt-1"
+              className="flex items-center justify-center w-full text-xs bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 p-1 rounded mt-2 border border-indigo-500/20"
             >
-              <span>{isOpen ? "Read less" : "Read more"}</span>
-              <ChevronDown className={`h-3 w-3 ml-1 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+              <span>{isOpen ? "Show Less ↑" : "Show More ↓"}</span>
             </button>
           </div>
           
