@@ -11,17 +11,17 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="flex items-center gap-4">
             <MetaplexLogo className="h-7 w-auto" />
-            <div className="h-6 w-0.5 bg-[#c9b290]"></div>
+            <div className="h-6 w-0.5 bg-[#3c4759]"></div>
             <IslandDaoLogo className="h-7 w-auto" />
           </div>
           
           {/* Links - Horizontal Layout */}
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm">
-            <Link to="/grants" className="text-[#40526c] hover:text-[#c8444d]">Grantees</Link>
-            <Link to="/team" className="text-[#40526c] hover:text-[#c8444d]">Team</Link>
-            <Link to="/process" className="text-[#40526c] hover:text-[#c8444d]">Evaluation</Link>
-            <Link to="/learnings" className="text-[#40526c] hover:text-[#c8444d]">Learnings</Link>
-            <Link to="/charts" className="text-[#40526c] hover:text-[#c8444d]">Analytics</Link>
+            <Link to="/grants" className="text-[#b5bfcc] hover:text-[#3b82f6]">Grantees</Link>
+            <Link to="/team" className="text-[#b5bfcc] hover:text-[#3b82f6]">Team</Link>
+            <Link to="/process" className="text-[#b5bfcc] hover:text-[#3b82f6]">Evaluation</Link>
+            <Link to="/learnings" className="text-[#b5bfcc] hover:text-[#3b82f6]">Learnings</Link>
+            <Link to="/charts" className="text-[#b5bfcc] hover:text-[#3b82f6]">Analytics</Link>
           </div>
           
           {/* Social Links */}
@@ -30,33 +30,33 @@ const Footer = () => {
               href="https://twitter.com/metaplex" 
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#bce3c5] p-2 rounded-full hover:bg-[#a2dadb] transition-colors"
+              className="bg-[#2a3341] p-2 rounded-full hover:bg-[#3c4759] transition-colors"
               aria-label="Twitter"
             >
-              <Twitter className="h-4 w-4 text-[#40526c]" />
+              <Twitter className="h-4 w-4 text-[#3b82f6]" />
             </a>
             <a 
               href="https://github.com/metaplex-foundation" 
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#bce3c5] p-2 rounded-full hover:bg-[#a2dadb] transition-colors"
+              className="bg-[#2a3341] p-2 rounded-full hover:bg-[#3c4759] transition-colors"
               aria-label="GitHub"
             >
-              <Github className="h-4 w-4 text-[#40526c]" />
+              <Github className="h-4 w-4 text-[#3b82f6]" />
             </a>
             <a 
               href="https://discord.com/invite/metaplex" 
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#bce3c5] p-2 rounded-full hover:bg-[#a2dadb] transition-colors"
+              className="bg-[#2a3341] p-2 rounded-full hover:bg-[#3c4759] transition-colors"
               aria-label="Discord"
             >
-              <MessageCircle className="h-4 w-4 text-[#40526c]" />
+              <MessageCircle className="h-4 w-4 text-[#3b82f6]" />
             </a>
           </div>
         </div>
         
-        <div className="mt-4 text-center text-xs text-[#40526c]">
+        <div className="mt-4 text-center text-xs text-[#b5bfcc]">
           <p>© 2023-2025 Metaplex Foundation & IslandDAO. All rights reserved.</p>
         </div>
       </div>

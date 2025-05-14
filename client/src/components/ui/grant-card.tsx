@@ -17,7 +17,7 @@ const GrantCard: React.FC<GrantCardProps> = ({ grant }) => {
       transition={{ duration: 0.5 }}
       whileHover={{ scale: 1.03 }}
     >
-      <Card className="overflow-hidden h-full transition hover:shadow-lg border border-[#a2dadb] bg-white">
+      <Card className="overflow-hidden h-full transition hover:shadow-lg border border-[#3c4759] bg-[#1c2431]">
         <div className="w-full h-48 overflow-hidden">
           <img 
             src={grant.imageUrl} 
@@ -27,11 +27,11 @@ const GrantCard: React.FC<GrantCardProps> = ({ grant }) => {
         </div>
         <CardContent className="p-6">
           <div className="flex justify-between items-start mb-2">
-            <h3 className="text-lg font-bold text-[#40526c]">{grant.name}</h3>
+            <h3 className="text-lg font-bold text-[#f1f5fb]">{grant.name}</h3>
             <Badge 
               className={grant.techStack === "Core" 
-                ? "bg-[#bce3c5] text-[#40526c]" 
-                : "bg-[#a2dadb] text-[#40526c]"
+                ? "bg-[#3b82f6] text-[#f1f5fb]" 
+                : "bg-[#8b5cf6] text-[#f1f5fb]"
               } 
               variant="outline"
             >
@@ -39,9 +39,9 @@ const GrantCard: React.FC<GrantCardProps> = ({ grant }) => {
             </Badge>
           </div>
           <div className="mb-3">
-            <Badge className="bg-[#e3a1b6] text-[#40526c] mr-2">{grant.sector}</Badge>
+            <Badge className="bg-[#0ea5e9] text-[#f1f5fb] mr-2">{grant.sector}</Badge>
           </div>
-          <p className="text-[#40526c] text-sm mb-4">
+          <p className="text-[#b5bfcc] text-sm mb-4">
             {truncateText(grant.summary, 100)}
           </p>
           <div className="flex justify-between items-center">
