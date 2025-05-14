@@ -55,11 +55,11 @@ const AnimatedCounter = ({ value, duration = 2000 }: { value: number, duration?:
 // StatItem component
 const StatItem = ({ label, value }: { label: string, value: number | string }) => {
   return (
-    <div className="bg-emerald-700 rounded-lg shadow-lg p-5 text-center transform transition-all hover:scale-105 border border-emerald-600">
-      <div className="text-2xl md:text-3xl font-bold text-white mb-2">
+    <div className="bg-[#1c2431] rounded-lg shadow-lg p-5 text-center transform transition-all hover:scale-105 border border-[#3c4759]">
+      <div className="text-2xl md:text-3xl font-bold text-[#f1f5fb] mb-2">
         {typeof value === 'number' ? <AnimatedCounter value={value} /> : value}
       </div>
-      <div className="text-emerald-100 text-sm font-medium">{label}</div>
+      <div className="text-[#b5bfcc] text-sm font-medium">{label}</div>
     </div>
   );
 };
@@ -77,18 +77,18 @@ const Home = () => {
         <div className="flex justify-center mb-6">
           <MetaplexLogo className="h-10 w-auto" />
         </div>
-        <h1 className="text-4xl md:text-6xl font-bold text-emerald-800 mb-6">
+        <h1 className="text-4xl md:text-6xl font-bold text-[#f1f5fb] mb-6">
           MetaplexDAO Grants — Cohort 1
         </h1>
         <div className="mb-4 flex flex-col items-center">
-          <div className="bg-emerald-100 p-3 rounded-lg inline-block mb-3 border border-emerald-200">
+          <div className="bg-[#1c2431] p-3 rounded-lg inline-block mb-3 border border-[#3c4759]">
             <IslandDaoLogo className="h-16 w-auto" />
           </div>
-          <h2 className="text-xl md:text-2xl text-emerald-700">
+          <h2 className="text-xl md:text-2xl text-[#b5bfcc]">
             Managed by IslandDAO
           </h2>
         </div>
-        <p className="text-xl text-emerald-600 max-w-3xl mx-auto mb-12">
+        <p className="text-xl text-[#b5bfcc] max-w-3xl mx-auto mb-12">
           Showcasing 12 projects funded to grow the Metaplex protocol
         </p>
         
