@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { grantProjects } from "@/data/grantProjects";
 import { Badge } from "@/components/ui/badge";
-// No longer needed icon imports
+import NeonIcon from "@/components/ui/neon-icon";
 
 const ChartsPage = () => {
   // Calculate Tech Breakdown (Core vs 404)
@@ -306,41 +306,41 @@ const ChartsPage = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
         <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-purple-500/20 transform transition-all hover:scale-105 hover:shadow-purple-500/10">
           <div className="text-center">
-            <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
-              <span className="text-purple-400 mr-1">🏆</span>
-              <span>12</span>
+            <div className="flex flex-col items-center justify-center">
+              <NeonIcon type="trophy" size="lg" className="text-purple-400 mb-2" />
+              <div className="text-3xl font-bold text-white">12</div>
             </div>
-            <div className="text-sm text-purple-200">Total Grants</div>
+            <div className="text-sm text-purple-200 mt-1">Total Grants</div>
           </div>
         </div>
         
         <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-indigo-500/20 transform transition-all hover:scale-105 hover:shadow-indigo-500/10">
           <div className="text-center">
-            <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
-              <span className="text-indigo-400 mr-1">📊</span>
-              <span>$159,000</span>
+            <div className="flex flex-col items-center justify-center">
+              <NeonIcon type="chart" size="lg" className="text-indigo-400 mb-2" />
+              <div className="text-3xl font-bold text-white">$159,000</div>
             </div>
-            <div className="text-sm text-indigo-200">Total Value</div>
+            <div className="text-sm text-indigo-200 mt-1">Total Value</div>
           </div>
         </div>
         
         <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-blue-500/20 transform transition-all hover:scale-105 hover:shadow-blue-500/10">
           <div className="text-center">
-            <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
-              <span className="text-blue-400 mr-1">💰</span>
-              <span>$100,000</span>
+            <div className="flex flex-col items-center justify-center">
+              <NeonIcon type="money-bag" size="lg" className="text-blue-400 mb-2" />
+              <div className="text-3xl font-bold text-white">$100,000</div>
             </div>
-            <div className="text-sm text-blue-200">USDC Distributed</div>
+            <div className="text-sm text-blue-200 mt-1">USDC Distributed</div>
           </div>
         </div>
         
         <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-orange-500/20 transform transition-all hover:scale-105 hover:shadow-orange-500/10">
           <div className="text-center">
-            <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
-              <span className="text-orange-400 mr-1">🪙</span>
-              <span>$59,000</span>
+            <div className="flex flex-col items-center justify-center">
+              <NeonIcon type="coin" size="lg" className="text-orange-400 mb-2" />
+              <div className="text-3xl font-bold text-white">$59,000</div>
             </div>
-            <div className="text-sm text-orange-200">MPLX Value</div>
+            <div className="text-sm text-orange-200 mt-1">MPLX Value</div>
           </div>
         </div>
       </div>
