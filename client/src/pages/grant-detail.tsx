@@ -52,8 +52,8 @@ const GrantDetail = () => {
   return (
     <div className="max-w-7xl mx-auto">
       <div className="mb-6">
-        <Link to="/grants" className="text-[#f97316] hover:text-[#fb923c] flex items-center mb-4">
-          <ChevronLeft className="mr-1 h-4 w-4" />
+        <Link to="/grants" className="text-[#f97316] hover:text-[#fb923c] flex items-center mb-4 group transition-colors animate-glow-pulse">
+          <ChevronLeft className="mr-1 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
           Back to Grants
         </Link>
         
@@ -64,7 +64,7 @@ const GrantDetail = () => {
         >
           <div className="mb-6">
             <div className="flex flex-wrap justify-between items-center mb-4">
-              <h1 className="text-3xl md:text-4xl font-bold text-[#f1f5fb]">{grant.name}</h1>
+              <h1 className="text-3xl md:text-4xl font-bold text-gradient">{grant.name}</h1>
               <div className="flex gap-2 mt-2 md:mt-0">
                 <Badge 
                   className={grant.tech === "CORE" 

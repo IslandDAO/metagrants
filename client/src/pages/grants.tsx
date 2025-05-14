@@ -64,16 +64,16 @@ const GrantCard = ({ project }: { project: GrantProject }) => {
                       href={project.links.website} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-[#b5bfcc] hover:text-[#f97316]"
+                      className="text-[#b5bfcc] hover:text-[#f97316] transition-colors animate-glow-pulse"
                     >
-                      <ExternalLink size={16} />
+                      <ExternalLink size={16} className="hover:scale-110 transition-transform" />
                     </a>
                   )}
                   <Link 
                     to={`/grants/${project.slug}`}
-                    className="text-[#f97316] hover:text-[#fb923c] text-sm font-medium"
+                    className="text-[#f97316] hover:text-[#fb923c] text-sm font-medium transition-colors animate-glow-pulse flex items-center gap-1 hover:underline"
                   >
-                    Details
+                    Details <span className="text-xs">→</span>
                   </Link>
                 </div>
               </div>
@@ -108,7 +108,7 @@ const Grants = () => {
     <div className="max-w-7xl mx-auto">
       <div className="mb-8">
         <motion.h1 
-          className="text-3xl font-bold text-[#f1f5fb] mb-2"
+          className="text-3xl font-bold mb-2 text-gradient"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -131,11 +131,11 @@ const Grants = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <Card className="mb-6 border-[#3c4759] bg-[#1c2431]">
+        <Card className="mb-6 border-[#3c4759] card-gradient neon-glow">
           <CardContent className="pt-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#b5bfcc]" size={18} />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#b5bfcc] animate-glow-pulse" size={18} />
                 <Input
                   placeholder="Search projects..."
                   className="pl-10 bg-[#2c374b] border-[#3c4759] text-[#f1f5fb] placeholder:text-[#8896b0]"
