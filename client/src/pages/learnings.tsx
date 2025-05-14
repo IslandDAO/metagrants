@@ -108,7 +108,8 @@ const cohortStats = [
   { label: "Applications Received", value: "76" },
   { label: "Projects Funded", value: "12" },
   { label: "Total USDC Allocated", value: "$100,000" },
-  { label: "Total MPLX Allocated", value: "1,000,000" },
+  { label: "Total MPLX Allocated", value: "590,000" },
+  { label: "MPLX for Cohort 2", value: "410,000" },
   { label: "Average Grant Size", value: "$8,333" },
   { label: "Core/404 Ratio", value: "8:4" }
 ];
