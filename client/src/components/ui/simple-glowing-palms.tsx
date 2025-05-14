@@ -13,22 +13,39 @@ export const GlowingPalms: React.FC = () => {
     increasing: boolean;
   }>>([]);
 
-  // Initialize palms
+  // Initialize palms in an evenly distributed grid
   useEffect(() => {
-    // Create 25 palm trees with random positions and sizes
-    const initialPalms = Array.from({ length: 25 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 95 + 2.5, // Random position (2.5% to 97.5%)
-      y: Math.random() * 95 + 2.5, // Random position (2.5% to 97.5%)
-      size: Math.random() * 40 + 30, // Size between 30px and 70px
-      active: false,
-      brightness: 0,
-      increasing: false
-    }));
+    // Create a grid of palm trees
+    const rows = 6;
+    const cols = 8;
+    const fixedSize = 50; // All palms same size
+    const palmsArray = [];
+    
+    // Calculate even spacing
+    for (let row = 0; row < rows; row++) {
+      for (let col = 0; col < cols; col++) {
+        // Calculate position as percentage
+        const x = (col * 100 / (cols - 1)) * 0.9 + 5; // 5-95% range
+        const y = (row * 100 / (rows - 1)) * 0.9 + 5; // 5-95% range
+        
+        palmsArray.push({
+          id: row * cols + col,
+          x,
+          y,
+          size: fixedSize, // Fixed size
+          active: false,
+          brightness: 0,
+          increasing: false
+        });
+      }
+    }
+    
+    const initialPalms = palmsArray;
 
-    // Randomly select 3 initial active palms
+    // Randomly select 4-6 initial active palms
+    const numActivePalms = 4 + Math.floor(Math.random() * 3); // 4 to 6 active palms
     const activeIndices = new Set<number>();
-    while (activeIndices.size < 3) {
+    while (activeIndices.size < numActivePalms) {
       activeIndices.add(Math.floor(Math.random() * initialPalms.length));
     }
 
@@ -66,24 +83,22 @@ export const GlowingPalms: React.FC = () => {
             if (brightness <= 0) {
               brightness = 0;
               
-              // 30% chance to deactivate this palm and activate another
-              if (Math.random() < 0.3) {
-                // Find palms that aren't active
-                const inactivePalms = currentPalms.filter(p => !p.active);
+              // Always deactivate this palm and activate another
+              // Find palms that aren't active
+              const inactivePalms = currentPalms.filter(p => !p.active);
+              
+              // If we have inactive palms available
+              if (inactivePalms.length > 0) {
+                // Randomly select one to activate
+                const newActivePalm = inactivePalms[Math.floor(Math.random() * inactivePalms.length)];
                 
-                // If we have inactive palms available
-                if (inactivePalms.length > 0) {
-                  // Randomly select one to activate
-                  const newActivePalm = inactivePalms[Math.floor(Math.random() * inactivePalms.length)];
-                  
-                  // Return updated palm (will be deactivated)
-                  return {
-                    ...palm,
-                    active: false,
-                    brightness: 0,
-                    increasing: false
-                  };
-                }
+                // Return updated palm (will be deactivated)
+                return {
+                  ...palm,
+                  active: false,
+                  brightness: 0,
+                  increasing: false
+                };
               }
               
               // Continue with this palm
@@ -97,17 +112,24 @@ export const GlowingPalms: React.FC = () => {
             increasing
           };
         }).map((palm, i, array) => {
-          // Activate a new palm if needed
-          if (!palm.active && array.filter(p => p.active).length < 3) {
-            // This palm was selected to be activated in a previous iteration
-            const shouldActivate = array.some(p => p.id !== palm.id && !p.active && p.brightness === 0);
-            
-            if (shouldActivate) {
-              return {
-                ...palm,
-                active: true,
-                increasing: true
-              };
+          // Find the palm that was just deactivated
+          const deactivatedPalm = array.find(p => !p.active && p.id === palm.id && palm.active === false);
+          if (deactivatedPalm) {
+            // Find a new palm to activate
+            const inactivePalms = array.filter(p => !p.active && p.id !== palm.id);
+            if (inactivePalms.length > 0) {
+              const randomIndex = Math.floor(Math.random() * inactivePalms.length);
+              const newPalmId = inactivePalms[randomIndex].id;
+              
+              // Activate this palm if it matches the randomly selected one
+              if (palm.id === newPalmId) {
+                return {
+                  ...palm,
+                  active: true,
+                  increasing: true,
+                  brightness: 0
+                };
+              }
             }
           }
           
@@ -129,8 +151,8 @@ export const GlowingPalms: React.FC = () => {
             left: `${palm.x}%`,
             top: `${palm.y}%`,
             transform: 'translate(-50%, -50%)',
-            opacity: palm.active ? (0.7 + palm.brightness * 0.3) : 0.25,
-            transition: 'opacity 0.5s',
+            opacity: palm.active ? palm.brightness : 0,  // Completely fade out when not active
+            transition: 'opacity 1s',
           }}
         >
           <div
@@ -148,8 +170,8 @@ export const GlowingPalms: React.FC = () => {
                 width: '100%',
                 height: '100%',
                 objectFit: 'contain',
-                filter: palm.active ? `brightness(${1 + palm.brightness * 0.7})` : 'none',
-                transition: 'filter 0.5s',
+                filter: palm.active ? `brightness(${1 + palm.brightness})` : 'none',
+                transition: 'filter 1s',
               }}
             />
           </div>
