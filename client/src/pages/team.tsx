@@ -66,8 +66,8 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
           {/* Bio section - Single paragraph with no truncation */}
           <div className="mb-4 flex-grow">
             <div 
-              className="text-[#c5d3e7] text-xs leading-relaxed pr-1 overflow-y-auto text-justify" 
-              style={{ maxHeight: "250px" }}
+              className="text-[#c5d3e7] text-xs leading-relaxed pr-1 overflow-y-auto" 
+              style={{ maxHeight: "270px" }}
             >
               {member.bio}
             </div>
@@ -75,12 +75,12 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
           
           {/* Expertise tags - Scrollable when needed */}
           {member.expertise && member.expertise.length > 0 && (
-            <div className="flex flex-wrap gap-1 mb-4 max-h-[60px] overflow-y-auto scrollbar-hide">
+            <div className="flex flex-wrap gap-1.5 mb-5 max-h-[80px] overflow-y-auto scrollbar-hide">
               {member.expertise.map((skill) => (
                 <Badge 
                   key={skill} 
                   variant="outline" 
-                  className="bg-indigo-500/10 border-indigo-500/30 text-indigo-200 hover:bg-indigo-500/20 transition-colors text-xs py-0"
+                  className="bg-indigo-500/10 border-indigo-500/30 text-indigo-200 hover:bg-indigo-500/20 transition-colors text-xs py-0.5 px-2 mb-1"
                 >
                   {skill}
                 </Badge>
@@ -89,7 +89,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
           )}
           
           {/* Social links - Fixed height at bottom */}
-          <div className="flex justify-center space-x-4 pt-3 border-t border-[#364156] mt-auto">
+          <div className="flex justify-center space-x-6 pt-4 pb-1 border-t border-[#364156] mt-auto">
             {member.twitter && (
               <a 
                 href={member.twitter}
@@ -97,7 +97,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 rel="noopener noreferrer"
                 className="text-[#c5d3e7] hover:text-gray-100 transition-colors"
               >
-                <XLogo size={16} />
+                <XLogo size={18} />
               </a>
             )}
             {member.linkedin && (
@@ -107,7 +107,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 rel="noopener noreferrer"
                 className="text-[#c5d3e7] hover:text-blue-400 transition-colors"
               >
-                <Linkedin size={16} />
+                <Linkedin size={18} />
               </a>
             )}
             {member.github && (
@@ -117,7 +117,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 rel="noopener noreferrer"
                 className="text-[#c5d3e7] hover:text-purple-400 transition-colors"
               >
-                <Github size={16} />
+                <Github size={18} />
               </a>
             )}
             {member.website && (
@@ -127,7 +127,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 rel="noopener noreferrer"
                 className="text-[#c5d3e7] hover:text-indigo-400 transition-colors"
               >
-                <Globe size={16} />
+                <Globe size={18} />
               </a>
             )}
             {member.email && (
@@ -135,7 +135,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
                 href={`mailto:${member.email}`}
                 className="text-[#c5d3e7] hover:text-green-400 transition-colors"
               >
-                <Mail size={16} />
+                <Mail size={18} />
               </a>
             )}
           </div>
@@ -182,7 +182,7 @@ const Team = () => {
         <TabsContent value="core">
           <div className="flex flex-nowrap gap-4 overflow-x-auto pb-4 px-1 scrollbar-hide">
             {coreTeam.map((member) => (
-              <div key={member.name} className="flex-none w-[230px] h-[420px] transition-transform hover:scale-[1.02]">
+              <div key={member.name} className="flex-none w-[230px] h-[490px] transition-transform hover:scale-[1.02]">
                 <TeamMemberCard member={member} />
               </div>
             ))}
@@ -192,7 +192,7 @@ const Team = () => {
         <TabsContent value="advisors">
           <div className="flex flex-nowrap gap-4 overflow-x-auto pb-4 px-1 scrollbar-hide">
             {advisors.map((member) => (
-              <div key={member.name} className="flex-none w-[230px] h-[420px] transition-transform hover:scale-[1.02]">
+              <div key={member.name} className="flex-none w-[230px] h-[490px] transition-transform hover:scale-[1.02]">
                 <TeamMemberCard member={member} />
               </div>
             ))}
