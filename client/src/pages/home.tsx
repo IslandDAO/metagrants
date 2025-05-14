@@ -80,25 +80,73 @@ const Home = () => {
             Managed by <a href="https://islanddao.org/" target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-400 transition-colors">IslandDAO</a>
           </h2>
         </div>
-        <p className="text-xl text-[#b5bfcc] max-w-3xl mx-auto mb-12">
-          Showcasing 12 projects funded to grow the Metaplex protocol
-        </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
-          <StatItem label="Applications Received" value={76} />
-          <StatItem label="Grants Funded" value={12} />
-          <StatItem label="USDC Allocated" value="$100,000" />
-          <StatItem label="MPLX Allocated" value="590,000" />
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto">
+          <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-indigo-500/20 transform transition-all hover:scale-105 hover:shadow-indigo-500/10">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
+                <span className="text-indigo-400 mr-1">📊</span>
+                <AnimatedCounter value={76} />
+              </div>
+              <div className="text-sm text-indigo-200">Applications Received</div>
+            </div>
+          </div>
+          
+          <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-purple-500/20 transform transition-all hover:scale-105 hover:shadow-purple-500/10">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
+                <span className="text-purple-400 mr-1">🏆</span>
+                <AnimatedCounter value={12} />
+              </div>
+              <div className="text-sm text-purple-200">Grants Funded</div>
+            </div>
+          </div>
+          
+          <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-blue-500/20 transform transition-all hover:scale-105 hover:shadow-blue-500/10">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
+                <span className="text-blue-400 mr-1">💰</span>
+                <span>$100,000</span>
+              </div>
+              <div className="text-sm text-blue-200">USDC Allocated</div>
+            </div>
+          </div>
+          
+          <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-orange-500/20 transform transition-all hover:scale-105 hover:shadow-orange-500/10">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
+                <span className="text-orange-400 mr-1">🪙</span>
+                <span>590,000</span>
+              </div>
+              <div className="text-sm text-orange-200">MPLX Allocated</div>
+            </div>
+          </div>
         </div>
         
-        <Link to="/grants">
-          <Button 
-            size="lg"
-            className="bg-[#f97316] hover:bg-[#fb923c] text-white font-bold py-6 px-10 rounded-lg text-xl transition transform hover:scale-105"
-          >
-            View Grantees
-          </Button>
-        </Link>
+        <div className="flex flex-col items-center space-y-6 mb-10">
+          <Link to="/grants">
+            <Button 
+              size="lg"
+              className="bg-[#f97316] hover:bg-[#fb923c] text-white font-bold py-6 px-10 rounded-lg text-xl transition transform hover:scale-105"
+            >
+              View Grantees
+            </Button>
+          </Link>
+          
+          <div className="flex flex-col items-center mt-8 space-y-3">
+            <div className="bg-gradient-to-r from-transparent via-[#2a3550] to-transparent h-px w-64 opacity-50"></div>
+            <div className="flex items-center">
+              <div className="text-[#a3adc2] text-sm font-medium">Cohort 2 Coming Soon</div>
+              <div className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse ml-2"></div>
+            </div>
+            <Button 
+              disabled
+              className="bg-[#2a3550] text-[#697287] font-medium py-2 px-6 rounded-lg text-sm cursor-not-allowed opacity-50"
+            >
+              Applications Closed
+            </Button>
+          </div>
+        </div>
       </motion.div>
     </div>
   );
