@@ -55,11 +55,11 @@ const AnimatedCounter = ({ value, duration = 2000 }: { value: number, duration?:
 // StatItem component
 const StatItem = ({ label, value }: { label: string, value: number | string }) => {
   return (
-    <div className="bg-emerald-700 rounded-lg shadow-lg p-5 text-center transform transition-all hover:scale-105">
+    <div className="bg-emerald-600 rounded-lg shadow-lg p-5 text-center transform transition-all hover:scale-105 border border-emerald-500">
       <div className="text-2xl md:text-3xl font-bold text-orange-200 mb-2">
         {typeof value === 'number' ? <AnimatedCounter value={value} /> : value}
       </div>
-      <div className="text-emerald-100 text-sm">{label}</div>
+      <div className="text-emerald-100 text-sm font-medium">{label}</div>
     </div>
   );
 };

@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --background: 160 15% 95%;
-  --foreground: 158 42% 18%;
-  --muted: 160 10% 90%;
-  --muted-foreground: 158 20% 40%;
-  --popover: 160 15% 95%;
-  --popover-foreground: 158 42% 18%;
-  --card: 158 15% 97%;
-  --card-foreground: 158 42% 18%;
-  --border: 158 15% 85%;
-  --input: 158 15% 85%;
+  --background: 160 30% 25%;
+  --foreground: 158 100% 92%;
+  --muted: 160 30% 30%;
+  --muted-foreground: 158 100% 85%;
+  --popover: 160 30% 25%;
+  --popover-foreground: 158 100% 92%;
+  --card: 160 30% 20%;
+  --card-foreground: 158 100% 92%;
+  --border: 158 30% 30%;
+  --input: 158 30% 30%;
   --primary: 158 55% 38%;  /* Dark green */
   --primary-foreground: 160 100% 98%;
   --secondary: 32 85% 55%; /* Orange */
