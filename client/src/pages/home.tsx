@@ -127,19 +127,31 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10">
           <Link to="/grants" className="group">
             <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-6 shadow-lg border border-blue-500/20 h-full flex flex-col transition-all transform group-hover:scale-[1.02] group-hover:shadow-blue-500/10">
-              <div className="w-16 h-16 flex items-center justify-center mb-4 mx-auto">
+              <div className="w-20 h-20 flex items-center justify-center mb-4 mx-auto">
                 <div className="relative w-full h-full">
                   <div className="absolute inset-0 bg-blue-500/20 transform rotate-45 border border-blue-500/30"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="pixelated">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-blue-300">
-                        <rect x="9" y="1" width="6" height="3" fill="currentColor" />
-                        <rect x="6" y="4" width="12" height="3" fill="currentColor" />
-                        <rect x="8" y="7" width="8" height="8" fill="currentColor" />
-                        <rect x="5" y="10" width="3" height="5" fill="currentColor" />
-                        <rect x="16" y="10" width="3" height="5" fill="currentColor" />
-                        <rect x="10" y="15" width="4" height="3" fill="currentColor" />
-                        <rect x="8" y="18" width="8" height="3" fill="currentColor" />
+                      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-blue-300">
+                        {/* Palm Tree */}
+                        <rect x="14" y="20" width="4" height="8" fill="currentColor" /> {/* Tree trunk */}
+                        <rect x="10" y="16" width="4" height="4" fill="currentColor" /> {/* Left palm leaf base */}
+                        <rect x="18" y="16" width="4" height="4" fill="currentColor" /> {/* Right palm leaf base */}
+                        <rect x="6" y="14" width="4" height="2" fill="currentColor" /> {/* Left palm leaf */}
+                        <rect x="22" y="14" width="4" height="2" fill="currentColor" /> {/* Right palm leaf */}
+                        <rect x="2" y="12" width="4" height="2" fill="currentColor" /> {/* Far left palm leaf */}
+                        <rect x="26" y="12" width="4" height="2" fill="currentColor" /> {/* Far right palm leaf */}
+                        
+                        {/* Person */}
+                        <rect x="12" y="24" width="2" height="2" fill="#8BBEFF" /> {/* Person's head */}
+                        <rect x="12" y="26" width="2" height="2" fill="#8BBEFF" /> {/* Person's body */}
+                        <rect x="10" y="26" width="2" height="1" fill="#8BBEFF" /> {/* Person's left arm */}
+                        <rect x="14" y="26" width="2" height="1" fill="#8BBEFF" /> {/* Person's right arm */}
+                        <rect x="10" y="28" width="2" height="2" fill="#8BBEFF" /> {/* Person's left leg */}
+                        <rect x="14" y="28" width="2" height="2" fill="#8BBEFF" /> {/* Person's right leg */}
+                        
+                        {/* Ground */}
+                        <rect x="2" y="30" width="28" height="2" fill="currentColor" /> {/* Sand */}
                       </svg>
                     </div>
                   </div>
@@ -156,17 +168,31 @@ const Home = () => {
           
           <Link to="/team" className="group">
             <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-6 shadow-lg border border-purple-500/20 h-full flex flex-col transition-all transform group-hover:scale-[1.02] group-hover:shadow-purple-500/10">
-              <div className="w-16 h-16 flex items-center justify-center mb-4 mx-auto">
+              <div className="w-20 h-20 flex items-center justify-center mb-4 mx-auto">
                 <div className="relative w-full h-full">
                   <div className="absolute inset-0 bg-purple-500/20 transform rotate-45 border border-purple-500/30"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="pixelated">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-purple-300">
-                        <rect x="3" y="6" width="6" height="6" fill="currentColor" />
-                        <rect x="4.5" y="12" width="3" height="6" fill="currentColor" />
-                        <rect x="15" y="6" width="6" height="6" fill="currentColor" />
-                        <rect x="16.5" y="12" width="3" height="6" fill="currentColor" />
-                        <rect x="7.5" y="16.5" width="9" height="3" fill="currentColor" />
+                      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-purple-300">
+                        {/* Captain's Hat Base */}
+                        <rect x="8" y="18" width="16" height="4" fill="currentColor" /> {/* Hat brim */}
+                        <rect x="6" y="18" width="2" height="2" fill="currentColor" /> {/* Left brim edge */}
+                        <rect x="24" y="18" width="2" height="2" fill="currentColor" /> {/* Right brim edge */}
+                        
+                        {/* Hat Top */}
+                        <rect x="10" y="12" width="12" height="6" fill="currentColor" /> {/* Main hat */}
+                        <rect x="8" y="14" width="2" height="4" fill="currentColor" /> {/* Left side */}
+                        <rect x="22" y="14" width="2" height="4" fill="currentColor" /> {/* Right side */}
+                        
+                        {/* Captain's Hat Detail */}
+                        <rect x="14" y="6" width="4" height="6" fill="currentColor" /> {/* Top peak */}
+                        <rect x="12" y="10" width="2" height="2" fill="currentColor" /> {/* Left peak extension */}
+                        <rect x="18" y="10" width="2" height="2" fill="currentColor" /> {/* Right peak extension */}
+                        
+                        {/* Hat Decoration */}
+                        <rect x="14" y="14" width="4" height="2" fill="#D8B4FE" /> {/* Center emblem */}
+                        <rect x="13" y="16" width="6" height="1" fill="#D8B4FE" /> {/* Bottom decoration */}
+                        <rect x="15" y="17" width="2" height="1" fill="gold" /> {/* Gold button */}
                       </svg>
                     </div>
                   </div>
@@ -183,17 +209,36 @@ const Home = () => {
           
           <Link to="/charts" className="group">
             <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-6 shadow-lg border border-emerald-500/20 h-full flex flex-col transition-all transform group-hover:scale-[1.02] group-hover:shadow-emerald-500/10">
-              <div className="w-16 h-16 flex items-center justify-center mb-4 mx-auto">
+              <div className="w-20 h-20 flex items-center justify-center mb-4 mx-auto">
                 <div className="relative w-full h-full">
                   <div className="absolute inset-0 bg-emerald-500/20 transform rotate-45 border border-emerald-500/30"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="pixelated">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-emerald-300">
-                        <rect x="3" y="17" width="3" height="4" fill="currentColor" />
-                        <rect x="8" y="14" width="3" height="7" fill="currentColor" />
-                        <rect x="13" y="11" width="3" height="10" fill="currentColor" />
-                        <rect x="18" y="6" width="3" height="15" fill="currentColor" />
-                        <rect x="3" y="3" width="18" height="1.5" fill="currentColor" />
+                      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-emerald-300">
+                        {/* Lighthouse Base */}
+                        <rect x="8" y="24" width="16" height="6" fill="currentColor" /> {/* Base foundation */}
+                        <rect x="6" y="22" width="20" height="2" fill="currentColor" /> {/* Base top */}
+                        
+                        {/* Lighthouse Tower */}
+                        <rect x="12" y="8" width="8" height="14" fill="currentColor" /> {/* Main tower */}
+                        <rect x="10" y="16" width="12" height="2" fill="currentColor" /> {/* Mid section band */}
+                        <rect x="10" y="10" width="12" height="2" fill="currentColor" /> {/* Upper section band */}
+                        
+                        {/* Lighthouse Top */}
+                        <rect x="11" y="4" width="10" height="4" fill="currentColor" /> {/* Light room */}
+                        <rect x="13" y="2" width="6" height="2" fill="currentColor" /> {/* Roof */}
+                        
+                        {/* Light */}
+                        <rect x="14" y="6" width="4" height="2" fill="#FFDD80" /> {/* Light source */}
+                        <rect x="4" y="10" width="2" height="2" fill="#FFDD80" /> {/* Light beam left */}
+                        <rect x="26" y="10" width="2" height="2" fill="#FFDD80" /> {/* Light beam right */}
+                        
+                        {/* Ground */}
+                        <rect x="2" y="30" width="28" height="2" fill="#5EEAD4" /> {/* Water/ground */}
+                        
+                        {/* Windows */}
+                        <rect x="14" y="12" width="4" height="2" fill="#A7F3D0" /> {/* Window 1 */}
+                        <rect x="14" y="18" width="4" height="2" fill="#A7F3D0" /> {/* Window 2 */}
                       </svg>
                     </div>
                   </div>
