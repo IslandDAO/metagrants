@@ -1,0 +1,180 @@
+export interface GrantProject {
+  id?: string;
+  slug: string;
+  name: string;
+  sector: string;
+  tech: "CORE" | "404";
+  summary: string;
+  description: string;
+  totalUsd: number;
+  usdc: number;
+  mplx: number;
+  notable: boolean;
+  links?: {
+    website?: string;
+    github?: string;
+    x?: string;
+  };
+}
+
+export const grantProjects: GrantProject[] = [
+  {
+    slug: "faenora",
+    name: "Faenora",
+    tech: "404",
+    sector: "Gaming",
+    summary: "A turn-based RPG using MPL-404 hybrid NFTs.",
+    description: "An immersive fantasy RPG available on Steam with over 5,000 alpha testers and 14,000+ wishlists. Uses MPL-404 to tokenize characters, loot, and seasonal rewards into programmable, tradable NFTs that drive progression and community events.",
+    usdc: 15000,
+    mplx: 100000,
+    totalUsd: 25000,
+    notable: true,
+    links: {
+      x: "https://x.com/amdonatusprince/status/1912454347684028725"
+    }
+  },
+  {
+    slug: "silaunch",
+    name: "SiliLaunch",
+    tech: "404",
+    sector: "Creator & NFT Infra",
+    summary: "A launchpad for Hybrid NFT + DeFi projects on Solana.",
+    description: "An OG Solana team building a launchpad and asset management platform using MPL-404. Key features are open-sourced and they're partnering with top projects.",
+    usdc: 17500,
+    mplx: 50000,
+    totalUsd: 22500,
+    notable: true,
+    links: {
+      x: "https://x.com/SILICONS_CAW/status/1866181019659096571"
+    }
+  },
+  {
+    slug: "onemug",
+    name: "One Mug",
+    tech: "404",
+    sector: "Consumer App",
+    summary: "A decentralized coffee brand with gamified NFT loyalty.",
+    description: "One Mug is using MPL-404 NFTs to gamify loyalty and revenue sharing for a crypto-native coffee experience.",
+    usdc: 10000,
+    mplx: 100000,
+    totalUsd: 20000,
+    notable: false
+  },
+  {
+    slug: "nomadz",
+    name: "Nomadz",
+    tech: "404",
+    sector: "Consumer App",
+    summary: "A travel app with gamified NFTs and crypto off-ramps.",
+    description: "Nomadz is building a travel platform that uses NFTs to offer rewards, loyalty, and fee-free crypto off-ramps for travelers.",
+    usdc: 10000,
+    mplx: 100000,
+    totalUsd: 20000,
+    notable: false
+  },
+  {
+    slug: "publique",
+    name: "Publique",
+    tech: "CORE",
+    sector: "Creator & Culture",
+    summary: "A decentralized animated anthology using NFTs.",
+    description: "An NFT-driven animation studio where holders co-create and fund stories. Already delivered a visually striking NFT collection and features creators with real-world experience.",
+    usdc: 12500,
+    mplx: 0,
+    totalUsd: 12500,
+    notable: true,
+    links: {
+      x: "https://x.com/publique_world/status/1876306442216702073"
+    }
+  },
+  {
+    slug: "bigdiggas",
+    name: "Big Diggas",
+    tech: "CORE",
+    sector: "Gaming",
+    summary: "CORE NFTs integrated with Godot for indie devs.",
+    description: "Big Diggas integrated Metaplex Core into the Godot game engine and released tutorials and an open-source game to activate Solana gaming.",
+    usdc: 5000,
+    mplx: 50000,
+    totalUsd: 10000,
+    notable: true,
+    links: {
+      x: "https://x.com/thomukas1/status/1898425452701663581"
+    }
+  },
+  {
+    slug: "verxio",
+    name: "Verxio",
+    tech: "CORE",
+    sector: "Social & Identity",
+    summary: "A loyalty and XP system using soulbound NFTs.",
+    description: "A low-code system for Solana apps to track user progression and behavior using Metaplex Core. Verxio is already onboarding ecosystem partners.",
+    usdc: 5000,
+    mplx: 50000,
+    totalUsd: 10000,
+    notable: true
+  },
+  {
+    slug: "sendarcade",
+    name: "Send Arcade",
+    tech: "CORE",
+    sector: "Gaming",
+    summary: "A mini-game hub using interoperable Core NFTs.",
+    description: "Send Arcade builds interoperable games where users can own and trade digital items as Core NFTs across multiple titles.",
+    usdc: 5000,
+    mplx: 50000,
+    totalUsd: 10000,
+    notable: false
+  },
+  {
+    slug: "werate",
+    name: "WeRate",
+    tech: "CORE",
+    sector: "Consumer App",
+    summary: "An AI-powered review platform built on NFTs.",
+    description: "A review platform rewarding honest feedback using AI + NFTs. Community-owned and in beta with strong user traction.",
+    usdc: 5000,
+    mplx: 50000,
+    totalUsd: 10000,
+    notable: true,
+    links: {
+      x: "https://x.com/weRate_Official/status/1910618998347358618"
+    }
+  },
+  {
+    slug: "glint",
+    name: "Glint",
+    tech: "CORE",
+    sector: "Data & Analytics",
+    summary: "No-code analytics dashboards for NFT data.",
+    description: "Glint lets analysts build NFT dashboards that earn rewards. Currently collaborating with the grants team on performance tracking.",
+    usdc: 6000,
+    mplx: 20000,
+    totalUsd: 8000,
+    notable: false
+  },
+  {
+    slug: "peachez",
+    name: "Peachez",
+    tech: "CORE",
+    sector: "Social & Identity",
+    summary: "Crowdfunded music with evolving fan NFTs.",
+    description: "Peachez allows musicians to crowdfund using evolving NFTs with perks and progression features, creating artist-fan alignment.",
+    usdc: 6000,
+    mplx: 20000,
+    totalUsd: 8000,
+    notable: false
+  },
+  {
+    slug: "mallow",
+    name: "Mallow",
+    tech: "CORE",
+    sector: "Creator & NFT Infra",
+    summary: "A free minting NFT marketplace for creators.",
+    description: "Mallow launched a zero-cost minting campaign to help creators experiment with NFTs without upfront costs.",
+    usdc: 2000,
+    mplx: 0,
+    totalUsd: 2000,
+    notable: false
+  }
+];

@@ -16,27 +16,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Filter, Search, ExternalLink } from "lucide-react";
-import { grantProjects } from "@/data/grants";
-
-// Define the type for grant projects
-interface GrantProject {
-  id: string;
-  slug: string;
-  name: string;
-  sector: string;
-  tech: "CORE" | "404";
-  summary: string;
-  description: string;
-  totalUsd: number;
-  usdc: number;
-  mplx: number;
-  notable: boolean;
-  links?: {
-    website?: string;
-    github?: string;
-    x?: string;
-  };
-}
+import { grantProjects, GrantProject } from "@/data/grantProjects";
 
 const GrantCard = ({ project }: { project: GrantProject }) => {
   return (
@@ -46,14 +26,14 @@ const GrantCard = ({ project }: { project: GrantProject }) => {
       transition={{ duration: 0.5 }}
       whileHover={{ scale: 1.03 }}
     >
-      <Card className="overflow-hidden h-full transition hover:shadow-lg">
+      <Card className="overflow-hidden h-full transition hover:shadow-lg border-[#3c4759] bg-[#1c2431]">
         <CardContent className="p-6">
           <div className="flex justify-between items-start mb-3">
-            <h3 className="text-xl font-bold text-secondary">{project.name}</h3>
+            <h3 className="text-xl font-bold text-[#f1f5fb]">{project.name}</h3>
             <Badge 
               className={project.tech === "CORE" 
-                ? "bg-green-100 text-green-800" 
-                : "bg-blue-100 text-blue-800"
+                ? "bg-[#10b981] text-[#f1f5fb]" 
+                : "bg-[#3b82f6] text-[#f1f5fb]"
               } 
               variant="outline"
             >
@@ -61,14 +41,14 @@ const GrantCard = ({ project }: { project: GrantProject }) => {
             </Badge>
           </div>
           <div className="mb-3">
-            <Badge className="bg-gray-100 text-gray-800">{project.sector}</Badge>
+            <Badge className="bg-[#2c374b] text-[#b5bfcc]">{project.sector}</Badge>
           </div>
-          <p className="text-gray-600 text-sm mb-4">
+          <p className="text-[#b5bfcc] text-sm mb-4">
             {project.summary}
           </p>
-          <div className="border-t pt-3 mt-auto">
+          <div className="border-t border-[#3c4759] pt-3 mt-auto">
             <div className="flex justify-between items-center">
-              <div className="text-sm font-medium text-gray-900">
+              <div className="text-sm font-medium text-[#f1f5fb]">
                 ${project.totalUsd.toLocaleString()}
               </div>
               <div className="flex space-x-2">
@@ -77,14 +57,14 @@ const GrantCard = ({ project }: { project: GrantProject }) => {
                     href={project.links.website} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-secondary"
+                    className="text-[#b5bfcc] hover:text-[#f97316]"
                   >
                     <ExternalLink size={16} />
                   </a>
                 )}
                 <Link 
                   to={`/grants/${project.slug}`}
-                  className="text-secondary hover:text-secondary-light text-sm font-medium"
+                  className="text-[#f97316] hover:text-[#fb923c] text-sm font-medium"
                 >
                   Details
                 </Link>
@@ -120,7 +100,7 @@ const Grants = () => {
     <div className="max-w-7xl mx-auto">
       <div className="mb-8">
         <motion.h1 
-          className="text-3xl font-bold text-secondary mb-2"
+          className="text-3xl font-bold text-[#f1f5fb] mb-2"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -128,7 +108,7 @@ const Grants = () => {
           MetaplexDAO Grants — Cohort 1
         </motion.h1>
         <motion.p 
-          className="text-gray-600"
+          className="text-[#b5bfcc]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -143,11 +123,11 @@ const Grants = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <Card className="mb-6">
+        <Card className="mb-6 border-[#3c4759] bg-[#1c2431]">
           <CardContent className="pt-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#b5bfcc]" size={18} />
                 <Input
                   placeholder="Search projects..."
                   className="pl-10"
