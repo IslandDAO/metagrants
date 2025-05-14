@@ -132,26 +132,68 @@ const Home = () => {
                   <div className="absolute inset-0 bg-blue-500/20 transform rotate-45 border border-blue-500/30"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="pixelated">
-                      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-blue-300">
-                        {/* Palm Tree */}
-                        <rect x="14" y="20" width="4" height="8" fill="currentColor" /> {/* Tree trunk */}
-                        <rect x="10" y="16" width="4" height="4" fill="currentColor" /> {/* Left palm leaf base */}
-                        <rect x="18" y="16" width="4" height="4" fill="currentColor" /> {/* Right palm leaf base */}
-                        <rect x="6" y="14" width="4" height="2" fill="currentColor" /> {/* Left palm leaf */}
-                        <rect x="22" y="14" width="4" height="2" fill="currentColor" /> {/* Right palm leaf */}
-                        <rect x="2" y="12" width="4" height="2" fill="currentColor" /> {/* Far left palm leaf */}
-                        <rect x="26" y="12" width="4" height="2" fill="currentColor" /> {/* Far right palm leaf */}
+                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        {/* Trunk */}
+                        <rect x="17" y="17" width="2" height="2" fill="#3D2817" />
+                        <rect x="17" y="19" width="2" height="2" fill="#543823" />
+                        <rect x="17" y="21" width="2" height="2" fill="#6E492F" />
+                        <rect x="17" y="23" width="2" height="2" fill="#855A3A" />
+                        <rect x="17" y="25" width="2" height="2" fill="#9A6944" />
+                        <rect x="17" y="27" width="2" height="2" fill="#B0774E" />
+                        <rect x="17" y="29" width="2" height="2" fill="#C58658" />
+                        <rect x="19" y="27" width="2" height="2" fill="#9A6944" />
+                        <rect x="21" y="29" width="2" height="2" fill="#C58658" />
+                        <rect x="15" y="29" width="2" height="2" fill="#C58658" />
                         
-                        {/* Person */}
-                        <rect x="12" y="24" width="2" height="2" fill="#8BBEFF" /> {/* Person's head */}
-                        <rect x="12" y="26" width="2" height="2" fill="#8BBEFF" /> {/* Person's body */}
-                        <rect x="10" y="26" width="2" height="1" fill="#8BBEFF" /> {/* Person's left arm */}
-                        <rect x="14" y="26" width="2" height="1" fill="#8BBEFF" /> {/* Person's right arm */}
-                        <rect x="10" y="28" width="2" height="2" fill="#8BBEFF" /> {/* Person's left leg */}
-                        <rect x="14" y="28" width="2" height="2" fill="#8BBEFF" /> {/* Person's right leg */}
+                        {/* Left Palm Frond */}
+                        <rect x="11" y="13" width="2" height="2" fill="#4B6B33" />
+                        <rect x="9" y="13" width="2" height="2" fill="#4B6B33" />
+                        <rect x="7" y="13" width="2" height="2" fill="#4B6B33" />
+                        <rect x="5" y="15" width="2" height="2" fill="#5C8141" />
+                        <rect x="7" y="15" width="2" height="2" fill="#5C8141" />
+                        <rect x="9" y="15" width="2" height="2" fill="#5C8141" />
+                        <rect x="11" y="15" width="2" height="2" fill="#5C8141" />
+                        <rect x="13" y="15" width="2" height="2" fill="#5C8141" />
+                        <rect x="15" y="15" width="2" height="2" fill="#5C8141" />
+                        <rect x="7" y="17" width="2" height="2" fill="#6F9D4F" />
+                        <rect x="9" y="17" width="2" height="2" fill="#6F9D4F" />
+                        <rect x="11" y="17" width="2" height="2" fill="#6F9D4F" />
+                        <rect x="13" y="17" width="2" height="2" fill="#6F9D4F" />
+                        <rect x="15" y="17" width="2" height="2" fill="#6F9D4F" />
                         
-                        {/* Ground */}
-                        <rect x="2" y="30" width="28" height="2" fill="currentColor" /> {/* Sand */}
+                        {/* Right Palm Frond */}
+                        <rect x="25" y="13" width="2" height="2" fill="#4B6B33" />
+                        <rect x="27" y="13" width="2" height="2" fill="#4B6B33" />
+                        <rect x="29" y="13" width="2" height="2" fill="#4B6B33" />
+                        <rect x="21" y="15" width="2" height="2" fill="#5C8141" />
+                        <rect x="23" y="15" width="2" height="2" fill="#5C8141" />
+                        <rect x="25" y="15" width="2" height="2" fill="#5C8141" />
+                        <rect x="27" y="15" width="2" height="2" fill="#5C8141" />
+                        <rect x="29" y="15" width="2" height="2" fill="#5C8141" />
+                        <rect x="31" y="15" width="2" height="2" fill="#5C8141" />
+                        <rect x="21" y="17" width="2" height="2" fill="#6F9D4F" />
+                        <rect x="23" y="17" width="2" height="2" fill="#6F9D4F" />
+                        <rect x="25" y="17" width="2" height="2" fill="#6F9D4F" />
+                        <rect x="27" y="17" width="2" height="2" fill="#6F9D4F" />
+                        <rect x="29" y="17" width="2" height="2" fill="#6F9D4F" />
+                        
+                        {/* Top Frond */}
+                        <rect x="17" y="11" width="2" height="2" fill="#4B6B33" />
+                        <rect x="19" y="11" width="2" height="2" fill="#4B6B33" />
+                        <rect x="15" y="9" width="2" height="2" fill="#5C8141" />
+                        <rect x="17" y="9" width="2" height="2" fill="#5C8141" />
+                        <rect x="19" y="9" width="2" height="2" fill="#5C8141" />
+                        <rect x="21" y="9" width="2" height="2" fill="#5C8141" />
+                        <rect x="13" y="7" width="2" height="2" fill="#6F9D4F" />
+                        <rect x="15" y="7" width="2" height="2" fill="#6F9D4F" />
+                        <rect x="17" y="7" width="2" height="2" fill="#6F9D4F" />
+                        <rect x="19" y="7" width="2" height="2" fill="#6F9D4F" />
+                        <rect x="21" y="7" width="2" height="2" fill="#6F9D4F" />
+                        <rect x="23" y="7" width="2" height="2" fill="#6F9D4F" />
+                        
+                        {/* Sand */}
+                        <rect x="11" y="31" width="18" height="2" fill="#E8C396" />
+                        <rect x="9" y="33" width="22" height="2" fill="#E8C396" />
                       </svg>
                     </div>
                   </div>
