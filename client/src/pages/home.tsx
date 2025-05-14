@@ -55,11 +55,14 @@ const AnimatedCounter = ({ value, duration = 2000 }: { value: number, duration?:
 // StatItem component
 const StatItem = ({ label, value }: { label: string, value: number | string }) => {
   return (
-    <div className="bg-[#1c2431] rounded-lg shadow-lg p-5 text-center transform transition-all hover:scale-105 border border-[#3c4759]">
-      <div className="text-2xl md:text-3xl font-bold text-[#f1f5fb] mb-2">
+    <div className="bg-gradient-to-br from-[#1c2431] to-[#2a3a52] rounded-lg shadow-lg p-5 text-center transform transition-all hover:scale-105 border-t-2 border-b border-l border-r border-indigo-500/30 backdrop-blur-sm relative before:absolute before:inset-0 before:bg-purple-500/5 before:rounded-lg overflow-hidden">
+      {/* Retro scanlines effect */}
+      <div className="absolute inset-0 bg-scanlines opacity-10 pointer-events-none"></div>
+      
+      <div className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-indigo-300 mb-2 font-mono tracking-tight drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
         {typeof value === 'number' ? <AnimatedCounter value={value} /> : value}
       </div>
-      <div className="text-[#b5bfcc] text-sm font-medium">{label}</div>
+      <div className="text-[#b5bfcc] text-sm font-medium bg-[#1c2431]/70 inline-block px-3 py-1 rounded-lg border border-indigo-500/20">{label}</div>
     </div>
   );
 };
@@ -74,19 +77,31 @@ const Home = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        <div className="flex justify-center mb-6">
-          <MetaplexLogo className="h-10 w-auto" />
+        <div className="flex justify-center mb-8">
+          <MetaplexLogo className="h-12 w-auto" />
         </div>
-        <h1 className="text-4xl md:text-6xl font-bold text-[#f1f5fb] mb-6">
-          MetaplexDAO Grants — Cohort 1
-        </h1>
-        <div className="mb-4 text-center">
-          <h2 className="text-xl md:text-2xl text-[#b5bfcc]">
-            Managed by <a href="https://islanddao.org/" target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-400 transition-colors">IslandDAO</a>
-          </h2>
+        <div className="relative z-10 mb-8">
+          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-500 mb-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+            MetaplexDAO Grants
+          </h1>
+          <div className="text-3xl md:text-5xl font-bold font-mono text-[#f1f5fb] mb-3 tracking-tight relative">
+            <span className="opacity-80 animate-pulse text-green-300 drop-shadow-[0_2px_8px_rgba(34,197,94,0.8)]">— Cohort 1 —</span>
+          </div>
+          <div className="w-full max-w-lg mx-auto bg-gradient-to-r from-indigo-800/50 via-purple-800/50 to-indigo-800/50 p-3 rounded-lg border-t-2 border-b-2 border-purple-500/50 rotate-[-0.5deg] transform hover:rotate-[0.5deg] transition-transform duration-700 backdrop-blur-sm">
+            <h2 className="text-xl md:text-2xl text-[#f1f5fb] font-mono tracking-wide">
+              Managed by <a href="https://islanddao.org/" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 transition-colors underline decoration-wavy underline-offset-4 decoration-indigo-400">IslandDAO</a>
+            </h2>
+          </div>
         </div>
-        <p className="text-xl text-[#b5bfcc] max-w-3xl mx-auto mb-12">
-          Showcasing 12 projects funded to grow the Metaplex protocol
+        <p className="relative text-xl md:text-2xl text-[#b5bfcc] max-w-3xl mx-auto mb-14 font-mono">
+          <span className="relative inline-block px-2 py-1 before:absolute before:inset-0 before:bg-indigo-600/20 before:rotate-[-1deg] before:rounded">
+            <span className="relative text-blue-100">Showcasing</span>
+          </span>{" "}
+          <span className="text-amber-300 font-bold">12 projects</span>{" "}
+          <span className="relative inline-block px-2 py-1 before:absolute before:inset-0 before:bg-purple-600/20 before:rotate-[1deg] before:rounded">
+            <span className="relative">funded to grow the</span>
+          </span>{" "}
+          <span className="text-indigo-300 font-bold tracking-wide animate-pulse">Metaplex protocol</span>
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
@@ -96,12 +111,15 @@ const Home = () => {
           <StatItem label="MPLX Allocated" value="590,000" />
         </div>
         
-        <Link to="/grants">
+        <Link to="/grants" className="inline-block relative group">
+          <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-500 rounded-lg blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-flicker"></div>
           <Button 
             size="lg"
-            className="bg-[#f97316] hover:bg-[#fb923c] text-white font-bold py-6 px-10 rounded-lg text-xl transition transform hover:scale-105"
+            className="relative bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 text-white font-mono font-bold py-6 px-10 rounded-lg text-xl transition transform hover:scale-[1.02] border border-indigo-500/30"
           >
-            View Grantees
+            <span className="relative z-10 flex items-center gap-2 retro-text">
+              <span className="opacity-90">&gt;</span> View Grantees <span className="opacity-90 animate-pulse">_</span>
+            </span>
           </Button>
         </Link>
       </motion.div>

@@ -70,3 +70,42 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+/* Retro scanlines effect */
+.bg-scanlines {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 100% 4px;
+}
+
+/* Retro glow effects */
+.retro-glow {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 
+               0 0 20px rgba(59, 130, 246, 0.5), 
+               0 0 30px rgba(59, 130, 246, 0.3);
+}
+
+.retro-text {
+  font-family: monospace;
+  letter-spacing: 0.05em;
+}
+
+/* CRT flicker animation */
+@keyframes flicker {
+  0% { opacity: 0.97; }
+  5% { opacity: 0.9; }
+  10% { opacity: 0.97; }
+  15% { opacity: 1; }
+  20% { opacity: 0.97; }
+  25% { opacity: 0.9; }
+  30% { opacity: 1; }
+  100% { opacity: 0.97; }
+}
+
+.animate-flicker {
+  animation: flicker 10s infinite;
+}
