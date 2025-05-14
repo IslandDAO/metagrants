@@ -135,16 +135,26 @@ const Home = () => {
               <div className="text-3xl font-bold text-white mb-1 flex items-center justify-center">
                 <span className="text-blue-400 mr-2">
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 7v10M8 12h8M21 12c0 4.9706-4.0294 9-9 9s-9-4.0294-9-9 4.0294-9 9-9 9 4.0294 9 9z" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    {/* Money bag base */}
+                    <path d="M12 4L9 7H6.5C5.67157 7 5 7.67157 5 8.5V19C5 19.5523 5.44772 20 6 20H18C18.5523 20 19 19.5523 19 19V8.5C19 7.67157 18.3284 7 17.5 7H15L12 4Z" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    {/* String/tie at top */}
+                    <path d="M10 7V9M14 7V9" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    {/* Gold coins */}
+                    <path d="M9.5 13C9.5 11.8954 10.3954 11 11.5 11H12.5C13.6046 11 14.5 11.8954 14.5 13C14.5 14.1046 13.6046 15 12.5 15H11.5C10.3954 15 9.5 15.8954 9.5 17C9.5 18.1046 10.3954 19 11.5 19H12.5C13.6046 19 14.5 18.1046 14.5 17" stroke="#60a5fa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <filter id="glow-dollar">
-                      <feGaussianBlur stdDeviation="2.5" result="blur" />
+                      <feGaussianBlur stdDeviation="3" result="blur" />
                       <feMerge>
                         <feMergeNode in="blur" />
                         <feMergeNode in="SourceGraphic" />
                       </feMerge>
                     </filter>
                     <g filter="url(#glow-dollar)">
-                      <path d="M12 7v10M8 12h8M21 12c0 4.9706-4.0294 9-9 9s-9-4.0294-9-9 4.0294-9 9-9 9 4.0294 9 9z" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.8"/>
+                      {/* Money bag base */}
+                      <path d="M12 4L9 7H6.5C5.67157 7 5 7.67157 5 8.5V19C5 19.5523 5.44772 20 6 20H18C18.5523 20 19 19.5523 19 19V8.5C19 7.67157 18.3284 7 17.5 7H15L12 4Z" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                      {/* String/tie at top */}
+                      <path d="M10 7V9M14 7V9" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="1"/>
+                      {/* Gold coins */}
+                      <path d="M9.5 13C9.5 11.8954 10.3954 11 11.5 11H12.5C13.6046 11 14.5 11.8954 14.5 13C14.5 14.1046 13.6046 15 12.5 15H11.5C10.3954 15 9.5 15.8954 9.5 17C9.5 18.1046 10.3954 19 11.5 19H12.5C13.6046 19 14.5 18.1046 14.5 17" stroke="#60a5fa" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.9"/>
                     </g>
                   </svg>
                 </span>
@@ -168,7 +178,7 @@ const Home = () => {
                       </feMerge>
                     </filter>
                     <g filter="url(#glow-token)">
-                      <path d="M12 16v3M8 16v3M16 16v3M4 9h16M9 4h6M6 17h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2z" stroke="#fb923c" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.8"/>
+                      <path d="M12 16v3M8 16v3M16 16v3M4 9h16M9 4h6M6 17h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2z" stroke="#fb923c" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.9"/>
                     </g>
                   </svg>
                 </span>

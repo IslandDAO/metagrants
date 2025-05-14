@@ -148,7 +148,7 @@ export const GlowingPalms: React.FC = () => {
             if (palm.active) {
               // Randomize the glow pattern by using a unique phase for each palm
               // by using the palm.id as a modifier
-              const uniquePhaseOffset = ((palm.id % 5) / 16); // Creates 5 different phase patterns
+              const uniquePhaseOffset = ((palm.id % 8) / 16); // Creates 8 different phase patterns
               const adjustedPhase = (phaseRef.current + uniquePhaseOffset) % 1;
               
               // Longer fade-in, faster fade-out
@@ -210,7 +210,7 @@ export const GlowingPalms: React.FC = () => {
               width: '100%',
               height: '100%',
               objectFit: 'contain',
-              filter: `brightness(${1 + palm.brightness * 0.8})`,
+              filter: `brightness(${1 + palm.brightness * 1.2}) drop-shadow(0 0 ${5 + palm.brightness * 10}px rgba(180, 255, 200, ${palm.brightness * 0.7}))`,
             }}
           />
         </div>
