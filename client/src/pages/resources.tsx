@@ -35,21 +35,17 @@ const Resources = () => {
         className="mb-8 relative group"
       >
         <div 
-          className="absolute inset-0 z-10 cursor-pointer flex items-center justify-center opacity-0 group-hover:opacity-70 transition-opacity duration-500 bg-[#121820]/30 rounded-md" 
+          className="absolute inset-0 z-10 cursor-pointer rounded-md"
           onClick={() => window.open('https://developers.metaplex.com/docs/token-metadata', '_blank')}
-        >
-          <div className="bg-[#1c2431]/70 backdrop-blur-sm px-4 py-2 rounded-md border border-[#3b82f6]/40 shadow-md text-white text-sm">
-            Click to view documentation
-          </div>
-        </div>
-        <Card className="border border-[#3c4759]/80 hover:border-[#3b82f6]/40 card-gradient transition-all duration-500 relative">
+        ></div>
+        <Card className="border border-[#3c4759]/80 hover:border-[#3b82f6]/60 hover:shadow-[0_0_8px_rgba(59,130,246,0.25)] card-gradient transition-all duration-500 relative">
           <CardHeader className="pb-2">
             <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-500 via-blue-400 to-purple-500 text-transparent bg-clip-text flex items-center">
               <div className="w-10 h-10 rounded-md flex items-center justify-center bg-gradient-to-br from-[#3b82f6]/20 to-[#8b5cf6]/20 border border-[#3b82f6]/30 mr-3">
                 <img 
                   src={metaplexLogo} 
                   alt="Metaplex Logo" 
-                  className="h-7 w-7 rounded-sm object-cover" 
+                  className="h-full w-full p-0.5 rounded-sm object-cover" 
                 />
               </div>
               Metaplex Core
@@ -112,21 +108,17 @@ const Resources = () => {
         className="relative group"
       >
         <div 
-          className="absolute inset-0 z-10 cursor-pointer flex items-center justify-center opacity-0 group-hover:opacity-70 transition-opacity duration-500 bg-[#121820]/30 rounded-md" 
+          className="absolute inset-0 z-10 cursor-pointer rounded-md"
           onClick={() => window.open('https://developers.metaplex.com/docs/mpl-hybrid/overview', '_blank')}
-        >
-          <div className="bg-[#1c2431]/70 backdrop-blur-sm px-4 py-2 rounded-md border border-[#8b5cf6]/40 shadow-md text-white text-sm">
-            Click to view documentation
-          </div>
-        </div>
-        <Card className="border border-[#3c4759]/80 hover:border-[#8b5cf6]/40 card-gradient transition-all duration-500 relative">
+        ></div>
+        <Card className="border border-[#3c4759]/80 hover:border-[#8b5cf6]/60 hover:shadow-[0_0_8px_rgba(139,92,246,0.25)] card-gradient transition-all duration-500 relative">
           <CardHeader className="pb-2">
             <CardTitle className="text-3xl font-bold bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-500 text-transparent bg-clip-text flex items-center">
               <div className="w-10 h-10 rounded-md flex items-center justify-center bg-gradient-to-br from-[#8b5cf6]/20 to-[#3b82f6]/20 border border-[#8b5cf6]/30 mr-3">
                 <img 
                   src={metaplexLogo} 
                   alt="Metaplex Logo" 
-                  className="h-7 w-7 rounded-sm object-cover" 
+                  className="h-full w-full p-0.5 rounded-sm object-cover" 
                 />
               </div>
               MPL-404
