@@ -72,10 +72,10 @@ const Home = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        <h1 className="text-4xl md:text-6xl font-bold text-gradient mb-6">
+        <h1 className="text-3xl md:text-5xl font-bold text-gradient mb-4">
           MetaplexDAO Grants — Cohort 1
         </h1>
-        <div className="mb-6 text-center">
+        <div className="mb-4 text-center">
           <h2 className="text-xl md:text-2xl text-[#b5bfcc]">
             Managed by <a href="https://islanddao.org/" target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-400 transition-colors">IslandDAO</a>
           </h2>
@@ -83,7 +83,7 @@ const Home = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8 max-w-5xl mx-auto">
           <Link to="/grants" className="group">
-            <div className="card-gradient rounded-xl p-5 shadow-lg border border-indigo-500/20 card-hover neon-glow">
+            <div className="card-gradient rounded-xl p-4 shadow-lg border border-indigo-500/20 card-hover neon-glow">
               <div className="text-center flex flex-col items-center justify-center h-full">
                 <div className="flex flex-col items-center mb-1">
                   <span className="text-indigo-400 mb-2 animate-glow-pulse">
@@ -109,7 +109,7 @@ const Home = () => {
           </Link>
           
           <Link to="/grants" className="group">
-            <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-purple-500/20 transform transition-all group-hover:scale-105 group-hover:shadow-purple-500/10">
+            <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-4 shadow-lg border border-purple-500/20 transform transition-all group-hover:scale-105 group-hover:shadow-purple-500/10">
               <div className="text-center flex flex-col items-center justify-center h-full">
                 <div className="flex flex-col items-center mb-1">
                   <span className="text-purple-400 mb-2">
@@ -135,7 +135,7 @@ const Home = () => {
           </Link>
           
           <Link to="/grants" className="group">
-            <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-blue-500/20 transform transition-all group-hover:scale-105 group-hover:shadow-blue-500/10">
+            <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-4 shadow-lg border border-blue-500/20 transform transition-all group-hover:scale-105 group-hover:shadow-blue-500/10">
               <div className="text-center flex flex-col items-center justify-center h-full">
                 <div className="flex flex-col items-center mb-1">
                   <span className="text-blue-400 mb-2">
@@ -178,7 +178,7 @@ const Home = () => {
           </Link>
           
           <Link to="/grants" className="group">
-            <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-5 shadow-lg border border-orange-500/20 transform transition-all group-hover:scale-105 group-hover:shadow-orange-500/10">
+            <div className="bg-gradient-to-br from-[#1a2436] to-[#242c42] rounded-xl p-4 shadow-lg border border-orange-500/20 transform transition-all group-hover:scale-105 group-hover:shadow-orange-500/10">
               <div className="text-center flex flex-col items-center justify-center h-full">
                 <div className="flex flex-col items-center mb-1">
                   <span className="text-orange-400 mb-2">
@@ -217,7 +217,7 @@ const Home = () => {
         {/* Feature section - Highlighting key areas */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto mb-6">
           <Link to="/grants" className="group">
-            <div className="card-gradient rounded-xl p-6 shadow-lg border border-blue-500/20 h-full flex flex-col card-hover neon-glow">
+            <div className="card-gradient rounded-xl p-4 shadow-lg border border-blue-500/20 h-full flex flex-col card-hover neon-glow">
               <div className="w-24 h-24 flex items-center justify-center mb-2 mx-auto">
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center">
