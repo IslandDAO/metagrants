@@ -3,55 +3,32 @@
 @tailwind utilities;
 
 :root {
-  /* Using the provided color palette */
-  --background: 48 67% 90%;      /* #f7f2d7 Butter Cream */
-  --foreground: 220 24% 34%;     /* #40526c Dull Navy */
-  --muted: 133 39% 82%;          /* #bce3c5 Pale Mint */
-  --muted-foreground: 220 24% 44%; /* #5a6a84 Lighter Dull Navy */
-  --popover: 48 67% 90%;         /* #f7f2d7 Butter Cream */
-  --popover-foreground: 220 24% 34%; /* #40526c Dull Navy */
-  --card: 133 39% 82%;           /* #bce3c5 Pale Mint */
-  --card-foreground: 220 24% 34%; /* #40526c Dull Navy */
-  --border: 36 31% 67%;          /* #c9b290 Khaki Tan */
-  --input: 36 31% 67%;           /* #c9b290 Khaki Tan */
-  --primary: 355 60% 52%;        /* #c8444d Tenenbaum Red */
-  --primary-foreground: 48 67% 90%; /* #f7f2d7 Butter Cream */
-  --secondary: 42 64% 62%;       /* #e1b85c Vintage Mustard */
-  --secondary-foreground: 48 67% 95%; /* #faf9ec Lighter Butter Cream */
-  --accent: 180 45% 75%;         /* #a2dadb Muted Aqua */
-  --accent-foreground: 220 24% 34%; /* #40526c Dull Navy */
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 0 0% 98%;
-  --ring: 36 31% 67%;            /* #c9b290 Khaki Tan */
+  /* Dark theme color palette with good contrast */
+  --background: 220 20% 13%;     /* #121820 Deep Dark Blue */
+  --foreground: 210 40% 98%;     /* #f1f5fb Off White */
+  --muted: 215 19% 24%;          /* #2a3341 Muted Blue Gray */
+  --muted-foreground: 214 15% 75%; /* #b5bfcc Light Gray */
+  --popover: 220 20% 13%;        /* #121820 Deep Dark Blue */
+  --popover-foreground: 210 40% 98%; /* #f1f5fb Off White */
+  --card: 222 18% 18%;           /* #1c2431 Dark Blue Gray */
+  --card-foreground: 210 40% 98%; /* #f1f5fb Off White */
+  --border: 216 14% 34%;         /* #3c4759 Border Gray */
+  --input: 216 14% 34%;          /* #3c4759 Border Gray */
+  --primary: 217 91% 60%;        /* #3b82f6 Vibrant Blue */
+  --primary-foreground: 210 40% 98%; /* #f1f5fb Off White */
+  --secondary: 262 83% 58%;      /* #8b5cf6 Purple */
+  --secondary-foreground: 210 40% 98%; /* #f1f5fb Off White */
+  --accent: 199 89% 48%;         /* #0ea5e9 Accent Blue */
+  --accent-foreground: 210 40% 98%; /* #f1f5fb Off White */
+  --destructive: 0 84% 60%;      /* #ef4444 Red */
+  --destructive-foreground: 210 40% 98%; /* #f1f5fb Off White */
+  --ring: 216 14% 34%;           /* #3c4759 Border Gray */
   --radius: 0.5rem;
-  --chart-1: 355 60% 52%;        /* #c8444d Tenenbaum Red */
-  --chart-2: 42 64% 62%;         /* #e1b85c Vintage Mustard */
-  --chart-3: 180 45% 75%;        /* #a2dadb Muted Aqua */
-  --chart-4: 342 43% 76%;        /* #e3a1b6 Dusty Rose */
-  --chart-5: 25 77% 80%;         /* #f7c6a3 Faded Coral */
-}
-
-.dark {
-  --background: 220 24% 20%;     /* Dark version of Dull Navy */
-  --foreground: 48 67% 90%;      /* #f7f2d7 Butter Cream */
-  --muted: 133 39% 32%;          /* Darker Pale Mint */
-  --muted-foreground: 48 67% 80%; /* Muted Butter Cream */
-  --popover: 220 24% 20%;        /* Dark Dull Navy */
-  --popover-foreground: 48 67% 90%; /* #f7f2d7 Butter Cream */
-  --card: 133 39% 32%;           /* Darker Pale Mint */
-  --card-foreground: 48 67% 90%; /* #f7f2d7 Butter Cream */
-  --border: 36 31% 47%;          /* Darker Khaki Tan */
-  --input: 36 31% 47%;           /* Darker Khaki Tan */
-  --primary: 355 60% 42%;        /* Darker Tenenbaum Red */
-  --primary-foreground: 48 67% 90%; /* #f7f2d7 Butter Cream */
-  --secondary: 42 64% 42%;       /* Darker Vintage Mustard */
-  --secondary-foreground: 48 67% 95%; /* Lighter Butter Cream */
-  --accent: 180 45% 45%;         /* Darker Muted Aqua */
-  --accent-foreground: 48 67% 90%; /* #f7f2d7 Butter Cream */
-  --destructive: 0 84% 50%;      /* Dark Red */
-  --destructive-foreground: 0 0% 98%; /* White */
-  --ring: 36 31% 47%;            /* Darker Khaki Tan */
-  --radius: 0.5rem;
+  --chart-1: 217 91% 60%;        /* #3b82f6 Vibrant Blue */
+  --chart-2: 262 83% 58%;        /* #8b5cf6 Purple */
+  --chart-3: 199 89% 48%;        /* #0ea5e9 Accent Blue */
+  --chart-4: 335 85% 65%;        /* #ec4899 Pink */
+  --chart-5: 30 95% 60%;         /* #f97316 Orange */
 }
 
 @layer base {
@@ -60,7 +37,7 @@
   }
 
   body {
-    @apply font-sans antialiased bg-[#f7f2d7] text-[#40526c];
+    @apply font-sans antialiased bg-[#121820] text-[#f1f5fb];
   }
 }
 

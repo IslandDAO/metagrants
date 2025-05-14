@@ -7,7 +7,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen bg-[#f7f2d7] flex flex-col">
+    <div className="min-h-screen bg-[#121820] flex flex-col">
       {/* Top Navigation Bar */}
       <TopNav />
       
