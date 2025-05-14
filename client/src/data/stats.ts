@@ -6,23 +6,33 @@ export interface Stat {
 
 export const stats: Stat[] = [
   {
-    id: "funding",
-    title: "Total Funding Distributed",
-    value: "$1.2M"
+    id: "applications",
+    title: "Applications Received",
+    value: "76"
   },
   {
     id: "projects",
-    title: "Projects Funded",
-    value: "42"
+    title: "Grants Awarded",
+    value: "12"
   },
   {
-    id: "countries",
-    title: "Countries Represented",
-    value: "18"
+    id: "usdc",
+    title: "USDC Allocated",
+    value: "$99,000"
   },
   {
-    id: "success",
-    title: "Project Success Rate",
-    value: "87%"
+    id: "mplx",
+    title: "MPLX Tokens Allocated",
+    value: "590,000"
+  },
+  {
+    id: "acceptance",
+    title: "Acceptance Rate",
+    value: "15.8%"
+  },
+  {
+    id: "milestone",
+    title: "Milestone-Based Grants",
+    value: "85%"
   }
 ];
