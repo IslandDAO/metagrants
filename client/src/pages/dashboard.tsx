@@ -81,7 +81,7 @@ const Dashboard = () => {
     <div className="max-w-7xl mx-auto">
       <div className="mb-8">
         <motion.h1 
-          className="text-3xl font-bold text-secondary mb-2"
+          className="text-3xl font-bold text-gradient mb-2"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -89,7 +89,7 @@ const Dashboard = () => {
           Grant Dashboard
         </motion.h1>
         <motion.p 
-          className="text-gray-600 max-w-3xl"
+          className="text-[#b5bfcc] max-w-3xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -105,10 +105,10 @@ const Dashboard = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
         >
-          <Card>
+          <Card className="card-gradient neon-glow card-hover">
             <CardContent className="pt-6">
-              <div className="text-3xl font-bold text-primary mb-1">{totalGrants}</div>
-              <p className="text-sm text-gray-500">Total Grants</p>
+              <div className="text-3xl font-bold text-gradient mb-1">{totalGrants}</div>
+              <p className="text-sm text-[#b5bfcc]">Total Grants</p>
             </CardContent>
           </Card>
         </motion.div>
@@ -118,10 +118,10 @@ const Dashboard = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2 }}
         >
-          <Card>
+          <Card className="card-gradient neon-glow card-hover">
             <CardContent className="pt-6">
-              <div className="text-3xl font-bold text-primary mb-1">{formatCurrency(totalFunding)}</div>
-              <p className="text-sm text-gray-500">Total Funding</p>
+              <div className="text-3xl font-bold text-gradient mb-1">{formatCurrency(totalFunding)}</div>
+              <p className="text-sm text-[#b5bfcc]">Total Funding</p>
             </CardContent>
           </Card>
         </motion.div>

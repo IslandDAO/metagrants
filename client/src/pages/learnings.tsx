@@ -198,9 +198,13 @@ const Learnings = () => {
         <Card className="card-gradient neon-glow">
           <CardContent className="p-6">
             <Tabs defaultValue={keyResults[0].category}>
-              <TabsList className="mb-6">
+              <TabsList className="mb-6 bg-[#1c2431]/50 border-primary/30">
                 {keyResults.map((result, index) => (
-                  <TabsTrigger key={index} value={result.category}>
+                  <TabsTrigger 
+                    key={index} 
+                    value={result.category}
+                    className="data-[state=active]:bg-primary/20 data-[state=active]:text-gradient data-[state=active]:shadow-glow"
+                  >
                     {result.category}
                   </TabsTrigger>
                 ))}
@@ -231,9 +235,9 @@ const Learnings = () => {
       >
         <h2 className="text-2xl font-bold text-gradient mb-6">Program Learnings</h2>
         
-        <Accordion type="single" collapsible className="mb-6">
+        <Accordion type="single" collapsible className="mb-6 shadow-glow">
           {learningCategories.map((category, index) => (
-            <AccordionItem key={index} value={category.id}>
+            <AccordionItem key={index} value={category.id} className="border-primary/20 mb-4 rounded-lg overflow-hidden bg-[#1c2431]/30 hover:bg-[#1c2431]/50 transition-colors">
               <AccordionTrigger className="text-xl font-semibold py-4 text-gradient">
                 {category.title}
               </AccordionTrigger>
