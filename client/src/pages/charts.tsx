@@ -560,74 +560,73 @@ const ChartsPage = () => {
               </div>
             </CardHeader>
             <CardContent className="pt-6">
-              <div 
-                className="flex flex-col items-center"
-                onMouseEnter={() => setIsAnimating(false)}
-                onMouseLeave={() => setIsAnimating(true)}
-              >
-                <ResponsiveContainer width="100%" height={400}>
-                  <PieChart>
-                    <defs>
-                      {sectorFundingData.map((entry, index) => (
-                        <linearGradient key={`gradient-${index}`} id={`sectorGradient${index}`} x1="0" y1="0" x2="1" y2="1">
-                          <stop offset="0%" stopColor={`hsl(${index * 50}, 70%, 50%)`} />
-                          <stop offset="100%" stopColor={`hsl(${index * 50}, 70%, 70%)`} />
-                        </linearGradient>
+              <div className="flex flex-row items-start space-x-4">
+                {/* Left side - Selected sector info box */}
+                <div className="w-1/4 bg-[#131a25] p-4 rounded-lg shadow-lg">
+                  <h3 className="font-bold text-lg text-blue-300 mb-2">
+                    {sectorFundingData[activeIndex].name}
+                  </h3>
+                  <div className="mb-2">
+                    <p className="text-xl font-bold text-white">${sectorFundingData[activeIndex].value.toLocaleString()}</p>
+                    <p className="text-xs text-gray-400">
+                      {Math.round((sectorFundingData[activeIndex].value / 
+                        sectorFundingData.reduce((sum, item) => sum + item.value, 0)) * 100)}% of total
+                    </p>
+                  </div>
+                  
+                  {/* Project list */}
+                  <div className="mt-4">
+                    <p className="text-sm font-medium text-blue-200 mb-1">Projects in this sector:</p>
+                    <ul className="list-disc pl-4 text-sm space-y-1">
+                      {sectorFundingData[activeIndex].projectList.map((projectName: string, i: number) => (
+                        <li key={`project-${i}`} className="text-gray-300">{projectName}</li>
                       ))}
-                    </defs>
-                    <Pie
-                      activeIndex={activeIndex}
-                      activeShape={renderActiveShape}
-                      data={sectorFundingData}
-                      cx="50%"
-                      cy="50%"
-                      innerRadius={90}
-                      outerRadius={140}
-                      paddingAngle={3}
-                      dataKey="value"
-                      onMouseEnter={(_, index) => {
-                        setActiveIndex(index);
-                        setIsAnimating(false);
-                      }}
-                      onMouseLeave={() => setIsAnimating(true)}
-                    >
-                      {sectorFundingData.map((entry, index) => (
-                        <Cell 
-                          key={`cell-${index}`} 
-                          fill={`url(#sectorGradient${index})`} 
-                          stroke="#1c2431"
-                          strokeWidth={2}
-                        />
-                      ))}
-                    </Pie>
-                    <Tooltip 
-                      content={<CustomTooltip />}
-                      cursor={false}
-                    />
-{/* Legend removed as requested */}
-                  </PieChart>
-                </ResponsiveContainer>
+                    </ul>
+                  </div>
+                </div>
                 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8 w-full">
-                  {sectorFundingData.map((sector, index) => (
-                    <div 
-                      key={`sector-${index}`} 
-                      className={`p-4 rounded-lg transition-all ${activeIndex === index ? 'bg-blue-900/30 ring-2 ring-blue-500' : 'bg-[#171f2b]'}`}
-                      onMouseEnter={() => setActiveIndex(index)}
-                    >
-                      <div className="flex items-center space-x-2">
-                        <div 
-                          className="w-3 h-3 rounded-full" 
-                          style={{ backgroundColor: `hsl(${index * 50}, 70%, 60%)` }}
-                        />
-                        <h5 className="font-medium truncate">{sector.name}</h5>
-                      </div>
-                      <div className="mt-2">
-                        <p className="text-xl font-bold">${sector.value.toLocaleString()}</p>
-                        <p className="text-xs text-gray-400">{sector.projects} project{sector.projects !== 1 ? 's' : ''}</p>
-                      </div>
-                    </div>
-                  ))}
+                {/* Right side - Pie chart */}
+                <div className="w-3/4"
+                  onMouseEnter={() => setIsAnimating(false)}
+                  onMouseLeave={() => setIsAnimating(true)}
+                >
+                  <ResponsiveContainer width="100%" height={400}>
+                    <PieChart>
+                      <defs>
+                        {sectorFundingData.map((entry, index) => (
+                          <linearGradient key={`gradient-${index}`} id={`sectorGradient${index}`} x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stopColor={`hsl(${index * 50}, 70%, 50%)`} />
+                            <stop offset="100%" stopColor={`hsl(${index * 50}, 70%, 70%)`} />
+                          </linearGradient>
+                        ))}
+                      </defs>
+                      
+                      <Pie
+                        activeIndex={activeIndex}
+                        data={sectorFundingData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={90}
+                        outerRadius={140}
+                        paddingAngle={3}
+                        dataKey="value"
+                        onMouseEnter={(_, index) => {
+                          setActiveIndex(index);
+                          setIsAnimating(false);
+                        }}
+                        onMouseLeave={() => setIsAnimating(true)}
+                      >
+                        {sectorFundingData.map((entry, index) => (
+                          <Cell 
+                            key={`cell-${index}`} 
+                            fill={`url(#sectorGradient${index})`} 
+                            stroke="#1c2431"
+                            strokeWidth={2}
+                          />
+                        ))}
+                      </Pie>
+                    </PieChart>
+                  </ResponsiveContainer>
                 </div>
               </div>
             </CardContent>
