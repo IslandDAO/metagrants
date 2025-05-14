@@ -207,48 +207,91 @@ const Home = () => {
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center">
                     <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      {/* Palm tree trunk */}
                       <path 
-                        d="M30 10C30 10 25 20 25 25C25 30 30 32 30 40V50" 
+                        d="M30 50V28" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      {/* Palm tree leaves */}
+                      <path 
+                        d="M30 28C30 28 24 20 18 24" 
                         stroke="#4ADE80" 
                         strokeWidth="3" 
                         strokeLinecap="round"
                       />
                       <path 
-                        d="M30 25C30 25 35 20 40 25" 
+                        d="M30 28C30 28 36 20 42 24" 
                         stroke="#4ADE80" 
                         strokeWidth="3" 
                         strokeLinecap="round"
                       />
                       <path 
-                        d="M30 20C30 20 25 15 20 20" 
+                        d="M30 28C30 28 25 16 20 18" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M30 28C30 28 35 16 40 18" 
+                        stroke="#4ADE80" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                      <path 
+                        d="M30 28C30 28 30 12 30 8" 
                         stroke="#4ADE80" 
                         strokeWidth="3" 
                         strokeLinecap="round"
                       />
                       <filter id="glow1">
-                        <feGaussianBlur stdDeviation="2.5" result="blur" />
+                        <feGaussianBlur stdDeviation="3" result="blur" />
                         <feMerge>
                           <feMergeNode in="blur" />
                           <feMergeNode in="SourceGraphic" />
                         </feMerge>
                       </filter>
                       <g filter="url(#glow1)">
+                        {/* Palm tree trunk - glow effect */}
                         <path 
-                          d="M30 10C30 10 25 20 25 25C25 30 30 32 30 40V50" 
+                          d="M30 50V28" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        {/* Palm tree leaves - glow effect */}
+                        <path 
+                          d="M30 28C30 28 24 20 18 24" 
                           stroke="#4ADE80" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
                           opacity="1"
                         />
                         <path 
-                          d="M30 25C30 25 35 20 40 25" 
+                          d="M30 28C30 28 36 20 42 24" 
                           stroke="#4ADE80" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"
                           opacity="1"
                         />
                         <path 
-                          d="M30 20C30 20 25 15 20 20" 
+                          d="M30 28C30 28 25 16 20 18" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M30 28C30 28 35 16 40 18" 
+                          stroke="#4ADE80" 
+                          strokeWidth="1.5" 
+                          strokeLinecap="round"
+                          opacity="1"
+                        />
+                        <path 
+                          d="M30 28C30 28 30 12 30 8" 
                           stroke="#4ADE80" 
                           strokeWidth="1.5" 
                           strokeLinecap="round"

@@ -89,7 +89,7 @@ const Footer = () => {
               </a>
             </div>
             
-            <span className="text-xs text-[#8896b0]">© 2023-2025 Metaplex</span>
+            <span className="text-xs text-[#8896b0]">© 2020-2025 IslandDAO</span>
           </div>
         </div>
       </div>
