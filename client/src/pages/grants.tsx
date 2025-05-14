@@ -26,7 +26,7 @@ const GrantCard = ({ project }: { project: GrantProject }) => {
       transition={{ duration: 0.5 }}
       whileHover={{ scale: 1.03 }}
     >
-      <Card className="overflow-hidden h-full transition hover:shadow-lg border-[#3c4759] bg-[#1c2431]">
+      <Card className="overflow-hidden h-full card-gradient card-hover neon-glow border-[#3c4759]">
         <CardContent className="p-6">
           <div className="flex justify-between items-start mb-3">
             <h3 className="text-xl font-bold text-[#f1f5fb]">{project.name}</h3>

@@ -125,13 +125,13 @@ const Process = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
               <motion.div 
-                className="bg-[#1c2431] border border-[#364156] rounded-lg p-5 shadow-lg relative overflow-hidden group"
-                whileHover={{ translateY: -5, transition: { duration: 0.2 } }}
+                className="card-gradient border border-[#364156] rounded-lg p-5 shadow-lg relative overflow-hidden neon-glow"
+                whileHover={{ translateY: -5, scale: 1.02, transition: { duration: 0.2 } }}
                 variants={itemVariants}
               >
                 <div className="absolute top-0 right-0 h-20 w-20 bg-indigo-500/10 rounded-full -mt-10 -mr-10"></div>
                 <div className="flex items-start">
-                  <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center mr-3 flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center mr-3 flex-shrink-0 animate-glow-pulse">
                     <CheckCircle2 className="h-4 w-4 text-green-400" />
                   </div>
                   <div>
@@ -142,13 +142,13 @@ const Process = () => {
               </motion.div>
               
               <motion.div 
-                className="bg-[#1c2431] border border-[#364156] rounded-lg p-5 shadow-lg relative overflow-hidden group"
-                whileHover={{ translateY: -5, transition: { duration: 0.2 } }}
+                className="card-gradient border border-[#364156] rounded-lg p-5 shadow-lg relative overflow-hidden neon-glow"
+                whileHover={{ translateY: -5, scale: 1.02, transition: { duration: 0.2 } }}
                 variants={itemVariants}
               >
                 <div className="absolute top-0 right-0 h-20 w-20 bg-indigo-500/10 rounded-full -mt-10 -mr-10"></div>
                 <div className="flex items-start">
-                  <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center mr-3 flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center mr-3 flex-shrink-0 animate-glow-pulse">
                     <CheckCircle2 className="h-4 w-4 text-green-400" />
                   </div>
                   <div>
@@ -159,13 +159,13 @@ const Process = () => {
               </motion.div>
               
               <motion.div 
-                className="bg-[#1c2431] border border-[#364156] rounded-lg p-5 shadow-lg relative overflow-hidden group"
-                whileHover={{ translateY: -5, transition: { duration: 0.2 } }}
+                className="card-gradient border border-[#364156] rounded-lg p-5 shadow-lg relative overflow-hidden neon-glow"
+                whileHover={{ translateY: -5, scale: 1.02, transition: { duration: 0.2 } }}
                 variants={itemVariants}
               >
                 <div className="absolute top-0 right-0 h-20 w-20 bg-indigo-500/10 rounded-full -mt-10 -mr-10"></div>
                 <div className="flex items-start">
-                  <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center mr-3 flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center mr-3 flex-shrink-0 animate-glow-pulse">
                     <CheckCircle2 className="h-4 w-4 text-green-400" />
                   </div>
                   <div>
