@@ -120,15 +120,15 @@ function GrantsList() {
                   <h3 className="text-xl font-bold text-white">{project.name}</h3>
                   <span className={
                     project.tech === "CORE" 
-                      ? "bg-[#0f9668]/20 text-[#34d399] text-xs font-medium px-2 py-0.5 rounded" 
-                      : "bg-[#2563eb]/20 text-[#60a5fa] text-xs font-medium px-2 py-0.5 rounded"
+                      ? "bg-[#0f9668]/10 text-[#34d399] text-[10px] font-medium px-1 py-0.5 rounded-sm inline-block" 
+                      : "bg-[#2563eb]/10 text-[#60a5fa] text-[10px] font-medium px-1 py-0.5 rounded-sm inline-block"
                   }>
                     {project.tech}
                   </span>
                 </div>
                 
                 <div className="mb-3">
-                  <span className="bg-[#1f2937] text-[#9ca3af] text-xs font-medium px-2 py-0.5 rounded">
+                  <span className="bg-[#1f2937] text-[#9ca3af] text-[10px] font-medium px-1 py-0.5 rounded-sm inline-block">
                     {project.sector}
                   </span>
                 </div>
