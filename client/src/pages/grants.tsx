@@ -119,18 +119,16 @@ function GrantsList() {
                 <div className="flex justify-between mb-3">
                   <h3 className="text-xl font-bold text-white">{project.name}</h3>
                   <span className={
-                    `px-2 py-0.5 text-xs font-medium rounded-md ${
-                      project.tech === "CORE" 
-                        ? "bg-[#10b981] text-white" 
-                        : "bg-[#3b82f6] text-white"
-                    }`
+                    project.tech === "CORE" 
+                      ? "bg-[#10b981] text-[#f1f5fb] border border-[#10b981]/50 text-xs font-medium px-2 py-1 rounded" 
+                      : "bg-[#3b82f6] text-[#f1f5fb] border border-[#3b82f6]/50 text-xs font-medium px-2 py-1 rounded"
                   }>
                     {project.tech}
                   </span>
                 </div>
                 
                 <div className="mb-3">
-                  <span className="bg-[#2c374b] text-[#b5bfcc] text-xs px-2 py-0.5 rounded-md">
+                  <span className="bg-[#2c374b] text-[#b5bfcc] border border-[#3c4759]/80 text-xs px-2 py-1 rounded">
                     {project.sector}
                   </span>
                 </div>
