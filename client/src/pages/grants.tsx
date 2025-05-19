@@ -109,13 +109,11 @@ function GrantsList() {
       {/* Projects Grid */}
       {filteredProjects.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.map((project) => (
             <div
               key={project.slug}
-              className={`bg-[#1a2235] border border-[#374151] rounded-xl overflow-hidden cursor-pointer 
-                          hover:shadow-lg hover:shadow-blue-500/10 hover:border-blue-500/30 transition-all duration-300
-                          ${index % 4 === 0 ? 'md:col-span-2 lg:col-span-1' : ''}
-                          ${index % 5 === 0 ? 'lg:col-span-2' : ''}`}
+              className="bg-[#1a2235] border border-[#374151] rounded-xl overflow-hidden cursor-pointer 
+                        hover:shadow-lg hover:shadow-blue-500/10 hover:border-blue-500/30 transition-all duration-300"
               onClick={(e) => handleCardClick(project.slug, e)}
               style={{
                 background: 'linear-gradient(180deg, #1a2235 0%, #1a1d2c 100%)',
