@@ -85,8 +85,8 @@ const Home = () => {
             </div>
             
             <p className="text-center text-[#a3adc2] mb-6 max-w-2xl mx-auto">
-              Be among the first to apply for our expanded grants program with increased funding, 
-              new categories, and enhanced support for builders in the Metaplex ecosystem.
+              We're finalizing preparations for our second grant cohort—but if you're building with Metaplex, 
+              you can get a head start and apply now to connect with us early.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
