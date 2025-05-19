@@ -26,12 +26,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <span className="mx-4">🚀 Cohort 2 Applications Now Open</span>
             <span className="mx-4">💻 Apply Today for Funding and Support</span>
             <span className="mx-4">🌐 Building on Metaplex? We Want to Hear From You</span>
-            <span className="mx-4">💰 $150K+ in Funding Available</span>
             <span className="mx-4">✨ Click Here to Apply Now</span>
             <span className="mx-4">🚀 Cohort 2 Applications Now Open</span>
             <span className="mx-4">💻 Apply Today for Funding and Support</span>
             <span className="mx-4">🌐 Building on Metaplex? We Want to Hear From You</span>
-            <span className="mx-4">💰 $150K+ in Funding Available</span>
             <span className="mx-4">✨ Click Here to Apply Now</span>
           </div>
         </div>
