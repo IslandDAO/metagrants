@@ -18,11 +18,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       {/* Application Banner - Visible on all pages */}
       <div 
         onClick={() => window.open('https://bit.ly/DeanslistMPLX', '_blank')}
-        className="relative z-20 bg-gradient-to-r from-[#059669] via-[#10b981] to-[#059669] cursor-pointer overflow-hidden flex items-center py-2 px-1 shadow-lg shadow-emerald-900/20 hover:shadow-emerald-500/20 transition-all duration-300 sticky top-16"
+        className="relative z-20 bg-gradient-to-r from-[#059669] via-[#10b981] to-[#059669] cursor-pointer overflow-hidden flex items-center py-1 px-1 shadow-lg shadow-emerald-900/20 hover:shadow-emerald-500/20 transition-all duration-300 sticky top-16"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/0 via-emerald-400/10 to-emerald-400/0 animate-pulse-slow"></div>
         <div className="marquee-container w-full overflow-hidden">
-          <div className="marquee-content whitespace-nowrap animate-marquee flex items-center text-white font-medium">
+          <div className="marquee-content whitespace-nowrap animate-marquee flex items-center text-white text-xs font-medium">
             <span className="mx-4">🚀 Cohort 2 Applications Now Open</span>
             <span className="mx-4">💻 Apply Today for Funding and Support</span>
             <span className="mx-4">🌐 Building on Metaplex? We Want to Hear From You</span>
