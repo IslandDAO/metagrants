@@ -65,9 +65,52 @@ const StatItem = ({ label, value }: { label: string, value: number | string }) =
 const Home = () => {
   return (
     <div className="max-w-7xl mx-auto">
+      {/* Cohort 2 Applications - Featured Banner */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="pt-4 md:pt-6 mb-8"
+      >
+        <div className="bg-gradient-to-r from-[#1a2235] via-[#2a3550] to-[#1a2235] p-6 rounded-xl max-w-4xl mx-auto relative overflow-hidden border border-emerald-500/40 shadow-lg shadow-emerald-500/10">
+          {/* Animated background elements */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl animate-pulse-slow"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse-slow delay-1000"></div>
+          
+          {/* Content */}
+          <div className="relative z-10">
+            <div className="flex items-center justify-center mb-4">
+              <h3 className="text-xl md:text-2xl font-bold text-white mr-3 text-gradient-green">Cohort 2 - Early Applications Now Open</h3>
+              <div className="w-4 h-4 rounded-full bg-emerald-500 animate-pulse shadow-lg shadow-emerald-500/50"></div>
+            </div>
+            
+            <p className="text-center text-[#a3adc2] mb-6 max-w-2xl mx-auto">
+              Be among the first to apply for our expanded grants program with increased funding, 
+              new categories, and enhanced support for builders in the Metaplex ecosystem.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a 
+                href="https://bit.ly/DeanslistMPLX" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-emerald-700 to-emerald-600 hover:from-emerald-600 hover:to-emerald-500 text-white font-medium py-3 px-8 rounded-lg text-lg relative overflow-hidden group w-64 sm:w-auto transition-all duration-300 transform hover:scale-105 flex items-center justify-center shadow-lg shadow-emerald-700/20"
+              >
+                <span className="relative z-10">Apply Now</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/0 via-emerald-400/20 to-emerald-400/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </a>
+              
+              <div className="text-emerald-400/80 text-sm font-medium">
+                <span className="mr-1">🚀</span> Limited spots available <span className="ml-1">⏰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
       {/* Hero Section */}
       <motion.div 
-        className="pt-4 md:pt-8 text-center relative z-10"
+        className="text-center relative z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
@@ -896,43 +939,7 @@ const Home = () => {
           </Link>
         </div>
         
-        {/* Cohort 2 Applications - Featured Banner */}
-        <div className="mt-8 mb-16">
-          <div className="bg-gradient-to-r from-[#1a2235] via-[#2a3550] to-[#1a2235] p-8 rounded-xl max-w-4xl mx-auto relative overflow-hidden border border-emerald-500/40 shadow-lg shadow-emerald-500/10">
-            {/* Animated background elements */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl animate-pulse-slow"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse-slow delay-1000"></div>
-            
-            {/* Content */}
-            <div className="relative z-10">
-              <div className="flex items-center justify-center mb-5">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mr-3 text-gradient-green">Cohort 2 - Early Applications Now Open</h3>
-                <div className="w-4 h-4 rounded-full bg-emerald-500 animate-pulse shadow-lg shadow-emerald-500/50"></div>
-              </div>
-              
-              <p className="text-center text-[#a3adc2] mb-8 max-w-2xl mx-auto text-lg">
-                Be among the first to apply for our expanded grants program with increased funding, 
-                new categories, and enhanced support for builders in the Metaplex ecosystem.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <a 
-                  href="https://bit.ly/DeanslistMPLX" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-emerald-700 to-emerald-600 hover:from-emerald-600 hover:to-emerald-500 text-white font-medium py-3 px-8 rounded-lg text-lg relative overflow-hidden group w-64 sm:w-auto transition-all duration-300 transform hover:scale-105 flex items-center justify-center shadow-lg shadow-emerald-700/20"
-                >
-                  <span className="relative z-10">Apply Now</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/0 via-emerald-400/20 to-emerald-400/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                </a>
-                
-                <div className="text-emerald-400/80 text-sm font-medium">
-                  <span className="mr-1">🚀</span> Limited spots available <span className="ml-1">⏰</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
       </motion.div>
     </div>
   );
