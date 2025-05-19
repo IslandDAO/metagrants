@@ -128,7 +128,7 @@ function GrantsList() {
                 </div>
                 
                 <div className="mb-3 flex flex-wrap gap-2">
-                  <span className="text-[#9ca3af] text-xs font-medium bg-[#2a2f3a] px-2 py-1 rounded-full">
+                  <span className="text-[#f3f4f6] text-xs font-medium bg-gradient-to-r from-[#2c3e50] to-[#3d4c61] px-3 py-1 rounded-full shadow-sm border border-[#485973]/20">
                     {project.sector}
                   </span>
                 </div>
