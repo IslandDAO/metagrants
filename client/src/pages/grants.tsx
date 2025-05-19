@@ -112,61 +112,61 @@ function GrantsList() {
           {filteredProjects.map((project) => (
             <div
               key={project.slug}
-              className="overflow-hidden h-full card-gradient card-hover neon-glow border border-[#3c4759]/80 hover:border-[#3b82f6]/60 cursor-pointer transition-all duration-300 rounded-lg"
+              className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:border-blue-500 cursor-pointer"
               onClick={(e) => handleCardClick(project.slug, e)}
             >
-              <div className="p-6">
+              <div className="p-5">
                 <div className="flex justify-between mb-3">
                   <h3 className="text-xl font-bold text-white">{project.name}</h3>
-                  <span 
-                    className={project.tech === "CORE" 
-                      ? "bg-[#10b981] text-white text-xs px-3 py-1 rounded-md" 
-                      : "bg-[#3b82f6] text-white text-xs px-3 py-1 rounded-md"
-                    }
-                  >
+                  <span className={
+                    `px-2 py-1 text-xs font-medium rounded ${
+                      project.tech === "CORE" 
+                        ? "bg-green-600" 
+                        : "bg-blue-600"
+                    }`
+                  }>
                     {project.tech}
                   </span>
                 </div>
                 
                 <div className="mb-3">
-                  <span className="bg-[#2c374b] text-[#b5bfcc] text-xs px-2 py-1 rounded-full">
+                  <span className="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded-full">
                     {project.sector}
                   </span>
                 </div>
                 
-                <p className="text-[#b5bfcc] text-sm mb-4">
+                <p className="text-gray-400 text-sm mb-4">
                   {project.summary}
                 </p>
                 
-                <div className="border-t border-[#3c4759] pt-3 mt-auto">
+                <div className="border-t border-gray-700 pt-3">
                   <div className="flex justify-between items-center">
                     <div>
-                      <div className="text-sm font-medium text-[#f1f5fb]">
+                      <div className="text-white text-sm font-medium">
                         ${project.totalUsd.toLocaleString()}
                       </div>
-                      <div className="flex gap-2 text-xs text-[#8896b0]">
-                        <span>${project.usdc.toLocaleString()} USDC</span>
-                        <span>+{project.mplx.toLocaleString()} MPLX*</span>
+                      <div className="text-gray-500 text-xs">
+                        ${project.usdc.toLocaleString()} USDC + {project.mplx.toLocaleString()} MPLX
                       </div>
                     </div>
                     <div className="flex space-x-2">
                       {project.links?.website && (
-                        <a 
-                          href={project.links.website} 
-                          target="_blank" 
+                        <a
+                          href={project.links.website}
+                          target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#b5bfcc] hover:text-[#f97316] transition-colors animate-glow-pulse"
+                          className="text-gray-400 hover:text-blue-400"
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="hover:scale-110 transition-transform"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                          Website
                         </a>
                       )}
-                      <Link 
+                      <Link
                         to={`/grants/${project.slug}`}
-                        className="text-[#f97316] hover:text-[#fb923c] text-sm font-medium transition-colors animate-glow-pulse flex items-center gap-1 hover:underline"
+                        className="text-blue-400 hover:text-blue-300"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        Details <span className="text-xs">→</span>
+                        Details →
                       </Link>
                     </div>
                   </div>
