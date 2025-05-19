@@ -127,7 +127,7 @@ function GrantsList() {
               ></div>
               
               <div className="p-6">
-                <div className="flex justify-between mb-4">
+                <div className="flex justify-between mb-2">
                   <h3 className="text-xl font-bold text-white tracking-tight">{project.name}</h3>
                   <span className={
                     project.tech === "CORE" 
@@ -138,7 +138,7 @@ function GrantsList() {
                   </span>
                 </div>
                 
-                <div className="mb-4 flex flex-wrap gap-2">
+                <div className="mb-3 flex flex-wrap gap-2">
                   <span className="text-[#9ca3af] text-xs font-medium bg-[#2a2f3a] px-2 py-1 rounded-full">
                     {project.sector}
                   </span>
