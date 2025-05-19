@@ -186,8 +186,41 @@
   animation-delay: 1s;
 }
 
+/* Marquee animation for the rolling banner */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-content {
+  display: inline-flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+
 .pixelated {
   image-rendering: pixelated;
   font-smooth: never;
   -webkit-font-smoothing: none;
+}
+
+/* Green gradient text */
+.text-gradient-green {
+  background: linear-gradient(to right, #059669, #10b981);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
