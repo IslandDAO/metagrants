@@ -117,6 +117,27 @@
   animation: fadeIn 0.5s ease-out forwards;
 }
 
+/* Fix for Select dropdowns */
+[data-radix-popper-content-wrapper] {
+  z-index: 9999 !important;
+}
+
+.radix-select-content {
+  background-color: #1c2431 !important;
+  border-color: #3c4759 !important;
+  color: #f1f5fb !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4) !important;
+}
+
+.radix-select-item {
+  color: #f1f5fb !important;
+}
+
+.radix-select-item:focus {
+  background-color: #3b82f6 !important;
+  color: white !important;
+}
+
 @keyframes glowPulse {
   0% { opacity: 0.6; }
   50% { opacity: 1; }
