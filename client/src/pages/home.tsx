@@ -124,28 +124,6 @@ const Home = () => {
           </h2>
         </div>
         
-        {/* Rolling Banner */}
-        <div
-          onClick={() => window.open('https://bit.ly/DeanslistMPLX', '_blank')}
-          className="relative bg-gradient-to-r from-[#059669] via-[#10b981] to-[#059669] cursor-pointer overflow-hidden flex items-center py-2 px-4 mb-6 mx-auto max-w-4xl rounded-full shadow-lg shadow-emerald-500/10 border border-emerald-400/30 hover:shadow-emerald-500/20 transition-all duration-300 hover:border-emerald-400/50"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/0 via-emerald-400/10 to-emerald-400/0 animate-pulse-slow"></div>
-          <div className="marquee-container w-full overflow-hidden">
-            <div className="marquee-content whitespace-nowrap animate-marquee flex items-center text-white font-medium">
-              <span className="mx-4">🚀 Cohort 2 Applications Now Open</span>
-              <span className="mx-4">💻 Apply Today for Funding and Support</span>
-              <span className="mx-4">🌐 Building on Metaplex? We Want to Hear From You</span>
-              <span className="mx-4">💰 $150K+ in Funding Available</span>
-              <span className="mx-4">✨ Click Here to Apply Now</span>
-              <span className="mx-4">🚀 Cohort 2 Applications Now Open</span>
-              <span className="mx-4">💻 Apply Today for Funding and Support</span>
-              <span className="mx-4">🌐 Building on Metaplex? We Want to Hear From You</span>
-              <span className="mx-4">💰 $150K+ in Funding Available</span>
-              <span className="mx-4">✨ Click Here to Apply Now</span>
-            </div>
-          </div>
-        </div>
-        
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8 max-w-5xl mx-auto">
           <Link to="/grants" className="group">
             <div className="card-gradient rounded-xl p-4 shadow-lg border border-indigo-500/20 card-hover neon-glow">
