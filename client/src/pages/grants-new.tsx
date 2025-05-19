@@ -6,7 +6,6 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Filter, Search, ExternalLink } from "lucide-react";
 import { grantProjects, GrantProject } from "@/data/grantProjects";
 
@@ -95,52 +94,29 @@ const Grants = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [techFilter, setTechFilter] = useState("all");
   const [sectorFilter, setSectorFilter] = useState("all");
-  const [techDropdownOpen, setTechDropdownOpen] = useState(false);
-  const [sectorDropdownOpen, setSectorDropdownOpen] = useState(false);
+  const [filteredProjects, setFilteredProjects] = useState<GrantProject[]>(grantProjects);
   
   // Get all unique sectors for the filter dropdown
-  const sectors = Array.from(new Set(grantProjects.map((grant: GrantProject) => grant.sector)));
+  const sectors = Array.from(new Set(grantProjects.map((grant) => grant.sector)));
   
-  // Handle click outside to close dropdowns
+  // Filter projects whenever search or filter criteria change
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
+    const filtered = grantProjects.filter((project) => {
+      // Match search term
+      const matchesSearch = searchTerm === "" || 
+        project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        project.summary.toLowerCase().includes(searchTerm.toLowerCase());
       
-      // Close tech dropdown if click is outside
-      if (!target.closest('.tech-dropdown-container') && techDropdownOpen) {
-        setTechDropdownOpen(false);
-      }
+      // Match tech filter
+      const matchesTech = techFilter === "all" || project.tech === techFilter;
       
-      // Close sector dropdown if click is outside
-      if (!target.closest('.sector-dropdown-container') && sectorDropdownOpen) {
-        setSectorDropdownOpen(false);
-      }
-    };
-    
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [techDropdownOpen, sectorDropdownOpen]);
-  
-  // State for filtered grants
-  const [filteredGrants, setFilteredGrants] = useState<GrantProject[]>(grantProjects);
-  
-  // Update filtered grants when filters change
-  useEffect(() => {
-    const filtered = grantProjects.filter((grant: GrantProject) => {
-      const matchesSearch = 
-        searchTerm === "" || 
-        grant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        grant.summary.toLowerCase().includes(searchTerm.toLowerCase());
-      
-      const matchesTech = techFilter === "all" || grant.tech === techFilter;
-      const matchesSector = sectorFilter === "all" || grant.sector === sectorFilter;
+      // Match sector filter
+      const matchesSector = sectorFilter === "all" || project.sector === sectorFilter;
       
       return matchesSearch && matchesTech && matchesSector;
     });
     
-    setFilteredGrants(filtered);
+    setFilteredProjects(filtered);
   }, [searchTerm, techFilter, sectorFilter]);
 
   return (
@@ -174,6 +150,7 @@ const Grants = () => {
         <Card className="mb-6 border-[#3c4759] card-gradient neon-glow w-full">
           <CardContent className="pt-6 pb-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {/* Search Input */}
               <div className="relative w-full">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#b5bfcc] animate-glow-pulse" size={18} />
                 <input
@@ -181,15 +158,16 @@ const Grants = () => {
                   placeholder="Search projects..."
                   className="w-full h-10 pl-10 bg-[#2c374b] border border-[#3c4759] rounded-md text-[#f1f5fb] placeholder:text-[#8896b0] focus:outline-none focus:ring-2 focus:ring-[#3b82f6]"
                   value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
                 />
               </div>
               
-              <div className="w-full">
+              {/* Tech Filter Dropdown */}
+              <div className="w-full relative">
                 <select
                   value={techFilter}
                   onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setTechFilter(e.target.value)}
-                  className="w-full h-10 px-3 py-2 bg-[#2c374b] border border-[#3c4759] rounded-md text-[#f1f5fb] appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#3b82f6]"
+                  className="w-full h-10 pl-3 pr-8 bg-[#2c374b] border border-[#3c4759] rounded-md text-[#f1f5fb] focus:outline-none focus:ring-2 focus:ring-[#3b82f6]"
                 >
                   <option value="all">All Tech</option>
                   <option value="CORE">Core</option>
@@ -197,18 +175,18 @@ const Grants = () => {
                 </select>
               </div>
               
-              <div className="w-full">
+              {/* Sector Filter Dropdown */}
+              <div className="w-full relative">
                 <select
                   value={sectorFilter}
                   onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSectorFilter(e.target.value)}
-                  className="w-full h-10 px-3 py-2 bg-[#2c374b] border border-[#3c4759] rounded-md text-[#f1f5fb] appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#3b82f6]"
+                  className="w-full h-10 pl-3 pr-8 bg-[#2c374b] border border-[#3c4759] rounded-md text-[#f1f5fb] focus:outline-none focus:ring-2 focus:ring-[#3b82f6]"
                 >
                   <option value="all">All Sectors</option>
-                  {sectors.map(sector => (
+                  {sectors.map((sector) => (
                     <option key={sector} value={sector}>{sector}</option>
                   ))}
                 </select>
-              </div>
               </div>
             </div>
           </CardContent>
@@ -222,18 +200,18 @@ const Grants = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        Showing {filteredGrants.length} of {grantProjects.length} grants
+        Showing {filteredProjects.length} of {grantProjects.length} grants
       </motion.div>
 
       {/* Grants Grid */}
-      {filteredGrants.length > 0 ? (
+      {filteredProjects.length > 0 ? (
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          {filteredGrants.map((grant: GrantProject) => (
+          {filteredProjects.map((grant) => (
             <GrantCard key={grant.slug} project={grant} />
           ))}
         </motion.div>
@@ -254,7 +232,7 @@ const Grants = () => {
       )}
       
       {/* Footnote */}
-      {filteredGrants.length > 0 && (
+      {filteredProjects.length > 0 && (
         <motion.div
           className="mt-8 text-right text-xs text-[#8896b0]"
           initial={{ opacity: 0 }}
