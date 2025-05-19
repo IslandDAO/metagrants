@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -96,20 +96,53 @@ const Grants = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [techFilter, setTechFilter] = useState("all");
   const [sectorFilter, setSectorFilter] = useState("all");
+  const [techDropdownOpen, setTechDropdownOpen] = useState(false);
+  const [sectorDropdownOpen, setSectorDropdownOpen] = useState(false);
   
   // Get all unique sectors for the filter dropdown
   const sectors = Array.from(new Set(grantProjects.map((grant: GrantProject) => grant.sector)));
   
-  // Filter grants based on search term, tech stack, and sector
-  const filteredGrants = grantProjects.filter((grant: GrantProject) => {
-    const matchesSearch = grant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           grant.summary.toLowerCase().includes(searchTerm.toLowerCase());
+  // Handle click outside to close dropdowns
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      
+      // Close tech dropdown if click is outside
+      if (!target.closest('.tech-dropdown-container') && techDropdownOpen) {
+        setTechDropdownOpen(false);
+      }
+      
+      // Close sector dropdown if click is outside
+      if (!target.closest('.sector-dropdown-container') && sectorDropdownOpen) {
+        setSectorDropdownOpen(false);
+      }
+    };
     
-    const matchesTech = techFilter === "all" || grant.tech === techFilter;
-    const matchesSector = sectorFilter === "all" || grant.sector === sectorFilter;
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [techDropdownOpen, sectorDropdownOpen]);
+  
+  // State for filtered grants
+  const [filteredGrants, setFilteredGrants] = useState<GrantProject[]>(grantProjects);
+  
+  // Update filtered grants when filters change
+  useEffect(() => {
+    const filtered = grantProjects.filter((grant: GrantProject) => {
+      const matchesSearch = 
+        searchTerm === "" || 
+        grant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        grant.summary.toLowerCase().includes(searchTerm.toLowerCase());
+      
+      const matchesTech = techFilter === "all" || grant.tech === techFilter;
+      const matchesSector = sectorFilter === "all" || grant.sector === sectorFilter;
+      
+      return matchesSearch && matchesTech && matchesSector;
+    });
     
-    return matchesSearch && matchesTech && matchesSector;
-  });
+    setFilteredGrants(filtered);
+  }, [searchTerm, techFilter, sectorFilter]);
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -152,82 +185,84 @@ const Grants = () => {
                 />
               </div>
               
-              <div className="w-full relative">
+              <div className="w-full relative tech-dropdown-container">
                 <div 
                   className="flex h-10 w-full items-center justify-between rounded-md border border-[#3c4759] bg-[#2c374b] px-3 py-2 text-sm text-[#f1f5fb] cursor-pointer"
-                  onClick={() => document.getElementById('techDropdown')?.classList.toggle('hidden')}
+                  onClick={() => setTechDropdownOpen(!techDropdownOpen)}
                 >
                   <span>{techFilter === 'all' ? 'All Tech' : techFilter === 'CORE' ? 'Core' : '404'}</span>
                   <ChevronDown className="h-4 w-4 text-[#8896b0]" />
                 </div>
-                <div 
-                  id="techDropdown"
-                  className="hidden absolute z-50 w-full mt-1 bg-[#1c2431] border border-[#3c4759] rounded-md shadow-lg p-1"
-                >
+                {techDropdownOpen && (
                   <div 
-                    className={`px-3 py-2 text-[#f1f5fb] hover:bg-[#2c374b] cursor-pointer rounded-sm ${techFilter === 'all' ? 'bg-[#3b82f650]' : ''}`}
-                    onClick={() => {
-                      setTechFilter('all');
-                      document.getElementById('techDropdown')?.classList.add('hidden');
-                    }}
+                    className="absolute z-50 w-full mt-1 bg-[#1c2431] border border-[#3c4759] rounded-md shadow-lg p-1"
                   >
-                    All Tech
+                    <div 
+                      className={`px-3 py-2 text-[#f1f5fb] hover:bg-[#2c374b] cursor-pointer rounded-sm ${techFilter === 'all' ? 'bg-[#3b82f650]' : ''}`}
+                      onClick={() => {
+                        setTechFilter('all');
+                        setTechDropdownOpen(false);
+                      }}
+                    >
+                      All Tech
+                    </div>
+                    <div 
+                      className={`px-3 py-2 text-[#f1f5fb] hover:bg-[#2c374b] cursor-pointer rounded-sm ${techFilter === 'CORE' ? 'bg-[#3b82f650]' : ''}`}
+                      onClick={() => {
+                        setTechFilter('CORE');
+                        setTechDropdownOpen(false);
+                      }}
+                    >
+                      Core
+                    </div>
+                    <div 
+                      className={`px-3 py-2 text-[#f1f5fb] hover:bg-[#2c374b] cursor-pointer rounded-sm ${techFilter === '404' ? 'bg-[#3b82f650]' : ''}`}
+                      onClick={() => {
+                        setTechFilter('404');
+                        setTechDropdownOpen(false);
+                      }}
+                    >
+                      404
+                    </div>
                   </div>
-                  <div 
-                    className={`px-3 py-2 text-[#f1f5fb] hover:bg-[#2c374b] cursor-pointer rounded-sm ${techFilter === 'CORE' ? 'bg-[#3b82f650]' : ''}`}
-                    onClick={() => {
-                      setTechFilter('CORE');
-                      document.getElementById('techDropdown')?.classList.add('hidden');
-                    }}
-                  >
-                    Core
-                  </div>
-                  <div 
-                    className={`px-3 py-2 text-[#f1f5fb] hover:bg-[#2c374b] cursor-pointer rounded-sm ${techFilter === '404' ? 'bg-[#3b82f650]' : ''}`}
-                    onClick={() => {
-                      setTechFilter('404');
-                      document.getElementById('techDropdown')?.classList.add('hidden');
-                    }}
-                  >
-                    404
-                  </div>
-                </div>
+                )}
               </div>
               
-              <div className="w-full relative">
+              <div className="w-full relative sector-dropdown-container">
                 <div 
                   className="flex h-10 w-full items-center justify-between rounded-md border border-[#3c4759] bg-[#2c374b] px-3 py-2 text-sm text-[#f1f5fb] cursor-pointer"
-                  onClick={() => document.getElementById('sectorDropdown')?.classList.toggle('hidden')}
+                  onClick={() => setSectorDropdownOpen(!sectorDropdownOpen)}
                 >
                   <span>{sectorFilter === 'all' ? 'All Sectors' : sectorFilter}</span>
                   <ChevronDown className="h-4 w-4 text-[#8896b0]" />
                 </div>
-                <div 
-                  id="sectorDropdown"
-                  className="hidden absolute z-50 w-full mt-1 bg-[#1c2431] border border-[#3c4759] rounded-md shadow-lg p-1 max-h-60 overflow-y-auto"
-                >
+                {sectorDropdownOpen && (
                   <div 
-                    className={`px-3 py-2 text-[#f1f5fb] hover:bg-[#2c374b] cursor-pointer rounded-sm ${sectorFilter === 'all' ? 'bg-[#3b82f650]' : ''}`}
-                    onClick={() => {
-                      setSectorFilter('all');
-                      document.getElementById('sectorDropdown')?.classList.add('hidden');
-                    }}
+                    className="absolute z-50 w-full mt-1 bg-[#1c2431] border border-[#3c4759] rounded-md shadow-lg p-1 max-h-60 overflow-y-auto"
                   >
-                    All Sectors
-                  </div>
-                  {sectors.map(sector => (
                     <div 
-                      key={sector}
-                      className={`px-3 py-2 text-[#f1f5fb] hover:bg-[#2c374b] cursor-pointer rounded-sm ${sectorFilter === sector ? 'bg-[#3b82f650]' : ''}`}
+                      className={`px-3 py-2 text-[#f1f5fb] hover:bg-[#2c374b] cursor-pointer rounded-sm ${sectorFilter === 'all' ? 'bg-[#3b82f650]' : ''}`}
                       onClick={() => {
-                        setSectorFilter(sector);
-                        document.getElementById('sectorDropdown')?.classList.add('hidden');
+                        setSectorFilter('all');
+                        setSectorDropdownOpen(false);
                       }}
                     >
-                      {sector}
+                      All Sectors
                     </div>
-                  ))}
-                </div>
+                    {sectors.map(sector => (
+                      <div 
+                        key={sector}
+                        className={`px-3 py-2 text-[#f1f5fb] hover:bg-[#2c374b] cursor-pointer rounded-sm ${sectorFilter === sector ? 'bg-[#3b82f650]' : ''}`}
+                        onClick={() => {
+                          setSectorFilter(sector);
+                          setSectorDropdownOpen(false);
+                        }}
+                      >
+                        {sector}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </CardContent>
