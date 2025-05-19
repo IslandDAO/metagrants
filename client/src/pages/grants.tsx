@@ -120,8 +120,8 @@ function GrantsList() {
                   <h3 className="text-xl font-bold text-white">{project.name}</h3>
                   <span 
                     className={project.tech === "CORE" 
-                      ? "bg-[#10b981] text-[#f1f5fb] text-xs px-2 py-1 rounded border border-[#10b981] font-medium" 
-                      : "bg-[#3b82f6] text-[#f1f5fb] text-xs px-2 py-1 rounded border border-[#3b82f6] font-medium"
+                      ? "bg-[#10b981] text-white text-xs px-3 py-1 rounded-md" 
+                      : "bg-[#3b82f6] text-white text-xs px-3 py-1 rounded-md"
                     }
                   >
                     {project.tech}
