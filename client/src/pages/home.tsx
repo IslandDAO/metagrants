@@ -122,6 +122,9 @@ const Home = () => {
           <h2 className="text-xl md:text-2xl text-[#b5bfcc]">
             Managed by <a href="https://islanddao.org/" target="_blank" rel="noopener noreferrer" className="text-[#bcf0c0] hover:text-[#9fe3a3] transition-colors">IslandDAO</a>
           </h2>
+          <p className="text-[#a3adc2] mt-3 max-w-2xl mx-auto">
+            Celebrating the successful projects from our inaugural funding round. Browse below to explore the innovative teams and solutions building on Metaplex.
+          </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8 max-w-5xl mx-auto">
