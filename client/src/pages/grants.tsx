@@ -144,42 +144,47 @@ const Grants = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
+        className="w-full"
       >
-        <Card className="mb-6 border-[#3c4759] card-gradient neon-glow">
-          <CardContent className="pt-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="relative">
+        <Card className="mb-6 border-[#3c4759] card-gradient neon-glow w-full">
+          <CardContent className="pt-6 pb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="relative w-full">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#b5bfcc] animate-glow-pulse" size={18} />
                 <Input
                   placeholder="Search projects..."
-                  className="pl-10 bg-[#2c374b] border-[#3c4759] text-[#f1f5fb] placeholder:text-[#8896b0]"
+                  className="pl-10 bg-[#2c374b] border-[#3c4759] text-[#f1f5fb] placeholder:text-[#8896b0] w-full"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </div>
               
-              <Select value={techFilter} onValueChange={setTechFilter}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Filter by Tech" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Tech</SelectItem>
-                  <SelectItem value="CORE">Core</SelectItem>
-                  <SelectItem value="404">404</SelectItem>
-                </SelectContent>
-              </Select>
+              <div className="w-full">
+                <Select value={techFilter} onValueChange={setTechFilter}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Filter by Tech" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Tech</SelectItem>
+                    <SelectItem value="CORE">Core</SelectItem>
+                    <SelectItem value="404">404</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
               
-              <Select value={sectorFilter} onValueChange={setSectorFilter}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Filter by Sector" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Sectors</SelectItem>
-                  {sectors.map((sector: string) => (
-                    <SelectItem key={sector} value={sector}>{sector}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <div className="w-full">
+                <Select value={sectorFilter} onValueChange={setSectorFilter}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Filter by Sector" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Sectors</SelectItem>
+                    {sectors.map((sector: string) => (
+                      <SelectItem key={sector} value={sector}>{sector}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
           </CardContent>
         </Card>
