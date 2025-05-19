@@ -8,14 +8,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Filter, Search, ExternalLink } from "lucide-react";
+import { Filter, Search, ExternalLink, ChevronDown } from "lucide-react";
 import { grantProjects, GrantProject } from "@/data/grantProjects";
 
 const GrantCard = ({ project }: { project: GrantProject }) => {
@@ -159,31 +152,82 @@ const Grants = () => {
                 />
               </div>
               
-              <div className="w-full">
-                <Select value={techFilter} onValueChange={setTechFilter}>
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Filter by Tech" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Tech</SelectItem>
-                    <SelectItem value="CORE">Core</SelectItem>
-                    <SelectItem value="404">404</SelectItem>
-                  </SelectContent>
-                </Select>
+              <div className="w-full relative">
+                <div 
+                  className="flex h-10 w-full items-center justify-between rounded-md border border-[#3c4759] bg-[#2c374b] px-3 py-2 text-sm text-[#f1f5fb] cursor-pointer"
+                  onClick={() => document.getElementById('techDropdown')?.classList.toggle('hidden')}
+                >
+                  <span>{techFilter === 'all' ? 'All Tech' : techFilter === 'CORE' ? 'Core' : '404'}</span>
+                  <ChevronDown className="h-4 w-4 text-[#8896b0]" />
+                </div>
+                <div 
+                  id="techDropdown"
+                  className="hidden absolute z-50 w-full mt-1 bg-[#1c2431] border border-[#3c4759] rounded-md shadow-lg p-1"
+                >
+                  <div 
+                    className={`px-3 py-2 text-[#f1f5fb] hover:bg-[#2c374b] cursor-pointer rounded-sm ${techFilter === 'all' ? 'bg-[#3b82f650]' : ''}`}
+                    onClick={() => {
+                      setTechFilter('all');
+                      document.getElementById('techDropdown')?.classList.add('hidden');
+                    }}
+                  >
+                    All Tech
+                  </div>
+                  <div 
+                    className={`px-3 py-2 text-[#f1f5fb] hover:bg-[#2c374b] cursor-pointer rounded-sm ${techFilter === 'CORE' ? 'bg-[#3b82f650]' : ''}`}
+                    onClick={() => {
+                      setTechFilter('CORE');
+                      document.getElementById('techDropdown')?.classList.add('hidden');
+                    }}
+                  >
+                    Core
+                  </div>
+                  <div 
+                    className={`px-3 py-2 text-[#f1f5fb] hover:bg-[#2c374b] cursor-pointer rounded-sm ${techFilter === '404' ? 'bg-[#3b82f650]' : ''}`}
+                    onClick={() => {
+                      setTechFilter('404');
+                      document.getElementById('techDropdown')?.classList.add('hidden');
+                    }}
+                  >
+                    404
+                  </div>
+                </div>
               </div>
               
-              <div className="w-full">
-                <Select value={sectorFilter} onValueChange={setSectorFilter}>
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Filter by Sector" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Sectors</SelectItem>
-                    {sectors.map((sector: string) => (
-                      <SelectItem key={sector} value={sector}>{sector}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+              <div className="w-full relative">
+                <div 
+                  className="flex h-10 w-full items-center justify-between rounded-md border border-[#3c4759] bg-[#2c374b] px-3 py-2 text-sm text-[#f1f5fb] cursor-pointer"
+                  onClick={() => document.getElementById('sectorDropdown')?.classList.toggle('hidden')}
+                >
+                  <span>{sectorFilter === 'all' ? 'All Sectors' : sectorFilter}</span>
+                  <ChevronDown className="h-4 w-4 text-[#8896b0]" />
+                </div>
+                <div 
+                  id="sectorDropdown"
+                  className="hidden absolute z-50 w-full mt-1 bg-[#1c2431] border border-[#3c4759] rounded-md shadow-lg p-1 max-h-60 overflow-y-auto"
+                >
+                  <div 
+                    className={`px-3 py-2 text-[#f1f5fb] hover:bg-[#2c374b] cursor-pointer rounded-sm ${sectorFilter === 'all' ? 'bg-[#3b82f650]' : ''}`}
+                    onClick={() => {
+                      setSectorFilter('all');
+                      document.getElementById('sectorDropdown')?.classList.add('hidden');
+                    }}
+                  >
+                    All Sectors
+                  </div>
+                  {sectors.map(sector => (
+                    <div 
+                      key={sector}
+                      className={`px-3 py-2 text-[#f1f5fb] hover:bg-[#2c374b] cursor-pointer rounded-sm ${sectorFilter === sector ? 'bg-[#3b82f650]' : ''}`}
+                      onClick={() => {
+                        setSectorFilter(sector);
+                        document.getElementById('sectorDropdown')?.classList.add('hidden');
+                      }}
+                    >
+                      {sector}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </CardContent>
