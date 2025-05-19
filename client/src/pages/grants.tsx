@@ -128,7 +128,20 @@ function GrantsList() {
                 </div>
                 
                 <div className="mb-3 flex flex-wrap gap-2">
-                  <span className="text-[#f3f4f6] text-xs font-medium bg-gradient-to-r from-[#2c3e50] to-[#3d4c61] px-3 py-1 rounded-full shadow-sm border border-[#485973]/20">
+                  <span className={`
+                    text-white text-xs font-medium px-3 py-1 rounded-full shadow-sm 
+                    transform transition-all duration-300 hover:scale-105
+                    ${project.sector.includes("DeFi") || project.sector.includes("Finance") 
+                      ? "bg-gradient-to-r from-purple-700 to-purple-500 border border-purple-400/20 shadow-purple-500/20" 
+                      : project.sector.includes("NFT") || project.sector.includes("Art") || project.sector.includes("Media")
+                      ? "bg-gradient-to-r from-blue-700 to-blue-500 border border-blue-400/20 shadow-blue-500/20"
+                      : project.sector.includes("Dev") || project.sector.includes("Tool") || project.sector.includes("Infrastructure")
+                      ? "bg-gradient-to-r from-emerald-700 to-emerald-500 border border-emerald-400/20 shadow-emerald-500/20"
+                      : project.sector.includes("Game") || project.sector.includes("Social") || project.sector.includes("Community")
+                      ? "bg-gradient-to-r from-orange-700 to-orange-500 border border-orange-400/20 shadow-orange-500/20"
+                      : "bg-gradient-to-r from-indigo-700 to-indigo-500 border border-indigo-400/20 shadow-indigo-500/20"
+                    }
+                  `}>
                     {project.sector}
                   </span>
                 </div>
