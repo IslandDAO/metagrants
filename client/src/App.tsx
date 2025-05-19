@@ -14,7 +14,7 @@ import Evaluation from "@/pages/evaluation";
 import Learnings from "@/pages/learnings";
 import Process from "@/pages/process";
 import Insights from "@/pages/insights";
-import Grants from "@/pages/grants-new";
+import Grants from "@/pages/grants";
 import GrantDetail from "@/pages/grant-detail";
 import Charts from "@/pages/charts";
 import Resources from "@/pages/resources";
