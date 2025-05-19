@@ -108,16 +108,29 @@ function GrantsList() {
 
       {/* Projects Grid */}
       {filteredProjects.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
             <div
               key={project.slug}
-              className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden hover:border-blue-500 cursor-pointer"
+              className={`bg-[#1a2235] border border-[#374151] rounded-xl overflow-hidden cursor-pointer 
+                          hover:shadow-lg hover:shadow-blue-500/10 hover:border-blue-500/30 transition-all duration-300
+                          ${index % 4 === 0 ? 'md:col-span-2 lg:col-span-1' : ''}
+                          ${index % 5 === 0 ? 'lg:col-span-2' : ''}`}
               onClick={(e) => handleCardClick(project.slug, e)}
+              style={{
+                background: 'linear-gradient(180deg, #1a2235 0%, #1a1d2c 100%)',
+                transform: 'translateZ(0)',
+                position: 'relative'
+              }}
             >
-              <div className="p-5">
-                <div className="flex justify-between mb-3">
-                  <h3 className="text-xl font-bold text-white">{project.name}</h3>
+              {/* Subtle accent color at top of card */}
+              <div 
+                className={`h-1 w-full ${project.tech === "CORE" ? "bg-gradient-to-r from-[#0f9668] to-transparent" : "bg-gradient-to-r from-[#2563eb] to-transparent"}`}
+              ></div>
+              
+              <div className="p-6">
+                <div className="flex justify-between mb-4">
+                  <h3 className="text-xl font-bold text-white tracking-tight">{project.name}</h3>
                   <span className={
                     project.tech === "CORE" 
                       ? "text-[#34d399] text-xs font-medium inline-flex items-center gap-1 after:content-[''] after:w-1.5 after:h-1.5 after:rounded-full after:bg-[#34d399]"
@@ -127,33 +140,33 @@ function GrantsList() {
                   </span>
                 </div>
                 
-                <div className="mb-3 flex flex-wrap gap-2">
+                <div className="mb-4 flex flex-wrap gap-2">
                   <span className="text-[#9ca3af] text-xs font-medium bg-[#2a2f3a] px-2 py-1 rounded-full">
                     {project.sector}
                   </span>
                 </div>
                 
-                <p className="text-gray-400 text-sm mb-4">
+                <p className="text-gray-400 text-sm mb-5 line-clamp-3">
                   {project.summary}
                 </p>
                 
-                <div className="border-t border-gray-700 pt-3">
+                <div className="border-t border-[#2d3748] pt-4 mt-auto">
                   <div className="flex justify-between items-center">
                     <div>
-                      <div className="text-white text-sm font-medium">
+                      <div className="text-white text-sm font-semibold">
                         ${project.totalUsd.toLocaleString()}
                       </div>
                       <div className="text-gray-500 text-xs">
                         ${project.usdc.toLocaleString()} USDC + {project.mplx.toLocaleString()} MPLX
                       </div>
                     </div>
-                    <div className="flex space-x-2">
+                    <div className="flex space-x-3">
                       {project.links?.website && (
                         <a
                           href={project.links.website}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-400 hover:text-blue-400"
+                          className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
                           onClick={(e) => e.stopPropagation()}
                         >
                           Website
@@ -161,7 +174,7 @@ function GrantsList() {
                       )}
                       <Link
                         to={`/grants/${project.slug}`}
-                        className="text-blue-400 hover:text-blue-300"
+                        className="text-blue-400 hover:text-blue-300 font-medium transition-colors text-sm"
                         onClick={(e) => e.stopPropagation()}
                       >
                         Details →
@@ -174,9 +187,14 @@ function GrantsList() {
           ))}
         </div>
       ) : (
-        <div className="bg-gray-800 p-8 rounded-lg text-center">
-          <p className="text-xl text-white mb-2">No matching projects found</p>
-          <p className="text-gray-400">Try adjusting your search criteria</p>
+        <div className="bg-[#1a2235] border border-[#374151] p-8 rounded-xl text-center shadow-md">
+          <div className="flex flex-col items-center">
+            <svg className="w-16 h-16 text-gray-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+            <p className="text-xl text-white mb-2">No matching projects found</p>
+            <p className="text-gray-400">Try adjusting your search criteria or filters</p>
+          </div>
         </div>
       )}
       
